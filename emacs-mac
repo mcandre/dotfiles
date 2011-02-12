@@ -1,0 +1,24 @@
+;;; Initialize slime.
+(setq inferior-lisp-program "clisp")
+(add-to-list 'load-path "/Library/Application Support/Aquamacs Emacs/SLIME")
+(require 'slime-autoloads)
+(eval-after-load "slime"
+  '(progn (slime-setup '(slime-fancy))))
+
+;;; Automatically use slime mode on .cl and .lisp files.
+(add-to-list 'auto-mode-alist '("\\.cl$" . common-lisp-mode))
+(add-to-list 'auto-mode-alist '("\\.lisp$" . common-lisp-mode))
+
+;;; Start slime.
+(slime)
+
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))

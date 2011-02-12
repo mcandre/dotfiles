@@ -1,0 +1,13 @@
+;;; Initialize slime.
+(setq inferior-lisp-program "clisp")
+(add-to-list 'load-path "c:\\emacs\\slime-2010-11-29\\")
+(require 'slime-autoloads)
+(eval-after-load "slime"
+  '(progn (slime-setup '(slime-fancy))))
+
+;;; Automatically use slime mode on .cl and .lisp files.
+(add-to-list 'auto-mode-alist '("\\.cl$" . common-lisp-mode))
+(add-to-list 'auto-mode-alist '("\\.lisp$" . common-lisp-mode))
+
+;;; Start slime.
+(slime)
