@@ -37,10 +37,5 @@ alias ccl=dx86cl64
 export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
 alias ccl="rlwrap -b \$BREAK_CHARS --remember -c -f ~/.ccl_completions -H ~/.ccl_history -s 1000000 dx86cl64"
 
-# Add ABCL
-export CLASSPATH=$CLASSPATH:/home/andrew/abcl.jar
-export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
-alias abcl="rlwrap -b \$BREAK_CHARS --remember -c -f ~/.abcl_completions -H ~/.abcl_history -s 1000000 java -jar ~/abcl.jar"
-
 # Begin in a useful directory
 cd ~/Desktop
