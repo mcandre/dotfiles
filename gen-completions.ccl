@@ -1,3 +1,7 @@
+;;; Andrew Pennebaker
+;;; From Edi Weitz's "Command line editing and auto completion"
+;;; http://weitz.de/completions.html
+
 (with-open-file (!!!-stream "~/.ccl_completions"
                               :direction :output
                               :if-exists :supersede)
