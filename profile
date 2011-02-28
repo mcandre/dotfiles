@@ -1,5 +1,5 @@
 # Add personal executables.
-export PATH=~/bin:$PATH
+export PATH=$PATH:~/bin
 
 # Correct quotes.
 set +H
@@ -14,17 +14,17 @@ export PATH=$PATH:/Applications/Inkscape.app/Contents/Resources/bin
 # Per http://www.litfuel.net/plush/?postid=147
 export COPYFILE_DISABLE=true
 
-# Begin in a useful directory
-cd ~/Desktop
-
 # Add cabal binaries
 export PATH=$PATH:~/.cabal/bin
 
 # Add agner packages
 export ERL_LIBS=/usr/local/agner/packages
 
+# Add Homebrew
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
 # Add Fink
-export PATH=$PATH:/sw/bin
+export PATH=$PATH:~/fink/bin
 
 # Add MacPorts
 export PATH=$PATH:~/macports/bin:~/macports/sbin
@@ -39,3 +39,6 @@ alias ccl=dx86cl64
 export CLASSPATH=$CLASSPATH:/home/andrew/abcl.jar
 export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
 alias abcl="rlwrap -b \$BREAK_CHARS --remember -c -f ~/.abcl_completions -H ~/.abcl_history -s 1000000 java -jar ~/abcl.jar"
+
+# Begin in a useful directory
+cd ~/Desktop
