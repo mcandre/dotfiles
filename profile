@@ -32,7 +32,7 @@ export PATH=$PATH:~/macports/bin:~/macports/sbin
 # Add Lispbox
 export PATH=$PATH:/Applications/lispbox-0.7/Emacs.app/Contents/MacOS
 alias emacs="Emacs -nw"
-export PATH=$PATH:/Applications/lispbox-0.7/ccl-1.6-darwinx86/
+export PATH=$PATH:/Applications/lispbox-0.7/ccl-1.6-darwinx86
 
 # Begin in a useful directory
 cd ~/Desktop
