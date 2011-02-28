@@ -23,13 +23,15 @@ export PATH=$PATH:~/.cabal/bin
 # Add agner packages
 export ERL_LIBS=/usr/local/agner/packages
 
-# Add fink
+# Add Fink
 export PATH=$PATH:/sw/bin
 
 # Add MacPorts
-export PATH=$PATH:/opt/local/bin:/opt/local/sbin
+export PATH=$PATH:~/macports/bin:~/macports/sbin
 
 # Add Lispbox
+export PATH=$PATH:/Applications/lispbox-0.7/Emacs.app/Contents/MacOS
+alias emacs="Emacs -nw"
 export PATH=$PATH:/Applications/lispbox-0.7/ccl-1.6-darwinx86/
 alias ccl=dx86cl64
 
