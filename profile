@@ -33,9 +33,6 @@ export PATH=$PATH:~/macports/bin:~/macports/sbin
 export PATH=$PATH:/Applications/lispbox-0.7/Emacs.app/Contents/MacOS
 alias emacs="Emacs -nw"
 export PATH=$PATH:/Applications/lispbox-0.7/ccl-1.6-darwinx86/
-alias ccl=dx86cl64
-export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
-alias ccl="rlwrap -b \$BREAK_CHARS --remember -c -f ~/.ccl_completions -H ~/.ccl_history -s 1000000 dx86cl64"
 
 # Begin in a useful directory
 cd ~/Desktop
