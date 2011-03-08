@@ -73,12 +73,8 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+# Add personal binaries
+export PATH=$PATH:/home/andrew
+
 # Add Lispbox
 export PATH=$PATH:/srv/d_hactar/usr/lispbox-0.7/ccl-1.6-linuxx86
-export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
-alias ccl="rlwrap -b \$BREAK_CHARS --remember -c -f ~/.ccl_completions -H ~/.ccl_history -s 1000000 lx86cl"
-
-# Add ABCL
-export CLASSPATH=$CLASSPATH:/srv/d_hactar/usr/abcl.jar
-export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
-alias abcl="rlwrap -b \$BREAK_CHARS --remember -c -f ~/.abcl_completions -H ~/.abcl_history -s 1000000 java -jar ~/abcl.jar"
