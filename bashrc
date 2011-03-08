@@ -78,8 +78,3 @@ export PATH=$PATH:/home/andrew
 
 # Add Lispbox
 export PATH=$PATH:/srv/d_hactar/usr/lispbox-0.7/ccl-1.6-linuxx86
-<<<<<<< HEAD
-=======
-export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
-alias ccl="rlwrap -b \$BREAK_CHARS --remember -c -f ~/.ccl_completions -H ~/.ccl_history -s 1000000 lx86cl"
->>>>>>> 8e6544f17a0905318011e0258fdf806d83560037
