@@ -1,3 +1,9 @@
+# Reset path
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin
+
+# Add Git
+export PATH=$PATH:/usr/local/git/bin
+
 # Add personal executables.
 export PATH=$PATH:~/bin
 
@@ -21,26 +27,20 @@ export PATH=$PATH:~/.cabal/bin
 export ERL_LIBS=/usr/local/agner/packages
 
 # Add Homebrew
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-
-# Add Fink
-export PATH=$PATH:~/fink/bin
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin
 
 # Add MacPorts
 export PATH=$PATH:~/macports/bin:~/macports/sbin
 
+# Add Fink
+export PATH=$PATH:~/fink/bin
+
 # Add Lispbox
 export PATH=$PATH:/Applications/lispbox-0.7/Emacs.app/Contents/MacOS
 alias emacs="Emacs -nw"
-export PATH=$PATH:/Applications/lispbox-0.7/ccl-1.6-darwinx86/
-alias ccl=dx86cl64
+export PATH=$PATH:/Applications/lispbox-0.7/ccl-1.6-darwinx86
 export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
-alias ccl="rlwrap -b \$BREAK_CHARS --remember -c -f ~/.ccl_completions -H ~/.ccl_history -s 1000000 dx86cl64"
-
-# Add ABCL
-export CLASSPATH=$CLASSPATH:/home/andrew/abcl.jar
-export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
-alias abcl="rlwrap -b \$BREAK_CHARS --remember -c -f ~/.abcl_completions -H ~/.abcl_history -s 1000000 java -jar ~/abcl.jar"
+alias ccl="rlwrap -b \$BREAK_CHARS --remember -c -f ~/.ccl_completions -H ~/.ccl_history -s 1000000 dx86cl"
 
 # Begin in a useful directory
 cd ~/Desktop
