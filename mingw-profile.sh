@@ -58,4 +58,4 @@ alias clear=clsb
 
 cd "$HOME"
 
-export PATH="$PATH:/c/Program Files (x86)/Git/bin"
+export PATH="$PATH:/c/Program Files (x86)/Git/bin:/c/Python27"
