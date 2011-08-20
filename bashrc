@@ -73,7 +73,11 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+# Add personal binaries
+export PATH=$PATH:/home/andrew
+
+# Add Node.js
+export PATH=$PATH:/home/andrew/node/bin
+
 # Add Lispbox
 export PATH=$PATH:/srv/d_hactar/usr/lispbox-0.7/ccl-1.6-linuxx86
-export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
-alias ccl="rlwrap -b \$BREAK_CHARS --remember -c -f ~/.ccl_completions -H ~/.ccl_history -s 1000000 lx86cl"
