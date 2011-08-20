@@ -39,9 +39,6 @@ export ERL_LIBS=/usr/local/agner/packages
 # Add Homebrew
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin
 
-# Add MacPorts
-export PATH=$PATH:~/macports/bin:~/macports/sbin
-
 # Add Fink
 export PATH=$PATH:~/fink/bin
 
@@ -55,8 +52,11 @@ export PATH=$PATH:/Applications/lispbox-0.7/ccl-1.6-darwinx86
 export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
 alias ccl="rlwrap -b \$BREAK_CHARS --remember -c -f ~/.ccl_completions -H ~/.ccl_history -s 1000000 dx86cl"
 
-# Add Prolog
-export PATH=$PATH:/opt/local/bin
+# Add Ehrlich
+alias ehrlich="erl -noshell -s erl_tidy dir -s init stop"
+
+# Add Pharo-Coral
+export PATH=$PATH:~/Coral
 
 # Begin in a useful directory
 cd ~/Desktop
@@ -65,3 +65,9 @@ cd ~/Desktop
 # The orginal version is saved in .profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
+
+# MacPorts
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
+# Factor
+export PATH=$PATH:/Applications/factor
