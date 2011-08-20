@@ -7,5 +7,5 @@ IN: syntax
 
 : include-vocab ( vocab -- ) dup ".factor" append parse-file append use-vocab ;
 
-SYNTAX: INCLUDE: scan-token include-vocab ;
+!SYNTAX: INCLUDE: scan-token include-vocab ;
 SYNTAX: INCLUDING: ";" [ include-vocab ] each-token ;
