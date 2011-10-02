@@ -70,4 +70,12 @@ export PATH
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # Factor
-export PATH=$PATH:/Applications/factor
+export FACTOR_ROOT=/Applications/factor
+export PATH=$PATH:$FACTOR_ROOT
+
+# Go
+export PATH=$PATH:~/go/bin
+export GOROOT=~/go
+
+# OCaml show error traces
+export OCAMLRUNPARAM=b
