@@ -79,3 +79,6 @@ export GOROOT=~/go
 
 # OCaml show error traces
 export OCAMLRUNPARAM=b
+
+# Chromium projects
+export PATH=$PATH:~/depot_tools
