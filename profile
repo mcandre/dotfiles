@@ -82,3 +82,12 @@ export OCAMLRUNPARAM=b
 
 # Chromium projects
 export PATH=$PATH:~/depot_tools
+
+# SAC
+export SACBASE=~/sac
+export SAC2CBASE=~/sac/sac2c
+export LD_LIBRARY_PATH=~/sac/sac2c/lib
+export PATH=$PATH:$SAC2CBASE/bin
+
+# J
+export PATH=/Applications/j64-701/bin:$PATH
