@@ -91,3 +91,6 @@ export PATH=$PATH:$SAC2CBASE/bin
 
 # J
 export PATH=/Applications/j64-701/bin:$PATH
+
+# Mathematica
+export PATH=$PATH:/Applications/Mathematica.app/Contents/MacOS
