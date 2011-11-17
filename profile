@@ -11,7 +11,8 @@ export PATH=$PATH:~/bin
 set +H
 
 # Add JARs
-export CLASSPATH=$CLASSPATH:/Users/andrew/junit.jar:/Users/andrew/getopt.jar
+# Scala
+export CLASSPATH=$CLASSPATH:/Users/andrew/junit.jar:/Users/andrew/getopt.jar:.
 
 # Add WireShark
 export PATH=$PATH:/Applications/Wireshark.app/Contents/Resources/bin
@@ -94,3 +95,6 @@ export PATH=/Applications/j64-701/bin:$PATH
 
 # Mathematica
 export PATH=$PATH:/Applications/Mathematica.app/Contents/MacOS
+
+#Coq
+export PATH=$PATH:/Applications/CoqIdE_8.3pl2.app/Contents/Resources/bin
