@@ -98,3 +98,9 @@ export PATH=$PATH:/Applications/Mathematica.app/Contents/MacOS
 
 #Coq
 export PATH=$PATH:/Applications/CoqIdE_8.3pl2.app/Contents/Resources/bin
+
+# SML
+export CM_VERBOSE=false
+
+# Gruesome
+export CLASSPATH=$CLASSPATH:/Users/andrew/Desktop/src/gruesome/gruesome-0.0.1.jar
