@@ -1,3 +1,5 @@
-Dotfiles - Configuration files
+# Dotfiles - Configuration files
 
-[Homepage](https://github.com/mcandre/dotfiles)
+## HOMEPAGE
+
+[https://github.com/mcandre/dotfiles](https://github.com/mcandre/dotfiles)
