@@ -1,0 +1,1 @@
+if ($?prompt) exec bash
