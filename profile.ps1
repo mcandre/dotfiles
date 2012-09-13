@@ -4,10 +4,10 @@ $ui = (Get-Host).UI.RawUI
 $ui.WindowSize.Width = 300
 $ui.WindowSize.Height = 80
 $ui.BackgroundColor = "Black"
-$ui.ForegroundColor = "DarkRed"
+$ui.ForegroundColor = "White"
 
 function prompt {
-    Write-Host "$(get-location)>"  -nonewline -foregroundcolor Red
+    Write-Host "$(get-location)>"  -nonewline -foregroundcolor White
     return ' '
 }
 
