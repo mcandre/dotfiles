@@ -7,8 +7,9 @@ $ui.BackgroundColor = "Black"
 $ui.ForegroundColor = "DarkRed"
 
 function prompt {
-    Write-Host "$(get-location)#"  -nonewline -foregroundcolor Red
+    Write-Host "$(get-location)>"  -nonewline -foregroundcolor Red
     return ' '
 }
 
 Set-Location Desktop
+cls
