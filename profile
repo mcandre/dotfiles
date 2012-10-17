@@ -10,12 +10,14 @@ export PATH=$PATH:~/bin
 # Correct quotes.
 set +H
 
+# objdump
+export PATH=$PATH:/opt/local/x86_64-apple-darwin12.1.0/bin
+
 # Add JARs
 # Scala
 export CLASSPATH=$CLASSPATH:/Users/andrew/junit.jar:/Users/andrew/getopt.jar:.
-
-# Add WireShark
-export PATH=$PATH:/Applications/Wireshark.app/Contents/Resources/bin
+# CS475
+export CLASSPATH=$CLASSPATH:/Users/andrew/ModernMultithreading.jar
 
 # Add Inkscape
 export PATH=$PATH:/Applications/Inkscape.app/Contents/Resources/bin
@@ -40,24 +42,8 @@ export ERL_LIBS=/usr/local/agner/packages
 # Add Homebrew
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin
 
-# Add Fink
-export PATH=$PATH:~/fink/bin
-
 # Add Node.js
 export PATH=$PATH:~/node/bin
-
-# Add Lispbox
-export PATH=$PATH:/Applications/lispbox-0.7/Emacs.app/Contents/MacOS
-alias emacs="Emacs -nw"
-export PATH=$PATH:/Applications/lispbox-0.7/ccl-1.6-darwinx86
-export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
-alias ccl="rlwrap -b \$BREAK_CHARS --remember -c -f ~/.ccl_completions -H ~/.ccl_history -s 1000000 dx86cl"
-
-# Add Ehrlich
-alias ehrlich="erl -noshell -s erl_tidy dir -s init stop"
-
-# Add Pharo-Coral
-export PATH=$PATH:~/Coral
 
 # Begin in a useful directory
 cd ~/Desktop
@@ -104,3 +90,33 @@ export CM_VERBOSE=false
 
 # Gruesome
 export CLASSPATH=$CLASSPATH:/Users/andrew/Desktop/src/gruesome/gruesome-0.0.1.jar
+
+# MPlayer
+export PATH="$PATH:/Applications/MPlayer OSX Extended.app/Contents/Resources/Binaries/mpextended.mpBinaries/Contents/mpextended.mpBinaries/Contents/MacOS"
+
+# Bitcoin
+export PATH=$PATH:/Applications/Bitcoin.app/Contents/MacOS
+
+# Dart
+export DART_SDK=/dart-sdk
+export PATH=$PATH:$DART_SDK/bin
+
+# Python
+export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
+
+# Perl6
+export PATH=$PATH:~/rakudo/install/bin
+
+export PS1="\w$ "
+
+# Xcode
+export PATH=$PATH:/Developer/usr/bin
+
+# Racket
+export PATH="$PATH:/Applications/Racket v5.3/bin"
+
+# Dotfiles
+export PATH=$PATH:~/Desktop/src/dotfiles
+
+# Hide last login
+clear
