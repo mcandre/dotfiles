@@ -118,5 +118,8 @@ export PATH="$PATH:/Applications/Racket v5.3/bin"
 # Dotfiles
 export PATH=$PATH:~/Desktop/src/dotfiles
 
+# Specs
+export PATH=$PATH:~/Desktop/src/specs
+
 # Hide last login
 clear
