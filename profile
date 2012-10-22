@@ -27,7 +27,7 @@ export PATH=$PATH:/Applications/Inkscape.app/Contents/Resources/bin
 export COPYFILE_DISABLE=true
 
 # Add LaTeX binaries
-export PATH=$PATH:/usr/local/texlive/2009/bin/universal-darwin
+export PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin
 
 # Add cabal binaries
 export PATH=$PATH:/Library/Haskell/bin
