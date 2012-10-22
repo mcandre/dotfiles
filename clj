@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Runs Clojure using the classpath specified in the `.clojure` file of the
 # current directory.
 #

@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 # Convert a git repository's Windows line endings to Unix line endings
 #
