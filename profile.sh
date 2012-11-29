@@ -1,3 +1,5 @@
+# ln -s profile.sh ~/.profile
+
 # Reset path
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin
 
@@ -120,6 +122,15 @@ export PATH=$PATH:~/Desktop/src/dotfiles
 
 # Specs
 export PATH=$PATH:~/Desktop/src/specs
+
+# Fay
+export PATH=$PATH:~/Library/Haskell/ghc-7.4.1/lib/fay-0.9.2.0/bin
+
+# Android SDK
+export PATH=$PATH:~/adt-bundle-mac/sdk/platforms:~/adt-bundle-mac/sdk/tools:~/adt-bundle-mac/sdk/platform-tools
+
+# rar, unrar
+export PATH=$PATH:~/bin/rar
 
 # Hide last login
 clear
