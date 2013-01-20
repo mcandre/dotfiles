@@ -16,10 +16,7 @@ set +H
 export PATH=$PATH:/opt/local/x86_64-apple-darwin12.1.0/bin
 
 # Add JARs
-# Scala
 export CLASSPATH=$CLASSPATH:/Users/andrew/junit.jar:/Users/andrew/getopt.jar:.
-# CS475
-export CLASSPATH=$CLASSPATH:/Users/andrew/ModernMultithreading.jar
 
 # Add Inkscape
 export PATH=$PATH:/Applications/Inkscape.app/Contents/Resources/bin
@@ -33,6 +30,7 @@ export PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin
 
 # Add cabal binaries
 export PATH=$PATH:/Library/Haskell/bin
+export PATH=$PATH:~/Library/Haskell/bin
 export PATH=$PATH:~/Library/Haskell/ghc-7.0.3/lib/hlint-1.8.13/bin
 
 # Add darcs
@@ -127,10 +125,27 @@ export PATH=$PATH:~/Desktop/src/specs
 export PATH=$PATH:~/Library/Haskell/ghc-7.4.1/lib/fay-0.9.2.0/bin
 
 # Android SDK
-export PATH=$PATH:~/adt-bundle-mac/sdk/platforms:~/adt-bundle-mac/sdk/tools:~/adt-bundle-mac/sdk/platform-tools
+export ANDROID_HOME=/Users/andrew/adt-bundle-mac/sdk
+export PATH=$PATH:$ANDROID_HOME/platforms:$ANDROID_HOME/tools:~/adt-bundle-mac/sdk/platform-tools
+alias em="emulator -avd nexus"
 
 # rar, unrar
 export PATH=$PATH:~/bin/rar
 
 # Hide last login
 clear
+
+# Setting PATH for JRuby 1.7.1
+# The orginal version is saved in .profile.jrubysave
+PATH="${PATH}:/Library/Frameworks/JRuby.framework/Versions/Current/bin"
+export PATH
+
+# Ruboto
+export RUBOTO_KEYSTORE="~/.android/production.keystore"
+export RUBOTO_KEY_ALIAS="yellosoft"
+
+# PhoneGap
+export PATH=$PATH:~/Desktop/src/phonegap/lib/android/bin
+
+# CEAN
+export PATH=$PATH:~/cean/bin
