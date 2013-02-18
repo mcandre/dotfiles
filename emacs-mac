@@ -15,12 +15,9 @@
 	  "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-; Marmalade
-(require 'package)
-(add-to-list 'package-archives
-	     '("marmalade" .
-	     		   "http://marmalade-repo.org/packages/"))
-(package-initialize)
+; Monokai
+(load-file "~/.emacs.d/color-theme-almost-monokai.el")
+(color-theme-almost-monokai)
 
 ; ;;; Initialize slime.
 ; (setq inferior-lisp-program "clisp")

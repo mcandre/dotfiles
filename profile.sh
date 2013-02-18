@@ -129,9 +129,6 @@ alias em="emulator -avd nexus"
 # rar, unrar
 export PATH=$PATH:~/bin/rar
 
-# Hide last login
-clear
-
 # Setting PATH for JRuby 1.7.1
 # The orginal version is saved in .profile.jrubysave
 PATH="${PATH}:/Library/Frameworks/JRuby.framework/Versions/Current/bin"
