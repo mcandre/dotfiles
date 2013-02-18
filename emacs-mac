@@ -1,17 +1,23 @@
-;;; Initialize slime.
-(setq inferior-lisp-program "clisp")
-(add-to-list 'load-path "/Library/Application Support/Aquamacs Emacs/SLIME")
-(require 'slime-autoloads)
-(eval-after-load "slime"
-  '(progn (slime-setup '(slime-fancy))))
+; ;;; Initialize slime.
+; (setq inferior-lisp-program "clisp")
+; (add-to-list 'load-path "/Library/Application Support/Aquamacs Emacs/SLIME")
+; (require 'slime-autoloads)
+; (eval-after-load "slime"
+;   '(progn (slime-setup '(slime-fancy))))
 
-;;; Automatically use slime mode on .cl and .lisp files.
-(add-to-list 'auto-mode-alist '("\\.cl$" . common-lisp-mode))
-(add-to-list 'auto-mode-alist '("\\.lisp$" . common-lisp-mode))
+; ;;; Automatically use slime mode on .cl and .lisp files.
+; (add-to-list 'auto-mode-alist '("\\.cl$" . common-lisp-mode))
+; (add-to-list 'auto-mode-alist '("\\.lisp$" . common-lisp-mode))
 
-;;; Start slime.
-(slime)
+; ;;; Start slime.
+; (slime)
 
+; dotfiles
+(add-to-list 'load-path "~/Desktop/src/dotfiles")
+
+(autoload 'markdown-mode "markdown-mode"
+	  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
