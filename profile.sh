@@ -118,9 +118,6 @@ export PATH="$PATH:/Applications/Racket v5.3/bin"
 # Dotfiles
 export PATH=$PATH:~/Desktop/src/dotfiles
 
-# Specs
-export PATH=$PATH:~/Desktop/src/specs
-
 # Fay
 export PATH=$PATH:~/Library/Haskell/ghc-7.4.1/lib/fay-0.9.2.0/bin
 
@@ -149,3 +146,7 @@ export PATH=$PATH:~/Desktop/src/phonegap/lib/android/bin
 
 # CEAN
 export PATH=$PATH:~/cean/bin
+
+# Monokai
+export CLICOLOR=1
+export GREP_OPTIONS=’–color=auto’
