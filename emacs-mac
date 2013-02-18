@@ -1,3 +1,27 @@
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
+
+; dotfiles
+(add-to-list 'load-path "~/Desktop/src/dotfiles")
+
+(autoload 'markdown-mode "markdown-mode"
+	  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+; Marmalade
+(require 'package)
+(add-to-list 'package-archives
+	     '("marmalade" .
+	     		   "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 ; ;;; Initialize slime.
 ; (setq inferior-lisp-program "clisp")
 ; (add-to-list 'load-path "/Library/Application Support/Aquamacs Emacs/SLIME")
@@ -11,20 +35,3 @@
 
 ; ;;; Start slime.
 ; (slime)
-
-; dotfiles
-(add-to-list 'load-path "~/Desktop/src/dotfiles")
-
-(autoload 'markdown-mode "markdown-mode"
-	  "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))

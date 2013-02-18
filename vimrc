@@ -1,3 +1,2 @@
-:set nocompatible
-:set hlsearch
-:set tabstop=4
+syntax on
+colorscheme molokai
