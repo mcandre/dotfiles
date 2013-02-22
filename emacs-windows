@@ -1,13 +1,22 @@
-;;; Initialize slime.
-(setq inferior-lisp-program "clisp")
-(add-to-list 'load-path "c:\\emacs\\slime-2010-11-29\\")
-(require 'slime-autoloads)
-(eval-after-load "slime"
-  '(progn (slime-setup '(slime-fancy))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
-;;; Automatically use slime mode on .cl and .lisp files.
-(add-to-list 'auto-mode-alist '("\\.cl$" . common-lisp-mode))
-(add-to-list 'auto-mode-alist '("\\.lisp$" . common-lisp-mode))
+(require 'package)
+(add-to-list 'package-archives 
+    '("marmalade" .
+      "http://marmalade-repo.org/packages/"))
+(package-initialize)
 
-;;; Start slime.
-(slime)
+(tabbar-mode)
+
+(setq js-indent-level 2)
