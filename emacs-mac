@@ -14,24 +14,19 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ; Monokai
-(load-file "~/.emacs.d/color-theme-almost-monokai.el")
-(color-theme-almost-monokai)
+;(load-theme 'monokai t)
+;(load-file "~/.emacs.d/color-theme-almost-monokai.el")
+;(color-theme-almost-monokai)
 
 ; Disable backup files
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq backup-inhibited t)
 
-; ;;; Initialize slime.
-; (setq inferior-lisp-program "clisp")
-; (add-to-list 'load-path "/Library/Application Support/Aquamacs Emacs/SLIME")
-; (require 'slime-autoloads)
-; (eval-after-load "slime"
-;   '(progn (slime-setup '(slime-fancy))))
+; Always follow symbolic links to version controlled files
+(setq vc-follow-symlinks t)
 
-; ;;; Automatically use slime mode on .cl and .lisp files.
-; (add-to-list 'auto-mode-alist '("\\.cl$" . common-lisp-mode))
-; (add-to-list 'auto-mode-alist '("\\.lisp$" . common-lisp-mode))
-
-; ;;; Start slime.
-; (slime)
+; SLIME
+;(setq inferior-lisp-program "/usr/bin/lisp")
+;(require 'slime)
+;(slime-setup)
