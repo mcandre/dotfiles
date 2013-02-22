@@ -17,8 +17,10 @@
 (load-file "~/.emacs.d/color-theme-almost-monokai.el")
 (color-theme-almost-monokai)
 
-; Disable ~ backup files
+; Disable backup files
 (setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq backup-inhibited t)
 
 ; ;;; Initialize slime.
 ; (setq inferior-lisp-program "clisp")
