@@ -1,0 +1,9 @@
+[user]
+	name = Andrew Pennebaker
+	email = andrew.pennebaker@gmail.com
+[diff]
+	external = /Users/andrew/git-diff-opendiff.sh
+[core]
+	editor = emacs
+[color]
+	ui = true

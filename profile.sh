@@ -3,6 +3,9 @@
 # Reset path
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin
 
+# Homebrew
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
 # Add Git
 export PATH=$PATH:/usr/local/git/bin
 
@@ -36,12 +39,6 @@ export PATH=$PATH:~/Library/Haskell/ghc-7.0.3/lib/hlint-1.8.13/bin
 # Add darcs
 export PATH=$PATH:~/Library/Haskell/ghc-7.0.2/lib/darcs-2.5.2/bin
 
-# Add agner packages
-export ERL_LIBS=/usr/local/agner/packages
-
-# Add Homebrew
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin
-
 # Add Node.js
 export PATH=$PATH:~/node/bin
 
@@ -50,11 +47,10 @@ cd ~/Desktop
 
 # Setting PATH for Python 2.7
 # The orginal version is saved in .profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
+export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH"
 
 # MacPorts
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 
 # Factor
 export FACTOR_ROOT=/Applications/factor
@@ -66,21 +62,6 @@ export GOROOT=~/go
 
 # OCaml show error traces
 export OCAMLRUNPARAM=b
-
-# Chromium projects
-export PATH=$PATH:~/depot_tools
-
-# SAC
-export SACBASE=~/sac
-export SAC2CBASE=~/sac/sac2c
-export LD_LIBRARY_PATH=~/sac/sac2c/lib
-export PATH=$PATH:$SAC2CBASE/bin
-
-# J
-export PATH=/Applications/j64-701/bin:$PATH
-
-# Mathematica
-export PATH=$PATH:/Applications/Mathematica.app/Contents/MacOS
 
 #Coq
 export PATH=$PATH:/Applications/CoqIdE_8.3pl2.app/Contents/Resources/bin
@@ -96,10 +77,6 @@ export PATH="$PATH:/Applications/MPlayer OSX Extended.app/Contents/Resources/Bin
 
 # Bitcoin
 export PATH=$PATH:/Applications/Bitcoin.app/Contents/MacOS
-
-# Dart
-export DART_SDK=/dart-sdk
-export PATH=$PATH:$DART_SDK/bin
 
 # Python
 export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
@@ -131,8 +108,7 @@ export PATH=$PATH:~/bin/rar
 
 # Setting PATH for JRuby 1.7.1
 # The orginal version is saved in .profile.jrubysave
-PATH="${PATH}:/Library/Frameworks/JRuby.framework/Versions/Current/bin"
-export PATH
+export PATH="$PATH:/Library/Frameworks/JRuby.framework/Versions/Current/bin"
 
 # Ruboto
 export RUBOTO_KEYSTORE="~/.android/production.keystore"
