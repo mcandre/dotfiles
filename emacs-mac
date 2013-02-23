@@ -29,6 +29,9 @@
 ; Always follow symbolic links to version controlled files
 (setq vc-follow-symlinks t)
 
+; Display hard tabs as 4 spaces
+(setq default-tab-width 4)
+
 ; SLIME
 ;(setq inferior-lisp-program "/usr/bin/lisp")
 ;(require 'slime)
