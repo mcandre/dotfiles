@@ -123,3 +123,6 @@ export PATH=$PATH:~/cean/bin
 # Monokai
 export CLICOLOR=1
 export GREP_OPTIONS=’–color=auto’
+
+# Yi
+export PATH=$PATH:~/Library/Haskell/ghc-7.4.1/lib/yi-0.6.6.0/bin
