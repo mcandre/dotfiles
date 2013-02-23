@@ -14,7 +14,8 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ; Monokai
-;(load-theme 'monokai t)
+(set-face-background 'default "nil")
+(load-theme 'monokai t)
 
 ;(load-file "~/.emacs.d/color-theme-almost-monokai.el")
 ;(color-theme-almost-monokai)
