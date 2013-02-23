@@ -1,1 +1,18 @@
 set tabsize 4
+
+include "~/.nano/asm.nanorc"
+include "~/.nano/c.nanorc"
+include "~/.nano/css.nanorc"
+include "~/.nano/haskell.nanorc"
+include "~/.nano/html.nanorc"
+include "~/.nano/java.nanorc"
+include "~/.nano/js.nanorc"
+include "~/.nano/lua.nanorc"
+include "~/.nano/markdown.nanorc"
+include "~/.nano/perl.nanorc"
+include "~/.nano/php.nanorc"
+include "~/.nano/python.nanorc"
+include "~/.nano/ruby.nanorc"
+include "~/.nano/sh.nanorc"
+include "~/.nano/tex.nanorc"
+include "~/.nano/xml.nanorc"
