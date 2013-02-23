@@ -15,6 +15,7 @@
 
 ; Monokai
 ;(load-theme 'monokai t)
+
 ;(load-file "~/.emacs.d/color-theme-almost-monokai.el")
 ;(color-theme-almost-monokai)
 
@@ -22,6 +23,8 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq backup-inhibited t)
+
+;(tabbar-mode)
 
 ; Always follow symbolic links to version controlled files
 (setq vc-follow-symlinks t)
