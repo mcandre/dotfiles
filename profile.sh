@@ -49,12 +49,12 @@ export PATH="$PATH:~/node/bin"
 export PATH="$PATH:/opt/local/bin:/opt/local/sbin"
 
 # Factor
-export FACTOR_ROOT="/Applications/factor"
-export PATH="${PATH}:${FACTOR_ROOT}"
+#export FACTOR_ROOT="/Applications/factor"
+#export PATH="${PATH}:${FACTOR_ROOT}"
 
 # Go
-export PATH="$PATH:~/go/bin"
-export GOROOT="~/go"
+#export PATH="$PATH:~/go/bin"
+#export GOROOT="~/go"
 
 # OCaml show error traces
 export OCAMLRUNPARAM="b"
@@ -104,7 +104,7 @@ export PATH="$PATH:~/cean/bin"
 
 # Monokai
 export CLICOLOR="1"
-export GREP_OPTIONS="–color=auto"
+export GREP_OPTIONS="--color=auto"
 
 # Begin in a useful directory
 cd ~/Desktop
