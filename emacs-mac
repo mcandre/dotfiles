@@ -26,13 +26,18 @@
 (setq auto-save-default nil)
 (setq backup-inhibited t)
 
-;(tabbar-mode)
+; Highlight matching parentheses
+(show-paren-mode 1)
 
 ; Always follow symbolic links to version controlled files
 (setq vc-follow-symlinks t)
 
 ; Display hard tabs as 4 spaces
 (setq default-tab-width 4)
+
+; Soft tabs for lisps
+(add-hook 'emacs-lisp-mode-hook (lambda () (setq indent-tabs-mode nil)))
+(add-hook 'clojure-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
 ; SLIME
 ;(setq inferior-lisp-program "/usr/bin/lisp")
