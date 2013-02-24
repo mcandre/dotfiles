@@ -1,32 +1,16 @@
 #!/bin/sh
-# Runs Clojure using the classpath specified in the `.clojure` file of the
-# current directory.
-#
-# Andrew Pennebaker http://www.yellosoft.us/
-# Rewrote for modern Clojure
-# Rewrite for rlwrap
-#
-# Mark Reid <http://mark.reid.name>
-# CREATED: 2009-03-29
+# Clojure wrapper script.
+# With no arguments runs Clojure's REPL.
 
-CLJ_DIR=$HOME/Library/Clojure/lib
-CLOJURE=$CLJ_DIR/clojure.jar
-CONTRIB=$CLJ_DIR/clojure-contrib.jar
-JLINE=$CLJ_DIR/jline.jar
+# Put the Clojure jar from the cellar and the current folder in the classpath.
+CLOJURE=$CLASSPATH:/usr/local/Cellar/clojure/1.4.0/clojure-1.4.0.jar:${PWD}
 
-CP=$PWD:$CLOJURE:$JLINE:$CONTRIB
-BREAKCHARS="(){}[],^%$#@\"\";:''|\\"
-RLWRAP="rlwrap -b $BREAKCHARS --remember -c -f $HOME/.clj_completions -H $HOME/.clj_history -s 1000000"
-
-# Add extra jars as specified by `.clojure` file
-if [ -f .clojure ]; then
-	CP=$CP:`cat .clojure`
-fi
-
-CLJ="$RLWRAP java -cp $CP clojure.main"
-
-if [ -z "$1" ]; then
-	$CLJ --repl $@
+if [ "$#" -eq 0 ]; then
+    if [ -z $INSIDE_EMACS ] && [ $TERM != "dumb" ]; then
+		rlwrap --remember -c -b "(){}[],^%$#@\"\";:''|\\\\" -f ~/.clj_completions java -cp "$CLOJURE" clojure.main --repl
+	else
+		java -cp "$CLOJURE" clojure.main --repl
+	fi
 else
-	$CLJ "$@"
+    java -cp "$CLOJURE" clojure.main "$@"
 fi
