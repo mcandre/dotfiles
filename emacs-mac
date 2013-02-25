@@ -6,6 +6,12 @@
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
+; MELPA
+(require 'package)
+(add-to-list 'package-archives
+			 '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
 ; dotfiles
 (add-to-list 'load-path "~/Desktop/src/dotfiles")
 
@@ -13,6 +19,16 @@
 (autoload 'markdown-mode "markdown-mode"
 	  "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+; F#
+(require 'fsharp-mode)
+(setq auto-mode-alist (cons '("\\.fs[iylx]?$" . fsharp-mode) auto-mode-alist))
+(autoload 'fsharp-mode "fsharp" "Major mode for editing F# code." t)
+(autoload 'run-fsharp "inf-fsharp" "Run an inferior F# process." t)
+
+; Erlang
+(setq load-path (cons "/usr/local/Cellar/erlang/R15B03-1/lib/erlang/lib/tools-2.6.8/emacs/" load-path))
+(require 'erlang-start)
 
 ; Monokai
 (set-face-background 'default "nil")
