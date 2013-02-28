@@ -1,15 +1,16 @@
+(setq inhibit-startup-screen t)
+
 ; Marmalade
 ; http://marmalade-repo.org/
 (require 'package)
 (add-to-list 'package-archives 
-    '("marmalade" .
-      "http://marmalade-repo.org/packages/"))
+  '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
 ; MELPA
 (require 'package)
 (add-to-list 'package-archives
-			 '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 ; dotfiles
@@ -17,7 +18,7 @@
 
 ; Markdown
 (autoload 'markdown-mode "markdown-mode"
-	  "Major mode for editing Markdown files" t)
+  "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ; F#
@@ -27,17 +28,14 @@
 (autoload 'run-fsharp "inf-fsharp" "Run an inferior F# process." t)
 
 ; Erlang
+(setq load-path (cons "/usr/local/Cellar/erlang/R15B03-1/lib/erlang/lib/tools-2.6.8/emacs/" load-path))
 (setq load-path (cons "C:/Program Files/erl5.9.3.1/lib/tools-2.6.8/emacs" load-path))
-(setq erlang-root-dir "C:/Program Files/erl5.9.3.1")
-(setq exec-path (cons "C:/Program Files/erl5.9.3.1/bin" exec-path))
 (require 'erlang-start)
 
 ; Monokai
+; Fix green background
 ;(set-face-background 'default "nil")
 (load-theme 'monokai t)
-
-;(load-file "~/.emacs.d/color-theme-almost-monokai.el")
-;(color-theme-almost-monokai)
 
 ; Disable backup files
 (setq make-backup-files nil)
@@ -52,24 +50,35 @@
 
 ; Soft tabs
 (setq indent-tabs-mode nil)
+;(setq-default indent-tabs-mode nil)
 ; 2 spaces
 (setq tab-width 2)
 ; That means JavaScript, too
 (setq js-indent-level 2)
+; And Haskell
+(add-hook 'haskell-mode-hook
+  (lambda ()
+    (turn-on-haskell-indentation)
+    (setq indent-tabs-mode nil)
+    (setq tab-width 2)))
+; But not Makefiles
+(add-hook 'makefile-mode-hook
+  (lambda ()
+    (setq indent-tabs-mode t)
+    (setq-default indent-tabs-mode t)
+    (setq tab-width 2)))
+(add-hook 'makefile-gmake-mode-hook
+  (lambda ()
+    (setq indent-tabs-mode t)
+    (setq-default indent-tabs-mode t)
+    (setq tab-width 2)))
+; Convert hard tabs to spaces on save
+(add-hook 'before-save-hook
+  (lambda ()
+    ; But not Makefiles
+    (if (member major-mode '(makefile-mode makefile-gmake-mode))
+      (tabify (point-min) (point-max))
+      (untabify (point-min) (point-max)))))
 
-; SLIME
-;(setq inferior-lisp-program "/usr/bin/lisp")
-;(require 'slime)
-;(slime-setup)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+; Disable version control integration
+(remove-hook 'find-file-hooks 'vc-find-file-hook)
