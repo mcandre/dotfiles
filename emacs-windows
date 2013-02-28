@@ -1,22 +1,63 @@
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
+; Marmalade
+; http://marmalade-repo.org/
 (require 'package)
 (add-to-list 'package-archives 
     '("marmalade" .
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-(tabbar-mode)
+; MELPA
+(require 'package)
+(add-to-list 'package-archives
+			 '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
 
-(setq js-indent-level 2)
+; dotfiles
+(add-to-list 'load-path "~/Desktop/src/dotfiles")
+
+; Markdown
+(autoload 'markdown-mode "markdown-mode"
+	  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+; F#
+(require 'fsharp-mode)
+(setq auto-mode-alist (cons '("\\.fs[iylx]?$" . fsharp-mode) auto-mode-alist))
+(autoload 'fsharp-mode "fsharp" "Major mode for editing F# code." t)
+(autoload 'run-fsharp "inf-fsharp" "Run an inferior F# process." t)
+
+; Erlang
+(setq load-path (cons "C:/Program Files/erl5.9.3.1/lib/tools-2.6.8/emacs" load-path))
+(setq erlang-root-dir "C:/Program Files/erl5.9.3.1")
+(setq exec-path (cons "C:/Program Files/erl5.9.3.1/bin" exec-path))
+(require 'erlang-start)
+
+; Monokai
+(set-face-background 'default "nil")
+(load-theme 'monokai t)
+
+;(load-file "~/.emacs.d/color-theme-almost-monokai.el")
+;(color-theme-almost-monokai)
+
+; Disable backup files
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq backup-inhibited t)
+
+; Highlight matching parentheses
+(show-paren-mode 1)
+
+; Always follow symbolic links to version controlled files
+(setq vc-follow-symlinks t)
+
+; Display hard tabs as 4 spaces
+(setq default-tab-width 4)
+
+; Soft tabs for lisps
+(add-hook 'emacs-lisp-mode-hook (lambda () (setq indent-tabs-mode nil)))
+(add-hook 'clojure-mode-hook (lambda () (setq indent-tabs-mode nil)))
+
+; SLIME
+;(setq inferior-lisp-program "/usr/bin/lisp")
+;(require 'slime)
+;(slime-setup)
