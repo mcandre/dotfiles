@@ -1,3 +1,5 @@
+; Store as ~/.emacs
+
 (setq inhibit-startup-screen t)
 
 ; Marmalade
