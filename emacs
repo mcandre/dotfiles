@@ -15,8 +15,8 @@
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-; dotfiles
-(add-to-list 'load-path "~/Desktop/src/dotfiles")
+(require 'vimrc-mode)
+(add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
 
 ; Markdown
 (autoload 'markdown-mode "markdown-mode"
