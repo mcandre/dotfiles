@@ -33,7 +33,7 @@
 (require 'erlang-start)
 
 ; Monokai
-(set-face-background 'default "nil")
+;(set-face-background 'default "nil")
 (load-theme 'monokai t)
 
 ;(load-file "~/.emacs.d/color-theme-almost-monokai.el")
@@ -61,3 +61,15 @@
 ;(setq inferior-lisp-program "/usr/bin/lisp")
 ;(require 'slime)
 ;(slime-setup)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
