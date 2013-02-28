@@ -80,5 +80,8 @@
       (tabify (point-min) (point-max))
       (untabify (point-min) (point-max)))))
 
+; Show line numbers
+(global-linum-mode t)
+
 ; Disable version control integration
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
