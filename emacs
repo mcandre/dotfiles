@@ -36,7 +36,6 @@
 
 ; Monokai
 ; Fix green background
-(set-face-background 'default "nil")
 (load-theme 'monokai t)
 
 ; Disable backup files
