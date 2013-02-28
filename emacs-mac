@@ -48,12 +48,12 @@
 ; Always follow symbolic links to version controlled files
 (setq vc-follow-symlinks t)
 
-; Display hard tabs as 4 spaces
-(setq default-tab-width 4)
-
-; Soft tabs for lisps
-(add-hook 'emacs-lisp-mode-hook (lambda () (setq indent-tabs-mode nil)))
-(add-hook 'clojure-mode-hook (lambda () (setq indent-tabs-mode nil)))
+; Soft tabs
+(setq indent-tabs-mode nil)
+; 2 spaces
+(setq tab-width 2)
+; That means JavaScript, too
+(setq js-indent-level 2)
 
 ; SLIME
 ;(setq inferior-lisp-program "/usr/bin/lisp")
