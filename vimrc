@@ -4,7 +4,7 @@
 syntax on
 
 " Monokai-like theme
-"colorscheme molokai
+colorscheme molokai
 
 " Show line numbers
 set number
@@ -18,6 +18,8 @@ set sw=2
 set sts=2
 " Except for Makefiles; hard tabs of width 2
 autocmd FileType make set ts=2
+" And Markdown
+autocmd FileType markdown set ts=2
 " Reindent on load
 "autocmd FileType * normal! gg=G
 " Reindent on save
