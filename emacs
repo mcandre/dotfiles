@@ -84,7 +84,8 @@
     ; But not Makefiles
     (if (member major-mode '(makefile-mode makefile-gmake-mode))
       (tabify (point-min) (point-max))
-      (untabify (point-min) (point-max)))))
+      (untabify (point-min) (point-max))
+    (indent-region (point-min) (point-max)))))
 
 ; Show line numbers
 (global-linum-mode t)
