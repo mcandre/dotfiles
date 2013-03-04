@@ -83,6 +83,8 @@
 
 ; Show line numbers
 (global-linum-mode t)
+; With a space
+(setq linum-format "%d ")
 
 ; Disable version control integration
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
