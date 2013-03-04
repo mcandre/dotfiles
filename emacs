@@ -78,11 +78,17 @@
     (setq indent-tabs-mode t)
     (setq-default indent-tabs-mode t)
     (setq tab-width 2)))
+; And not Markdown
+(add-hook 'markdown-mode-hook
+  (lambda ()
+    (setq indent-tabs-mode t)
+    (setq-default indent-tabs-mode t)
+    (setq tab-width 2)))
 ; Convert hard tabs to spaces on save
 (add-hook 'before-save-hook
   (lambda ()
-    ; But not Makefiles
-    (if (member major-mode '(makefile-mode makefile-gmake-mode))
+    ; But not Makefiles or Markdown
+    (if (member major-mode '(makefile-mode makefile-gmake-mode markdown-mode))
       (tabify (point-min) (point-max))
       (untabify (point-min) (point-max))
     (indent-region (point-min) (point-max)))))
