@@ -23,6 +23,10 @@
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+; Set default mode Markdown
+(setq-default major-mode 'markdown-mode)
+; Set *scratch* to Markdown
+(setq initial-major-mode 'markdown-mode)
 
 ; F#
 (require 'fsharp-mode)
