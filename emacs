@@ -37,8 +37,11 @@
 (setq load-path (cons "C:/Program Files (x86)/erl5.9.3.1/lib/tools-2.6.8/emacs" load-path))
 (require 'erlang-start)
 
-;; Smooth scrolling
-(require 'smooth-scrolling)
+;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
 
 ;; Monokai
 (load-theme 'monokai t)
@@ -69,11 +72,12 @@
 
 ;; Soft tabs
 (setq indent-tabs-mode nil)
-                                        ; 2 spaces
+;; 2 spaces
 (setq tab-width 2)
 ;; That means JavaScript, too
 (setq js-indent-level 2)
 ;; And Haskell
+(require 'haskell-mode)
 (add-hook 'haskell-mode-hook
           (lambda ()
             (turn-on-haskell-indentation)
@@ -98,12 +102,12 @@
             (setq tab-width 2)))
 
 ;; Convert hard tabs to spaces on save
-;;(add-hook 'before-save-hook
-;;          (lambda ()
-;;            ;; But not Makefiles or Markdown
-;;            (if (member major-mode '(makefile-mode makefile-gmake-mode markdown-mode))
-;;                (tabify (point-min) (point-max))
-;;              (untabify (point-min) (point-max))
+(add-hook 'before-save-hook
+          (lambda ()
+            ;; But not Makefiles or Markdown
+            (if (member major-mode '(makefile-mode makefile-gmake-mode markdown-mode))
+              (tabify (point-min) (point-max))
+              (untabify (point-min) (point-max)))))
 ;;              (indent-region (point-min) (point-max)))))
 
 ;; Show line numbers
@@ -116,3 +120,6 @@
 
 ;; Default *scratch* contents to nil
 (setq initial-scratch-message nil)
+
+;; Evil Nerd Commenter
+(require 'evil-nerd-commenter)
