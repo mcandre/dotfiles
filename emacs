@@ -99,7 +99,9 @@
           (lambda ()
             (setq indent-tabs-mode t)
             (setq-default indent-tabs-mode t)
-            (setq tab-width 2)))
+            (setq tab-width 2)
+            ;; Tabs as literals
+            (define-key markdown-mode-map (kbd "TAB") 'self-insert-command)))
 
 ;; Convert hard tabs to spaces on save
 (add-hook 'before-save-hook
