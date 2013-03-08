@@ -79,8 +79,6 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
 	C-g
 
-	ESC ESC ESC
-
 ## Next Search Result
 
 	C-s
