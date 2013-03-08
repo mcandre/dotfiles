@@ -115,6 +115,10 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
 	C-x 2
 
+## Split Window Horizontally
+
+	C-x 3
+
 ### Next Window
 
 	C-x o
