@@ -22,9 +22,17 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
 ## Evaluate Elisp Code
 
-	M-: (<code...>) RET
+	M-: (<code...>)
 
-	M-x <code> RET
+	M-x <code>
+
+## System Commands
+
+	M-x shell
+
+	M-x eshell
+
+	M-! <command>
 
 ## Packages
 
