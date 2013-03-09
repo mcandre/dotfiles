@@ -97,9 +97,7 @@
 ;; And not Markdown
 (add-hook 'markdown-mode-hook
           (lambda ()
-            (setq indent-tabs-mode t)
-            (setq-default indent-tabs-mode t)
-            (setq tab-width 2)
+            (setq tab-width 4)
             ;; Tabs as literals
             (define-key markdown-mode-map (kbd "TAB") 'self-insert-command)))
 
@@ -107,7 +105,7 @@
 (add-hook 'before-save-hook
           (lambda ()
             ;; But not Makefiles or Markdown
-            (if (member major-mode '(makefile-mode makefile-gmake-mode markdown-mode))
+            (if (member major-mode '(makefile-mode makefile-gmake-mode))
               (tabify (point-min) (point-max))
               (untabify (point-min) (point-max)))))
 ;;              (indent-region (point-min) (point-max)))))
