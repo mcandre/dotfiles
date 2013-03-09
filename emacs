@@ -123,3 +123,6 @@
 
 ;; Evil Nerd Commenter
 (require 'evil-nerd-commenter)
+;; M-; toggles marked region,
+;; Or current line if no mark is set.
+(global-set-key "\M-;" 'evilnc-comment-or-uncomment-lines)
