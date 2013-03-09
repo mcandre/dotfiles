@@ -56,9 +56,6 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . html-erb-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs\\'"  . html-erb-mode))
 
-;; Smooth scrolling
-(require 'smooth-scrolling)
-
 ;; Disable backup files
 (setq make-backup-files nil)
 (setq auto-save-default nil)
