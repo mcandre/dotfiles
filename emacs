@@ -22,8 +22,9 @@
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-;; Set *scratch* to Markdown
-(setq initial-major-mode 'markdown-mode)
+
+;; Set *scratch* to plain text
+(setq initial-major-mode 'text-mode)
 
 ;; F#
 (require 'fsharp-mode)
@@ -55,9 +56,6 @@
 (mmm-add-mode-ext-class 'html-erb-mode nil 'html-css)
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . html-erb-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs\\'"  . html-erb-mode))
-
-;; Smooth scrolling
-(require 'smooth-scrolling)
 
 ;; Disable backup files
 (setq make-backup-files nil)
@@ -97,9 +95,7 @@
 ;; And not Markdown
 (add-hook 'markdown-mode-hook
           (lambda ()
-            (setq indent-tabs-mode t)
-            (setq-default indent-tabs-mode t)
-            (setq tab-width 2)
+            (setq tab-width 4)
             ;; Tabs as literals
             (define-key markdown-mode-map (kbd "TAB") 'self-insert-command)))
 
@@ -107,7 +103,7 @@
 (add-hook 'before-save-hook
           (lambda ()
             ;; But not Makefiles or Markdown
-            (if (member major-mode '(makefile-mode makefile-gmake-mode markdown-mode))
+            (if (member major-mode '(makefile-mode makefile-gmake-mode))
               (tabify (point-min) (point-max))
               (untabify (point-min) (point-max)))))
 ;;              (indent-region (point-min) (point-max)))))
@@ -125,3 +121,6 @@
 
 ;; Evil Nerd Commenter
 (require 'evil-nerd-commenter)
+;; M-; toggles marked region,
+;; Or current line if no mark is set.
+(global-set-key "\M-;" 'evilnc-comment-or-uncomment-lines)
