@@ -83,6 +83,10 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
 	C-s
 
+## Search in Directory
+
+	M-x rgrep
+
 ## Select All
 
 	C-x h
