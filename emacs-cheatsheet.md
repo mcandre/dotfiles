@@ -6,39 +6,39 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
 ## Install
 
-	$ apt-get install emacs
+    $ apt-get install emacs
 
-	$ brew install emacs
+    $ brew install emacs
 
-	C:\> chocolatey install Emacs
+    C:\> chocolatey install Emacs
 
 [emacs-24.2.msi](http://www.yellosoft.us/helpers#emacs)
 
 ## Configure
 
-	~/.emacs
+    ~/.emacs
 
-	[Dotfile](https://github.com/mcandre/dotfiles/blob/master/emacs)
+    [Dotfile](https://github.com/mcandre/dotfiles/blob/master/emacs)
 
 ## Evaluate Elisp Code
 
-	M-: (<code...>)
+    M-: (<code...>)
 
-	M-x <code>
+    M-x <code>
 
 ## System Commands
 
-	M-x shell
+    M-x shell
 
-	M-x eshell
+    M-x eshell
 
-	M-! <command>
+    M-! <command>
 
 ## Packages
 
-	(package-refresh-contents)
+    (package-refresh-contents)
 
-	(package-install '<package>)
+    (package-install '<package>)
 
 ## Repositories
 
@@ -50,66 +50,72 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
 ## Open File/Directory
 
-	$ emacs <file/dir>
+    $ emacs <file/dir>
 
-	$ emacs
-	C-x C-f <file/dir>
+    $ emacs
+    C-x C-f <file/dir>
 
 ### Windows
 
-	C:\> runemacs <file/dir>
+    C:\> runemacs <file/dir>
 
-	gitbash$ runemacs <file/dir>
+    gitbash$ runemacs <file/dir>
 
-	gitbash$ emacs <file/dir> &
+    gitbash$ emacs <file/dir> &
 
 ## Save
 
-	C-x C-s
+    C-x C-s
 
 ## Quit
 
-	C-x C-c
+    C-x C-c
 
 ## Undo/Redo
 
-	C-_
+    C-_
 
 ## Cancel Emacs Command Chain
 
-	C-g
+    C-g
 
 ## Next Search Result
 
-	C-s
+    C-s
 
 ## Search in Directory
 
-	M-x rgrep
+    M-x rgrep
+
+## Regular Expressions
+
+Emacs supports a regex syntax similar to PPCRE.
+
+http://emacswiki.org/emacs/RegularExpression
 
 ## Select All
 
-	C-x h
+    C-x h
 
 ## Cut
 
-	C-w
+    C-w
 
 ## Copy
 
-	M-w
+    M-w
 
 ## Paste
 
-	C-y
+    C-y
 
 ## Set mark
 
-	C-space
+    C-space
 
 ## Toggle Comment Marked Region
 
-	M-;
+    M-;
 
 # Screens
 
@@ -117,46 +123,46 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
 ### Split Window Verticaly
 
-	C-x 2
+    C-x 2
 
 ## Split Window Horizontally
 
-	C-x 3
+    C-x 3
 
 ### Next Window
 
-	C-x o
+    C-x o
 
 ### Close Window
 
-	C-x 0
+    C-x 0
 
 ## Buffers
 
 ### Switch to Buffer
 
-	C-x b <name (default *scratch)>
+    C-x b <name (default *scratch)>
 
 ### Start of Buffer
 
-	M-<
+    M-<
 
 ### End of Buffer
 
-	M->
+    M->
 
 ### Start of Line
 
-	C-a
+    C-a
 
 ### End of Line
 
-	C-e
+    C-e
 
 ### Delete
 
-	C-d
+    C-d
 
 ### Cut Line
 
-	C-k
+    C-k
