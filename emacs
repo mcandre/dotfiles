@@ -124,3 +124,6 @@
 ;; M-; toggles marked region,
 ;; Or current line if no mark is set.
 (global-set-key "\M-;" 'evilnc-comment-or-uncomment-lines)
+
+;; C-x O navigates to previous window
+(global-set-key (kbd "C-x O") 'previous-multiframe-window)
