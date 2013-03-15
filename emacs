@@ -129,4 +129,7 @@
 (global-set-key (kbd "C-x O") 'previous-multiframe-window)
 
 ;; Auto-refresh dired on file change
-(add-hook 'dired-mode-hook 'auto-revert-mode)
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (auto-revert-mode)
+            (setq-default auto-revert-interval 1)))
