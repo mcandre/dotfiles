@@ -83,6 +83,19 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
     C-s
 
+## Find and Replace
+
+    M-%
+
+Enter text to find.
+Enter text to replace.
+
+`!` replaces all occurences.
+
+`y` replace current match.
+
+`n` skips over current match.
+
 ## Search in Directory
 
     M-x rgrep
