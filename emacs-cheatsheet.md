@@ -156,6 +156,10 @@ http://emacswiki.org/emacs/RegularExpression
 
     C-x b <name (default *scratch)>
 
+### Set buffer mode
+
+    M-x <mode-name>
+
 ### Start of Buffer
 
     M-<
