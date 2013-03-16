@@ -23,6 +23,10 @@
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; MS-DOS .BAT files
+(require 'ntcmd)
+(add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
+
 ;; Set *scratch* to plain text
 (setq initial-major-mode 'text-mode)
 
@@ -121,3 +125,15 @@
 ;; M-; toggles marked region,
 ;; Or current line if no mark is set.
 (global-set-key "\M-;" 'evilnc-comment-or-uncomment-lines)
+
+;; C-x O navigates to previous window
+(global-set-key (kbd "C-x O") 'previous-multiframe-window)
+
+;; Auto-refresh dired on file change
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (auto-revert-mode)
+            (setq-default auto-revert-interval 1)))
+
+;; Default to Unix LF line endings
+(setq default-buffer-file-coding-system 'utf-8-unix)
