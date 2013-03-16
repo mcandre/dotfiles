@@ -29,4 +29,4 @@ autocmd FileType markdown set sts=4
 "autocmd BufWritePre normal! gg=G
 
 " Default to Unix LF line endings
-:set fileformat=unix
+set fileformat=unix
