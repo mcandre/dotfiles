@@ -12,6 +12,7 @@ set number
 " Enable auto-indentation
 set autoindent
 filetype plugin indent on
+
 " Default to soft tabs, 2 spaces
 set expandtab
 set sw=2
@@ -21,7 +22,11 @@ autocmd FileType make set ts=2
 " And Markdown
 autocmd FileType markdown set sw=4
 autocmd FileType markdown set sts=4
+
 " Reindent on load
 "autocmd FileType * normal! gg=G
 " Reindent on save
 "autocmd BufWritePre normal! gg=G
+
+" Default to Unix LF line endings
+:set fileformat=unix
