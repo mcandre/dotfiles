@@ -133,3 +133,6 @@
           (lambda ()
             (auto-revert-mode)
             (setq-default auto-revert-interval 1)))
+
+;; Default to Unix LF line endings
+(setq default-buffer-file-coding-system 'utf-8-unix)
