@@ -23,6 +23,10 @@
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; MS-DOS .BAT files
+(require 'ntcmd)
+(add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
+
 ;; Set *scratch* to plain text
 (setq initial-major-mode 'text-mode)
 
