@@ -83,21 +83,13 @@
             (setq indent-tabs-mode nil)
             (setq tab-width 2)))
 ;; But not Makefiles
-(add-hook 'makefile-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode t)
-            (setq-default indent-tabs-mode t)
-            (setq tab-width 2)))
-(add-hook 'makefile-gmake-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode t)
-            (setq-default indent-tabs-mode t)
-            (setq tab-width 2)))
-(add-hook 'makefile-bsdmake-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode t)
-            (setq-default indent-tabs-mode t)
-            (setq tab-width 2)))
+(defun hard-tabs ()
+  (setq indent-tabs-mode t)
+  (setq-default indent-tabs-mode t)
+  (setq tab-width 2))
+(add-hook 'makefile-mode-hook 'hard-tabs)
+(add-hook 'makefile-gmake-mode-hook 'hard-tabs)
+(add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
 ;; And not Markdown
 (add-hook 'markdown-mode-hook
           (lambda ()
