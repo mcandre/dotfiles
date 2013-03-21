@@ -128,6 +128,15 @@
 ;; C-x O navigates to previous window
 (global-set-key (kbd "C-x O") 'previous-multiframe-window)
 
+;; File tabs
+(require 'tabbar)
+(tabbar-mode 1)
+;; CUA
+(global-set-key [C-S-tab] 'tabbar-backward-tab)
+(global-set-key [C-tab] 'tabbar-forward-tab)
+;; Single tab group
+(setq tabbar-buffer-groups-function (lambda () '("group")))
+
 ;; Auto-refresh dired on file change
 (add-hook 'dired-mode-hook
           (lambda ()
