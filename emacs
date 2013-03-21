@@ -93,6 +93,11 @@
             (setq indent-tabs-mode t)
             (setq-default indent-tabs-mode t)
             (setq tab-width 2)))
+(add-hook 'makefile-bsdmake-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode t)
+            (setq-default indent-tabs-mode t)
+            (setq tab-width 2)))
 ;; And not Markdown
 (add-hook 'markdown-mode-hook
           (lambda ()
@@ -104,7 +109,7 @@
 (add-hook 'before-save-hook
           (lambda ()
             ;; But not Makefiles or Markdown
-            (if (member major-mode '(makefile-mode makefile-gmake-mode))
+            (if (member major-mode '(makefile-mode makefile-gmake-mode makefile-bsdmake-mode))
               (tabify (point-min) (point-max))
               (untabify (point-min) (point-max)))))
 ;;              (indent-region (point-min) (point-max)))))
