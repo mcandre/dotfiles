@@ -106,6 +106,26 @@
               (untabify (point-min) (point-max)))))
 ;;              (indent-region (point-min) (point-max)))))
 
+;; Fix C family autoindent
+;;
+;; K&R style, and
+;; Line up parentheses as well
+(setq gangnam-style
+  '((c-basic-offset . 2)
+    (c-comment-only-line-offset . 0)
+    (c-offsets-alist
+      (arglist-close . c-lineup-close-paren)
+      (statement-block-intro . +)
+      (knr-argdecl-intro . 0)
+      (substatement-open . 0)
+      (substatement-label . 0)
+      (label . 0)
+      (statement-cont . +))))
+
+(add-hook 'c-mode-common-hook
+  (lambda ()
+    (c-add-style "gangnam-style" gangnam-style t)))
+
 ;; Show line numbers
 (global-linum-mode t)
 ;; With a space
