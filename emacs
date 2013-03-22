@@ -23,12 +23,12 @@
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; *scratch* mostly used for bug report copypasta
+(setq initial-major-mode 'markdown-mode)
+
 ;; MS-DOS .BAT files
 (require 'ntcmd)
 (add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
-
-;; Default *scratch* as Markdown
-(setq initial-major-mode 'markdown-mode)
 
 ;; D
 (require 'd-mode)
