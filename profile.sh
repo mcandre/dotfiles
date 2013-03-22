@@ -9,6 +9,9 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # RVM
 #export PATH="/Users/andrew/.rvm/bin:$PATH"
 
+# Home scripts
+export PATH="$PATH:~/bin"
+
 # Add Git
 export PATH="$PATH:/usr/local/git/bin"
 

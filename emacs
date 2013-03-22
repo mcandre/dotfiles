@@ -23,8 +23,15 @@
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; MS-DOS .BAT files
+(require 'ntcmd)
+(add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
+
 ;; Set *scratch* to plain text
 (setq initial-major-mode 'text-mode)
+
+;; D
+(require 'd-mode)
 
 ;; F#
 (require 'fsharp-mode)
@@ -38,11 +45,8 @@
 (setq load-path (cons "C:/Program Files (x86)/erl5.9.3.1/lib/tools-2.6.8/emacs" load-path))
 (require 'erlang-start)
 
-;; scroll one line at a time (less "jumpy" than defaults)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 1) ;; keyboard scroll one line at a time
+;; Smooth scrolling
+;; ...
 
 ;; Monokai
 (load-theme 'monokai t)
@@ -82,16 +86,13 @@
             (setq indent-tabs-mode nil)
             (setq tab-width 2)))
 ;; But not Makefiles
-(add-hook 'makefile-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode t)
-            (setq-default indent-tabs-mode t)
-            (setq tab-width 2)))
-(add-hook 'makefile-gmake-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode t)
-            (setq-default indent-tabs-mode t)
-            (setq tab-width 2)))
+(defun hard-tabs ()
+  (setq indent-tabs-mode t)
+  (setq-default indent-tabs-mode t)
+  (setq tab-width 2))
+(add-hook 'makefile-mode-hook 'hard-tabs)
+(add-hook 'makefile-gmake-mode-hook 'hard-tabs)
+(add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
 ;; And not Markdown
 (add-hook 'markdown-mode-hook
           (lambda ()
@@ -103,10 +104,37 @@
 (add-hook 'before-save-hook
           (lambda ()
             ;; But not Makefiles or Markdown
-            (if (member major-mode '(makefile-mode makefile-gmake-mode))
+            (if (member major-mode '(makefile-mode makefile-gmake-mode makefile-bsdmake-mode))
               (tabify (point-min) (point-max))
               (untabify (point-min) (point-max)))))
 ;;              (indent-region (point-min) (point-max)))))
+
+;; Dart
+(require 'dart-mode)
+
+;; Fix C family autoindent
+;;
+;; K&R style, and
+;; Line up parentheses as well
+(setq gangnam-style
+  '((c-basic-offset . 2)
+    (c-comment-only-line-offset . 0)
+    (c-offsets-alist
+      (arglist-close . c-lineup-close-paren)
+      (statement-block-intro . +)
+      (knr-argdecl-intro . 0)
+      (substatement-open . 0)
+      (substatement-label . 0)
+      (label . 0)
+      (statement-cont . +))))
+(add-hook 'c-mode-common-hook
+  (lambda ()
+    (c-add-style "gangnam-style" gangnam-style t)))
+
+;; Dart, too
+(add-hook 'dart-mode-hook
+  (lambda ()
+    (c-add-style "dart" gangnam-style t)))
 
 ;; Show line numbers
 (global-linum-mode t)
@@ -142,3 +170,6 @@
           (lambda ()
             (auto-revert-mode)
             (setq-default auto-revert-interval 1)))
+
+;; Default to Unix LF line endings
+(setq default-buffer-file-coding-system 'utf-8-unix)
