@@ -85,7 +85,13 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
 ## Find and Replace
 
+Find/Replace from cursor to end of file:
+
     M-%
+
+Wrap:
+
+    C-s
 
 Enter text to find.
 Enter text to replace.
