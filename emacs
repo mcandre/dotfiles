@@ -109,6 +109,9 @@
               (untabify (point-min) (point-max)))))
 ;;              (indent-region (point-min) (point-max)))))
 
+;; Dart
+(require 'dart-mode)
+
 ;; Fix C family autoindent
 ;;
 ;; K&R style, and
@@ -124,10 +127,14 @@
       (substatement-label . 0)
       (label . 0)
       (statement-cont . +))))
-
 (add-hook 'c-mode-common-hook
   (lambda ()
     (c-add-style "gangnam-style" gangnam-style t)))
+
+;; Dart, too
+(add-hook 'dart-mode-hook
+  (lambda ()
+    (c-add-style "dart" gangnam-style t)))
 
 ;; Show line numbers
 (global-linum-mode t)
