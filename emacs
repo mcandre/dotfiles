@@ -30,6 +30,9 @@
 ;; Set *scratch* to plain text
 (setq initial-major-mode 'text-mode)
 
+;; D
+(require 'd-mode)
+
 ;; F#
 (require 'fsharp-mode)
 (setq auto-mode-alist (cons '("\\.fs[iylx]?$" . fsharp-mode) auto-mode-alist))
