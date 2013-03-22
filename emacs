@@ -27,8 +27,8 @@
 (require 'ntcmd)
 (add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
 
-;; Set *scratch* to plain text
-(setq initial-major-mode 'text-mode)
+;; Default *scratch* as Markdown
+(setq initial-major-mode 'markdown-mode)
 
 ;; D
 (require 'd-mode)
