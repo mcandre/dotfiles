@@ -109,5 +109,8 @@ export PATH="$PATH:~/cean/bin"
 export CLICOLOR="1"
 export GREP_OPTIONS="--color=auto"
 
+# Mozart/Oz
+export PATH="$PATH:/Applications/Mozart.app/Contents/Resources/bin"
+
 # Begin in a useful directory
 cd ~/Desktop
