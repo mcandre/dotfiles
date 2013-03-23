@@ -72,6 +72,9 @@
 ;; Always follow symbolic links to version controlled files
 (setq vc-follow-symlinks t)
 
+;; Mozart/Oz
+(require 'oz)
+
 ;; Soft tabs
 (setq indent-tabs-mode nil)
 ;; 2 spaces
