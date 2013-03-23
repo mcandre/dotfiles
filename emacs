@@ -85,6 +85,9 @@
             (turn-on-haskell-indentation)
             (setq indent-tabs-mode nil)
             (setq tab-width 2)))
+;; And PostScript
+(add-hook 'ps-mode-hook
+          (lambda () (setq ps-mode-tab 2)))
 ;; But not Makefiles
 (defun hard-tabs ()
   (setq indent-tabs-mode t)
