@@ -91,6 +91,9 @@
 ;; And PostScript
 (add-hook 'ps-mode-hook
           (lambda () (setq ps-mode-tab 2)))
+;; And Mozart/Oz
+(add-hook 'oz-mode-hook
+          (lambda () (setq oz-indent-chars 2)))
 ;; But not Makefiles
 (defun hard-tabs ()
   (setq indent-tabs-mode t)
