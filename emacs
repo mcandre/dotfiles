@@ -14,6 +14,9 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
+;; .emacs
+(add-to-list 'auto-mode-alist '("emacs$" . emacs-lisp-mode))
+
 ;; vimrc
 (require 'vimrc-mode)
 (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
@@ -107,7 +110,7 @@
           (lambda ()
             (setq tab-width 4)
             ;; Tabs as literals
-            (define-key markdown-mode-map (kbd "TAB") 'self-insert-command)))
+            (define-key markdown-mode-map (kbd "TAB") (lambda () (indent-rigidly-n tab-width)))))
 
 ;; Convert hard tabs to spaces on save
 (add-hook 'before-save-hook
