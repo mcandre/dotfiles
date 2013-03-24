@@ -105,12 +105,16 @@
 (add-hook 'makefile-mode-hook 'hard-tabs)
 (add-hook 'makefile-gmake-mode-hook 'hard-tabs)
 (add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
+
 ;; And not Markdown
 (add-hook 'markdown-mode-hook
           (lambda ()
             (setq tab-width 4)
             ;; Tabs as literals
-            (define-key markdown-mode-map (kbd "TAB") (lambda () (indent-rigidly-n tab-width)))))
+            (define-key markdown-mode-map (kbd "<tab>")
+              (lambda ()
+                (interactive)
+                (indent-rigidly (region-beginning) (region-end) tab-width)))))
 
 ;; Convert hard tabs to spaces on save
 (add-hook 'before-save-hook
