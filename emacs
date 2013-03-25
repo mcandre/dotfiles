@@ -91,16 +91,29 @@
             (turn-on-haskell-indentation)
             (setq indent-tabs-mode nil)
             (setq tab-width 2)))
+
+;; If mark exists, indent rigidly.
+;; Otherwise, insert a hard or soft tab indentation.
+(defun indent-block-rigidly ()
+  (interactive)
+  (if mark-active
+    (indent-rigidly (region-beginning) (region-end) tab-width)
+    (indent-to-column tab-width)))
+;; Inverse.
+(defun outdent-block-rigidly ()
+  (interactive)
+  (if mark-active
+    (indent-rigidly (region-beginning) (region-end) (* tab-width -1))
+    (delete-backward-char tab-width)))
+
 ;; And Markdown
 (add-hook 'markdown-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil)
             (setq tab-width 4)
-            ;; Tabs as literals
-            (define-key markdown-mode-map (kbd "<tab>")
-              (lambda ()
-                (interactive)
-                (indent-rigidly (region-beginning) (region-end) tab-width)))))
+            (define-key markdown-mode-map (kbd "<tab>") 'indent-block-rigidly)
+            (define-key markdown-mode-map (kbd "S-<tab>") 'outdent-block-rigidly)))
+
 ;; And PostScript
 (add-hook 'ps-mode-hook
           (lambda () (setq ps-mode-tab 2)))

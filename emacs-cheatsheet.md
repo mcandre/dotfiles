@@ -136,6 +136,22 @@ http://emacswiki.org/emacs/RegularExpression
 
     M-;
 
+## Auto-Indent Current Line or Marked Region
+
+    TAB
+
+## Indent Marked Region Rigidly
+
+    M-x (indent-rigidly (region-beginning) (region-end) tab-width))
+
+    C-c >
+
+## Outdent Marked Region Rigidly
+
+    M-x (indent-rigidly (region-beginning) (region-end (* tab-width -1))
+
+    C-c <
+
 # Screens
 
 ## Windows
