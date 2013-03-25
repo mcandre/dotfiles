@@ -174,7 +174,7 @@ http://emacswiki.org/emacs/RegularExpression
 
 ## Buffers
 
-### Switch to Buffer
+### Create or Switch to Buffer
 
     C-x b <name (default *scratch)>
 
