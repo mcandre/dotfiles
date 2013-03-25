@@ -94,13 +94,13 @@
 
 ;; If mark exists, indent rigidly.
 ;; Otherwise, insert a hard or soft tab indentation.
-(defun indent-block-rigidly ()
+(defun traditional-indent ()
   (interactive)
   (if mark-active
     (indent-rigidly (region-beginning) (region-end) tab-width)
     (indent-to-column tab-width)))
 ;; Inverse.
-(defun outdent-block-rigidly ()
+(defun traditional-outdent ()
   (interactive)
   (if mark-active
     (indent-rigidly (region-beginning) (region-end) (* tab-width -1))
@@ -111,8 +111,8 @@
           (lambda ()
             (setq indent-tabs-mode nil)
             (setq tab-width 4)
-            (define-key markdown-mode-map (kbd "<tab>") 'indent-block-rigidly)
-            (define-key markdown-mode-map (kbd "S-<tab>") 'outdent-block-rigidly)))
+            (define-key markdown-mode-map (kbd "<tab>") 'traditional-indent)
+            (define-key markdown-mode-map (kbd "S-<tab>") 'traditional-outdent)))
 
 ;; And PostScript
 (add-hook 'ps-mode-hook
