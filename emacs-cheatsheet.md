@@ -205,3 +205,13 @@ http://emacswiki.org/emacs/RegularExpression
 ### Cut Line
 
     C-k
+
+# Help
+
+## Variables
+
+    C-h v <name>
+
+## Hotkeys
+
+    C-h k <key>
