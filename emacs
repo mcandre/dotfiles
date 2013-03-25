@@ -91,6 +91,16 @@
             (turn-on-haskell-indentation)
             (setq indent-tabs-mode nil)
             (setq tab-width 2)))
+;; And Markdown
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (setq tab-width 4)
+            ;; Tabs as literals
+            (define-key markdown-mode-map (kbd "<tab>")
+              (lambda ()
+                (interactive)
+                (indent-rigidly (region-beginning) (region-end) tab-width)))))
 ;; And PostScript
 (add-hook 'ps-mode-hook
           (lambda () (setq ps-mode-tab 2)))
@@ -106,20 +116,10 @@
 (add-hook 'makefile-gmake-mode-hook 'hard-tabs)
 (add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
 
-;; And not Markdown
-(add-hook 'markdown-mode-hook
-          (lambda ()
-            (setq tab-width 4)
-            ;; Tabs as literals
-            (define-key markdown-mode-map (kbd "<tab>")
-              (lambda ()
-                (interactive)
-                (indent-rigidly (region-beginning) (region-end) tab-width)))))
-
 ;; Convert hard tabs to spaces on save
 (add-hook 'before-save-hook
           (lambda ()
-            ;; But not Makefiles or Markdown
+            ;; But not Makefiles
             (if (member major-mode '(makefile-mode makefile-gmake-mode makefile-bsdmake-mode))
               (tabify (point-min) (point-max))
               (untabify (point-min) (point-max)))))
