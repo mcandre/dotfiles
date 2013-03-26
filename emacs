@@ -1,46 +1,85 @@
 ;; Store as ~/.emacs
+
+;; Disable start screen
 (setq inhibit-startup-screen t)
+
+;; Disable backup files
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq backup-inhibited t)
+
+;; *scratch* mostly used for bug report copypasta
+(setq initial-major-mode 'markdown-mode)
+;; Default *scratch* contents to nil
+(setq initial-scratch-message nil)
+
+;; Highlight matching parentheses
+(show-paren-mode 1)
+
+;; Always follow symbolic links to version controlled files
+(setq vc-follow-symlinks t)
+
+;; Show line numbers
+(setq line-number-mode t)
+;; With a space
+(setq linum-format "%d ")
+;; Show column numbers
+(setq column-number-mode t)
+
+;; Font: Monaco
+(set-frame-font "Monaco")
+;; Font size: 10pt
+(set-face-attribute 'default nil :height 80)
+
+;; Disable version control integration
+(remove-hook 'find-file-hooks 'vc-find-file-hook)
+
+;; Auto-refresh dired on file change
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (auto-revert-mode)
+            (setq-default auto-revert-interval 1)))
 
 ;; Marmalade
 ;; http://marmalade-repo.org/
 (require 'package)
 (add-to-list 'package-archives 
              '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
-
 ;; MELPA
-(require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 ;; .emacs
 (add-to-list 'auto-mode-alist '("emacs$" . emacs-lisp-mode))
-
 ;; vimrc
 (require 'vimrc-mode)
 (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
-
 ;; Markdown
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-;; *scratch* mostly used for bug report copypasta
-(setq initial-major-mode 'markdown-mode)
-
 ;; MS-DOS .BAT files
 (require 'ntcmd)
 (add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
-
 ;; D
 (require 'd-mode)
-
+;; Dart
+(require 'dart-mode)
 ;; F#
 (require 'fsharp-mode)
 (setq auto-mode-alist (cons '("\\.fs[iylx]?$" . fsharp-mode) auto-mode-alist))
 (autoload 'fsharp-mode "fsharp" "Major mode for editing F# code." t)
 (autoload 'run-fsharp "inf-fsharp" "Run an inferior F# process." t)
+;; Mozart/Oz
+(require 'oz)
+;; We're Ruby, too!
+(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
 
 ;; Smooth scrolling
 ;; ...
@@ -58,19 +97,8 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . html-erb-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs\\'"  . html-erb-mode))
 
-;; Disable backup files
-(setq make-backup-files nil)
-(setq auto-save-default nil)
-(setq backup-inhibited t)
-
-;; Highlight matching parentheses
-(show-paren-mode 1)
-
-;; Always follow symbolic links to version controlled files
-(setq vc-follow-symlinks t)
-
-;; Mozart/Oz
-(require 'oz)
+;; Default to Unix LF line endings
+(setq default-buffer-file-coding-system 'utf-8-unix)
 
 ;; Soft tabs
 (setq indent-tabs-mode nil)
@@ -140,9 +168,6 @@
               (untabify (point-min) (point-max)))))
 ;;              (indent-region (point-min) (point-max)))))
 
-;; Dart
-(require 'dart-mode)
-
 ;; Fix C family autoindent
 ;;
 ;; K&R style, and
@@ -161,22 +186,10 @@
 (add-hook 'c-mode-common-hook
   (lambda ()
     (c-add-style "gangnam-style" gangnam-style t)))
-
 ;; Dart, too
 (add-hook 'dart-mode-hook
   (lambda ()
     (c-add-style "dart" gangnam-style t)))
-
-;; Show line numbers
-(global-linum-mode t)
-;; With a space
-(setq linum-format "%d ")
-
-;; Disable version control integration
-(remove-hook 'find-file-hooks 'vc-find-file-hook)
-
-;; Default *scratch* contents to nil
-(setq initial-scratch-message nil)
 
 ;; Evil Nerd Commenter
 (require 'evil-nerd-commenter)
@@ -195,25 +208,3 @@
 (global-set-key [C-tab] 'tabbar-forward-tab)
 ;; Single tab group
 (setq tabbar-buffer-groups-function (lambda () '("group")))
-
-;; Auto-refresh dired on file change
-(add-hook 'dired-mode-hook
-          (lambda ()
-            (auto-revert-mode)
-            (setq-default auto-revert-interval 1)))
-
-;; Default to Unix LF line endings
-(setq default-buffer-file-coding-system 'utf-8-unix)
-
-;; We're Ruby, too!
-(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
-
-;; Font: Monaco
-(set-frame-font "Monaco")
-;; Font size: 10pt
-(set-face-attribute 'default nil :height 80)
