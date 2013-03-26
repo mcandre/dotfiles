@@ -112,7 +112,7 @@
             (setq indent-tabs-mode nil)
             (setq tab-width 4)
             (define-key markdown-mode-map (kbd "<tab>") 'traditional-indent)
-            (define-key markdown-mode-map (kbd "S-<tab>") 'traditional-outdent)))
+            (define-key markdown-mode-map (kbd "<S-tab>") 'traditional-outdent)))
 
 ;; And PostScript
 (add-hook 'ps-mode-hook
@@ -213,3 +213,5 @@
 
 ;; Font: Monaco
 (set-frame-font "Monaco")
+;; Font size: 10pt
+(set-face-attribute 'default nil :height 80)
