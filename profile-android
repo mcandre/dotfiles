@@ -1,0 +1,13 @@
+# Save as /data/.profile
+
+export HOME=/data
+cd ~
+clear
+
+export SPARTACUS=/data/data/com.spartacusrex.spartacuside/files/system/bin
+PATH="$PATH:$SPARTACUS"
+
+export PATH
+
+#export GIT_SSH=$SPARTACUS/ssh
+alias ssh='ssh -i ~/.ssh/id_rsa'
