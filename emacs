@@ -84,6 +84,8 @@
 (setq tab-width 2)
 ;; That means JavaScript, too
 (setq js-indent-level 2)
+;; And Erlang
+(setq erlang-indent-level 2)
 ;; And Haskell
 (require 'haskell-mode)
 (add-hook 'haskell-mode-hook
