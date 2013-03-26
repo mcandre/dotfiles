@@ -42,12 +42,6 @@
 (autoload 'fsharp-mode "fsharp" "Major mode for editing F# code." t)
 (autoload 'run-fsharp "inf-fsharp" "Run an inferior F# process." t)
 
-;; Erlang
-(setq load-path (cons "/usr/local/Cellar/erlang/R15B03-1/lib/erlang/lib/tools-2.6.8/emacs/" load-path))
-(setq load-path (cons "C:/Program Files/erl5.10.1/lib/tools-2.6.10/emacs" load-path))
-(setq load-path (cons "C:/Program Files (x86)/erl5.10.1/lib/tools-2.6.10/emacs" load-path))
-(require 'erlang-start)
-
 ;; Smooth scrolling
 ;; ...
 
@@ -85,7 +79,13 @@
 ;; That means JavaScript, too
 (setq js-indent-level 2)
 ;; And Erlang
-(setq erlang-indent-level 2)
+(add-hook 'erlang-mode-hook
+          (lambda ()
+            (setq erlang-indent-level 2)
+            (setq load-path (cons "/usr/local/Cellar/erlang/R15B03-1/lib/erlang/lib/tools-2.6.8/emacs/" load-path))
+            (setq load-path (cons "C:/Program Files/erl5.10.1/lib/tools-2.6.10/emacs" load-path))
+            (setq load-path (cons "C:/Program Files (x86)/erl5.10.1/lib/tools-2.6.10/emacs" load-path))
+            (require 'erlang-start)))
 ;; And Haskell
 (require 'haskell-mode)
 (add-hook 'haskell-mode-hook
