@@ -20,10 +20,11 @@
 (setq vc-follow-symlinks t)
 
 ;; Show line numbers
-(setq line-number-mode t)
+(global-linum-mode t)
 ;; With a space
 (setq linum-format "%d ")
-;; Show column numbers
+;; Minibuffer line and column
+(setq line-number-mode t)
 (setq column-number-mode t)
 
 ;; Font: Monaco
