@@ -67,6 +67,10 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
     C-x C-s
 
+## Save As...
+
+    C-x C-w
+
 ## Quit
 
     C-x C-c
