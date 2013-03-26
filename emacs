@@ -153,7 +153,8 @@
 ;; But not Makefiles
 (defun hard-tabs ()
   (setq indent-tabs-mode t)
-  (setq-default indent-tabs-mode t))
+  (setq-default indent-tabs-mode t)
+  (setq tab-width 2))
 (add-hook 'makefile-mode-hook 'hard-tabs)
 (add-hook 'makefile-gmake-mode-hook 'hard-tabs)
 (add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
