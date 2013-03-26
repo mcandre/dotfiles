@@ -105,11 +105,11 @@
 ;; 2 spaces
 (setq tab-width 2)
 ;; That means JavaScript, too
-(setq js-indent-level 2)
+(setq js-indent-level tab-width)
 ;; And Erlang
 (add-hook 'erlang-mode-hook
           (lambda ()
-            (setq erlang-indent-level 2)
+            (setq erlang-indent-level tab-width)
             (setq load-path (cons "/usr/local/Cellar/erlang/R15B03-1/lib/erlang/lib/tools-2.6.8/emacs/" load-path))
             (setq load-path (cons "C:/Program Files/erl5.10.1/lib/tools-2.6.10/emacs" load-path))
             (setq load-path (cons "C:/Program Files (x86)/erl5.10.1/lib/tools-2.6.10/emacs" load-path))
@@ -120,7 +120,7 @@
           (lambda ()
             (turn-on-haskell-indentation)
             (setq indent-tabs-mode nil)
-            (setq tab-width 2)))
+            (setq tab-width tab-width)))
 
 ;; If mark exists, indent rigidly.
 ;; Otherwise, insert a hard or soft tab indentation.
@@ -146,15 +146,14 @@
 
 ;; And PostScript
 (add-hook 'ps-mode-hook
-          (lambda () (setq ps-mode-tab 2)))
+          (lambda () (setq ps-mode-tab tab-width)))
 ;; And Mozart/Oz
 (add-hook 'oz-mode-hook
-          (lambda () (setq oz-indent-chars 2)))
+          (lambda () (setq oz-indent-chars tab-width)))
 ;; But not Makefiles
 (defun hard-tabs ()
   (setq indent-tabs-mode t)
-  (setq-default indent-tabs-mode t)
-  (setq tab-width 2))
+  (setq-default indent-tabs-mode t))
 (add-hook 'makefile-mode-hook 'hard-tabs)
 (add-hook 'makefile-gmake-mode-hook 'hard-tabs)
 (add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
@@ -173,7 +172,7 @@
 ;; K&R style, and
 ;; Line up parentheses as well
 (setq gangnam-style
-  '((c-basic-offset . 2)
+  '((c-basic-offset . tab-width)
     (c-comment-only-line-offset . 0)
     (c-offsets-alist
       (arglist-close . c-lineup-close-paren)
