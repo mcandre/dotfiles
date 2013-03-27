@@ -111,6 +111,7 @@
 (add-hook 'erlang-mode-hook
           (lambda ()
             (setq erlang-indent-level tab-width)
+            (setq load-path (cons "/data/data/org.burbas.erlang/arm_erlang_R14B_rel/lib/tools-2.6.6.1/emacs/" load-path))
             (setq load-path (cons "/usr/local/Cellar/erlang/R15B03-1/lib/erlang/lib/tools-2.6.8/emacs/" load-path))
             (setq load-path (cons "C:/Program Files/erl5.10.1/lib/tools-2.6.10/emacs" load-path))
             (setq load-path (cons "C:/Program Files (x86)/erl5.10.1/lib/tools-2.6.10/emacs" load-path))

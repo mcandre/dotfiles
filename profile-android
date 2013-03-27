@@ -5,12 +5,10 @@ cd ~
 clear
 
 export SPARTACUS=/data/data/com.spartacusrex.spartacuside/files/system/bin
-PATH="$PATH:$SPARTACUS"
+export PATH="$PATH:$SPARTACUS"
 
-export PATH
-
-#export GIT_SSH=$SPARTACUS/ssh
 alias ssh='ssh -i ~/.ssh/id_rsa'
 
 export EHOME=/mnt/sdcard/emacs
-alias emacs='/data/data/com.zielm.emacs/src/bootstrap-emacs'
+
+export PATH="$PATH:/data/data/org.burbas.erlang/arm_erlang_R14B_rel/bin"
