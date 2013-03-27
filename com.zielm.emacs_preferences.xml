@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-<string name="shell">/system/xbin/su u0_a41 -s /system/xbin/bash</string>
+<string name="shell">/system/xbin/bash --rcfile /data/.profile</string>
 <boolean name="utf8_by_default" value="false" />
 <boolean name="verify_path" value="true" />
 <boolean name="do_path_extensions" value="true" />
