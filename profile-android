@@ -11,3 +11,6 @@ export PATH
 
 #export GIT_SSH=$SPARTACUS/ssh
 alias ssh='ssh -i ~/.ssh/id_rsa'
+
+export EHOME=/mnt/sdcard/emacs
+alias emacs='/data/data/com.zielm.emacs/src/bootstrap-emacs'
