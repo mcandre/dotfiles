@@ -179,6 +179,7 @@
 (setq indent-tabs-mode nil)
 ;; 2 spaces
 (setq tab-width 2)
+(setq sws-tab-width 2)
 ;; That means JavaScript, too
 (setq js-indent-level tab-width)
 ;; And Erlang
@@ -212,13 +213,21 @@
     (indent-rigidly (region-beginning) (region-end) (* tab-width -1))
     (delete-backward-char tab-width)))
 
-;; And Markdown
+;; Block indent for Markdown
 (add-hook 'markdown-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil)
             (setq tab-width 4)
             (define-key markdown-mode-map (kbd "<tab>") 'traditional-indent)
             (define-key markdown-mode-map (kbd "<S-tab>") 'traditional-outdent)))
+;; Block indent for Stylus
+(add-hook 'stylus-mode-hook
+          (lambda ()
+            ;; (setq indent-tabs-mode nil)
+            ;; (setq tab-width 2)
+            ;; (setq sws-tab-width 2)
+            (define-key stylus-mode-map (kbd "<tab>") 'traditional-indent)
+            (define-key stylus-mode-map (kbd "<S-tab>") 'traditional-outdent)))
 
 ;; And PostScript
 (add-hook 'ps-mode-hook
