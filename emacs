@@ -91,6 +91,8 @@
 
 ;; Font: Monaco
 (set-frame-font "Monaco")
+;; Font size: 10pt
+(set-face-attribute 'default nil :height 80)
 
 ;; Disable version control integration
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
