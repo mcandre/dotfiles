@@ -37,18 +37,25 @@
   (define-key dired-mode-map "^"
     (function
      (lambda nil (interactive) (dired-single-buffer "..")))))
-
-;; Hide dired details
-(require 'dired-details)
-(dired-details-install)
-(setq dired-details-hidden-string "")
-
 ;; if dired's already loaded, then the keymap will be bound
 (if (boundp 'dired-mode-map)
     ;; we're good to go; just add our bindings
     (my-dired-init)
   ;; it's not loaded yet, so add our bindings to the load-hook
   (add-hook 'dired-load-hook 'my-dired-init))
+
+;; Hide dired file permissions
+(require 'dired-details)
+(dired-details-install)
+(setq dired-details-hidden-string "")
+
+;; Hide dired current directory (.)
+(require 'dired+)
+;; Fix color theme
+(setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
+(setq-default dired-omit-files-p t)
+(setq dired-omit-files
+      (concat dired-omit-files "\\."))
 
 ;; Highlight matching parentheses
 (show-paren-mode 1)
