@@ -38,6 +38,11 @@
     (function
      (lambda nil (interactive) (dired-single-buffer "..")))))
 
+;; Hide dired details
+(require 'dired-details)
+(dired-details-install)
+(setq dired-details-hidden-string "")
+
 ;; if dired's already loaded, then the keymap will be bound
 (if (boundp 'dired-mode-map)
     ;; we're good to go; just add our bindings
