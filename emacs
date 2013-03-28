@@ -221,13 +221,13 @@
             (define-key markdown-mode-map (kbd "<tab>") 'traditional-indent)
             (define-key markdown-mode-map (kbd "<S-tab>") 'traditional-outdent)))
 ;; Block indent for Stylus
-(add-hook 'stylus-mode-hook
-          (lambda ()
+;; (add-hook 'stylus-mode-hook
+          ;; (lambda ()
             ;; (setq indent-tabs-mode nil)
             ;; (setq tab-width 2)
             ;; (setq sws-tab-width 2)
-            (define-key stylus-mode-map (kbd "<tab>") 'traditional-indent)
-            (define-key stylus-mode-map (kbd "<S-tab>") 'traditional-outdent)))
+            ;; (define-key stylus-mode-map (kbd "<tab>") 'traditional-indent)
+            ;; (define-key stylus-mode-map (kbd "<S-tab>") 'traditional-outdent)))
 
 ;; And PostScript
 (add-hook 'ps-mode-hook
