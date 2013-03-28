@@ -29,8 +29,6 @@
 
 ;; Font: Monaco
 (set-frame-font "Monaco")
-;; Font size: 10pt
-(set-face-attribute 'default nil :height 80)
 
 ;; Disable version control integration
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
@@ -210,3 +208,8 @@
 (global-set-key [C-tab] 'tabbar-forward-tab)
 ;; Single tab group
 (setq tabbar-buffer-groups-function (lambda () '("group")))
+
+;; rgrep/lgrep ignore more file types
+(eval-after-load "grep"
+  '(progn
+    (add-to-list 'grep-find-ignored-files "node_modules")))
