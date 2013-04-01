@@ -31,7 +31,6 @@
 (defun my-dired-init ()
   "Bunch of stuff to run for dired, either immediately or when it's
         loaded."
-  ;; <add other stuff here>
   (define-key dired-mode-map [return] 'dired-single-buffer)
   (define-key dired-mode-map [mouse-1] 'dired-single-buffer-mouse)
   (define-key dired-mode-map "^"
@@ -71,57 +70,72 @@
 (setq line-number-mode t)
 (setq column-number-mode t)
 
-;; ;; Folding
-;; (autoload 'hideshowvis-enable "hideshowvis" "Highlight foldable regions")
+;; Folding
+(when (not (string-match "unknown" system-configuration))
+  ;; Syntax definitions
+  (require 'fold-dwim)
 
-;; (autoload 'hideshowvis-minor-mode
-;;    "hideshowvis"
-;;    "Will indicate regions foldable with hideshow in the fringe."
-;;    'interactive)
+  (autoload 'hideshowvis-enable "hideshowvis" "Highlight foldable regions")
 
-;; (dolist (hook (list 'emacs-lisp-mode-hook
-;;                     'c++-mode-hook))
-;;   (add-hook hook 'hideshowvis-enable))
+  (autoload 'hideshowvis-minor-mode
+    "hideshowvis"
+    "Will indicate regions foldable with hideshow in the fringe."
+    'interactive)
 
-;; ;; Add the following to your .emacs and uncomment it in order to get a + symbol
-;; ;; in the fringe and a yellow marker indicating the number of hidden lines at
-;; ;; the end of the line for hidden regions:
-;; (define-fringe-bitmap 'hs-marker [0 24 24 126 126 24 24 0])
+  (dolist (hook (list 'emacs-lisp-mode-hook
+                      'lisp-mode-hook
+                      'scheme-mode-hook
+                      'c-mode-hook
+                      'c++-mode-hook
+                      'java-mode-hook
+                      'js-mode-hook
+                      'perl-mode-hook
+                      'php-mode-hook
+                      'tcl-mode-hook
+                      'vhdl-mode-hook
+                      'fortran-mode-hook
+                      'python-mode-hook))
+    (add-hook hook 'hideshowvis-enable))
 
-;; (defcustom hs-fringe-face 'hs-fringe-face
-;;    "*Specify face used to highlight the fringe on hidden regions."
-;;    :type 'face
-;;    :group 'hideshow)
+  ;; Add the following to your .emacs and uncomment it in order to get a + symbol
+  ;; in the fringe and a yellow marker indicating the number of hidden lines at
+  ;; the end of the line for hidden regions:
+  (define-fringe-bitmap 'hs-marker [0 24 24 126 126 24 24 0])
 
-;; (defface hs-fringe-face
-;;    '((t (:foreground "#888" :box (:line-width 2 :color "grey75" :style released-button))))
-;;    "Face used to highlight the fringe on folded regions"
-;;    :group 'hideshow)
+  (defcustom hs-fringe-face 'hs-fringe-face
+    "*Specify face used to highlight the fringe on hidden regions."
+    :type 'face
+    :group 'hideshow)
 
-;; (defcustom hs-face 'hs-face
-;;    "*Specify the face to to use for the hidden region indicator"
-;;    :type 'face
-;;    :group 'hideshow)
+  (defface hs-fringe-face
+    '((t (:foreground "#888" :box (:line-width 2 :color "grey75" :style released-button))))
+    "Face used to highlight the fringe on folded regions"
+    :group 'hideshow)
 
-;; (defface hs-face
-;;    '((t (:background "#ff8" :box t)))
-;;    "Face to hightlight the ... area of hidden regions"
-;;    :group 'hideshow)
+  (defcustom hs-face 'hs-face
+    "*Specify the face to to use for the hidden region indicator"
+    :type 'face
+    :group 'hideshow)
 
-;; (defun display-code-line-counts (ov)
-;;    (when (eq 'code (overlay-get ov 'hs))
-;;      (let* ((marker-string "*fringe-dummy*")
-;;             (marker-length (length marker-string))
-;;             (display-string (format "(%d)..." (count-lines (overlay-start ov) (overlay-end ov))))
-;;             )
-;;        (overlay-put ov 'help-echo "Hiddent text. C-c,= to show")
-;;        (put-text-property 0 marker-length 'display (list 'left-fringe 'hs-marker 'hs-fringe-face) marker-string)
-;;        (overlay-put ov 'before-string marker-string)
-;;        (put-text-property 0 (length display-string) 'face 'hs-face display-string)
-;;        (overlay-put ov 'display display-string)
-;;        )))
+  (defface hs-face
+    '((t (:background "#ff8" :box t)))
+    "Face to hightlight the ... area of hidden regions"
+    :group 'hideshow)
 
-;; (setq hs-set-up-overlay 'display-code-line-counts)
+  (defun display-code-line-counts (ov)
+    (when (eq 'code (overlay-get ov 'hs))
+      (let* ((marker-string "*fringe-dummy*")
+             (marker-length (length marker-string))
+             (display-string (format "(%d)..." (count-lines (overlay-start ov) (overlay-end ov))))
+             )
+        (overlay-put ov 'help-echo "Hiddent text. C-c,= to show")
+        (put-text-property 0 marker-length 'display (list 'left-fringe 'hs-marker 'hs-fringe-face) marker-string)
+        (overlay-put ov 'before-string marker-string)
+        (put-text-property 0 (length display-string) 'face 'hs-face display-string)
+        (overlay-put ov 'display display-string)
+        )))
+
+  (setq hs-set-up-overlay 'display-code-line-counts))
 
 ;; Font: Monaco
 (set-frame-font "Monaco")
@@ -175,7 +189,8 @@
 ;; ...
 
 ;; Monokai
-(load-theme 'monokai t)
+(when window-system
+    (load-theme 'monokai t))
 
 ;; ERB/EJS
 (require 'mmm-auto)
@@ -301,13 +316,14 @@
 (global-set-key (kbd "C-x O") 'previous-multiframe-window)
 
 ;; File tabs
-(require 'tabbar)
-(tabbar-mode 1)
-;; CUA
-(global-set-key [C-S-tab] 'tabbar-backward-tab)
-(global-set-key [C-tab] 'tabbar-forward-tab)
-;; Single tab group
-(setq tabbar-buffer-groups-function (lambda () '("group")))
+(when window-system
+    (require 'tabbar)
+    (tabbar-mode 1)
+    ;; CUA
+    (global-set-key [C-S-tab] 'tabbar-backward-tab)
+    (global-set-key [C-tab] 'tabbar-forward-tab)
+    ;; Single tab group
+    (setq tabbar-buffer-groups-function (lambda () '("group"))))
 
 ;; rgrep/lgrep ignore more file types
 (eval-after-load "grep"
