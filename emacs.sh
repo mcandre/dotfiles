@@ -1,2 +1,2 @@
 #!/bin/sh
-/Applications/Emacs.app/Contents/MacOS/Emacs "$@"
+open -a /Applications/Emacs.app/Contents/MacOS/Emacs "$@"
