@@ -220,6 +220,9 @@
             (turn-on-haskell-indentation)
             (setq indent-tabs-mode nil
                   tab-width tab-width)))
+(add-to-list 'auto-mode-alist '("\\.hs\\'" . haskell-mode))
+(add-to-list 'auto-mode-alist '("\\.lhs\\'" . haskell-mode))
+(autoload 'haskell-mode "haskell-mode" "" t)
 
 ;; If mark exists, indent rigidly.
 ;; Otherwise, insert a hard or soft tab indentation.
