@@ -163,6 +163,7 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 ;; MS-DOS .BAT files
 (add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
+(autoload 'ntcmd-mode "ntcmd" "" t)
 ;; F#
 (add-to-list 'auto-mode-alist '("\\.fs[iylx]?$" . fsharp-mode))
 (autoload 'fsharp-mode "fsharp-mode" "Major mode for editing F# code." t)
