@@ -22,6 +22,13 @@
 (setq initial-scratch-message nil
       initial-major-mode 'markdown-mode)
 
+;; M-; toggles commenting for marked region or current line.
+(autoload 'evilnc-comment-or-uncomment-lines "evil-nerd-commenter" "" t)
+(global-set-key "\M-;" 'evilnc-comment-or-uncomment-lines)
+
+;; C-x O navigates to previous window
+(global-set-key (kbd "C-x O") 'previous-multiframe-window)
+
 ;; Single dired buffer
 (autoload 'dired-single-buffer "dired-single" "" t)
 (autoload 'dired-single-buffer-mouse "dired-single" "" t)
@@ -162,12 +169,15 @@
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 ;; MS-DOS .BAT files
-(add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
 (autoload 'ntcmd-mode "ntcmd" "" t)
+(add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
 ;; F#
-(add-to-list 'auto-mode-alist '("\\.fs[iylx]?$" . fsharp-mode))
 (autoload 'fsharp-mode "fsharp-mode" "Major mode for editing F# code." t)
 (autoload 'run-fsharp "inf-fsharp" "Run an inferior F# process." t)
+(add-to-list 'auto-mode-alist '("\\.fs[iylx]?$" . fsharp-mode))
+;; D
+(autoload 'd-mode "d-mode" "" t)
+(add-to-list 'auto-mode-alist '("\\.d\\'" . d-mode))
 ;; Mozart/Oz
 (autoload 'oz-mode "oz" "Major mode for interacting with Oz code." t)
 (add-to-list 'auto-mode-alist '("\\.oz\\'" . oz-mode))
@@ -207,22 +217,22 @@
           (lambda ()
             (setq js-indent-level tab-width)))
 ;; And Erlang
+(autoload 'erlang-mode "erlang" "" t)
+(add-to-list 'auto-mode-alist '("\\.erl\\'" . erlang-mode))
+(add-to-list 'auto-mode-alist '("\\.escript\\'" . erlang-mode))
 (add-hook 'erlang-mode-hook
           (lambda ()
             (setq erlang-indent-level tab-width)))
-(add-to-list 'auto-mode-alist '("\\.erl\\'" . erlang-mode))
-(add-to-list 'auto-mode-alist '("\\.escript\\'" . erlang-mode))
-(autoload 'erlang-mode "erlang" "" t)
 
 ;; And Haskell
+(autoload 'haskell-mode "haskell-mode" "" t)
+(add-to-list 'auto-mode-alist '("\\.hs\\'" . haskell-mode))
+(add-to-list 'auto-mode-alist '("\\.lhs\\'" . haskell-mode))
 (add-hook 'haskell-mode-hook
           (lambda ()
             (turn-on-haskell-indentation)
             (setq indent-tabs-mode nil
                   tab-width tab-width)))
-(add-to-list 'auto-mode-alist '("\\.hs\\'" . haskell-mode))
-(add-to-list 'auto-mode-alist '("\\.lhs\\'" . haskell-mode))
-(autoload 'haskell-mode "haskell-mode" "" t)
 
 ;; If mark exists, indent rigidly.
 ;; Otherwise, insert a hard or soft tab indentation.
@@ -291,20 +301,15 @@
   (lambda ()
     (c-add-style "gangnam-style" gangnam-style t)))
 ;; Dart, too
+(autoload 'dart-mode "dart-mode" "" t)
+(add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
 (add-hook 'dart-mode-hook
   (lambda ()
     (c-add-style "dart" gangnam-style t)))
 
-;; M-; toggles commenting for marked region or current line.
-(autoload 'evilnc-comment-or-uncomment-lines "evil-nerd-commenter" "" t)
-(global-set-key "\M-;" 'evilnc-comment-or-uncomment-lines)
-
-;; C-x O navigates to previous window
-(global-set-key (kbd "C-x O") 'previous-multiframe-window)
-
 ;; File tabs
 (when window-system
-    ;; (require 'tabbar)
+    (require 'tabbar)
     (tabbar-mode 1)
     ;; CUA
     (global-set-key [C-S-tab] 'tabbar-backward-tab)
