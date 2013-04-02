@@ -3,7 +3,7 @@
 <string name="folder_preview">STACK</string>
 <string name="gesture_double_tap">Nova Settings$#Intent;action=android.intent.action.MAIN;component=com.teslacoilsw.launcher/.preferences.SettingsActivity;end</string>
 <boolean name="favorites_show_label" value="true" />
-<int name="dock_grid_cols" value="4" />
+<int name="dock_grid_cols" value="3" />
 <null name="apps.new.list" />
 <int name="wallpaper_scrolling_asus_max_size" value="-1" />
 <int name="drawer_app_grid_land_rows" value="3" />
