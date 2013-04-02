@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-<string name="shell">/system/xbin/su -l root -c &quot;bash --rcfile /data/.profile&quot;</string>
+<string name="shell">/system/xbin/bash --rcfile /data/.profile</string>
 <boolean name="alt_sends_esc" value="true" />
 <boolean name="utf8_by_default" value="false" />
 <boolean name="verify_path" value="true" />
 <boolean name="do_path_extensions" value="true" />
-<string name="actionbar">1</string>
+<string name="actionbar">2</string>
 <string name="ime">0</string>
 <string name="initialcommand"></string>
-<string name="statusbar">1</string>
+<string name="statusbar">0</string>
 <string name="termtype">vt100</string>
 <boolean name="close_window_on_process_exit" value="true" />
 <string name="color">1</string>

@@ -9,7 +9,7 @@ export PATH="$PATH:$SPARTACUS"
 
 alias ssh='ssh -i /data/.ssh/id_rsa'
 
-export EHOME=/data/emacs
+export EHOME=/mnt/sdcard/emacs
 
 export PATH="$PATH:/data/data/org.burbas.erlang/arm_erlang_R14B_rel/bin"
 
