@@ -7,7 +7,7 @@ clear
 export SPARTACUS=/data/data/com.spartacusrex.spartacuside/files/system/bin
 export PATH="$PATH:$SPARTACUS"
 
-alias ssh='ssh -i ~/.ssh/id_rsa'
+alias ssh='ssh -i /data/.ssh/id_rsa'
 
 export EHOME=/mnt/sdcard/emacs
 
