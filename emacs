@@ -1,27 +1,26 @@
 ;; Store as ~/.emacs
 
-;; Marmalade
-;; http://marmalade-repo.org/
+;; Always display error backtraces
+(setq debug-on-error t)
+
 (require 'package)
-(add-to-list 'package-archives 
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-;; MELPA
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(setq package-archives
+      (append '(("marmalade" . "http://marmalade-repo.org/packages/")
+                ("melpa" . "http://melpa.milkbox.net/packages/"))
+              package-archives))
 (package-initialize)
 
 ;; Disable start screen
 (setq inhibit-startup-screen t)
 
 ;; Disable backup files
-(setq make-backup-files nil)
-(setq auto-save-default nil)
-(setq backup-inhibited t)
+(setq make-backup-files nil
+      auto-save-default nil
+      backup-inhibited t)
 
-;; *scratch* mostly used for bug report copypasta
-(setq initial-major-mode 'markdown-mode)
-;; Default *scratch* contents to nil
-(setq initial-scratch-message nil)
+;; Empty Markdown scratch
+(setq initial-scratch-message nil
+      initial-major-mode 'markdown-mode)
 
 ;; Single dired buffer
 (autoload 'dired-single-buffer "dired-single" "" t)
@@ -34,27 +33,33 @@
   (define-key dired-mode-map [return] 'dired-single-buffer)
   (define-key dired-mode-map [mouse-1] 'dired-single-buffer-mouse)
   (define-key dired-mode-map "^"
-    (function
-     (lambda nil (interactive) (dired-single-buffer "..")))))
-;; if dired's already loaded, then the keymap will be bound
+    (lambda ()
+      (interactive)
+      (dired-single-buffer ".."))))
+;; If dired's already loaded, then the keymap will be bound.
 (if (boundp 'dired-mode-map)
-    ;; we're good to go; just add our bindings
+    ;; We're good to go; Just add our bindings.
     (my-dired-init)
-  ;; it's not loaded yet, so add our bindings to the load-hook
+  ;; It's not loaded yet, so add our bindings to the load-hook.
   (add-hook 'dired-load-hook 'my-dired-init))
 
-;; Hide dired file permissions
-(require 'dired-details)
-(dired-details-install)
-(setq dired-details-hidden-string "")
+(add-hook 'dired-mode-hook
+          (lambda ()
+            ;; Auto-refresh dired on file change
+            (auto-revert-mode)
+            (setq-default auto-revert-interval 1)
 
-;; Hide dired current directory (.)
-(require 'dired+)
-;; Fix color theme
-(setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
-(setq-default dired-omit-files-p t)
-(setq dired-omit-files
-      (concat dired-omit-files "\\."))
+            ;; Hide dired file permissions
+            (require 'dired-details)
+            (dired-details-install)
+            (setq dired-details-hidden-string "")
+
+            ;; Hide dired current directory (.)
+            (require 'dired+)
+            ;; Fix color theme
+            (setq-default dired-omit-files-p t)
+            (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t)))
+                  dired-omit-files (concat dired-omit-files "\\."))))
 
 ;; Highlight matching parentheses
 (show-paren-mode 1)
@@ -65,41 +70,45 @@
 ;; Show line numbers
 (global-linum-mode t)
 ;; With a space
-(setq linum-format "%d ")
-;; Minibuffer line and column
-(setq line-number-mode t)
-(setq column-number-mode t)
+(setq linum-format "%d "
+      ;; Minibuffer line and column
+      line-number-mode t
+      column-number-mode t)
 
 ;; Folding
 (when (not (string-match "unknown" system-configuration))
-  ;; Syntax definitions
-  (require 'fold-dwim)
-
-  (autoload 'hideshowvis-enable "hideshowvis" "Highlight foldable regions")
+  (autoload 'hideshowvis-enable
+    "hideshowvis"
+    "Highlight foldable regions")
 
   (autoload 'hideshowvis-minor-mode
     "hideshowvis"
     "Will indicate regions foldable with hideshow in the fringe."
     'interactive)
 
-  (dolist (hook (list 'emacs-lisp-mode-hook
-                      'lisp-mode-hook
-                      'scheme-mode-hook
-                      'c-mode-hook
-                      'c++-mode-hook
-                      'java-mode-hook
-                      'js-mode-hook
-                      'perl-mode-hook
-                      'php-mode-hook
-                      'tcl-mode-hook
-                      'vhdl-mode-hook
-                      'fortran-mode-hook
-                      'python-mode-hook))
-    (add-hook hook 'hideshowvis-enable))
+  (dolist (hook '(emacs-lisp-mode-hook
+                  lisp-mode-hook
+                  scheme-mode-hook
+                  c-mode-hook
+                  c++-mode-hook
+                  java-mode-hook
+                  js-mode-hook
+                  perl-mode-hook
+                  php-mode-hook
+                  tcl-mode-hook
+                  vhdl-mode-hook
+                  fortran-mode-hook
+                  python-mode-hook))
+    (add-hook hook
+              (lambda ()
+                ;; More syntax definitions
+                (require 'fold-dwim)
+                (hideshowvis-enable))))
 
-  ;; Add the following to your .emacs and uncomment it in order to get a + symbol
-  ;; in the fringe and a yellow marker indicating the number of hidden lines at
-  ;; the end of the line for hidden regions:
+  ;;
+  ;; +/- fold buttons
+  ;;
+
   (define-fringe-bitmap 'hs-marker [0 24 24 126 126 24 24 0])
 
   (defcustom hs-fringe-face 'hs-fringe-face
@@ -132,8 +141,7 @@
         (put-text-property 0 marker-length 'display (list 'left-fringe 'hs-marker 'hs-fringe-face) marker-string)
         (overlay-put ov 'before-string marker-string)
         (put-text-property 0 (length display-string) 'face 'hs-face display-string)
-        (overlay-put ov 'display display-string)
-        )))
+        (overlay-put ov 'display display-string))))
 
   (setq hs-set-up-overlay 'display-code-line-counts))
 
@@ -145,48 +153,32 @@
                         120
                         80))
 
-;; Disable version control integration
-(remove-hook 'find-file-hooks 'vc-find-file-hook)
-
-;; Auto-refresh dired on file change
-(add-hook 'dired-mode-hook
-          (lambda ()
-            (auto-revert-mode)
-            (setq-default auto-revert-interval 1)))
-
 ;; .emacs
 (add-to-list 'auto-mode-alist '("emacs$" . emacs-lisp-mode))
-;; vimrc
-(require 'vimrc-mode)
+;; .vimrc
 (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
 ;; Markdown
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 ;; MS-DOS .BAT files
-(require 'ntcmd)
 (add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
-;; D
-(require 'd-mode)
-;; Dart
-(require 'dart-mode)
 ;; F#
-(require 'fsharp-mode)
-(setq auto-mode-alist (cons '("\\.fs[iylx]?$" . fsharp-mode) auto-mode-alist))
-(autoload 'fsharp-mode "fsharp" "Major mode for editing F# code." t)
+(add-to-list 'auto-mode-alist '("\\.fs[iylx]?$" . fsharp-mode))
+(autoload 'fsharp-mode "fsharp-mode" "Major mode for editing F# code." t)
 (autoload 'run-fsharp "inf-fsharp" "Run an inferior F# process." t)
 ;; Mozart/Oz
-;;(require 'oz)
+(autoload 'oz-mode "oz" "Major mode for interacting with Oz code." t)
+(add-to-list 'auto-mode-alist '("\\.oz\\'" . oz-mode))
 ;; We're Ruby, too!
-(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
-
-;; Smooth scrolling
-;; ...
+(dolist (extension
+         '("\\.rake$"
+           "Rakefile$"
+           "\\.gemspec$"
+           "\\.ru$"
+           "Gemfile$"
+           "Guardfile$"))
+  (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
 
 ;; Monokai
 (when window-system
@@ -203,31 +195,26 @@
 (add-to-list 'auto-mode-alist '("\\.ejs\\'"  . html-erb-mode))
 
 ;; Default to Unix LF line endings
-(setq default-buffer-file-coding-system 'utf-8-unix)
-
-;; Soft tabs
-(setq indent-tabs-mode nil)
-;; 2 spaces
-(setq tab-width 2)
-(setq sws-tab-width 2)
-;; That means JavaScript, too
-(setq js-indent-level tab-width)
+(setq default-buffer-file-coding-system 'utf-8-unix
+      ;; Soft tabs
+      indent-tabs-mode nil
+      ;; 2 spaces
+      tab-width 2
+      sws-tab-width 2)
+;; And JavaScript
+(add-hook 'js-mode-hook
+          (lambda ()
+            (setq js-indent-level tab-width)))
 ;; And Erlang
 (add-hook 'erlang-mode-hook
           (lambda ()
-            (setq erlang-indent-level tab-width)
-            (setq load-path (cons "/data/data/org.burbas.erlang/arm_erlang_R14B_rel/lib/tools-2.6.6.1/emacs/" load-path))
-            (setq load-path (cons "/usr/local/Cellar/erlang/R15B03-1/lib/erlang/lib/tools-2.6.8/emacs/" load-path))
-            (setq load-path (cons "C:/Program Files/erl5.10.1/lib/tools-2.6.10/emacs" load-path))
-            (setq load-path (cons "C:/Program Files (x86)/erl5.10.1/lib/tools-2.6.10/emacs" load-path))
-            (require 'erlang-start)))
+            (setq erlang-indent-level tab-width)))
 ;; And Haskell
-(require 'haskell-mode)
 (add-hook 'haskell-mode-hook
           (lambda ()
             (turn-on-haskell-indentation)
-            (setq indent-tabs-mode nil)
-            (setq tab-width tab-width)))
+            (setq indent-tabs-mode nil
+                  tab-width tab-width)))
 
 ;; If mark exists, indent rigidly.
 ;; Otherwise, insert a hard or soft tab indentation.
@@ -246,18 +233,10 @@
 ;; Block indent for Markdown
 (add-hook 'markdown-mode-hook
           (lambda ()
-            (setq indent-tabs-mode nil)
-            (setq tab-width 4)
+            (setq indent-tabs-mode nil
+                  tab-width 4)
             (define-key markdown-mode-map (kbd "<tab>") 'traditional-indent)
             (define-key markdown-mode-map (kbd "<S-tab>") 'traditional-outdent)))
-;; Block indent for Stylus
-;; (add-hook 'stylus-mode-hook
-          ;; (lambda ()
-            ;; (setq indent-tabs-mode nil)
-            ;; (setq tab-width 2)
-            ;; (setq sws-tab-width 2)
-            ;; (define-key stylus-mode-map (kbd "<tab>") 'traditional-indent)
-            ;; (define-key stylus-mode-map (kbd "<S-tab>") 'traditional-outdent)))
 
 ;; And PostScript
 (add-hook 'ps-mode-hook
@@ -267,9 +246,9 @@
           (lambda () (setq oz-indent-chars tab-width)))
 ;; But not Makefiles
 (defun hard-tabs ()
-  (setq indent-tabs-mode t)
   (setq-default indent-tabs-mode t)
-  (setq tab-width 2))
+  (setq indent-tabs-mode t
+        tab-width 2))
 (add-hook 'makefile-mode-hook 'hard-tabs)
 (add-hook 'makefile-gmake-mode-hook 'hard-tabs)
 (add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
@@ -278,7 +257,9 @@
 (add-hook 'before-save-hook
           (lambda ()
             ;; But not Makefiles
-            (if (member major-mode '(makefile-mode makefile-gmake-mode makefile-bsdmake-mode))
+            (if (member major-mode '(makefile-mode
+                                     makefile-gmake-mode
+                                     makefile-bsdmake-mode))
               (tabify (point-min) (point-max))
               (untabify (point-min) (point-max)))))
 ;;              (indent-region (point-min) (point-max)))))
@@ -306,10 +287,8 @@
   (lambda ()
     (c-add-style "dart" gangnam-style t)))
 
-;; Evil Nerd Commenter
-(require 'evil-nerd-commenter)
-;; M-; toggles marked region,
-;; Or current line if no mark is set.
+;; M-; toggles commenting for marked region or current line.
+(autoload 'evilnc-comment-or-uncomment-lines "evil-nerd-commenter" "" t)
 (global-set-key "\M-;" 'evilnc-comment-or-uncomment-lines)
 
 ;; C-x O navigates to previous window
@@ -317,7 +296,7 @@
 
 ;; File tabs
 (when window-system
-    (require 'tabbar)
+    ;; (require 'tabbar)
     (tabbar-mode 1)
     ;; CUA
     (global-set-key [C-S-tab] 'tabbar-backward-tab)
