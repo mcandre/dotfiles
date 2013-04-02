@@ -210,6 +210,10 @@
 (add-hook 'erlang-mode-hook
           (lambda ()
             (setq erlang-indent-level tab-width)))
+(add-to-list 'auto-mode-alist '("\\.erl\\'" . erlang-mode))
+(add-to-list 'auto-mode-alist '("\\.escript\\'" . erlang-mode))
+(autoload 'erlang-mode "erlang" "" t)
+
 ;; And Haskell
 (add-hook 'haskell-mode-hook
           (lambda ()
