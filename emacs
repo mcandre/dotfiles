@@ -211,11 +211,10 @@
       indent-tabs-mode nil
       ;; 2 spaces
       tab-width 2
-      sws-tab-width 2)
-;; And JavaScript
-(add-hook 'js-mode-hook
-          (lambda ()
-            (setq js-indent-level tab-width)))
+      sws-tab-width 2
+      ;; And JavaScript
+      js-indent-level 2)
+
 ;; And Erlang
 (autoload 'erlang-mode "erlang" "" t)
 (add-to-list 'auto-mode-alist '("\\.erl\\'" . erlang-mode))
