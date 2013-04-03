@@ -16,3 +16,11 @@ export PATH="$PATH:/data/data/org.burbas.erlang/arm_erlang_R14B_rel/bin"
 # Run install_gcc first
 # binaries are named arm-eabi-gcc, arm-eabi-g++, ...
 export PATH="$PATH:/data/data/com.spartacusrex.spartacuside/files/android-gcc-4.4.0/bin"
+
+# Monokai
+D=$'\e[37;40m'
+PINK=$'\e[35;40m'
+
+BOLD=$'\033[1m'
+
+export PS1='${bold}${PINK}\u:\w\$${D}${normal} '
