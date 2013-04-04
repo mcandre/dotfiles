@@ -1,10 +1,3 @@
-# Monokai
-D=$'\e[37;40m'
-PINK=$'\e[35;40m'
-
-BOLD=$'\033[1m'
-
-export PS1='${bold}${PINK}\u:\w\$${D}${normal} '
 export CLICOLOR=1
 
 # Specs
