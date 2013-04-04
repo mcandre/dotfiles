@@ -190,6 +190,8 @@
            "Gemfile$"
            "Guardfile$"))
   (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
+;; We're JavaScript, too!
+(add-to-list 'auto-mode-alist '("\\.jshintrc\\'" . js-mode))
 
 ;; Monokai
 (when window-system
