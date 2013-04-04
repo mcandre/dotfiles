@@ -26,6 +26,24 @@ http://vim.wikia.com/wiki/Vim_Tips_Wiki
 
 # Basic Commands
 
+## Modes
+
+### Normal
+
+The default mode. To issue a command, type `Colon`, then the command, then `Enter`. This is represented in Vim documentation with the notation `:command`.
+
+### Insert
+
+From Normal mode, press `i` to switch to Insert mode. Then begin typing text.
+
+To return to Normal mode, press `ESC`.
+
+### Visual
+
+From Normal mode, press `v` to switch to Visual mode.
+
+To return to Normal mode, press `ESC`.
+
 ## Open File/Directory
 
     $ vim <file/dir>
