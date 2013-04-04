@@ -12,6 +12,8 @@ http://vim.wikia.com/wiki/Vim_Tips_Wiki
 
     $ apt-get install vim-full
 
+    $ brew install vim
+
     C:\> chocolatey install vim
 
 [vim-7.3.exe](http://www.vim.org/download.php#pc)
