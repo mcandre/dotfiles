@@ -83,10 +83,10 @@
 	<mouse>
 		<actions>
 			<action ctrl="0" shift="0" alt="0" button="1" name="copy"/>
-			<action ctrl="0" shift="1" alt="0" button="1" name="select"/>
-			<action ctrl="0" shift="0" alt="0" button="3" name="paste"/>
-			<action ctrl="1" shift="0" alt="0" button="1" name="drag"/>
-			<action ctrl="0" shift="0" alt="0" button="2" name="menu"/>
+			<action ctrl="0" shift="0" alt="0" button="1" name="select"/>
+			<action ctrl="0" shift="0" alt="0" button="2" name="paste"/>
+			<action ctrl="0" shift="0" alt="0" button="1" name="drag"/>
+			<action ctrl="0" shift="0" alt="0" button="0" name="menu"/>
 		</actions>
 	</mouse>
 	<tabs>
