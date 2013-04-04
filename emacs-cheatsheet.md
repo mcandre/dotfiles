@@ -22,7 +22,7 @@ http://emacswiki.org/
 
     ~/.emacs
 
-    [Dotfile](https://github.com/mcandre/dotfiles/blob/master/emacs)
+[Dotfile](https://github.com/mcandre/dotfiles/blob/master/emacs)
 
 ## Hotkey Notation
 
