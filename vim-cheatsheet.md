@@ -32,7 +32,7 @@ http://vim.wikia.com/wiki/Vim_Tips_Wiki
 
 ### Normal
 
-The default mode. To issue a command, type `Colon`, then the command, then `Enter`. This is represented in Vim documentation with the notation `:command`.
+By default, Vim begins in Normal mode, for entering commands. To issue a command, type `Colon`, then the command, then `Enter`. This is represented in Vim documentation with the notation `:command`.
 
 ### Insert
 
