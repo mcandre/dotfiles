@@ -41,7 +41,7 @@
 		<hotkey ctrl="1" shift="0" alt="0" extended="0" code="83" command="settings"/>
 		<hotkey ctrl="0" shift="0" alt="0" extended="0" code="112" command="help"/>
 		<hotkey ctrl="0" shift="0" alt="1" extended="0" code="115" command="exit"/>
-		<hotkey ctrl="1" shift="0" alt="0" extended="0" code="112" command="newtab1"/>
+		<hotkey ctrl="1" shift="0" alt="0" extended="0" code="78" command="newtab1"/>
 		<hotkey ctrl="1" shift="0" alt="0" extended="0" code="113" command="newtab2"/>
 		<hotkey ctrl="1" shift="0" alt="0" extended="0" code="114" command="newtab3"/>
 		<hotkey ctrl="1" shift="0" alt="0" extended="0" code="115" command="newtab4"/>
