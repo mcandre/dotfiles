@@ -1,4 +1,5 @@
 export CLICOLOR=1
+alias ls="ls --color"
 
 # Specs
 export PATH=$PATH:~/Desktop/src/specs
