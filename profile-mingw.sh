@@ -1,3 +1,7 @@
+# Disable cygwin path warning
+export CYGWIN="$CYGWIN nodosfilewarning"
+
+# Colors
 export CLICOLOR=1
 alias ls="ls --color"
 
