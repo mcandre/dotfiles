@@ -33,7 +33,7 @@
 		<transparency type="0" active_alpha="255" inactive_alpha="255" r="0" g="0" b="0"/>
 	</appearance>
 	<behavior>
-		<copy_paste copy_on_select="0" clear_on_copy="1" no_wrap="1" trim_spaces="1" copy_newline_char="1" sensitive_copy="1"/>
+		<copy_paste copy_on_select="1" clear_on_copy="1" no_wrap="1" trim_spaces="1" copy_newline_char="1" sensitive_copy="1"/>
 		<scroll page_scroll_rows="0"/>
 		<tab_highlight flashes="0" stay_highligted="1"/>
 	</behavior>
@@ -82,7 +82,7 @@
 	</hotkeys>
 	<mouse>
 		<actions>
-			<action ctrl="0" shift="0" alt="0" button="1" name="copy"/>
+			<action ctrl="0" shift="0" alt="0" button="0" name="copy"/>
 			<action ctrl="0" shift="0" alt="0" button="1" name="select"/>
 			<action ctrl="0" shift="0" alt="0" button="2" name="paste"/>
 			<action ctrl="0" shift="0" alt="0" button="1" name="drag"/>
