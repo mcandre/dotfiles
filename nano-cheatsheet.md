@@ -26,6 +26,11 @@ http://www.nano-editor.org/dist/v2.2/nano.html
 
 # Basic Commands
 
+## Hotkey Notation
+
+* `^` = `Control`
+* `M-` = `Alt` ("Meta" key)
+
 ## Open File
 
     $ nano <file>
