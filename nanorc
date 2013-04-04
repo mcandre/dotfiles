@@ -4,10 +4,13 @@ set undo
 # Show line and column numbers
 set const
 
-# Soft tabs
-set tabstospaces
-# Width 2
-set tabsize 2
+## Soft tabs
+#set tabstospaces
+## Width 2
+#set tabsize 2
+
+# Autoindent
+set autoindent
 
 # Syntax highlighting
 include "~/.nano/asm.nanorc"
