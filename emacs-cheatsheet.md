@@ -24,6 +24,13 @@ http://emacswiki.org/
 
     [Dotfile](https://github.com/mcandre/dotfiles/blob/master/emacs)
 
+## Hotkey Notation
+
+* `C-` = `Control`
+* `M-` = `Alt` ("Meta" key)
+* `S-` = `Shift`
+* `key-key key-key key-key...` = Hotkeys are pressed in order, not simultaneously.
+
 ## Evaluate Elisp Code
 
     M-: (<code...>)
