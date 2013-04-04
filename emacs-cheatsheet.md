@@ -4,6 +4,10 @@ Andrew Pennebaker
 
 https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
+## Documentation
+
+http://emacswiki.org/
+
 ## Install
 
     $ apt-get install emacs

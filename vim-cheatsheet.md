@@ -4,6 +4,10 @@ Andrew Pennebaker
 
 https://github.com/mcandre/dotfiles/blob/master/vim-cheatsheet.md
 
+## Documentation
+
+http://vim.wikia.com/wiki/Vim_Tips_Wiki
+
 ## Install
 
     $ apt-get install vim-full
