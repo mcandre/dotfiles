@@ -190,6 +190,9 @@
            "Gemfile$"
            "Guardfile$"))
   (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
+;; We're YAML, too!
+(autoload 'yaml-mode "yaml-mode" "" t)
+(add-to-list 'auto-mode-alist '("\\.reek\\'" . yaml-mode))
 ;; We're JavaScript, too!
 (add-to-list 'auto-mode-alist '("\\.jshintrc\\'" . js-mode))
 
