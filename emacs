@@ -181,6 +181,11 @@
 ;; Mozart/Oz
 (autoload 'oz-mode "oz" "Major mode for interacting with Oz code." t)
 (add-to-list 'auto-mode-alist '("\\.oz\\'" . oz-mode))
+;; Work around broken ruby-electric-brace.
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (define-key ruby-mode-map "{" nil)
+            (define-key ruby-mode-map "}" nil)))
 ;; We're Ruby, too!
 (dolist (extension
          '("\\.rake$"
