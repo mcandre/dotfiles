@@ -5,5 +5,7 @@ UncommunicativeVariableName:
   enabled: false
 FeatureEnvy:
   enabled: false
+LargeClass:
+  enabled: false
 LongMethod:
   max_statements: 10
