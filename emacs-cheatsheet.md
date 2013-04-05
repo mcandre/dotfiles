@@ -4,6 +4,10 @@ Andrew Pennebaker
 
 https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
+## Documentation
+
+http://emacswiki.org/
+
 ## Install
 
     $ apt-get install emacs
@@ -18,7 +22,14 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
     ~/.emacs
 
-    [Dotfile](https://github.com/mcandre/dotfiles/blob/master/emacs)
+[Dotfile](https://github.com/mcandre/dotfiles/blob/master/emacs)
+
+## Hotkey Notation
+
+* `C-` = `Control`
+* `M-` = `Alt` ("Meta" key)
+* `S-` = `Shift`
+* `key-key key-key key-key...` = Hotkeys are pressed in order, not simultaneously.
 
 ## Evaluate Elisp Code
 

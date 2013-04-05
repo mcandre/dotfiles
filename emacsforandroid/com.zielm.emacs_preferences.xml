@@ -8,7 +8,7 @@
 <string name="ime">0</string>
 <string name="initialcommand">emacs</string>
 <string name="statusbar">1</string>
-<string name="termtype">vt100</string>
+<string name="termtype">screen</string>
 <boolean name="close_window_on_process_exit" value="true" />
 <string name="color">1</string>
 <boolean name="allow_prepend_path" value="true" />

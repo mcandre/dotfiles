@@ -1,5 +1,18 @@
-set tabsize 4
+# Enable undo/redo
+set undo
 
+# Show line and column numbers
+set const
+
+## Soft tabs
+#set tabstospaces
+## Width 2
+#set tabsize 2
+
+# Autoindent
+set autoindent
+
+# Syntax highlighting
 include "~/.nano/asm.nanorc"
 include "~/.nano/c.nanorc"
 include "~/.nano/css.nanorc"

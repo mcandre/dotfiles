@@ -5,10 +5,10 @@
 <boolean name="utf8_by_default" value="false" />
 <boolean name="do_path_extensions" value="true" />
 <boolean name="verify_path" value="true" />
-<string name="actionbar">1</string>
+<string name="actionbar">2</string>
 <string name="ime">0</string>
 <string name="initialcommand"></string>
-<string name="statusbar">1</string>
+<string name="statusbar">0</string>
 <boolean name="close_window_on_process_exit" value="true" />
 <string name="termtype">vt100</string>
 <boolean name="allow_prepend_path" value="true" />
