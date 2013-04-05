@@ -1,4 +1,5 @@
 {
   "es5": true,
-  "expr": true
+  "expr": true,
+  "indent": 2
 }
