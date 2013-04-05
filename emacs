@@ -22,6 +22,9 @@
 (setq initial-scratch-message nil
       initial-major-mode 'markdown-mode)
 
+;; M-g navigates to specified line
+(global-set-key (kbd "M-g") 'goto-line)
+
 ;; M-; toggles commenting for marked region or current line.
 (autoload 'evilnc-comment-or-uncomment-lines "evil-nerd-commenter" "" t)
 (global-set-key "\M-;" 'evilnc-comment-or-uncomment-lines)
