@@ -1,0 +1,9 @@
+---
+NestedIterators:
+  enabled: false
+UncommunicativeVariableName:
+  enabled: false
+FeatureEnvy:
+  enabled: false
+LongMethod:
+  max_statements: 10
