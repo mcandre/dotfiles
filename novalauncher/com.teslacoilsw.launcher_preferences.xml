@@ -13,8 +13,10 @@
 <string name="scroll_effect">CUBE</string>
 <boolean name="desktop_infinite_scroll" value="false" />
 <boolean name="dock_enable" value="true" />
-<boolean name="drawer_autoclose" value="false" />
+<boolean name="drawer_autoclose" value="true" />
 <int name="dock_pages_count" value="1" />
+<boolean name="nova_prime" value="true" />
+<string name="unread_count_provider">TESLA</string>
 <null name="gesture_swipe_up" />
 <string name="dock_width_margin">LARGE</string>
 <boolean name="dock_overlay" value="false" />
@@ -28,8 +30,9 @@
 <string name="gesture_pinch_out">Recent Apps$#Intent;action=com.teslacoilsw.launcher.ACTION;component=com.teslacoilsw.launcher/.NovaShortcutHandler;S.LAUNCHER_ACTION=SHOW_RECENT_APPS;end</string>
 <boolean name="widget_overlap" value="false" />
 <string name="scroll_speed">NOVA</string>
+<int name="1" value="459536618" />
 <string name="animation_speed">NOVA</string>
-<long name="0" value="1361965808086" />
+<long name="0" value="1365252892782" />
 <boolean name="home_button_action_default_page_only" value="true" />
 <string name="screen_orientation">UNSPECIFIED</string>
 <string name="long_menu_intent">App Drawer$#Intent;action=com.teslacoilsw.launcher.ACTION;component=com.teslacoilsw.launcher/.NovaShortcutHandler;S.LAUNCHER_ACTION=APP_DRAWER;end</string>
@@ -41,19 +44,21 @@
 <int name="desktop_grid_rows" value="5" />
 <string name="gesture_two_finger_scroll_down">App Drawer$#Intent;action=com.teslacoilsw.launcher.ACTION;component=com.teslacoilsw.launcher/.NovaShortcutHandler;S.LAUNCHER_ACTION=APP_DRAWER;end</string>
 <boolean name="analytics_enabled" value="true" />
-<boolean name="folder_favorites_show_label" value="true" />
+<boolean name="folder_favorites_show_label" value="false" />
 <boolean name="widget_overlap_when_placing" value="false" />
 <boolean name="dock_show_indicator" value="false" />
 <boolean name="widgets_in_drawer" value="true" />
 <string name="drawer_style">VERTICAL</string>
 <string name="gesture_swipe_down">Expand Notifications$#Intent;action=com.teslacoilsw.launcher.ACTION;component=com.teslacoilsw.launcher/.NovaShortcutHandler;S.LAUNCHER_ACTION=EXPAND_STATUS_BAR;end</string>
+<string name="unread_count_position">BOTTOM_RIGHT</string>
 <int name="drawer_app_grid_land_cols" value="7" />
-<int name="preference_version" value="20100" />
+<int name="preference_version" value="20200" />
 <boolean name="drawer_folders_before_apps" value="true" />
 <int name="desktop_grid_cols" value="4" />
 <boolean name="root_rebind_widgets" value="true" />
 <boolean name="dock_show_divider" value="true" />
 <boolean name="root_helper" value="true" />
+<string name="unread_count_style">HOLO</string>
 <string name="qsb_style">JELLYBEAN</string>
 <int name="drawer_app_grid_rows" value="5" />
 <boolean name="dock_autoclose" value="false" />
@@ -70,4 +75,5 @@
 <boolean name="drawer_infinite_scroll" value="false" />
 <int name="drawer_app_grid_cols" value="4" />
 <string name="home_button_intent">Show Previews$#Intent;action=com.teslacoilsw.launcher.ACTION;component=com.teslacoilsw.launcher/.NovaShortcutHandler;S.LAUNCHER_ACTION=SHOW_PREVIEWS;end</string>
+<int name="theme_holo_color" value="-13388315" />
 </map>
