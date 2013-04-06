@@ -24,7 +24,7 @@ http://vim.wikia.com/wiki/Vim_Tips_Wiki
 
     ~/_vimrc
 
-[Dotfile](https://github.com/mcandre/dotfiles/blob/master/vim)
+[Reference Dotfile](https://github.com/mcandre/dotfiles/blob/master/.vimrc)
 
 # Basic Commands
 
