@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# ln -s /path/to/emacs.sh /usr/bin/emacs
 
 EMACS_BIN=/Applications/Emacs.app/Contents/MacOS/Emacs
 
