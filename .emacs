@@ -34,28 +34,19 @@
 
 ;; Single dired buffer
 (autoload 'dired-single-buffer "dired-single" "" t)
-(autoload 'dired-single-magic-buffer "dired-single" "" t)
-(autoload 'dired-single-toggle-buffer-name "dired-single" "" t)
-(defun my-dired-init ()
-  "Bunch of stuff to run for dired, either immediately or when it's
-        loaded."
-  (define-key dired-mode-map (kbd "<return>") 'dired-single-buffer)
-  (define-key dired-mode-map (kbd "<down-mouse-1>") 'dired-single-buffer)
-  (define-key dired-mode-map "^"
-    (lambda ()
-      (interactive)
-      (dired-single-buffer ".."))))
-;; If dired's already loaded, then the keymap will be bound.
-(if (boundp 'dired-mode-map)
-    ;; We're good to go; Just add our bindings.
-    (my-dired-init)
-  ;; It's not loaded yet, so add our bindings to the load-hook.
-  (add-hook 'dired-load-hook 'my-dired-init))
+(autoload 'dired-single-buffer-mouse "dired-single" "" t)
 
 (add-hook 'dired-mode-hook
           (lambda ()
-            ;; ;; Enable all commands
-            ;; (setq disabled-command-function nil)
+            ;; Enable all commands
+            (setq disabled-command-function nil)
+
+            (define-key dired-mode-map (kbd "<return>") 'dired-single-buffer)
+            (define-key dired-mode-map (kbd "<down-mouse-1>") 'dired-single-buffer-mouse)
+            (define-key dired-mode-map "^"
+              (lambda ()
+                (interactive)
+                (dired-single-buffer "..")))
 
             ;; Auto-refresh dired on file change
             (auto-revert-mode)
