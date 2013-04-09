@@ -9,3 +9,5 @@ LargeClass:
   enabled: false
 LongMethod:
   max_statements: 20
+BooleanParameter:
+  enabled: false
