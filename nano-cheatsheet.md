@@ -22,7 +22,7 @@ http://www.nano-editor.org/dist/v2.2/nano.html
 
     ~/.nanorc
 
-[Dotfile](https://github.com/mcandre/dotfiles/blob/master/nanorc)
+[Reference Dotfile](https://github.com/mcandre/dotfiles/blob/master/.nanorc)
 
 # Basic Commands
 

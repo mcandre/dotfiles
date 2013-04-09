@@ -22,6 +22,9 @@
 (setq initial-scratch-message nil
       initial-major-mode 'markdown-mode)
 
+;; M-g navigates to specified line
+(global-set-key (kbd "M-g") 'goto-line)
+
 ;; M-; toggles commenting for marked region or current line.
 (autoload 'evilnc-comment-or-uncomment-lines "evil-nerd-commenter" "" t)
 (global-set-key "\M-;" 'evilnc-comment-or-uncomment-lines)
@@ -181,6 +184,11 @@
 ;; Mozart/Oz
 (autoload 'oz-mode "oz" "Major mode for interacting with Oz code." t)
 (add-to-list 'auto-mode-alist '("\\.oz\\'" . oz-mode))
+;; Work around broken ruby-electric-brace.
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (define-key ruby-mode-map "{" nil)
+            (define-key ruby-mode-map "}" nil)))
 ;; We're Ruby, too!
 (dolist (extension
          '("\\.rake$"
