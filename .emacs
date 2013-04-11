@@ -18,17 +18,18 @@
       auto-save-default nil
       backup-inhibited t)
 
-;; Markdown
-(autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
 ;; If Markdown is installed, use markdown-mode in *scratch*.
 (condition-case nil
     (progn
       (require 'markdown-mode)
+
+      ;; Markdown
+      (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
+      (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
       (setq initial-scratch-message nil
             initial-major-mode 'markdown-mode))
-  (error nil))
+  (error (warn "markdown-mode not installed")))
 
 ;; M-g navigates to specified line
 (global-set-key (kbd "M-g") 'goto-line)
@@ -161,7 +162,7 @@
               (overlay-put ov 'display display-string))))
 
         (setq hs-set-up-overlay 'display-code-line-counts)))
-  (error nil))
+  (error (warn "hideshowvis is not installed")))
 
 ;; Font: Monaco
 (ignore-errors
@@ -220,7 +221,7 @@
       (mmm-add-mode-ext-class 'html-erb-mode nil 'html-css)
       (add-to-list 'auto-mode-alist '("\\.erb\\'" . html-erb-mode))
       (add-to-list 'auto-mode-alist '("\\.ejs\\'"  . html-erb-mode)))
-  (error nil))
+  (error (warn "mmm-mode is not installed")))
 
 ;; Default to Unix LF line endings
 (setq default-buffer-file-coding-system 'utf-8-unix
@@ -334,7 +335,7 @@
         (global-set-key [C-tab] 'tabbar-forward-tab)
         ;; Single tab group
         (setq tabbar-buffer-groups-function (lambda () '("group")))))
-  (error nil))
+  (error (warn "tabbar is not installed")))
 
 ;; rgrep/lgrep ignore more file types
 (eval-after-load "grep"
