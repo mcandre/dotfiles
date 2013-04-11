@@ -165,8 +165,11 @@
   (error (warn "hideshowvis is not installed")))
 
 ;; Font: Monaco
-(ignore-errors
- (set-frame-font "Monaco"))
+(condition-case nil
+    (progn
+      (when window-system
+        (set-frame-font "Monaco")))
+  (error (warn "Monaco font is not installed")))
 ;; Font size: 10pt
 (set-face-attribute 'default nil :height
                     (if (eq system-type 'darwin)
@@ -206,9 +209,11 @@
 (add-to-list 'auto-mode-alist '("\\.jshintrc\\'" . js-mode))
 
 ;; Monokai
-(ignore-errors
-  (when window-system
-    (load-theme 'monokai t)))
+(condition-case nil
+  (progn
+    (when window-system
+      (load-theme 'monokai t)))
+  (error (warn "monokai-theme is not installed")))
 
 ;; ERB/EJS
 (condition-case nil
