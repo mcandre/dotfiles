@@ -18,9 +18,17 @@
       auto-save-default nil
       backup-inhibited t)
 
-;; Empty Markdown scratch
-(setq initial-scratch-message nil
-      initial-major-mode 'markdown-mode)
+;; Markdown
+(autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;; If Markdown is installed, use markdown-mode in *scratch*.
+(condition-case nil
+    (progn
+      (require 'markdown-mode)
+      (setq initial-scratch-message nil
+            initial-major-mode 'markdown-mode))
+  (error nil))
 
 ;; M-g navigates to specified line
 (global-set-key (kbd "M-g") 'goto-line)
@@ -86,76 +94,78 @@
       (require 'hideshowvis)
       ;; Folding
       (when (not (string-match "unknown" system-configuration))
-	(autoload 'hideshowvis-enable
-	  "hideshowvis"
-	  "Highlight foldable regions")
+        (autoload 'hideshowvis-enable
+          "hideshowvis"
+          "Highlight foldable regions")
 
-	(autoload 'hideshowvis-minor-mode
-	  "hideshowvis"
-	  "Will indicate regions foldable with hideshow in the fringe."
-	  'interactive)
+        (autoload 'hideshowvis-minor-mode
+          "hideshowvis"
+          "Will indicate regions foldable with hideshow in the fringe."
+          'interactive)
 
-	(dolist (hook '(emacs-lisp-mode-hook
-			lisp-mode-hook
-			scheme-mode-hook
-			c-mode-hook
-			c++-mode-hook
-			java-mode-hook
-			js-mode-hook
-			perl-mode-hook
-			php-mode-hook
-			tcl-mode-hook
-			vhdl-mode-hook
-			fortran-mode-hook
-			python-mode-hook))
-	  (add-hook hook
-		    (lambda ()
-		      ;; More syntax definitions
-		      (require 'fold-dwim)
-		      (hideshowvis-enable))))
+        (dolist (hook '(emacs-lisp-mode-hook
+                        lisp-mode-hook
+                        scheme-mode-hook
+                        c-mode-hook
+                        c++-mode-hook
+                        java-mode-hook
+                        js-mode-hook
+                        perl-mode-hook
+                        php-mode-hook
+                        tcl-mode-hook
+                        vhdl-mode-hook
+                        fortran-mode-hook
+                        python-mode-hook))
+          (add-hook hook
+                    (lambda ()
+                      ;; More syntax definitions
+                      (require 'fold-dwim)
+                      (hideshowvis-enable))))
 
-	;;
-	;; +/- fold buttons
-	;;
+        ;;
+        ;; +/- fold buttons
+        ;;
 
-	(define-fringe-bitmap 'hs-marker [0 24 24 126 126 24 24 0])
+        (define-fringe-bitmap 'hs-marker [0 24 24 126 126 24 24 0])
 
-	(defcustom hs-fringe-face 'hs-fringe-face
-	  "*Specify face used to highlight the fringe on hidden regions."
-	  :type 'face
-	  :group 'hideshow)
+        (defcustom hs-fringe-face 'hs-fringe-face
+          "*Specify face used to highlight the fringe on hidden regions."
+          :type 'face
+          :group 'hideshow)
 
-	(defface hs-fringe-face
-	  '((t (:foreground "#888" :box (:line-width 2 :color "grey75" :style released-button))))
-	  "Face used to highlight the fringe on folded regions"
-	  :group 'hideshow)
+        (defface hs-fringe-face
+          '((t (:foreground "#888" :box (:line-width 2 :color "grey75" :style released-button))))
+          "Face used to highlight the fringe on folded regions"
+          :group 'hideshow)
 
-	(defcustom hs-face 'hs-face
-	  "*Specify the face to to use for the hidden region indicator"
-	  :type 'face
-	  :group 'hideshow)
+        (defcustom hs-face 'hs-face
+          "*Specify the face to to use for the hidden region indicator"
+          :type 'face
+          :group 'hideshow)
 
-	(defface hs-face
-	  '((t (:background "#ff8" :box t)))
-	  "Face to hightlight the ... area of hidden regions"
-	  :group 'hideshow)
+        (defface hs-face
+          '((t (:background "#ff8" :box t)))
+          "Face to hightlight the ... area of hidden regions"
+          :group 'hideshow)
 
-	(defun display-code-line-counts (ov)
-	  (when (eq 'code (overlay-get ov 'hs))
-	    (let* ((marker-string "*fringe-dummy*")
-		   (marker-length (length marker-string))
-		   (display-string (format "(%d)..." (count-lines (overlay-start ov) (overlay-end ov))))
-		   )
-	      (overlay-put ov 'help-echo "Hiddent text. C-c,= to show")
-	      (put-text-property 0 marker-length 'display (list 'left-fringe 'hs-marker 'hs-fringe-face) marker-string)
-	      (overlay-put ov 'before-string marker-string)
-	      (put-text-property 0 (length display-string) 'face 'hs-face display-string)
-	      (overlay-put ov 'display display-string))))
+        (defun display-code-line-counts (ov)
+          (when (eq 'code (overlay-get ov 'hs))
+            (let* ((marker-string "*fringe-dummy*")
+                   (marker-length (length marker-string))
+                   (display-string (format "(%d)..." (count-lines (overlay-start ov) (overlay-end ov))))
+                   )
+              (overlay-put ov 'help-echo "Hiddent text. C-c,= to show")
+              (put-text-property 0 marker-length 'display (list 'left-fringe 'hs-marker 'hs-fringe-face) marker-string)
+              (overlay-put ov 'before-string marker-string)
+              (put-text-property 0 (length display-string) 'face 'hs-face display-string)
+              (overlay-put ov 'display display-string))))
 
-	(setq hs-set-up-overlay 'display-code-line-counts))))
+        (setq hs-set-up-overlay 'display-code-line-counts)))
+  (error nil))
 
 ;; Font: Monaco
-(set-frame-font "Monaco")
+(ignore-errors
+ (set-frame-font "Monaco"))
 ;; Font size: 10pt
 (set-face-attribute 'default nil :height
                     (if (eq system-type 'darwin)
@@ -166,10 +176,6 @@
 (add-to-list 'auto-mode-alist '("emacs$" . emacs-lisp-mode))
 ;; .vimrc
 (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
-;; Markdown
-(autoload 'markdown-mode "markdown-mode"
-  "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 ;; MS-DOS .BAT files
 (autoload 'ntcmd-mode "ntcmd" "" t)
 (add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
@@ -199,18 +205,22 @@
 (add-to-list 'auto-mode-alist '("\\.jshintrc\\'" . js-mode))
 
 ;; Monokai
-(when window-system
-    (load-theme 'monokai t))
+(ignore-errors
+  (when window-system
+    (load-theme 'monokai t)))
 
 ;; ERB/EJS
-(require 'mmm-auto)
-(setq mmm-global-mode 'auto)
-(mmm-add-mode-ext-class 'html-erb-mode "\\.erb\\'" 'erb)
-(mmm-add-mode-ext-class 'html-erb-mode "\\.ejs\\'" 'ejs)
-(mmm-add-mode-ext-class 'html-erb-mode nil 'html-js)
-(mmm-add-mode-ext-class 'html-erb-mode nil 'html-css)
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . html-erb-mode))
-(add-to-list 'auto-mode-alist '("\\.ejs\\'"  . html-erb-mode))
+(condition-case nil
+    (progn
+      (require 'mmm-auto)
+      (setq mmm-global-mode 'auto)
+      (mmm-add-mode-ext-class 'html-erb-mode "\\.erb\\'" 'erb)
+      (mmm-add-mode-ext-class 'html-erb-mode "\\.ejs\\'" 'ejs)
+      (mmm-add-mode-ext-class 'html-erb-mode nil 'html-js)
+      (mmm-add-mode-ext-class 'html-erb-mode nil 'html-css)
+      (add-to-list 'auto-mode-alist '("\\.erb\\'" . html-erb-mode))
+      (add-to-list 'auto-mode-alist '("\\.ejs\\'"  . html-erb-mode)))
+  (error nil))
 
 ;; Default to Unix LF line endings
 (setq default-buffer-file-coding-system 'utf-8-unix
@@ -314,14 +324,17 @@
     (c-add-style "dart" gangnam-style t)))
 
 ;; File tabs
-(when window-system
-    (require 'tabbar)
-    (tabbar-mode 1)
-    ;; CUA
-    (global-set-key [C-S-tab] 'tabbar-backward-tab)
-    (global-set-key [C-tab] 'tabbar-forward-tab)
-    ;; Single tab group
-    (setq tabbar-buffer-groups-function (lambda () '("group"))))
+(condition-case nil
+    (progn
+      (when window-system
+        (require 'tabbar)
+        (tabbar-mode 1)
+        ;; CUA
+        (global-set-key [C-S-tab] 'tabbar-backward-tab)
+        (global-set-key [C-tab] 'tabbar-forward-tab)
+        ;; Single tab group
+        (setq tabbar-buffer-groups-function (lambda () '("group")))))
+  (error nil))
 
 ;; rgrep/lgrep ignore more file types
 (eval-after-load "grep"
