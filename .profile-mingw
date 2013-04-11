@@ -5,19 +5,17 @@ export CYGWIN="$CYGWIN nodosfilewarning"
 export CLICOLOR=1
 alias ls="ls --color"
 
-# Specs
-export PATH=$PATH:~/Desktop/src/specs
+# Node
+export PATH=$PATH:"/c/Program Files/nodejs"
+export PATH=$PATH:"/c/Documents and Settings/apenneba/Application Data/npm"
 
 # Sublime Text
-export PATH=$PATH:"C:\Program Files\Sublime Text 2"
-
-# xgit
-export PATH=$PATH:"/c/Documents and Settings/apenneba/Desktop/src/github-teams"
+export PATH=$PATH:"/c/Program Files/Sublime Text 2"
 
 # Chocolatey
-export PATH=$PATH:"/c/Chcolatey/bin"
+export PATH=$PATH:"/c/Chocolatey/bin"
 
-# NIC+
+# GameOn
 export PATH=$PATH:"/c/Documents and Settings/apenneba/Desktop/src/nicplus/node_modules/.bin"
 
 cd ~/Desktop
