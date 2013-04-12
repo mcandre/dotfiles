@@ -1,3 +1,6 @@
+# Inform programs of Cygwin vs Command Prompt
+export SHELL
+
 # Disable cygwin path warning
 export CYGWIN="$CYGWIN nodosfilewarning"
 
