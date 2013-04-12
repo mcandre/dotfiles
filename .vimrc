@@ -1,5 +1,8 @@
 " Store as ~/.emacs (Unix) or ~/_vimrc (Windows)
 
+" Fix bad autoindent of pasted text
+set paste
+
 " Enable syntax highlighting
 syntax on
 
