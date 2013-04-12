@@ -200,7 +200,8 @@
            "\\.gemspec$"
            "\\.ru$"
            "Gemfile$"
-           "Guardfile$"))
+           "Guardfile$"
+           "Vagrantfile$"))
   (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
 ;; We're YAML, too!
 (autoload 'yaml-mode "yaml-mode" "" t)
