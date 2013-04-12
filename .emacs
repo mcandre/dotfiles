@@ -193,6 +193,10 @@
 ;; Mozart/Oz
 (autoload 'oz-mode "oz" "Major mode for interacting with Oz code." t)
 (add-to-list 'auto-mode-alist '("\\.oz\\'" . oz-mode))
+;; Puppet
+(autoload 'puppet-mode "puppet-mode" "" t)
+(add-to-list 'auto-mode-alist '("\\.pp\\'" . puppet-mode))
+
 ;; We're Ruby, too!
 (dolist (extension
          '("\\.rake$"
