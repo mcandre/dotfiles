@@ -367,4 +367,4 @@
       '(("\\.freenode\\.net$")))
 (condition-case nil
     (load "~/rcirc-auth.el")
-  (error nil))
+  (error (warn "~/rcirc-auth.el is not configured"))
