@@ -360,6 +360,10 @@
     (add-to-list 'grep-find-ignored-files "node_modules")))
 
 ;; IRC
+
+;; Hide connection rate
+(setq rcirc-fill-flag nil)
+
 (setq rcirc-default-nick "preyalone")
 (setq rcirc-default-user-name "preyalone")
 (setq rcirc-default-full-name "Prey Alone")
