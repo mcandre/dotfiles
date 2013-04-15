@@ -344,10 +344,15 @@
         (global-set-key [C-S-tab] 'tabbar-backward-tab)
         (global-set-key [C-tab] 'tabbar-forward-tab)
         ;; Single tab group
-        (setq tabbar-buffer-groups-function (lambda () '("group")))
-        ;; Pretty
-        (require 'tabbar-ruler)))
+        (setq tabbar-buffer-groups-function (lambda () '("group")))))
   (error (warn "tabbar is not installed")))
+
+;; Pretty tabs
+(condition-case nil
+    (progn
+      (when window-system
+        (require 'tabbar-ruler)))
+  (error (warn "tabbar-ruler is not installed")))
 
 ;; rgrep/lgrep ignore more file types
 (eval-after-load "grep"
