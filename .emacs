@@ -344,7 +344,9 @@
         (global-set-key [C-S-tab] 'tabbar-backward-tab)
         (global-set-key [C-tab] 'tabbar-forward-tab)
         ;; Single tab group
-        (setq tabbar-buffer-groups-function (lambda () '("group")))))
+        (setq tabbar-buffer-groups-function (lambda () '("group")))
+        ;; Pretty
+        (require 'tabbar-ruler)))
   (error (warn "tabbar is not installed")))
 
 ;; rgrep/lgrep ignore more file types
@@ -358,4 +360,6 @@
 (setq rcirc-default-full-name "Prey Alone")
 (setq rcirc-startup-channels-alist
       '(("\\.freenode\\.net$")))
-(load "~/rcirc-auth.el")
+(condition-case nil
+    (load "~/rcirc-auth.el")
+  (error nil))
