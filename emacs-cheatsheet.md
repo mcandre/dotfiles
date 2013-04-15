@@ -230,3 +230,7 @@ http://emacswiki.org/emacs/RegularExpression
 ## Hotkeys
 
     C-h k <key>
+
+# IRC
+
+    M-x irc
