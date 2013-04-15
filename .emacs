@@ -351,3 +351,11 @@
 (eval-after-load "grep"
   '(progn
     (add-to-list 'grep-find-ignored-files "node_modules")))
+
+;; IRC
+(setq rcirc-default-nick "preyalone")
+(setq rcirc-default-user-name "preyalone")
+(setq rcirc-default-full-name "Prey Alone")
+(setq rcirc-startup-channels-alist
+      '(("\\.freenode\\.net$")))
+(load "~/rcirc-auth.el")
