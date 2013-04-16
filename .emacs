@@ -351,7 +351,9 @@
 (condition-case nil
     (progn
       (when window-system
-        (require 'tabbar-ruler)))
+        (require 'tabbar-ruler)
+        ;; Single tab group
+        (setq tabbar-ruler-buffer-groups (lambda () '("group")))))
   (error (warn "tabbar-ruler is not installed")))
 
 ;; rgrep/lgrep ignore more file types
