@@ -347,15 +347,6 @@
         (setq tabbar-buffer-groups-function (lambda () '("group")))))
   (error (warn "tabbar is not installed")))
 
-;; Pretty tabs
-(condition-case nil
-    (progn
-      (when window-system
-        (require 'tabbar-ruler)
-        ;; Single tab group
-        (setq tabbar-ruler-buffer-groups (lambda () '("group")))))
-  (error (warn "tabbar-ruler is not installed")))
-
 ;; rgrep/lgrep ignore more file types
 (eval-after-load "grep"
   '(progn
