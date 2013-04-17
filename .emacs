@@ -31,8 +31,8 @@
             initial-major-mode 'markdown-mode))
   (error (warn "markdown-mode not installed")))
 
-;; M-g navigates to specified line
-(global-set-key (kbd "M-g") 'goto-line)
+;; C-l navigates to specified line
+(global-set-key (kbd "C-l") 'goto-line)
 
 ;; M-; toggles commenting for marked region or current line.
 (autoload 'evilnc-comment-or-uncomment-lines "evil-nerd-commenter" "" t)
