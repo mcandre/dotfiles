@@ -217,8 +217,11 @@
 (condition-case nil
   (progn
     (when window-system
-      (load-theme 'monokai t)))
-  (error (warn "monokai-theme is not installed")))
+      (load-theme 'monokai t)
+      ;; Raise bracket contrast
+      (require 'paren)
+      (set-face-background 'show-paren-match-face "#595959")))
+ (error (warn "monokai-theme is not installed")))
 
 ;; ERB/EJS
 (condition-case nil
