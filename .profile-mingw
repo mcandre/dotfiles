@@ -5,12 +5,12 @@ export CYGWIN="$CYGWIN nodosfilewarning"
 export CLICOLOR=1
 alias ls="ls --color"
 
+# Emacs
+alias emacs="emacs -nw"
+
 # Node
 export PATH=$PATH:"/c/Program Files/nodejs"
 export PATH=$PATH:"/c/Documents and Settings/apenneba/Application Data/npm"
-
-# Sublime Text
-export PATH=$PATH:"/c/Program Files/Sublime Text 2"
 
 # Chocolatey
 export PATH=$PATH:"/c/Chocolatey/bin"
