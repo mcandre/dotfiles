@@ -31,15 +31,45 @@
             initial-major-mode 'markdown-mode))
   (error (warn "markdown-mode not installed")))
 
-;; C-l navigates to specified line
-(global-set-key (kbd "C-l") 'goto-line)
+;; ;;
+;; ;; CUA
+;; ;;
+
+;; (global-set-key (kbd "C-l") 'goto-line)
+;; (global-set-key (kbd "C-r") 'query-replace)
+;; (global-set-key (kbd "C-f") 'isearch-forward)
+;; (global-set-key (kbd "C-s") 'save-buffer)
+;; (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+;; (global-set-key (kbd "M-]") 'other-window)
+;; (global-set-key (kbd "M-[") 'previous-multiframe-window)
+;; (global-set-key (kbd "C-q") 'save-buffers-kill-terminal)
+
+;; ;; Undo, Redo
+;; (condition-case nil
+;;     (progn
+;;       (require 'undo-tree)
+;;       (global-set-key (kbd "C-z") 'undo-tree-undo)
+;;       (global-set-key (kbd "C-S-z") 'undo-tree-redo))
+;;   (error (warn "undo-tree is not installed")))
+
+;; (setq
+;;  w32-lwindow-modifier 'super
+;;  w32-rwindow-modifier 'super
+;;  mac-command-modifier 'super)
+
+;; ;; Cut, Copy, Paste
+;; (global-set-key (kbd "s-x") 'kill-region)
+;; (global-set-key (kbd "s-c") 'kill-ring-save)
+;; (global-set-key (kbd "s-v") 'yank)
+
+;; ;; Open, Close
+;; (global-set-key (kbd "C-o") 'find-file)
+;; (global-set-key (kbd "C-w") 'kill-buffer)
+;; (global-set-key (kbd "M-w") 'delete-window)
 
 ;; M-; toggles commenting for marked region or current line.
 (autoload 'evilnc-comment-or-uncomment-lines "evil-nerd-commenter" "" t)
 (global-set-key "\M-;" 'evilnc-comment-or-uncomment-lines)
-
-;; C-x O navigates to previous window
-(global-set-key (kbd "C-x O") 'previous-multiframe-window)
 
 ;; Single dired buffer
 (autoload 'dired-single-buffer "dired-single" "" t)
