@@ -176,20 +176,11 @@
 ;; Syntax highlighting
 ;;
 ;;
-;; .emacs
-(add-to-list 'auto-mode-alist '("emacs$" . emacs-lisp-mode))
 ;; .vimrc
 (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
 ;; MS-DOS .BAT files
 (autoload 'ntcmd-mode "ntcmd" "" t)
 (add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
-;; F#
-(autoload 'fsharp-mode "fsharp-mode" "Major mode for editing F# code." t)
-(autoload 'run-fsharp "inf-fsharp" "Run an inferior F# process." t)
-(add-to-list 'auto-mode-alist '("\\.fs[iylx]?$" . fsharp-mode))
-;; D
-(autoload 'd-mode "d-mode" "" t)
-(add-to-list 'auto-mode-alist '("\\.d\\'" . d-mode))
 ;; Mozart/Oz
 (autoload 'oz-mode "oz" "Major mode for interacting with Oz code." t)
 (add-to-list 'auto-mode-alist '("\\.oz\\'" . oz-mode))
