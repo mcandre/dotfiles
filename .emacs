@@ -221,7 +221,6 @@
     (when window-system
       (load-theme 'monokai t)
       ;; Raise bracket contrast
-      (require 'paren)
       (set-face-background 'show-paren-match-face "#595959"))
  (error (warn "monokai-theme is not installed")))
 
@@ -245,8 +244,6 @@
 
 ;; And Haskell
 (autoload 'haskell-mode "haskell-mode" "" t)
-(add-to-list 'auto-mode-alist '("\\.hs\\'" . haskell-mode))
-(add-to-list 'auto-mode-alist '("\\.lhs\\'" . haskell-mode))
 (add-hook 'haskell-mode-hook
           (lambda ()
             (turn-on-haskell-indentation)
@@ -321,7 +318,6 @@
     (c-add-style "gangnam-style" gangnam-style t)))
 ;; Dart, too
 (autoload 'dart-mode "dart-mode" "" t)
-(add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
 (add-hook 'dart-mode-hook
   (lambda ()
     (c-add-style "dart" gangnam-style t)))
