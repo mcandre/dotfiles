@@ -81,13 +81,17 @@
       line-number-mode t
       column-number-mode t)
 
+;;
 ;; Folding
+;;
 ;;
 ;; If hideshowvis is not installed, do not attempt to configure it,
 ;; as this will prevent packages (including hideshowvis itself)
 ;; from compiling.
 (condition-case nil
-    (when (not (string-match "unknown" system-configuration))
+    (when (and
+           window-system
+           (not (string-match "unknown" system-configuration)))
       (require 'hideshowvis)
 
       (autoload 'hideshowvis-enable
@@ -170,6 +174,10 @@
                         120
                         80))
 
+;;
+;; Syntax highlighting
+;;
+;;
 ;; .emacs
 (add-to-list 'auto-mode-alist '("emacs$" . emacs-lisp-mode))
 ;; .vimrc
@@ -190,7 +198,6 @@
 ;; Puppet
 (autoload 'puppet-mode "puppet-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.pp\\'" . puppet-mode))
-
 ;; We're Ruby, too!
 (dolist (extension
          '("\\.rake$"
@@ -207,15 +214,6 @@
 ;; We're JavaScript, too!
 (add-to-list 'auto-mode-alist '("\\.jshintrc\\'" . js-mode))
 
-;; Monokai
-(condition-case nil
-    (when window-system
-      (load-theme 'monokai t)
-      ;; Raise bracket contrast
-      (require 'paren)
-      (set-face-background 'show-paren-match-face "#595959"))
- (error (warn "monokai-theme is not installed")))
-
 ;; ERB/EJS
 (condition-case nil
     (progn
@@ -228,6 +226,15 @@
       (add-to-list 'auto-mode-alist '("\\.erb\\'" . html-erb-mode))
       (add-to-list 'auto-mode-alist '("\\.ejs\\'"  . html-erb-mode)))
   (error (warn "mmm-mode is not installed")))
+
+;; Monokai
+(condition-case nil
+    (when window-system
+      (load-theme 'monokai t)
+      ;; Raise bracket contrast
+      (require 'paren)
+      (set-face-background 'show-paren-match-face "#595959"))
+ (error (warn "monokai-theme is not installed")))
 
 ;; Default to Unix LF line endings
 (setq default-buffer-file-coding-system 'utf-8-unix
@@ -332,15 +339,14 @@
 
 ;; File tabs
 (condition-case nil
-    (progn
-      (when window-system
-        (require 'tabbar)
-        (tabbar-mode 1)
-        ;; CUA
-        (global-set-key [C-S-tab] 'tabbar-backward-tab)
-        (global-set-key [C-tab] 'tabbar-forward-tab)
-        ;; Single tab group
-        (setq tabbar-buffer-groups-function (lambda () '("group")))))
+    (when window-system
+      (require 'tabbar)
+      (tabbar-mode 1)
+      ;; CUA
+      (global-set-key [C-S-tab] 'tabbar-backward-tab)
+      (global-set-key [C-tab] 'tabbar-forward-tab)
+      ;; Single tab group
+      (setq tabbar-buffer-groups-function (lambda () '("group"))))
   (error (warn "tabbar is not installed")))
 
 ;; rgrep/lgrep ignore more file types
