@@ -67,7 +67,7 @@
 		<hotkey ctrl="0" shift="0" alt="0" extended="0" code="0" command="renametab"/>
 		<hotkey ctrl="0" shift="0" alt="0" extended="0" code="0" command="copy"/>
 		<hotkey ctrl="0" shift="0" alt="0" extended="0" code="0" command="clear_selection"/>
-		<hotkey ctrl="0" shift="0" alt="0" extended="0" code="0" command="paste"/>
+		<hotkey ctrl="1" shift="0" alt="0" extended="0" code="89" command="paste"/>
 		<hotkey ctrl="0" shift="0" alt="0" extended="0" code="0" command="stopscroll"/>
 		<hotkey ctrl="0" shift="0" alt="0" extended="0" code="0" command="scrollrowup"/>
 		<hotkey ctrl="0" shift="0" alt="0" extended="0" code="0" command="scrollrowdown"/>
