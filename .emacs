@@ -20,7 +20,7 @@
 
 ;; If Markdown is installed, use markdown-mode in *scratch*.
 (condition-case nil
-    (progn
+    (when window-system
       (require 'markdown-mode)
 
       ;; Markdown
@@ -81,88 +81,88 @@
       line-number-mode t
       column-number-mode t)
 
+;; Folding
+;;
 ;; If hideshowvis is not installed, do not attempt to configure it,
 ;; as this will prevent packages (including hideshowvis itself)
 ;; from compiling.
 (condition-case nil
-    (progn
+    (when (not (string-match "unknown" system-configuration))
       (require 'hideshowvis)
-      ;; Folding
-      (when (not (string-match "unknown" system-configuration))
-        (autoload 'hideshowvis-enable
-          "hideshowvis"
-          "Highlight foldable regions")
 
-        (autoload 'hideshowvis-minor-mode
-          "hideshowvis"
-          "Will indicate regions foldable with hideshow in the fringe."
-          'interactive)
+      (autoload 'hideshowvis-enable
+        "hideshowvis"
+        "Highlight foldable regions")
 
-        (dolist (hook '(emacs-lisp-mode-hook
-                        lisp-mode-hook
-                        scheme-mode-hook
-                        c-mode-hook
-                        c++-mode-hook
-                        java-mode-hook
-                        js-mode-hook
-                        perl-mode-hook
-                        php-mode-hook
-                        tcl-mode-hook
-                        vhdl-mode-hook
-                        fortran-mode-hook
-                        python-mode-hook))
-          (add-hook hook
-                    (lambda ()
-                      ;; More syntax definitions
-                      (require 'fold-dwim)
-                      (hideshowvis-enable))))
+      (autoload 'hideshowvis-minor-mode
+        "hideshowvis"
+        "Will indicate regions foldable with hideshow in the fringe."
+        'interactive)
 
-        ;;
-        ;; +/- fold buttons
-        ;;
+      (dolist (hook '(emacs-lisp-mode-hook
+                      lisp-mode-hook
+                      scheme-mode-hook
+                      c-mode-hook
+                      c++-mode-hook
+                      java-mode-hook
+                      js-mode-hook
+                      perl-mode-hook
+                      php-mode-hook
+                      tcl-mode-hook
+                      vhdl-mode-hook
+                      fortran-mode-hook
+                      python-mode-hook))
+        (add-hook hook
+                  (lambda ()
+                    ;; More syntax definitions
+                    (require 'fold-dwim)
+                    (hideshowvis-enable))))
 
-        (define-fringe-bitmap 'hs-marker [0 24 24 126 126 24 24 0])
+      ;;
+      ;; +/- fold buttons
+      ;;
 
-        (defcustom hs-fringe-face 'hs-fringe-face
-          "*Specify face used to highlight the fringe on hidden regions."
-          :type 'face
-          :group 'hideshow)
+      (define-fringe-bitmap 'hs-marker [0 24 24 126 126 24 24 0])
 
-        (defface hs-fringe-face
-          '((t (:foreground "#888" :box (:line-width 2 :color "grey75" :style released-button))))
-          "Face used to highlight the fringe on folded regions"
-          :group 'hideshow)
+      (defcustom hs-fringe-face 'hs-fringe-face
+        "*Specify face used to highlight the fringe on hidden regions."
+        :type 'face
+        :group 'hideshow)
 
-        (defcustom hs-face 'hs-face
-          "*Specify the face to to use for the hidden region indicator"
-          :type 'face
-          :group 'hideshow)
+      (defface hs-fringe-face
+        '((t (:foreground "#888" :box (:line-width 2 :color "grey75" :style released-button))))
+        "Face used to highlight the fringe on folded regions"
+        :group 'hideshow)
 
-        (defface hs-face
-          '((t (:background "#ff8" :box t)))
-          "Face to hightlight the ... area of hidden regions"
-          :group 'hideshow)
+      (defcustom hs-face 'hs-face
+        "*Specify the face to to use for the hidden region indicator"
+        :type 'face
+        :group 'hideshow)
 
-        (defun display-code-line-counts (ov)
-          (when (eq 'code (overlay-get ov 'hs))
-            (let* ((marker-string "*fringe-dummy*")
-                   (marker-length (length marker-string))
-                   (display-string (format "(%d)..." (count-lines (overlay-start ov) (overlay-end ov))))
-                   )
-              (overlay-put ov 'help-echo "Hiddent text. C-c,= to show")
-              (put-text-property 0 marker-length 'display (list 'left-fringe 'hs-marker 'hs-fringe-face) marker-string)
-              (overlay-put ov 'before-string marker-string)
-              (put-text-property 0 (length display-string) 'face 'hs-face display-string)
-              (overlay-put ov 'display display-string))))
+      (defface hs-face
+        '((t (:background "#ff8" :box t)))
+        "Face to hightlight the ... area of hidden regions"
+        :group 'hideshow)
 
-        (setq hs-set-up-overlay 'display-code-line-counts)))
+      (defun display-code-line-counts (ov)
+        (when (eq 'code (overlay-get ov 'hs))
+          (let* ((marker-string "*fringe-dummy*")
+                 (marker-length (length marker-string))
+                 (display-string (format "(%d)..." (count-lines (overlay-start ov) (overlay-end ov))))
+                 )
+            (overlay-put ov 'help-echo "Hiddent text. C-c,= to show")
+            (put-text-property 0 marker-length 'display (list 'left-fringe 'hs-marker 'hs-fringe-face) marker-string)
+            (overlay-put ov 'before-string marker-string)
+            (put-text-property 0 (length display-string) 'face 'hs-face display-string)
+            (overlay-put ov 'display display-string))))
+
+      (setq hs-set-up-overlay 'display-code-line-counts))
   (error (warn "hideshowvis is not installed")))
 
 ;; Font: Monaco
 (condition-case nil
-    (progn
-      (when window-system
-        (set-frame-font "Monaco")))
+    (when window-system
+      (set-frame-font "Monaco"))
   (error (warn "Monaco font is not installed")))
 ;; Font size: 10pt
 (set-face-attribute 'default nil :height
@@ -209,12 +209,11 @@
 
 ;; Monokai
 (condition-case nil
-  (progn
     (when window-system
       (load-theme 'monokai t)
       ;; Raise bracket contrast
       (require 'paren)
-      (set-face-background 'show-paren-match-face "#595959")))
+      (set-face-background 'show-paren-match-face "#595959"))
  (error (warn "monokai-theme is not installed")))
 
 ;; ERB/EJS
