@@ -18,15 +18,13 @@
       auto-save-default nil
       backup-inhibited t)
 
+;; Markdown
+(autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
 ;; If Markdown is installed, use markdown-mode in *scratch*.
 (condition-case nil
     (when window-system
-      (require 'markdown-mode)
-
-      ;; Markdown
-      (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
-      (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
       (setq initial-scratch-message nil
             initial-major-mode 'markdown-mode))
   (error (warn "markdown-mode not installed")))
