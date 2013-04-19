@@ -190,6 +190,12 @@
 ;; Puppet
 (autoload 'puppet-mode "puppet-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.pp\\'" . puppet-mode))
+;; Factor
+(condition-case nil
+    ;; Until able to submit fuel to Marmalade
+    ;; https://github.com/mcandre/fuel
+    (load "~/Desktop/src/fuel/fuel-1.0/fu.el")
+  (error (warn "FUEL not installed")))
 ;; We're Ruby, too!
 (dolist (extension
          '("\\.rake$"
