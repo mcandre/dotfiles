@@ -190,6 +190,9 @@
 ;; Puppet
 (autoload 'puppet-mode "puppet-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.pp\\'" . puppet-mode))
+;; R
+(autoload 'ess-mode "ess-site" "" t)
+(add-to-list 'auto-mode-alist '("\\.R\\'" . ess-mode))
 ;; Factor
 (condition-case nil
     ;; Until able to submit fuel to Marmalade
