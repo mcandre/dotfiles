@@ -242,6 +242,10 @@
 (setq sws-tab-width 2)
 ;; And JavaScript
 (setq js-indent-level 2)
+;; And Go
+(add-hook 'go-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)))
 ;; And Erlang
 (autoload 'erlang-mode "erlang" "" t)
 (add-to-list 'auto-mode-alist '("\\.erl\\'" . erlang-mode))
