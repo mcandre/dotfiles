@@ -164,13 +164,13 @@
 ;; Font: Monaco
 (condition-case nil
     (when window-system
+      ;; Font size: 10pt
+      (set-face-attribute 'default nil :height
+                          (if (eq system-type 'darwin)
+                              120
+                            80))
       (set-frame-font "Monaco"))
   (error (warn "Monaco font is not installed")))
-;; Font size: 10pt
-(set-face-attribute 'default nil :height
-                    (if (eq system-type 'darwin)
-                        120
-                        80))
 
 ;;
 ;; Syntax highlighting
@@ -225,15 +225,14 @@
  (error (warn "monokai-theme is not installed")))
 
 ;; Default to Unix LF line endings
-(setq default-buffer-file-coding-system 'utf-8-unix
-      ;; Soft tabs
-      indent-tabs-mode nil
-      ;; 2 spaces
-      tab-width 2
-      sws-tab-width 2
-      ;; And JavaScript
-      js-indent-level 2)
-
+(setq default-buffer-file-coding-system 'utf-8-unix)
+;; Soft tabs
+(setq indent-tabs-mode nil)
+;; 2 spaces
+(setq-default tab-width 2)
+(setq sws-tab-width 2)
+;; And JavaScript
+(setq js-indent-level 2)
 ;; And Erlang
 (autoload 'erlang-mode "erlang" "" t)
 (add-to-list 'auto-mode-alist '("\\.erl\\'" . erlang-mode))
@@ -241,7 +240,6 @@
 (add-hook 'erlang-mode-hook
           (lambda ()
             (setq erlang-indent-level tab-width)))
-
 ;; And Haskell
 (autoload 'haskell-mode "haskell-mode" "" t)
 (add-hook 'haskell-mode-hook
@@ -249,6 +247,20 @@
             (turn-on-haskell-indentation)
             (setq indent-tabs-mode nil
                   tab-width tab-width)))
+;; And PostScript
+(add-hook 'ps-mode-hook
+          (lambda () (setq ps-mode-tab tab-width)))
+;; And Mozart/Oz
+(add-hook 'oz-mode-hook
+          (lambda () (setq oz-indent-chars tab-width)))
+;; But not Makefiles
+(defun hard-tabs ()
+  (setq-default indent-tabs-mode t)
+  (setq indent-tabs-mode t
+        tab-width 2))
+(add-hook 'makefile-mode-hook 'hard-tabs)
+(add-hook 'makefile-gmake-mode-hook 'hard-tabs)
+(add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
 
 ;; If mark exists, indent rigidly.
 ;; Otherwise, insert a hard or soft tab indentation.
@@ -272,21 +284,6 @@
             (define-key markdown-mode-map (kbd "<tab>") 'traditional-indent)
             (define-key markdown-mode-map (kbd "<S-tab>") 'traditional-outdent)))
 
-;; And PostScript
-(add-hook 'ps-mode-hook
-          (lambda () (setq ps-mode-tab tab-width)))
-;; And Mozart/Oz
-(add-hook 'oz-mode-hook
-          (lambda () (setq oz-indent-chars tab-width)))
-;; But not Makefiles
-(defun hard-tabs ()
-  (setq-default indent-tabs-mode t)
-  (setq indent-tabs-mode t
-        tab-width 2))
-(add-hook 'makefile-mode-hook 'hard-tabs)
-(add-hook 'makefile-gmake-mode-hook 'hard-tabs)
-(add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
-
 ;; Convert hard tabs to spaces on save
 (add-hook 'before-save-hook
           (lambda ()
@@ -303,7 +300,8 @@
 ;; K&R style, and
 ;; Line up parentheses as well
 (setq gangnam-style
-  '((c-basic-offset . tab-width)
+  '((tab-width . 2)
+    (c-basic-offset . 2)
     (c-comment-only-line-offset . 0)
     (c-offsets-alist
       (arglist-close . c-lineup-close-paren)
