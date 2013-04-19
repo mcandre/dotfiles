@@ -18,6 +18,9 @@
       auto-save-default nil
       backup-inhibited t)
 
+;; Mac ls does not implement --dired
+(setq dired-use-ls-dired nil)
+
 ;; Markdown
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
