@@ -13,6 +13,10 @@
 ;; Disable start screen
 (setq inhibit-startup-screen t)
 
+;; Hide GUI toolbar
+(when window-system
+  (tool-bar-mode -1))
+
 ;; Disable backup files
 (setq make-backup-files nil
       auto-save-default nil
