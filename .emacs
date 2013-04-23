@@ -52,9 +52,9 @@
             ;; Enable all commands
             (setq disabled-command-function nil)
 
-            (define-key dired-mode-map (kbd "<return>") 'dired-single-buffer)
-            (define-key dired-mode-map (kbd "<down-mouse-1>") 'dired-single-buffer-mouse)
-            (define-key dired-mode-map "^"
+            (define-key dired-mode-map [return] 'dired-single-buffer)
+            (define-key dired-mode-map [down-mouse-1] 'dired-single-buffer-mouse)
+            (define-key dired-mode-map [^]
               (lambda ()
                 (interactive)
                 (dired-single-buffer "..")))
@@ -306,8 +306,8 @@
           (lambda ()
             (setq indent-tabs-mode nil
                   tab-width 4)
-            (define-key markdown-mode-map (kbd "<tab>") 'traditional-indent)
-            (define-key markdown-mode-map (kbd "<S-tab>") 'traditional-outdent)))
+            (define-key markdown-mode-map [tab] 'traditional-indent)
+            (define-key markdown-mode-map [S-tab] 'traditional-outdent)))
 
 ;; Convert hard tabs to spaces on save
 (add-hook 'before-save-hook
