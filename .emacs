@@ -25,6 +25,9 @@
 ;; Mac ls does not implement --dired
 (setq dired-use-ls-dired nil)
 
+;; Alt+F4 quits.
+(global-set-key [M-f4] 'save-buffers-kill-terminal)
+
 ;; Markdown
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -348,8 +351,10 @@
       (require 'tabbar)
       (tabbar-mode 1)
       ;; CUA
-      (global-set-key [C-S-tab] 'tabbar-backward-tab)
       (global-set-key [C-tab] 'tabbar-forward-tab)
+      (global-set-key [C-S-tab] 'tabbar-backward-tab)
+      (global-set-key [C-M-tab] 'tabbar-forward-group)
+      (global-set-key [C-M-S-tab] 'tabbar-backward-group)
 
       ;; Tab groups: emacs and user
       (setq tabbar-buffer-groups-function
