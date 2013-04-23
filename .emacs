@@ -198,7 +198,7 @@
     ;; Until able to submit fuel to Marmalade
     ;; https://github.com/mcandre/fuel
     (load "~/Desktop/src/fuel/fuel-1.0/fu.el")
-  (error (warn "FUEL not installed")))
+  (error nil))
 ;; We're Ruby, too!
 (dolist (extension
          '("\\.rake$"
