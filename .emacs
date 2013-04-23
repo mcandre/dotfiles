@@ -350,8 +350,13 @@
       ;; CUA
       (global-set-key [C-S-tab] 'tabbar-backward-tab)
       (global-set-key [C-tab] 'tabbar-forward-tab)
-      ;; Single tab group
-      (setq tabbar-buffer-groups-function (lambda () '("group"))))
+
+      ;; Tab groups: emacs and user
+      (setq tabbar-buffer-groups-function
+            (lambda ()
+              (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
+                          ((eq major-mode 'dired-mode) "emacs")
+                          (t "user"))))))
   (error (warn "tabbar is not installed")))
 
 ;; rgrep/lgrep ignore more file types
