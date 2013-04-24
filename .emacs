@@ -376,7 +376,11 @@
 ;; IRC
 (add-hook 'rcirc-mode-hook
           (lambda ()
-            ;; Hide connection rate
+            ;; Don't hide tabbar with connection rate.
+            (when tabbar-header-line-format
+              (setq header-line-format tabbar-header-line-format))
+
+            ;; Don't indent long messages
             (setq rcirc-fill-flag nil)
 
             ;; Default servers and channels
