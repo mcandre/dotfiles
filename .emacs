@@ -361,7 +361,7 @@
             (lambda ()
               (list (cond
                      ;; IRC
-                     ((string-match "^\\(#\\|\\(\\*irc\\)\\)" (buffer-name)) "irc")
+                     ((string-match "^\\(\\(#\\|\\(\\*irc\\)\\)\\)\\|nickserv@" (buffer-name)) "irc")
                      ;; Emacs-internal
                      ((string-match "^\\*" (buffer-name)) "emacs")
                      ;; dired
@@ -381,6 +381,9 @@
 (setq rcirc-default-nick "preyalone")
 (setq rcirc-default-user-name "preyalone")
 (setq rcirc-default-full-name "Prey Alone")
+(condition-case nil
+    (load "~/rcirc-auth.el")
+  (error (warn "~/rcirc-auth.el is not configured")))
 
 (add-hook 'rcirc-mode-hook
           (lambda ()
@@ -393,8 +396,4 @@
 
             ;; Default servers and channels
             (setq rcirc-startup-channels-alist
-                  '(("\\.freenode\\.net$")))
-
-            (condition-case nil
-                (load "~/rcirc-auth.el")
-              (error (warn "~/rcirc-auth.el is not configured")))))
+                  '(("\\.freenode\\.net$")))))
