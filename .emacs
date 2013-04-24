@@ -356,12 +356,14 @@
       (global-set-key [C-M-tab] 'tabbar-forward-group)
       (global-set-key [C-M-S-tab] 'tabbar-backward-group)
 
-      ;; Tab groups: emacs and user
+      ;; Tab groups: irc, emacs, user
       (setq tabbar-buffer-groups-function
             (lambda ()
               (list (cond
-                     ;; Emacs-internal and IRC
-                     ((string-match "^[*#]" (buffer-name)) "emacs")
+                     ;; IRC
+                     ((string-match "^\\(#\\|\\(\\*irc\\)\\)" (buffer-name)) "irc")
+                     ;; Emacs-internal
+                     ((string-match "^\\*" (buffer-name)) "emacs")
                      ;; dired
                      ((eq major-mode 'dired-mode) "emacs")
                      ;; normal buffers
