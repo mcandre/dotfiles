@@ -374,9 +374,14 @@
 (eval-after-load "grep"
   '(progn
     (add-to-list 'grep-find-ignored-directories "node_modules")
-    (add-to-list 'grep-find-ignored-files "*.min.js")))
+    (add-to-list 'grep-find-ignored-files "*.min.js")
+    (add-to-list 'grep-find-ignored-files "*-min.js")))
 
-;; IRC
+;; IRC Authentication
+(setq rcirc-default-nick "preyalone")
+(setq rcirc-default-user-name "preyalone")
+(setq rcirc-default-full-name "Prey Alone")
+
 (add-hook 'rcirc-mode-hook
           (lambda ()
             ;; Don't hide tabbar with connection rate.
@@ -390,10 +395,6 @@
             (setq rcirc-startup-channels-alist
                   '(("\\.freenode\\.net$")))
 
-            ;; Authentication
-            (setq rcirc-default-nick "preyalone")
-            (setq rcirc-default-user-name "preyalone")
-            (setq rcirc-default-full-name "Prey Alone")
             (condition-case nil
                 (load "~/rcirc-auth.el")
               (error (warn "~/rcirc-auth.el is not configured")))))
