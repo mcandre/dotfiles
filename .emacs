@@ -359,9 +359,13 @@
       ;; Tab groups: emacs and user
       (setq tabbar-buffer-groups-function
             (lambda ()
-              (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
-                          ((eq major-mode 'dired-mode) "emacs")
-                          (t "user"))))))
+              (list (cond
+                     ;; Emacs-internal and IRC
+                     ((string-match "^[*#]" (buffer-name)) "emacs")
+                     ;; dired
+                     ((eq major-mode 'dired-mode) "emacs")
+                     ;; normal buffers
+                     (t "user"))))))
   (error (warn "tabbar is not installed")))
 
 ;; rgrep/lgrep ignore more file types
@@ -370,15 +374,19 @@
     (add-to-list 'grep-find-ignored-files "node_modules")))
 
 ;; IRC
+(add-hook 'rcirc-mode-hook
+          (lambda ()
+            ;; Hide connection rate
+            (setq rcirc-fill-flag nil)
 
-;; Hide connection rate
-(setq rcirc-fill-flag nil)
+            ;; Default servers and channels
+            (setq rcirc-startup-channels-alist
+                  '(("\\.freenode\\.net$")))
 
-(setq rcirc-default-nick "preyalone")
-(setq rcirc-default-user-name "preyalone")
-(setq rcirc-default-full-name "Prey Alone")
-(setq rcirc-startup-channels-alist
-      '(("\\.freenode\\.net$")))
-(condition-case nil
-    (load "~/rcirc-auth.el")
-  (error (warn "~/rcirc-auth.el is not configured")))
+            ;; Authentication
+            (setq rcirc-default-nick "preyalone")
+            (setq rcirc-default-user-name "preyalone")
+            (setq rcirc-default-full-name "Prey Alone")
+            (condition-case nil
+                (load "~/rcirc-auth.el")
+              (error (warn "~/rcirc-auth.el is not configured")))))
