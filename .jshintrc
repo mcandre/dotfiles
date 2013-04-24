@@ -1,5 +1,6 @@
 {
   "es5": true,
   "expr": true,
-  "indent": 2
+  "indent": 2,
+  "quotmark": true
 }
