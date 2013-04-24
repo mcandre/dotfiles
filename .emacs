@@ -373,8 +373,8 @@
 ;; rgrep/lgrep ignore more file types
 (eval-after-load "grep"
   '(progn
-    (add-to-list 'grep-find-ignored-files "node_modules")
-    (add-to-list 'grep-find-ignored-files ".min.js")))
+    (add-to-list 'grep-find-ignored-directories "node_modules")
+    (add-to-list 'grep-find-ignored-files "*.min.js")))
 
 ;; IRC
 (add-hook 'rcirc-mode-hook
