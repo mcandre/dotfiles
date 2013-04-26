@@ -369,12 +369,15 @@
                      (t "user"))))))
   (error (warn "tabbar is not installed")))
 
-;; rgrep/lgrep ignore more file types
+(condition-case nil
+    (require 'ack-and-a-half)
+  (error (warn "ack-and-a-half is not installed")))
+
 (eval-after-load "grep"
   '(progn
-    (add-to-list 'grep-find-ignored-directories "node_modules")
-    (add-to-list 'grep-find-ignored-files "*.min.js")
-    (add-to-list 'grep-find-ignored-files "*-min.js")))
+     (add-to-list 'grep-find-ignored-directories "node_modules")
+     (add-to-list 'grep-find-ignored-files "*.min.js")
+     (add-to-list 'grep-find-ignored-files "*-min.js")))
 
 ;; IRC Authentication
 (setq rcirc-default-nick "preyalone")
