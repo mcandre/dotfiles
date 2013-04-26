@@ -370,6 +370,11 @@
   (error (warn "tabbar is not installed")))
 
 (condition-case nil
+    (when window-system
+      (require 'tabbar-ruler))
+  (error (warn "tabbar-ruler is not installed")))
+
+(condition-case nil
     (require 'ack-and-a-half)
   (error (warn "ack-and-a-half is not installed")))
 
