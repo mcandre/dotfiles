@@ -34,9 +34,8 @@
 
 ;; If Markdown is installed, use markdown-mode in *scratch*.
 (condition-case nil
-    (when window-system
-      (setq initial-scratch-message nil
-            initial-major-mode 'markdown-mode))
+    (setq initial-scratch-message nil
+          initial-major-mode 'markdown-mode)
   (error (warn "markdown-mode not installed")))
 
 ;; M-; toggles commenting for marked region or current line.
