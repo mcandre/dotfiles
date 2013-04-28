@@ -237,9 +237,7 @@
 ;; Monokai
 (condition-case nil
     (when window-system
-      (load-theme 'monokai t)
-      ;; Raise bracket contrast
-      (set-face-background 'show-paren-match-face "#595959"))
+      (load-theme 'monokai t))
  (error (warn "monokai-theme is not installed")))
 
 ;; Default to Unix LF line endings
