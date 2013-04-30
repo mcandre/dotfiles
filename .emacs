@@ -249,6 +249,10 @@
 (setq sws-tab-width 2)
 ;; And JavaScript
 (setq js-indent-level 2)
+;; And CSS
+(add-hook 'css-mode-hook
+          (lambda ()
+            (setq css-indent-offset 2)))
 ;; And Python
 (setq python-indent-offset 2)
 ;; And Rust
