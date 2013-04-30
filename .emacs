@@ -184,25 +184,25 @@
 ;;
 ;; Syntax highlighting
 ;;
-;;
-;; .vimrc
+
 (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
-;; MS-DOS .BAT files
+(add-to-list 'auto-mode-alist '("\\.jshintignore\\'" . gitignore-mode))
+(add-to-list 'auto-mode-alist '("\\.ackrc\\'" . conf-mode))
+
 (autoload 'ntcmd-mode "ntcmd" "" t)
 (add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
-;; Mozart/Oz
+
 (autoload 'oz-mode "oz" "Major mode for interacting with Oz code." t)
 (add-to-list 'auto-mode-alist '("\\.oz\\'" . oz-mode))
-;; Puppet
+
 (autoload 'puppet-mode "puppet-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.pp\\'" . puppet-mode))
-;; R
+
 (autoload 'R-mode "ess-site.el" "" t)
 (add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
-;; Factor
+
+;; Until MELPA fuel works
 (condition-case nil
-    ;; Until able to submit fuel to Marmalade
-    ;; https://github.com/mcandre/fuel
     (load "~/Desktop/src/fuel/fuel-1.0/fu.el")
   (error nil))
 ;; We're Ruby, too!
