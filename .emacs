@@ -342,6 +342,11 @@
   (lambda ()
     (c-add-style "dart" gangnam-style t)))
 
+(condition-case nil
+    (when window-system
+      (require 'tabbar-ruler))
+  (error (warn "tabbar-ruler is not installed")))
+
 ;; File tabs
 (condition-case nil
     (when window-system
@@ -366,11 +371,6 @@
                      ;; normal buffers
                      (t "user"))))))
   (error (warn "tabbar is not installed")))
-
-(condition-case nil
-    (when window-system
-      (require 'tabbar-ruler))
-  (error (warn "tabbar-ruler is not installed")))
 
 (condition-case nil
     (require 'ack-and-a-half)
