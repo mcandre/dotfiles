@@ -254,7 +254,11 @@
           (lambda ()
             (setq css-indent-offset 2)))
 ;; And Python
-(setq python-indent-offset 2)
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq tab-width 2)
+            (setq python-indent 2)
+            (setq python-indent-offset 2)))
 ;; And Rust
 (add-hook 'rust-mode-hook
           (lambda ()
