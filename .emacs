@@ -5,18 +5,28 @@
 
 (require 'package)
 (setq package-archives
-      (append '(("marmalade" . "http://marmalade-repo.org/packages/")
-                ("melpa" . "http://melpa.milkbox.net/packages/"))
+      (append '(("melpa" . "http://melpa.milkbox.net/packages/")
+                ("marmalade" . "http://marmalade-repo.org/packages/"))
               package-archives))
 (package-initialize)
 
 ;; Disable start screen
 (setq inhibit-startup-screen t)
 
+;; Hide GUI toolbar
+(when window-system
+  (tool-bar-mode -1))
+
 ;; Disable backup files
 (setq make-backup-files nil
       auto-save-default nil
       backup-inhibited t)
+
+;; Mac ls does not implement --dired
+(setq dired-use-ls-dired nil)
+
+;; Alt+F4 quits.
+(global-set-key [M-f4] 'save-buffers-kill-terminal)
 
 ;; Markdown
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
@@ -24,9 +34,8 @@
 
 ;; If Markdown is installed, use markdown-mode in *scratch*.
 (condition-case nil
-    (when window-system
-      (setq initial-scratch-message nil
-            initial-major-mode 'markdown-mode))
+    (setq initial-scratch-message nil
+          initial-major-mode 'markdown-mode)
   (error (warn "markdown-mode not installed")))
 
 ;; M-; toggles commenting for marked region or current line.
@@ -42,9 +51,9 @@
             ;; Enable all commands
             (setq disabled-command-function nil)
 
-            (define-key dired-mode-map (kbd "<return>") 'dired-single-buffer)
-            (define-key dired-mode-map (kbd "<down-mouse-1>") 'dired-single-buffer-mouse)
-            (define-key dired-mode-map "^"
+            (define-key dired-mode-map [return] 'dired-single-buffer)
+            (define-key dired-mode-map [down-mouse-1] 'dired-single-buffer-mouse)
+            (define-key dired-mode-map [^]
               (lambda ()
                 (interactive)
                 (dired-single-buffer "..")))
@@ -164,29 +173,38 @@
 ;; Font: Monaco
 (condition-case nil
     (when window-system
+      ;; Font size: 10pt
+      (set-face-attribute 'default nil :height
+                          (if (eq system-type 'darwin)
+                              120
+                            80))
       (set-frame-font "Monaco"))
   (error (warn "Monaco font is not installed")))
-;; Font size: 10pt
-(set-face-attribute 'default nil :height
-                    (if (eq system-type 'darwin)
-                        120
-                        80))
 
 ;;
 ;; Syntax highlighting
 ;;
-;;
-;; .vimrc
+
 (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
-;; MS-DOS .BAT files
+(add-to-list 'auto-mode-alist '("\\.jshintignore\\'" . gitignore-mode))
+(add-to-list 'auto-mode-alist '("\\.ackrc\\'" . conf-mode))
+
 (autoload 'ntcmd-mode "ntcmd" "" t)
 (add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
-;; Mozart/Oz
+
 (autoload 'oz-mode "oz" "Major mode for interacting with Oz code." t)
 (add-to-list 'auto-mode-alist '("\\.oz\\'" . oz-mode))
-;; Puppet
+
 (autoload 'puppet-mode "puppet-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.pp\\'" . puppet-mode))
+
+(autoload 'R-mode "ess-site.el" "" t)
+(add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
+
+;; Until MELPA fuel works
+(condition-case nil
+    (load "~/Desktop/src/fuel/fuel-1.0/fu.el")
+  (error nil))
 ;; We're Ruby, too!
 (dolist (extension
          '("\\.rake$"
@@ -219,21 +237,36 @@
 ;; Monokai
 (condition-case nil
     (when window-system
-      (load-theme 'monokai t)
-      ;; Raise bracket contrast
-      (set-face-background 'show-paren-match-face "#595959"))
+      (load-theme 'monokai t))
  (error (warn "monokai-theme is not installed")))
 
 ;; Default to Unix LF line endings
-(setq default-buffer-file-coding-system 'utf-8-unix
-      ;; Soft tabs
-      indent-tabs-mode nil
-      ;; 2 spaces
-      tab-width 2
-      sws-tab-width 2
-      ;; And JavaScript
-      js-indent-level 2)
-
+(setq default-buffer-file-coding-system 'utf-8-unix)
+;; Soft tabs
+(setq indent-tabs-mode nil)
+;; 2 spaces
+(setq-default tab-width 2)
+(setq sws-tab-width 2)
+;; And JavaScript
+(setq js-indent-level 2)
+;; And CSS
+(add-hook 'css-mode-hook
+          (lambda ()
+            (setq css-indent-offset 2)))
+;; And Python
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq tab-width 2)
+            (setq python-indent 2)
+            (setq python-indent-offset 2)))
+;; And Rust
+(add-hook 'rust-mode-hook
+          (lambda ()
+            (setq rust-indent-unit 2)))
+;; And Go
+(add-hook 'go-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)))
 ;; And Erlang
 (autoload 'erlang-mode "erlang" "" t)
 (add-to-list 'auto-mode-alist '("\\.erl\\'" . erlang-mode))
@@ -241,7 +274,6 @@
 (add-hook 'erlang-mode-hook
           (lambda ()
             (setq erlang-indent-level tab-width)))
-
 ;; And Haskell
 (autoload 'haskell-mode "haskell-mode" "" t)
 (add-hook 'haskell-mode-hook
@@ -249,6 +281,20 @@
             (turn-on-haskell-indentation)
             (setq indent-tabs-mode nil
                   tab-width tab-width)))
+;; And PostScript
+(add-hook 'ps-mode-hook
+          (lambda () (setq ps-mode-tab tab-width)))
+;; And Mozart/Oz
+(add-hook 'oz-mode-hook
+          (lambda () (setq oz-indent-chars tab-width)))
+;; But not Makefiles
+(defun hard-tabs ()
+  (setq-default indent-tabs-mode t)
+  (setq indent-tabs-mode t
+        tab-width 2))
+(add-hook 'makefile-mode-hook 'hard-tabs)
+(add-hook 'makefile-gmake-mode-hook 'hard-tabs)
+(add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
 
 ;; If mark exists, indent rigidly.
 ;; Otherwise, insert a hard or soft tab indentation.
@@ -269,23 +315,8 @@
           (lambda ()
             (setq indent-tabs-mode nil
                   tab-width 4)
-            (define-key markdown-mode-map (kbd "<tab>") 'traditional-indent)
-            (define-key markdown-mode-map (kbd "<S-tab>") 'traditional-outdent)))
-
-;; And PostScript
-(add-hook 'ps-mode-hook
-          (lambda () (setq ps-mode-tab tab-width)))
-;; And Mozart/Oz
-(add-hook 'oz-mode-hook
-          (lambda () (setq oz-indent-chars tab-width)))
-;; But not Makefiles
-(defun hard-tabs ()
-  (setq-default indent-tabs-mode t)
-  (setq indent-tabs-mode t
-        tab-width 2))
-(add-hook 'makefile-mode-hook 'hard-tabs)
-(add-hook 'makefile-gmake-mode-hook 'hard-tabs)
-(add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
+            (define-key markdown-mode-map [tab] 'traditional-indent)
+            (define-key markdown-mode-map [S-tab] 'traditional-outdent)))
 
 ;; Convert hard tabs to spaces on save
 (add-hook 'before-save-hook
@@ -303,7 +334,8 @@
 ;; K&R style, and
 ;; Line up parentheses as well
 (setq gangnam-style
-  '((c-basic-offset . tab-width)
+  '((tab-width . 2)
+    (c-basic-offset . 2)
     (c-comment-only-line-offset . 0)
     (c-offsets-alist
       (arglist-close . c-lineup-close-paren)
@@ -322,33 +354,63 @@
   (lambda ()
     (c-add-style "dart" gangnam-style t)))
 
+(condition-case nil
+    (when window-system
+      (require 'tabbar-ruler))
+  (error (warn "tabbar-ruler is not installed")))
+
 ;; File tabs
 (condition-case nil
     (when window-system
       (require 'tabbar)
       (tabbar-mode 1)
       ;; CUA
-      (global-set-key [C-S-tab] 'tabbar-backward-tab)
       (global-set-key [C-tab] 'tabbar-forward-tab)
-      ;; Single tab group
-      (setq tabbar-buffer-groups-function (lambda () '("group"))))
+      (global-set-key [C-S-tab] 'tabbar-backward-tab)
+      (global-set-key [C-M-tab] 'tabbar-forward-group)
+      (global-set-key [C-M-S-tab] 'tabbar-backward-group)
+
+      ;; Tab groups: irc, emacs, user
+      (setq tabbar-buffer-groups-function
+            (lambda ()
+              (list (cond
+                     ;; IRC
+                     ((string-match "^\\(\\(#\\|\\(\\*irc\\)\\)\\)\\|nickserv@" (buffer-name)) "irc")
+                     ;; Emacs-internal
+                     ((string-match "^\\*" (buffer-name)) "emacs")
+                     ;; dired
+                     ((eq major-mode 'dired-mode) "emacs")
+                     ;; normal buffers
+                     (t "user"))))))
   (error (warn "tabbar is not installed")))
 
-;; rgrep/lgrep ignore more file types
+(condition-case nil
+    (require 'ack-and-a-half)
+  (error (warn "ack-and-a-half is not installed")))
+
 (eval-after-load "grep"
   '(progn
-    (add-to-list 'grep-find-ignored-files "node_modules")))
+     (add-to-list 'grep-find-ignored-directories "node_modules")
+     (add-to-list 'grep-find-ignored-files "*.min.js")
+     (add-to-list 'grep-find-ignored-files "*-min.js")))
 
-;; IRC
-
-;; Hide connection rate
-(setq rcirc-fill-flag nil)
-
+;; IRC Authentication
 (setq rcirc-default-nick "preyalone")
 (setq rcirc-default-user-name "preyalone")
 (setq rcirc-default-full-name "Prey Alone")
-(setq rcirc-startup-channels-alist
-      '(("\\.freenode\\.net$")))
 (condition-case nil
     (load "~/rcirc-auth.el")
   (error (warn "~/rcirc-auth.el is not configured")))
+
+(add-hook 'rcirc-mode-hook
+          (lambda ()
+            ;; Don't hide tabbar with connection rate.
+            (when tabbar-header-line-format
+              (setq header-line-format tabbar-header-line-format))
+
+            ;; Don't indent long messages
+            (setq rcirc-fill-flag nil)
+
+            ;; Default servers and channels
+            (setq rcirc-startup-channels-alist
+                  '(("\\.freenode\\.net$")))))

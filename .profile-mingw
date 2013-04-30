@@ -5,6 +5,10 @@ export CYGWIN="$CYGWIN nodosfilewarning"
 export CLICOLOR=1
 alias ls="ls --color"
 
+# This option is not found by GUI programs unless
+# manually added to System Properties -> Environment Variables.
+# export GREP_OPTIONS="--exclude-from=~/.grepignore --exclude-from=.grepignore"
+
 # Emacs
 alias emacs="emacs -nw"
 

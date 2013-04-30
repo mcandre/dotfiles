@@ -1,0 +1,3 @@
+--ignore-file=is:.gitignore
+--ignore-dir=is:node_modules
+--ignore-file=match:min\.js

@@ -63,7 +63,7 @@
 		<hotkey ctrl="0" shift="0" alt="0" extended="0" code="0" command="switchtab10"/>
 		<hotkey ctrl="1" shift="0" alt="0" extended="0" code="9" command="nexttab"/>
 		<hotkey ctrl="1" shift="1" alt="0" extended="0" code="9" command="prevtab"/>
-		<hotkey ctrl="0" shift="0" alt="0" extended="0" code="0" command="closetab"/>
+		<hotkey ctrl="1" shift="1" alt="0" extended="0" code="87" command="closetab"/>
 		<hotkey ctrl="0" shift="0" alt="0" extended="0" code="0" command="renametab"/>
 		<hotkey ctrl="0" shift="0" alt="0" extended="0" code="0" command="copy"/>
 		<hotkey ctrl="0" shift="0" alt="0" extended="0" code="0" command="clear_selection"/>
