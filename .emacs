@@ -5,8 +5,8 @@
 
 (require 'package)
 (setq package-archives
-      (append '(("marmalade" . "http://marmalade-repo.org/packages/")
-                ("melpa" . "http://melpa.milkbox.net/packages/"))
+      (append '(("melpa" . "http://melpa.milkbox.net/packages/"))
+                ("marmalade" . "http://marmalade-repo.org/packages/"))
               package-archives))
 (package-initialize)
 
