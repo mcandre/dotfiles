@@ -1,6 +1,7 @@
 {
   "es5": true,
   "expr": true,
+  "maxerr": 10000,
   "indent": 2,
   "eqeqeq": true,
   "quotmark": true
