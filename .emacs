@@ -358,6 +358,7 @@
 
 (condition-case nil
     (when window-system
+      (setq tabbar-ruler-invert-deselected nil)
       (require 'tabbar-ruler))
   (error (warn "tabbar-ruler is not installed")))
 
