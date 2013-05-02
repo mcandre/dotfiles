@@ -186,6 +186,8 @@
 ;;
 
 (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
+
+(autoload 'gitignore-mode "gitignore-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.jshintignore\\'" . gitignore-mode))
 (add-to-list 'auto-mode-alist '("\\.ackrc\\'" . conf-mode))
 
@@ -356,6 +358,7 @@
 
 (condition-case nil
     (when window-system
+      (setq tabbar-ruler-invert-deselected nil)
       (require 'tabbar-ruler))
   (error (warn "tabbar-ruler is not installed")))
 
