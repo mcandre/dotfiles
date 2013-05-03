@@ -277,7 +277,6 @@
           (lambda ()
             (setq erlang-indent-level tab-width)))
 ;; And Haskell
-(autoload 'haskell-mode "haskell-mode" "" t)
 (add-hook 'haskell-mode-hook
           (lambda ()
             (turn-on-haskell-indentation)
