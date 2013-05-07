@@ -28,6 +28,16 @@
 ;; Alt+F4 quits.
 (global-set-key [M-f4] 'save-buffers-kill-terminal)
 
+;; Improved undo
+(require 'undo-tree)
+(global-undo-tree-mode)
+
+;; CUA
+(global-unset-key (kbd "C-z"))
+(global-unset-key (kbd "C-_"))
+(global-set-key (kbd "C-z") 'undo-tree-undo)
+(global-set-key (kbd "C-S-z") 'undo-tree-redo)
+
 ;; Markdown
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
