@@ -29,14 +29,17 @@
 (global-set-key [M-f4] 'save-buffers-kill-terminal)
 
 ;; Improved undo
-(require 'undo-tree)
-(global-undo-tree-mode)
+(condition-case nil
+    (progn
+      (require 'undo-tree)
+      (global-undo-tree-mode)
 
-;; CUA
-(global-unset-key (kbd "C-z"))
-(global-unset-key (kbd "C-_"))
-(global-set-key (kbd "C-z") 'undo-tree-undo)
-(global-set-key (kbd "C-S-z") 'undo-tree-redo)
+      ;; CUA
+      (global-unset-key (kbd "C-z"))
+      (global-unset-key (kbd "C-_"))
+      (global-set-key (kbd "C-z") 'undo-tree-undo)
+      (global-set-key (kbd "C-S-z") 'undo-tree-redo))
+  (error (warn "undo-tree not installed")))
 
 ;; Markdown
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
