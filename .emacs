@@ -36,7 +36,6 @@
 
       ;; CUA
       (global-unset-key (kbd "C-z"))
-      (global-unset-key (kbd "C-_"))
       (global-set-key (kbd "C-z") 'undo-tree-undo)
       (global-set-key (kbd "C-S-z") 'undo-tree-redo))
   (error (warn "undo-tree not installed")))
