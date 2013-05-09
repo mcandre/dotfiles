@@ -28,6 +28,18 @@
 ;; Alt+F4 quits.
 (global-set-key [M-f4] 'save-buffers-kill-terminal)
 
+;; Improved undo
+(condition-case nil
+    (progn
+      (require 'undo-tree)
+      (global-undo-tree-mode)
+
+      ;; CUA
+      (global-unset-key (kbd "C-z"))
+      (global-set-key (kbd "C-z") 'undo-tree-undo)
+      (global-set-key (kbd "C-S-z") 'undo-tree-redo))
+  (error (warn "undo-tree not installed")))
+
 ;; Markdown
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -277,7 +289,6 @@
           (lambda ()
             (setq erlang-indent-level tab-width)))
 ;; And Haskell
-(autoload 'haskell-mode "haskell-mode" "" t)
 (add-hook 'haskell-mode-hook
           (lambda ()
             (turn-on-haskell-indentation)
