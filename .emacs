@@ -219,6 +219,8 @@
 (condition-case nil
     (load "~/Desktop/src/fuel/fuel-1.0/fu.el")
   (error nil))
+;; We're Makefile, too!
+(add-to-list 'auto-mode-alist '("\\.mf\\'" . makefile-mode))
 ;; We're Ruby, too!
 (dolist (extension
          '("\\.rake$"
