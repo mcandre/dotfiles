@@ -66,6 +66,11 @@ http://emacswiki.org/
     $ emacs
     C-x C-f <file/dir>
 
+## View File
+
+    $ emacs
+    M-x view-file RET <file>
+
 ### Windows
 
     C:\> runemacs <file/dir>
