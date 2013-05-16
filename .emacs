@@ -330,8 +330,8 @@
           (lambda ()
             (setq indent-tabs-mode nil
                   tab-width 4)
-            (define-key markdown-mode-map [tab] 'traditional-indent)
-            (define-key markdown-mode-map [S-tab] 'traditional-outdent)))
+            (define-key markdown-mode-map (kbd "TAB") 'traditional-indent)
+            (define-key markdown-mode-map (kbd "<backtab>") 'traditional-outdent)))
 
 ;; Convert hard tabs to spaces on save
 (add-hook 'before-save-hook
