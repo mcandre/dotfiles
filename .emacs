@@ -269,6 +269,8 @@
 (add-hook 'css-mode-hook
           (lambda ()
             (setq css-indent-offset 2)))
+;; And Perl
+(fset 'perl-mode 'cperl-mode)
 ;; And Python
 (add-hook 'python-mode-hook
           (lambda ()
