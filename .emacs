@@ -284,9 +284,6 @@
           (lambda ()
             (setq indent-tabs-mode nil)))
 ;; And Erlang
-(autoload 'erlang-mode "erlang" "" t)
-(add-to-list 'auto-mode-alist '("\\.erl\\'" . erlang-mode))
-(add-to-list 'auto-mode-alist '("\\.escript\\'" . erlang-mode))
 (add-hook 'erlang-mode-hook
           (lambda ()
             (setq erlang-indent-level tab-width)))
