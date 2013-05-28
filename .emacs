@@ -288,6 +288,7 @@
 ;; And Erlang
 (add-hook 'erlang-mode-hook
           (lambda ()
+            (setq indent-tabs-mode nil)
             (setq erlang-indent-level tab-width)))
 ;; And Haskell
 (add-hook 'haskell-mode-hook
