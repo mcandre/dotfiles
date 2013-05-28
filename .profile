@@ -21,6 +21,9 @@ export PATH="$PATH:/usr/local/Cellar/ruby/1.9.3-p385/bin"
 # Add personal executables.
 export PATH="$PATH:/Users/andrew/bin"
 
+# For `brew edit`, etc.
+export EDITOR="emacs"
+
 # Correct quotes.
 set +H
 
@@ -53,14 +56,6 @@ export PATH="$PATH:/usr/local/share/npm/bin:~/node/bin"
 
 # MacPorts
 export PATH="$PATH:/opt/local/bin:/opt/local/sbin"
-
-# Factor
-#export FACTOR_ROOT="/Applications/factor"
-#export PATH="${PATH}:${FACTOR_ROOT}"
-
-# Go
-#export PATH="$PATH:~/go/bin"
-#export GOROOT="~/go"
 
 # OCaml show error traces
 export OCAMLRUNPARAM="b"
