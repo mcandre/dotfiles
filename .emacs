@@ -231,6 +231,8 @@
            "Guardfile$"
            "Vagrantfile$"))
   (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
+;; We're Erlang, too!
+(add-to-list 'auto-mode-alist '("\\rebar.config\\'" . erlang-mode))
 ;; We're YAML, too!
 (autoload 'yaml-mode "yaml-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.reek\\'" . yaml-mode))
