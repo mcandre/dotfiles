@@ -1,7 +1,87 @@
 ;; Store as ~/.emacs
 
-;; Always display error backtraces
-(setq debug-on-error t)
+;; Show line numbers
+(global-linum-mode t)
+
+(setq
+ ;; Always display error backtraces
+ debug-on-error t
+
+ ;; Disable start screen 
+ inhibit-startup-screen t
+
+ ;; Disable backup files
+ make-backup-files nil
+ auto-save-default nil
+ backup-inhibited t
+
+ ;; Always follow symbolic links to version controlled files
+ vc-follow-symlinks t
+
+ ;; Mac ls does not implement --dired
+ dired-use-ls-dired nil
+
+ ;; Line format: N <contents>
+ linum-format "%d "
+ ;; Minibuffer line and column
+ line-number-mode t
+ column-number-mode t
+
+ ;; Default to Unix LF line endings
+ default-buffer-file-coding-system 'utf-8-unix
+ ;; Soft tabs
+ indent-tabs-mode nil
+ ;; Width: 2 spaces
+ sws-tab-width 2
+ ;; And JavaScript
+ js-indent-level 2)
+
+;; I said, soft tabs, width 2 spaces!
+(setq-default tab-width 2)
+;; And CSS
+(add-hook 'css-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil
+                  css-indent-offset 2)))
+;; And Perl
+(fset 'perl-mode 'cperl-mode)
+;; And Python
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq tab-width 2
+                  python-indent 2
+                  python-indent-offset 2)))
+;; And Rust
+(add-hook 'rust-mode-hook
+          (lambda () (setq rust-indent-unit 2)))
+;; And Go
+(add-hook 'go-mode-hook
+          (lambda () (setq indent-tabs-mode nil)))
+;; And Erlang
+(add-hook 'erlang-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil
+                  erlang-indent-level tab-width)))
+;; And Haskell
+(add-hook 'haskell-mode-hook
+          (lambda ()
+            (turn-on-haskell-indentation)
+            (setq indent-tabs-mode nil
+                  tab-width tab-width)))
+;; And PostScript
+(add-hook 'ps-mode-hook
+          (lambda () (setq ps-mode-tab tab-width)))
+;; And Mozart/Oz
+(add-hook 'oz-mode-hook
+          (lambda () (setq oz-indent-chars tab-width)))
+;; But not Makefiles
+(defun hard-tabs ()
+  (setq-default indent-tabs-mode t)
+  (setq indent-tabs-mode t
+        tab-width 2))
+(add-hook 'makefile-mode-hook 'hard-tabs)
+(add-hook 'makefile-gmake-mode-hook 'hard-tabs)
+(add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
 
 (require 'package)
 (setq package-archives
@@ -10,20 +90,141 @@
               package-archives))
 (package-initialize)
 
-;; Disable start screen
-(setq inhibit-startup-screen t)
-
-;; Hide GUI toolbar
 (when window-system
-  (tool-bar-mode -1))
+  ;; Hide GUI toolbar
+  (tool-bar-mode -1)
 
-;; Disable backup files
-(setq make-backup-files nil
-      auto-save-default nil
-      backup-inhibited t)
+  ;; Monokai
+  (condition-case nil
+      (load-theme 'monokai t)
+    (error (warn "monokai-theme is not installed")))
 
-;; Mac ls does not implement --dired
-(setq dired-use-ls-dired nil)
+  ;; Font: Monaco
+  (condition-case nil
+      (progn
+        ;; Font size: 10pt
+        (set-face-attribute 'default nil :height
+                            (if (eq system-type 'darwin)
+                                120
+                              80))
+        (set-frame-font "Monaco"))
+    (error (warn "Monaco font is not installed")))
+
+  (condition-case nil
+      (progn
+        (require 'cl)
+        (setq tabbar-ruler-invert-deselected nil)
+        (require 'tabbar-ruler))
+    (error (warn "tabbar-ruler is not installed")))
+
+  ;; File tabs
+  (condition-case nil
+      (progn
+        (require 'tabbar)
+        (tabbar-mode 1)
+        ;; CUA
+        (global-set-key [C-tab] 'tabbar-forward-tab)
+        (global-set-key [C-S-tab] 'tabbar-backward-tab)
+        (global-set-key [C-M-tab] 'tabbar-forward-group)
+        (global-set-key [C-M-S-tab] 'tabbar-backward-group)
+        (global-set-key (kbd "s-}") 'tabbar-forward-tab)
+        (global-set-key (kbd "s-{") 'tabbar-backward-tab)
+        (global-set-key (kbd "M-s-‘") 'tabbar-forward-group)
+        (global-set-key (kbd "M-s-“") 'tabbar-backward-group)
+
+        ;; Tab groups: irc, emacs, user
+        (setq tabbar-buffer-groups-function
+              (lambda ()
+                (list (cond
+                       ;; IRC
+                       ((string-match "^\\(\\(#\\|\\(\\*irc\\)\\)\\)\\|nickserv@" (buffer-name)) "irc")
+                       ;; Emacs-internal
+                       ((string-match "^\\*" (buffer-name)) "emacs")
+                       ;; dired
+                       ((eq major-mode 'dired-mode) "emacs")
+                       ;; normal buffers
+                       (t "user"))))))
+    (error (warn "tabbar is not installed")))
+
+  ;;
+  ;; Folding
+  ;;
+  ;;
+  ;; If hideshowvis is not installed, do not attempt to configure it,
+  ;; as this will prevent packages (including hideshowvis itself)
+  ;; from compiling.
+  (condition-case nil
+      (when (not (string-match "unknown" system-configuration))
+        (require 'hideshowvis)
+
+        (autoload 'hideshowvis-enable
+          "hideshowvis"
+          "Highlight foldable regions")
+
+        (autoload 'hideshowvis-minor-mode
+          "hideshowvis"
+          "Will indicate regions foldable with hideshow in the fringe."
+          'interactive)
+
+        (dolist (hook '(emacs-lisp-mode-hook
+                        lisp-mode-hook
+                        scheme-mode-hook
+                        c-mode-hook
+                        c++-mode-hook
+                        java-mode-hook
+                        js-mode-hook
+                        perl-mode-hook
+                        php-mode-hook
+                        tcl-mode-hook
+                        vhdl-mode-hook
+                        fortran-mode-hook
+                        python-mode-hook))
+          (add-hook hook
+                    (lambda ()
+                      ;; More syntax definitions
+                      (require 'fold-dwim)
+                      (hideshowvis-enable))))
+
+        ;;
+        ;; +/- fold buttons
+        ;;
+
+        (define-fringe-bitmap 'hs-marker [0 24 24 126 126 24 24 0])
+
+        (defcustom hs-fringe-face 'hs-fringe-face
+          "*Specify face used to highlight the fringe on hidden regions."
+          :type 'face
+          :group 'hideshow)
+
+        (defface hs-fringe-face
+          '((t (:foreground "#888" :box (:line-width 2 :color "grey75" :style released-button))))
+          "Face used to highlight the fringe on folded regions"
+          :group 'hideshow)
+
+        (defcustom hs-face 'hs-face
+          "*Specify the face to to use for the hidden region indicator"
+          :type 'face
+          :group 'hideshow)
+
+        (defface hs-face
+          '((t (:background "#ff8" :box t)))
+          "Face to hightlight the ... area of hidden regions"
+          :group 'hideshow)
+
+        (defun display-code-line-counts (ov)
+          (when (eq 'code (overlay-get ov 'hs))
+            (let* ((marker-string "*fringe-dummy*")
+                   (marker-length (length marker-string))
+                   (display-string (format "(%d)..." (count-lines (overlay-start ov) (overlay-end ov))))
+                   )
+              (overlay-put ov 'help-echo "Hidden text. C-c,= to show")
+              (put-text-property 0 marker-length 'display (list 'left-fringe 'hs-marker 'hs-fringe-face) marker-string)
+              (overlay-put ov 'before-string marker-string)
+              (put-text-property 0 (length display-string) 'face 'hs-face display-string)
+              (overlay-put ov 'display display-string))))
+
+        (setq hs-set-up-overlay 'display-code-line-counts))
+    (error (warn "hideshowvis is not installed"))))
 
 ;; Alt+F4 quits.
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
@@ -44,7 +245,7 @@
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-;; If Markdown is installed, use markdown-mode in *scratch*.
+;; Use markdown-mode for *scratch*.
 (condition-case nil
     (setq initial-scratch-message nil
           initial-major-mode 'markdown-mode)
@@ -81,6 +282,7 @@
 
             ;; Hide dired current directory (.)
             (require 'dired+)
+
             ;; Fix color theme
             (setq-default dired-omit-files-p t)
             (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t)))
@@ -88,110 +290,6 @@
 
 ;; Highlight matching parentheses
 (show-paren-mode 1)
-
-;; Always follow symbolic links to version controlled files
-(setq vc-follow-symlinks t)
-
-;; Show line numbers
-(global-linum-mode t)
-;; With a space
-(setq linum-format "%d "
-      ;; Minibuffer line and column
-      line-number-mode t
-      column-number-mode t)
-
-;;
-;; Folding
-;;
-;;
-;; If hideshowvis is not installed, do not attempt to configure it,
-;; as this will prevent packages (including hideshowvis itself)
-;; from compiling.
-(condition-case nil
-    (when (and
-           window-system
-           (not (string-match "unknown" system-configuration)))
-      (require 'hideshowvis)
-
-      (autoload 'hideshowvis-enable
-        "hideshowvis"
-        "Highlight foldable regions")
-
-      (autoload 'hideshowvis-minor-mode
-        "hideshowvis"
-        "Will indicate regions foldable with hideshow in the fringe."
-        'interactive)
-
-      (dolist (hook '(emacs-lisp-mode-hook
-                      lisp-mode-hook
-                      scheme-mode-hook
-                      c-mode-hook
-                      c++-mode-hook
-                      java-mode-hook
-                      js-mode-hook
-                      perl-mode-hook
-                      php-mode-hook
-                      tcl-mode-hook
-                      vhdl-mode-hook
-                      fortran-mode-hook
-                      python-mode-hook))
-        (add-hook hook
-                  (lambda ()
-                    ;; More syntax definitions
-                    (require 'fold-dwim)
-                    (hideshowvis-enable))))
-
-      ;;
-      ;; +/- fold buttons
-      ;;
-
-      (define-fringe-bitmap 'hs-marker [0 24 24 126 126 24 24 0])
-
-      (defcustom hs-fringe-face 'hs-fringe-face
-        "*Specify face used to highlight the fringe on hidden regions."
-        :type 'face
-        :group 'hideshow)
-
-      (defface hs-fringe-face
-        '((t (:foreground "#888" :box (:line-width 2 :color "grey75" :style released-button))))
-        "Face used to highlight the fringe on folded regions"
-        :group 'hideshow)
-
-      (defcustom hs-face 'hs-face
-        "*Specify the face to to use for the hidden region indicator"
-        :type 'face
-        :group 'hideshow)
-
-      (defface hs-face
-        '((t (:background "#ff8" :box t)))
-        "Face to hightlight the ... area of hidden regions"
-        :group 'hideshow)
-
-      (defun display-code-line-counts (ov)
-        (when (eq 'code (overlay-get ov 'hs))
-          (let* ((marker-string "*fringe-dummy*")
-                 (marker-length (length marker-string))
-                 (display-string (format "(%d)..." (count-lines (overlay-start ov) (overlay-end ov))))
-                 )
-            (overlay-put ov 'help-echo "Hidden text. C-c,= to show")
-            (put-text-property 0 marker-length 'display (list 'left-fringe 'hs-marker 'hs-fringe-face) marker-string)
-            (overlay-put ov 'before-string marker-string)
-            (put-text-property 0 (length display-string) 'face 'hs-face display-string)
-            (overlay-put ov 'display display-string))))
-
-      (setq hs-set-up-overlay 'display-code-line-counts))
-  (error (warn "hideshowvis is not installed")))
-
-;; Font: Monaco
-(condition-case nil
-    (when window-system
-      ;; Font size: 10pt
-      (set-face-attribute 'default nil :height
-                          (if (eq system-type 'darwin)
-                              120
-                            80))
-      (set-frame-font "Monaco"))
-  (error (warn "Monaco font is not installed")))
 
 ;;
 ;; Syntax highlighting
@@ -215,10 +313,6 @@
 (autoload 'R-mode "ess-site.el" "" t)
 (add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
 
-;; Until MELPA fuel works
-(condition-case nil
-    (load "~/Desktop/src/fuel/fuel-1.0/fu.el")
-  (error nil))
 ;; We're Makefile, too!
 (add-to-list 'auto-mode-alist '("\\.mf\\'" . makefile-mode))
 ;; We're Ruby, too!
@@ -251,64 +345,6 @@
       (add-to-list 'auto-mode-alist '("\\.erb\\'" . html-erb-mode))
       (add-to-list 'auto-mode-alist '("\\.ejs\\'"  . html-erb-mode)))
   (error (warn "mmm-mode is not installed")))
-
-;; Monokai
-(condition-case nil
-    (when window-system
-      (load-theme 'monokai t))
- (error (warn "monokai-theme is not installed")))
-
-;; Default to Unix LF line endings
-(setq default-buffer-file-coding-system 'utf-8-unix)
-;; Soft tabs
-(setq indent-tabs-mode nil)
-;; 2 spaces
-(setq-default tab-width 2)
-(setq sws-tab-width 2)
-;; And JavaScript
-(setq js-indent-level 2)
-;; And CSS
-(add-hook 'css-mode-hook
-          (lambda () (setq css-indent-offset 2)))
-;; And Perl
-(fset 'perl-mode 'cperl-mode)
-;; And Python
-(add-hook 'python-mode-hook
-          (lambda ()
-            (setq tab-width 2)
-            (setq python-indent 2)
-            (setq python-indent-offset 2)))
-;; And Rust
-(add-hook 'rust-mode-hook
-          (lambda () (setq rust-indent-unit 2)))
-;; And Go
-(add-hook 'go-mode-hook
-          (lambda () (setq indent-tabs-mode nil)))
-;; And Erlang
-(add-hook 'erlang-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode nil
-                  erlang-indent-level tab-width)))
-;; And Haskell
-(add-hook 'haskell-mode-hook
-          (lambda ()
-            (turn-on-haskell-indentation)
-            (setq indent-tabs-mode nil
-                  tab-width tab-width)))
-;; And PostScript
-(add-hook 'ps-mode-hook
-          (lambda () (setq ps-mode-tab tab-width)))
-;; And Mozart/Oz
-(add-hook 'oz-mode-hook
-          (lambda () (setq oz-indent-chars tab-width)))
-;; But not Makefiles
-(defun hard-tabs ()
-  (setq-default indent-tabs-mode t)
-  (setq indent-tabs-mode t
-        tab-width 2))
-(add-hook 'makefile-mode-hook 'hard-tabs)
-(add-hook 'makefile-gmake-mode-hook 'hard-tabs)
-(add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
 
 ;; If mark exists, indent rigidly.
 ;; Otherwise, insert a hard or soft tab indentation.
@@ -367,41 +403,6 @@
 (add-hook 'dart-mode-hook
   (lambda ()
     (c-add-style "dart" gangnam-style t)))
-
-(condition-case nil
-    (when window-system
-      (setq tabbar-ruler-invert-deselected nil)
-      (require 'tabbar-ruler))
-  (error (warn "tabbar-ruler is not installed")))
-
-;; File tabs
-(condition-case nil
-    (when window-system
-      (require 'tabbar)
-      (tabbar-mode 1)
-      ;; CUA
-      (global-set-key [C-tab] 'tabbar-forward-tab)
-      (global-set-key [C-S-tab] 'tabbar-backward-tab)
-      (global-set-key [C-M-tab] 'tabbar-forward-group)
-      (global-set-key [C-M-S-tab] 'tabbar-backward-group)
-      (global-set-key (kbd "s-}") 'tabbar-forward-tab)
-      (global-set-key (kbd "s-{") 'tabbar-backward-tab)
-      (global-set-key (kbd "M-s-‘") 'tabbar-forward-group)
-      (global-set-key (kbd "M-s-“") 'tabbar-backward-group)
-
-      ;; Tab groups: irc, emacs, user
-      (setq tabbar-buffer-groups-function
-            (lambda ()
-              (list (cond
-                     ;; IRC
-                     ((string-match "^\\(\\(#\\|\\(\\*irc\\)\\)\\)\\|nickserv@" (buffer-name)) "irc")
-                     ;; Emacs-internal
-                     ((string-match "^\\*" (buffer-name)) "emacs")
-                     ;; dired
-                     ((eq major-mode 'dired-mode) "emacs")
-                     ;; normal buffers
-                     (t "user"))))))
-  (error (warn "tabbar is not installed")))
 
 (condition-case nil
     (require 'ack-and-a-half)
