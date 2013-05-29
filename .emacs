@@ -26,7 +26,7 @@
 (setq dired-use-ls-dired nil)
 
 ;; Alt+F4 quits.
-(global-set-key [M-f4] 'save-buffers-kill-terminal)
+(global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
 ;; Improved undo
 (condition-case nil
@@ -52,7 +52,7 @@
 
 ;; M-; toggles commenting for marked region or current line.
 (autoload 'evilnc-comment-or-uncomment-lines "evil-nerd-commenter" "" t)
-(global-set-key "\M-;" 'evilnc-comment-or-uncomment-lines)
+(global-set-key (kbd "\M-;") 'evilnc-comment-or-uncomment-lines)
 
 ;; Single dired buffer
 (autoload 'dired-single-buffer "dired-single" "" t)
@@ -173,7 +173,7 @@
                  (marker-length (length marker-string))
                  (display-string (format "(%d)..." (count-lines (overlay-start ov) (overlay-end ov))))
                  )
-            (overlay-put ov 'help-echo "Hiddent text. C-c,= to show")
+            (overlay-put ov 'help-echo "Hidden text. C-c,= to show")
             (put-text-property 0 marker-length 'display (list 'left-fringe 'hs-marker 'hs-fringe-face) marker-string)
             (overlay-put ov 'before-string marker-string)
             (put-text-property 0 (length display-string) 'face 'hs-face display-string)
@@ -269,8 +269,7 @@
 (setq js-indent-level 2)
 ;; And CSS
 (add-hook 'css-mode-hook
-          (lambda ()
-            (setq css-indent-offset 2)))
+          (lambda () (setq css-indent-offset 2)))
 ;; And Perl
 (fset 'perl-mode 'cperl-mode)
 ;; And Python
@@ -281,17 +280,15 @@
             (setq python-indent-offset 2)))
 ;; And Rust
 (add-hook 'rust-mode-hook
-          (lambda ()
-            (setq rust-indent-unit 2)))
+          (lambda () (setq rust-indent-unit 2)))
 ;; And Go
 (add-hook 'go-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode nil)))
+          (lambda () (setq indent-tabs-mode nil)))
 ;; And Erlang
 (add-hook 'erlang-mode-hook
           (lambda ()
-            (setq indent-tabs-mode nil)
-            (setq erlang-indent-level tab-width)))
+            (setq indent-tabs-mode nil
+                  erlang-indent-level tab-width)))
 ;; And Haskell
 (add-hook 'haskell-mode-hook
           (lambda ()
@@ -387,6 +384,10 @@
       (global-set-key [C-S-tab] 'tabbar-backward-tab)
       (global-set-key [C-M-tab] 'tabbar-forward-group)
       (global-set-key [C-M-S-tab] 'tabbar-backward-group)
+      (global-set-key (kbd "s-}") 'tabbar-forward-tab)
+      (global-set-key (kbd "s-{") 'tabbar-backward-tab)
+      (global-set-key (kbd "M-s-}") 'tabbar-forward-group)
+      (global-set-key (kbd "M-s-{") 'tabbar-backward-group)
 
       ;; Tab groups: irc, emacs, user
       (setq tabbar-buffer-groups-function
