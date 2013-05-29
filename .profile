@@ -16,7 +16,7 @@ export PATH="$PATH:~/bin"
 export PATH="$PATH:/usr/local/git/bin"
 
 # RubyGem binaries
-export PATH="$PATH:/usr/local/Cellar/ruby/1.9.3-p385/bin"
+export PATH="$PATH:/usr/local/Cellar/ruby/1.9.3-p385/bin:/usr/local/Cellar/ruby/2.0.0-p195/bin"
 
 # Add personal executables.
 export PATH="$PATH:/Users/andrew/bin"
