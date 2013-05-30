@@ -134,6 +134,7 @@
         (global-set-key (kbd "s-{") 'tabbar-backward-tab)
         (global-set-key (kbd "M-s-‘") 'tabbar-forward-group)
         (global-set-key (kbd "M-s-“") 'tabbar-backward-group)
+        (global-set-key (kbd "s-w") 'kill-buffer)
 
         ;; Tab groups: irc, emacs, user
         (setq tabbar-buffer-groups-function
