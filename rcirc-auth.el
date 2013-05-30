@@ -1,1 +1,1 @@
-(setq rcirc-authinfo '(("freenode" nicserv "username" "password")))
+(setq rcirc-authinfo '(("freenode" nickserv "username" "password")))
