@@ -424,12 +424,13 @@
 (setq rcirc-default-nick "preyalone")
 (setq rcirc-default-user-name "preyalone")
 (setq rcirc-default-full-name "Prey Alone")
-(condition-case nil
-    (load "~/rcirc-auth.el")
-  (error (warn "~/rcirc-auth.el is not configured")))
 
 (add-hook 'rcirc-mode-hook
           (lambda ()
+            (condition-case nil
+                (load "~/rcirc-auth.el")
+              (error (warn "~/rcirc-auth.el is not configured")))
+
             ;; Don't hide tabbar with connection rate.
             (when tabbar-header-line-format
               (setq header-line-format tabbar-header-line-format))
