@@ -326,8 +326,6 @@
 
 ;; We're Makefile, too!
 (add-to-list 'auto-mode-alist '("\\.mf\\'" . makefile-mode))
-;; We're Python, too!
-(add-to-list 'auto-mode-alist '("fabfile$" . python-mode))
 ;; We're Ruby, too!
 (dolist (extension
          '("\\.rake$"
