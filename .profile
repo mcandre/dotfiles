@@ -24,6 +24,9 @@ export PATH="$PATH:/Users/andrew/bin"
 # For `brew edit`, etc.
 export EDITOR="emacs"
 
+# ehrlich
+export PATH="$PATH:~/Desktop/src/ehrlich"
+
 # proper
 export ERL_LIBS="/Users/andrew/Desktop/src/proper"
 
