@@ -113,13 +113,6 @@
         (set-frame-font "Monaco"))
     (error (warn "Monaco font is not installed")))
 
-  (condition-case nil
-      (progn
-        (require 'cl)
-        (setq tabbar-ruler-invert-deselected nil)
-        (require 'tabbar-ruler))
-    (error (warn "tabbar-ruler is not installed")))
-
   ;; File tabs
   (condition-case nil
       (progn
@@ -147,7 +140,14 @@
                        ;; dired
                        ((eq major-mode 'dired-mode) "emacs")
                        ;; normal buffers
-                       (t "user"))))))
+                       (t "user")))))
+
+        (condition-case nil
+            (progn
+              (require 'cl)
+              (setq tabbar-ruler-invert-deselected nil)
+              (require 'tabbar-ruler))
+        (error (warn "tabbar-ruler is not installed"))))
     (error (warn "tabbar is not installed")))
 
   ;;
