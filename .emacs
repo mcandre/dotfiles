@@ -3,6 +3,9 @@
 ;; Show line numbers
 (global-linum-mode t)
 
+;; Highlight matching parentheses
+(show-paren-mode 1)
+
 (setq
  ;; Always display error backtraces
  debug-on-error t
@@ -275,21 +278,24 @@
             (auto-revert-mode)
             (setq-default auto-revert-interval 1)
 
-            ;; Hide dired file permissions
-            (require 'dired-details)
-            (dired-details-install)
-            (setq dired-details-hidden-string "")
+            (condition-case nil
+                (progn
+                  ;; Hide dired file permissions
+                  (require 'dired-details)
+                  (dired-details-install)
+                  (setq dired-details-hidden-string ""))
+              (error (warn "dired-details is not installed")))
 
-            ;; Hide dired current directory (.)
-            (require 'dired+)
+            (condition-case nil
+                (progn
+                  ;; Hide dired current directory (.)
+                  (require 'dired+)
 
-            ;; Fix color theme
-            (setq-default dired-omit-files-p t)
-            (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t)))
-                  dired-omit-files (concat dired-omit-files "\\."))))
-
-;; Highlight matching parentheses
-(show-paren-mode 1)
+                  ;; Fix color theme
+                  (setq-default dired-omit-files-p t)
+                  (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t)))
+                        dired-omit-files (concat dired-omit-files "\\.")))
+              (error (warn "dired+ is not installed")))))
 
 ;;
 ;; Syntax highlighting
