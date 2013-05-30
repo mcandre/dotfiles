@@ -86,6 +86,10 @@
 (add-hook 'makefile-gmake-mode-hook 'hard-tabs)
 (add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
 
+(defun i-said-soft-tabs ()
+  (untabify (point-min) (point-max))
+  (indent-region (point-min) (point-max)))
+
 (require 'package)
 (setq package-archives
       (append '(("melpa" . "http://melpa.milkbox.net/packages/")
