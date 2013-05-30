@@ -431,13 +431,13 @@
                 (load "~/rcirc-auth.el")
               (error (warn "~/rcirc-auth.el is not configured")))
 
-            ;; Don't hide tabbar with connection rate.
-            (when tabbar-header-line-format
-              (setq header-line-format tabbar-header-line-format))
-
             ;; Don't indent long messages
             (setq rcirc-fill-flag nil)
 
             ;; Default servers and channels
-            (setq rcirc-startup-channels-alist
-                  '(("\\.freenode\\.net$")))))
+            (setq rcirc-server-alist
+                  '(("irc.freenode.net")))
+
+            ;; Don't hide tabbar with connection rate.
+            (when tabbar-header-line-format
+              (setq header-line-format tabbar-header-line-format))))
