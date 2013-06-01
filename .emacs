@@ -448,10 +448,10 @@
             ;; Don't indent long messages
             (setq rcirc-fill-flag nil)
 
-            ;; Default servers and channels
-            (setq rcirc-server-alist
-                  '(("irc.freenode.net")))
-
             ;; Don't hide tabbar with connection rate.
             (when tabbar-header-line-format
               (setq header-line-format tabbar-header-line-format))))
+
+(custom-set-variables
+ ;; Don't join #rcirc by default
+ '(rcirc-server-alist (quote (("irc.freenode.net" :channels nil)))))
