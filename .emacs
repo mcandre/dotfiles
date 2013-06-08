@@ -41,6 +41,12 @@
 
 ;; I said, soft tabs, width 2 spaces!
 (setq-default tab-width 2)
+
+;; And JavaScript
+(add-hook 'js-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)))
+
 ;; And CSS
 (add-hook 'css-mode-hook
           (lambda ()
