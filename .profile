@@ -16,10 +16,19 @@ export PATH="$PATH:~/bin"
 export PATH="$PATH:/usr/local/git/bin"
 
 # RubyGem binaries
-export PATH="$PATH:/usr/local/Cellar/ruby/1.9.3-p385/bin"
+export PATH="$PATH:/usr/local/Cellar/ruby/1.9.3-p385/bin:/usr/local/Cellar/ruby/2.0.0-p195/bin"
 
 # Add personal executables.
 export PATH="$PATH:/Users/andrew/bin"
+
+# For `brew edit`, etc.
+export EDITOR="emacs"
+
+# ehrlich
+export PATH="$PATH:~/Desktop/src/ehrlich"
+
+# proper
+export ERL_LIBS="/Users/andrew/Desktop/src/proper"
 
 # Correct quotes.
 set +H
@@ -53,14 +62,6 @@ export PATH="$PATH:/usr/local/share/npm/bin:~/node/bin"
 
 # MacPorts
 export PATH="$PATH:/opt/local/bin:/opt/local/sbin"
-
-# Factor
-#export FACTOR_ROOT="/Applications/factor"
-#export PATH="${PATH}:${FACTOR_ROOT}"
-
-# Go
-#export PATH="$PATH:~/go/bin"
-#export GOROOT="~/go"
 
 # OCaml show error traces
 export OCAMLRUNPARAM="b"

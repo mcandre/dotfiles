@@ -53,6 +53,10 @@ To return to Normal mode, press `ESC`.
     $ vim
     :e <file/dir>
 
+## View File
+
+    $ view <file/dir>
+
 ### Windows
 
     C:\> vim <file/dir>
