@@ -440,6 +440,12 @@
      (add-to-list 'grep-find-ignored-files "*.min.js")
      (add-to-list 'grep-find-ignored-files "*-min.js")))
 
+(condition-case nil
+    (load "~/Desktop/src/yaws/two-mode-mode.el")
+  (error (warn "two-mode is not installed")))
+
+(add-to-list 'auto-mode-alist '("\\.yaws$" . two-mode-mode))
+
 ;; IRC Authentication
 (setq rcirc-default-nick "preyalone")
 (setq rcirc-default-user-name "preyalone")
