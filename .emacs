@@ -40,18 +40,13 @@
  js-indent-level 2)
 
 ;; I said, soft tabs, width 2 spaces!
-(setq-default tab-width 2)
-
-;; And JavaScript
-(add-hook 'js-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode nil)))
+(setq-default indent-tabs-mode nil
+              tab-width 2)
 
 ;; And CSS
 (add-hook 'css-mode-hook
           (lambda ()
-            (setq indent-tabs-mode nil
-                  css-indent-offset 2)))
+            (setq css-indent-offset 2)))
 ;; And Perl
 (fset 'perl-mode 'cperl-mode)
 ;; And Python
@@ -69,14 +64,12 @@
 ;; And Erlang
 (add-hook 'erlang-mode-hook
           (lambda ()
-            (setq indent-tabs-mode nil
-                  erlang-indent-level tab-width)))
+            (setq erlang-indent-level tab-width)))
 ;; And Haskell
 (add-hook 'haskell-mode-hook
           (lambda ()
             (turn-on-haskell-indentation)
-            (setq indent-tabs-mode nil
-                  tab-width tab-width)))
+            (setq tab-width tab-width)))
 ;; And PostScript
 (add-hook 'ps-mode-hook
           (lambda () (setq ps-mode-tab tab-width)))
