@@ -351,8 +351,6 @@
 (add-to-list 'auto-mode-alist '("\\.reek\\'" . yaml-mode))
 ;; We're JavaScript, too!
 (add-to-list 'auto-mode-alist '("\\.jshintrc\\'" . js-mode))
-;; Scala
-(add-to-list 'auto-mode-alist '("\\.scala\\'" . scala-mode))
 
 ;; ERB/EJS
 (condition-case nil
