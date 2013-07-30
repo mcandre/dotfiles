@@ -18,6 +18,9 @@
  auto-save-default nil
  backup-inhibited t
 
+ ;; Disable lockfiles
+ create-lockfiles nil
+
  ;; Always follow symbolic links to version controlled files
  vc-follow-symlinks t
 
