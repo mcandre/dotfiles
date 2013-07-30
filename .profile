@@ -22,7 +22,7 @@ export PATH="$PATH:/usr/local/Cellar/ruby/1.9.3-p385/bin:/usr/local/Cellar/ruby/
 export PATH="$PATH:/Users/andrew/bin"
 
 # For `brew edit`, etc.
-export EDITOR="emacs"
+export EDITOR="emacs -nw"
 
 # ehrlich
 export PATH="$PATH:~/Desktop/src/ehrlich"
