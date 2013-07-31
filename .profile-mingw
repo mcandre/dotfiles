@@ -21,5 +21,3 @@ export PATH=$PATH:"/c/Chocolatey/bin"
 
 # GameOn
 export PATH=$PATH:"/c/Documents and Settings/apenneba/Desktop/src/nicplus/node_modules/.bin"
-
-cd ~/Desktop
