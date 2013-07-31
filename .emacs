@@ -136,17 +136,16 @@
         (global-set-key (kbd "s-w") 'kill-buffer)
 
         ;; Tab groups: irc, emacs, user
-        (setq tabbar-buffer-groups-function
-              (lambda ()
-                (list (cond
-                       ;; IRC
-                       ((string-match "^\\(\\(#\\|\\(\\*irc\\)\\)\\)\\|nickserv@" (buffer-name)) "irc")
-                       ;; Emacs-internal
-                       ((string-match "^\\*" (buffer-name)) "emacs")
-                       ;; dired
-                       ((eq major-mode 'dired-mode) "emacs")
-                       ;; normal buffers
-                       (t "user")))))
+        (defun tabbar-buffer-groups-function ()
+          (list (cond
+                 ;; IRC
+                 ((string-match "^\\(\\(#\\|\\(\\*irc\\)\\)\\)\\|nickserv@" (buffer-name)) "irc")
+                 ;; Emacs-internal
+                 ((string-match "^\\*" (buffer-name)) "emacs")
+                 ;; dired
+                 ((eq major-mode 'dired-mode) "emacs")
+                 ;; normal buffers
+                 (t "user"))))
 
         (condition-case nil
             (progn
