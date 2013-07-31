@@ -57,8 +57,11 @@ export PATH="$PATH:/Users/andrew/Library/Haskell/ghc-7.0.3/lib/hlint-1.8.13/bin"
 # Add darcs
 export PATH="$PATH:~/Library/Haskell/ghc-7.0.2/lib/darcs-2.5.2/bin"
 
-# Add Node.js
-export PATH="$PATH:/usr/local/share/npm/bin:~/node/bin"
+# Node.js
+nvm use 0.10
+
+# # Add Node.js
+# export PATH="$PATH:/usr/local/share/npm/bin:~/node/bin"
 
 # MacPorts
 export PATH="$PATH:/opt/local/bin:/opt/local/sbin"
