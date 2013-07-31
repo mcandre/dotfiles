@@ -58,7 +58,7 @@ export PATH="$PATH:/Users/andrew/Library/Haskell/ghc-7.0.3/lib/hlint-1.8.13/bin"
 export PATH="$PATH:~/Library/Haskell/ghc-7.0.2/lib/darcs-2.5.2/bin"
 
 # Node.js
-nvm use 0.10
+nvm use 0.10 > /dev/null
 
 # # Add Node.js
 # export PATH="$PATH:/usr/local/share/npm/bin:~/node/bin"
