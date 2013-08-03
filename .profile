@@ -58,10 +58,12 @@ export PATH="$PATH:/Users/andrew/Library/Haskell/ghc-7.0.3/lib/hlint-1.8.13/bin"
 export PATH="$PATH:~/Library/Haskell/ghc-7.0.2/lib/darcs-2.5.2/bin"
 
 # Node.js
+[[ -s /Users/andrew/.nvm/nvm.sh ]] && . /Users/andrew/.nvm/nvm.sh # This loads NVM
 nvm use 0.10 > /dev/null
 
-# # Add Node.js
-# export PATH="$PATH:/usr/local/share/npm/bin:~/node/bin"
+# Ruby
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+rvm use 2.0.0 > /dev/null
 
 # MacPorts
 export PATH="$PATH:/opt/local/bin:/opt/local/sbin"
