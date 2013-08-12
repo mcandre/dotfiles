@@ -33,6 +33,9 @@
  line-number-mode t
  column-number-mode t
 
+ ;; Smoother mouse scrolling
+ mouse-wheel-scroll-amount '(0.01)
+
  ;; Default to Unix LF line endings
  default-buffer-file-coding-system 'utf-8-unix
  ;; Soft tabs
