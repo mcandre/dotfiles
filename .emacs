@@ -193,9 +193,12 @@
                         python-mode-hook))
           (add-hook hook
                     (lambda ()
-                      ;; More syntax definitions
-                      (require 'fold-dwim)
-                      (hideshowvis-enable))))
+                      (condition-case nil
+                          (progn
+                            ;; More syntax definitions
+                            (require 'fold-dwim)
+                            (hideshowvis-enable))
+                        (error (warn "fold-dwim not installed"))))))
 
         ;;
         ;; +/- fold buttons
