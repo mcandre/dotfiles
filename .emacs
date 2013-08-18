@@ -325,9 +325,6 @@
 (autoload 'oz-mode "oz" "Major mode for interacting with Oz code." t)
 (add-to-list 'auto-mode-alist '("\\.oz\\'" . oz-mode))
 
-(autoload 'puppet-mode "puppet-mode" "" t)
-(add-to-list 'auto-mode-alist '("\\.pp\\'" . puppet-mode))
-
 (autoload 'R-mode "ess-site.el" "" t)
 (add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
 
