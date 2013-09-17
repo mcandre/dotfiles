@@ -142,7 +142,7 @@
         (defun tabbar-buffer-groups ()
           (list (cond
                  ;; IRC
-                 ((string-match "irc|nickserv" (buffer-name)) "irc")
+                 ((eq major-mode 'rcirc-mode) "irc")
                  ;; Emacs-internal / dired
                  ((or (string-match "^\\*" (buffer-name)) (eq major-mode 'dired-mode)) "emacs")
                  ;; all other buffers
