@@ -160,6 +160,10 @@ http://emacswiki.org/emacs/RegularExpression
 
     TAB
 
+## Insert literal Tab Character
+
+    C-q TAB
+
 ## Indent Marked Region Rigidly
 
     M-x (indent-rigidly (region-beginning) (region-end) tab-width))

@@ -6,6 +6,9 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
+# Java
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
+
 # RVM
 #export PATH="/Users/andrew/.rvm/bin:$PATH"
 
