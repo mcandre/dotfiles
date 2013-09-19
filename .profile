@@ -86,9 +86,6 @@ export CLASSPATH="$CLASSPATH:/Users/andrew/Desktop/src/gruesome/gruesome-0.0.1.j
 # MPlayer
 export PATH="$PATH:/Applications/MPlayer OSX Extended.app/Contents/Resources/Binaries/mpextended.mpBinaries/Contents/mpextended.mpBinaries/Contents/MacOS"
 
-# Bitcoin
-export PATH="$PATH:/Applications/Bitcoin.app/Contents/MacOS"
-
 # Python
 export PYTHONPATH="$PYTHONPATH:/usr/local/lib/python2.7/site-packages"
 
