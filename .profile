@@ -97,9 +97,6 @@ export PS1="\w$ "
 # Xcode
 export PATH="$PATH:/Developer/usr/bin"
 
-# rar, unrar
-export PATH="$PATH:~/bin/rar"
-
 # Setting PATH for JRuby 1.7.1
 # The orginal version is saved in .profile.jrubysave
 export PATH="$PATH:/Library/Frameworks/JRuby.framework/Versions/Current/bin"
