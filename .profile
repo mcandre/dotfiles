@@ -86,9 +86,6 @@ export CLASSPATH="$CLASSPATH:/Users/andrew/Desktop/src/gruesome/gruesome-0.0.1.j
 # MPlayer
 export PATH="$PATH:/Applications/MPlayer OSX Extended.app/Contents/Resources/Binaries/mpextended.mpBinaries/Contents/mpextended.mpBinaries/Contents/MacOS"
 
-# Bitcoin
-export PATH="$PATH:/Applications/Bitcoin.app/Contents/MacOS"
-
 # Python
 export PYTHONPATH="$PYTHONPATH:/usr/local/lib/python2.7/site-packages"
 
@@ -99,9 +96,6 @@ export PS1="\w$ "
 
 # Xcode
 export PATH="$PATH:/Developer/usr/bin"
-
-# rar, unrar
-export PATH="$PATH:~/bin/rar"
 
 # Setting PATH for JRuby 1.7.1
 # The orginal version is saved in .profile.jrubysave
