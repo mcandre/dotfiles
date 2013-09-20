@@ -456,9 +456,10 @@
             ;; Don't indent long messages
             (setq rcirc-fill-flag nil)
 
-            ;; Don't hide tabbar with connection rate.
-            (when tabbar-header-line-format
-              (setq header-line-format tabbar-header-line-format))))
+            (when window-system
+              ;; Don't hide tabbar with connection rate.
+              (when tabbar-header-line-format
+                (setq header-line-format tabbar-header-line-format)))))
 
 (custom-set-variables
  ;; Don't join #rcirc by default
