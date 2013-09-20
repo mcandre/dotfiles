@@ -24,6 +24,10 @@ http://www.nano-editor.org/dist/v2.2/nano.html
 
 [Reference Dotfile](https://github.com/mcandre/dotfiles/blob/master/.nanorc)
 
+Additional syntax highlighters:
+
+[nano-highlight](https://github.com/serialhex/nano-highlight)
+
 # Basic Commands
 
 ## Hotkey Notation
