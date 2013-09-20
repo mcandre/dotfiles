@@ -1,4 +1,4 @@
-# ln -s profile.sh ~/.profile
+# ln -s ...path/path/path/.profile ~/.profile
 
 # Reset path
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
