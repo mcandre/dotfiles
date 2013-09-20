@@ -1,8 +1,5 @@
 # ln -s ...path/path/path/.nanorc ~/.nanorc
 
-# Enable undo/redo
-set undo
-
 # Show line and column numbers
 set const
 
