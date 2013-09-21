@@ -49,8 +49,8 @@ export PATH="$PATH:/Applications/Inkscape.app/Contents/Resources/bin"
 # Per http://www.litfuel.net/plush/?postid=147
 export COPYFILE_DISABLE=true
 
-# Add LaTeX binaries
-export PATH="$PATH:/usr/local/texlive/2012/bin/universal-darwin"
+# Add MacTex LaTeX binaries
+export PATH="$PATH:/usr/texbin/"
 
 # Add cabal binaries
 export PATH="$PATH:/Library/Haskell/bin"
