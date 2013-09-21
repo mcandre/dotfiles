@@ -50,7 +50,7 @@ export PATH="$PATH:/Applications/Inkscape.app/Contents/Resources/bin"
 export COPYFILE_DISABLE=true
 
 # Add MacTex LaTeX binaries
-export PATH="$PATH:/usr/texbin/"
+export PATH="$PATH:/usr/texbin"
 
 # Add cabal binaries
 export PATH="$PATH:/Library/Haskell/bin"
