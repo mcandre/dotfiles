@@ -12,7 +12,7 @@ http://emacswiki.org/
 
     $ apt-get install emacs
 
-    $ brew install emacs
+    $ brew install --cocoa emacs
 
     C:\> chocolatey install Emacs
 
