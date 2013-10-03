@@ -95,6 +95,10 @@
   (untabify (point-min) (point-max))
   (indent-region (point-min) (point-max)))
 
+;; Force save.
+(defadvice save-buffer (before save-buffer-always activate)
+  (set-buffer-modified-p t))
+
 (require 'package)
 (setq package-archives
       (append '(("melpa" . "http://melpa.milkbox.net/packages/")
