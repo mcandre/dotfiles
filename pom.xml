@@ -138,14 +138,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.jongo</groupId>
-      <artifactId>jongo</artifactId>
-      <version>0.4</version>
-    </dependency>
-    <dependency>
-      <groupId>org.mongodb</groupId>
-      <artifactId>mongo-java-driver</artifactId>
-      <version>2.4</version>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>2.2.1</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
