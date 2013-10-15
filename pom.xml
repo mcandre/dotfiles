@@ -16,6 +16,26 @@
 
   <build>
     <plugins>
+      <!-- Debug with jdb -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <configuration>
+          <executable>jdb</executable>
+          <arguments>
+            <argument>-classpath</argument>
+            <classpath />
+            <argument>${jdb}</argument>
+          </arguments>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <!-- Fuller error traces for unit tests -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
