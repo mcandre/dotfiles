@@ -116,7 +116,10 @@
                                                 ".svn"
                                                 ".hg"
                                                 ".bzr"
-                                                "target")) ;; Maven builds
+
+                                                ;; Maven
+                                                "target"
+                                                "resources"))
                                   (files       (".#*"
                                                 "*~"
                                                 "*.so"
