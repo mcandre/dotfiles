@@ -106,6 +106,28 @@
               package-archives))
 (package-initialize)
 
+;; Open project file by fuzzy name
+(condition-case nil
+    (progn
+      (require 'fiplr)
+      (global-set-key (kbd "C-p") 'fiplr-find-file)
+
+      (setq fiplr-ignored-globs '((directories (".git"
+                                                ".svn"
+                                                ".hg"
+                                                ".bzr"
+                                                "target")) ;; Maven builds
+                                  (files       (".#*"
+                                                "*~"
+                                                "*.so"
+                                                "*.jpg"
+                                                "*.png"
+                                                "*.gif"
+                                                "*.pdf"
+                                                "*.gz"
+                                                "*.zip")))))
+    (error (warn "fiplr is not installed")))
+
 (when window-system
   ;; Hide GUI toolbar
   (tool-bar-mode -1)
