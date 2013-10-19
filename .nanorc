@@ -11,7 +11,7 @@ set const
 ## Width 2
 #set tabsize 2
 
-# Disable for better Android support
+# Disable for better BusyBox/Android support
 # # Autoindent
 # set autoindent
 
@@ -30,7 +30,7 @@ include "~/.nano/php.nanorc"
 include "~/.nano/python.nanorc"
 include "~/.nano/ruby.nanorc"
 
-# Disable for better Android support
+# Disable for better BusyBox/Android support
 # include "~/.nano/sh.nanorc"
 
 include "~/.nano/tex.nanorc"
