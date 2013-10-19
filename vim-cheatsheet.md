@@ -14,6 +14,8 @@ https://github.com/mcandre/dotfiles/blob/master/vim-cheatsheet.md
 
 [VIM Adventures](http://vim-adventures.com/)
 
+[The Vi Lovers Home Page](http://thomer.com/vi/vi.html)
+
 ## Install
 
     $ apt-get install vim-full
