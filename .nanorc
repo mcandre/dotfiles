@@ -1,5 +1,8 @@
 # ln -s ...path/path/path/.nanorc ~/.nanorc
 
+# Syntax Highlighters
+# https://github.com/serialhex/nano-highlight
+
 # Show line and column numbers
 set const
 
