@@ -1,5 +1,16 @@
 " Store as ~/.emacs (Unix) or ~/_vimrc (Windows)
 
+"
+" Vundle
+"
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'kien/ctrlp.vim'
+Bundle 'fsouza/go.vim'
+Bundle 'fsouza/rust.vim'
+Bundle 'mjbrownie/browser.vim'
+
 " Fix bad autoindent of pasted text
 set paste
 

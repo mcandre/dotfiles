@@ -26,6 +26,10 @@ http://vim.wikia.com/wiki/Vim_Tips_Wiki
 
 [Reference Dotfile](https://github.com/mcandre/dotfiles/blob/master/.vimrc)
 
+## Repositories
+
+[Vundle](https://github.com/gmarik/vundle)
+
 # Basic Commands
 
 ## Modes
@@ -149,10 +153,16 @@ To return to Normal mode, press `ESC`.
 
     G
 
-### Delete
-
-    C-d
-
 # Help
 
     :h '<term>
+
+# Windows
+
+## Switch Window
+
+    Control+W, Control+W
+
+## Close Window
+
+    :hide
