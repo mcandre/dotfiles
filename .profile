@@ -12,6 +12,9 @@ export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
 # RVM
 #export PATH="/Users/andrew/.rvm/bin:$PATH"
 
+# CLI homepage
+export WWW_HOME=https://duckduckgo.com/
+
 # Home scripts
 export PATH="$PATH:~/bin"
 
