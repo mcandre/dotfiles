@@ -6,6 +6,8 @@ https://github.com/mcandre/dotfiles/blob/master/vim-cheatsheet.md
 
 ## Documentation
 
+[Emergency vi](http://ergoemacs.org/emacs/emergency_vi.html)
+
 [Vim Tips Wiki](http://vim.wikia.com/wiki/Vim_Tips_Wiki)
 
 [vi and Vim Editors Pocket Reference](http://shop.oreilly.com/product/0636920010913.do)
@@ -18,13 +20,15 @@ https://github.com/mcandre/dotfiles/blob/master/vim-cheatsheet.md
 
 ## Install
 
-    $ apt-get install vim-full
+    $ apt-get install vim
 
     $ brew install vim
 
     C:\> chocolatey install vim
 
 [vim-7.3.exe](http://www.vim.org/download.php#pc)
+
+By default, Ubuntu uses the `vim.tiny`, which lacks support for arrow key navigation. Use `apt-get install vim` to upgrade to full `vim` with arrow key support.
 
 ## Configure
 
@@ -130,6 +134,26 @@ To return to Normal mode, press `ESC`.
     p
 
 # Navigation
+
+## Move Cursor
+
+Arrow keys require full `vim` package.
+
+## Left (Visual)
+
+    h
+
+## Down (Visual)
+
+    j
+
+## Up (Visual)
+
+    k
+
+## Right (Visual)
+
+    l
 
 ## Start of Line
 
