@@ -6,7 +6,15 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
 ## Documentation
 
-http://emacswiki.org/
+[EmacsWiki](http://emacswiki.org/)
+
+[GNU Emacs Pocket Reference](http://shop.oreilly.com/product/9781565924963.do)
+
+[GNU Emacs Manual](https://www.gnu.org/software/emacs/manual/html_node/emacs/index.html)
+
+[An Introduction to Programming in Emacs Lisp](https://www.gnu.org/software/emacs/manual/html_node/eintr/index.html)
+
+[GNU Emacs Manuals Online](https://www.gnu.org/software/emacs/manual/index.html)
 
 ## Install
 

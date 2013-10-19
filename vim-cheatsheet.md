@@ -6,7 +6,13 @@ https://github.com/mcandre/dotfiles/blob/master/vim-cheatsheet.md
 
 ## Documentation
 
-http://vim.wikia.com/wiki/Vim_Tips_Wiki
+[Vim Tips Wiki](http://vim.wikia.com/wiki/Vim_Tips_Wiki)
+
+[vi and Vim Editors Pocket Reference](http://shop.oreilly.com/product/0636920010913.do)
+
+[Vim Genius](http://vimgenius.com/)
+
+[VIM Adventures](http://vim-adventures.com/)
 
 ## Install
 

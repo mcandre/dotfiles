@@ -6,7 +6,11 @@ https://github.com/mcandre/dotfiles/blob/master/nano-cheatsheet.md
 
 ## Documentation
 
-http://www.nano-editor.org/dist/v2.2/nano.html
+[nano Command Manual](http://www.nano-editor.org/dist/v2.2/nano.html)
+
+[Nano editor tutorials](http://www.debianadmin.com/nano-editor-tutorials.html)
+
+[The Nano Text Editor](http://mintaka.sdsu.edu/reu/nano.html)
 
 ## Install
 
