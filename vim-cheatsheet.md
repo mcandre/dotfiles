@@ -159,6 +159,10 @@ To return to Normal mode, press `ESC`.
 
 # Windows
 
+## Split Windows
+
+    Control+W, S
+
 ## Switch Window
 
     Control+W, Control+W
