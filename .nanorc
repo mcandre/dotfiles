@@ -11,8 +11,9 @@ set const
 ## Width 2
 #set tabsize 2
 
-# Autoindent
-set autoindent
+# Disable for better Android support
+# # Autoindent
+# set autoindent
 
 # Syntax highlighting
 include "~/.nano/asm.nanorc"
@@ -28,6 +29,9 @@ include "~/.nano/perl.nanorc"
 include "~/.nano/php.nanorc"
 include "~/.nano/python.nanorc"
 include "~/.nano/ruby.nanorc"
-include "~/.nano/sh.nanorc"
+
+# Disable for better Android support
+# include "~/.nano/sh.nanorc"
+
 include "~/.nano/tex.nanorc"
 include "~/.nano/xml.nanorc"
