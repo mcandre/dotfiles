@@ -287,6 +287,27 @@
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; If mark exists, indent rigidly.
+;; Otherwise, insert a hard or soft tab indentation.
+(defun traditional-indent ()
+  (interactive)
+  (if mark-active
+    (indent-rigidly (region-beginning) (region-end) tab-width)))
+;; Inverse.
+(defun traditional-outdent ()
+  (interactive)
+  (if mark-active
+    (indent-rigidly (region-beginning) (region-end) (* tab-width -1))
+    (delete-backward-char tab-width)))
+
+;; Block indent for Markdown
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil
+                  tab-width 4)
+          (define-key markdown-mode-map (kbd "<tab>") 'traditional-indent)
+          (define-key markdown-mode-map (kbd "<backtab>") 'traditional-outdent)))
+
 ;; Use markdown-mode for *scratch*.
 (condition-case nil
     (setq initial-scratch-message nil
@@ -396,28 +417,6 @@
       (add-to-list 'auto-mode-alist '("\\.erb\\'" . html-erb-mode))
       (add-to-list 'auto-mode-alist '("\\.ejs\\'"  . html-erb-mode)))
   (error (warn "mmm-mode is not installed")))
-
-;; If mark exists, indent rigidly.
-;; Otherwise, insert a hard or soft tab indentation.
-(defun traditional-indent ()
-  (interactive)
-  (if mark-active
-    (indent-rigidly (region-beginning) (region-end) tab-width)
-    (indent-to-column tab-width)))
-;; Inverse.
-(defun traditional-outdent ()
-  (interactive)
-  (if mark-active
-    (indent-rigidly (region-beginning) (region-end) (* tab-width -1))
-    (delete-backward-char tab-width)))
-
-;; Block indent for Markdown
-(add-hook 'markdown-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode nil
-                  tab-width 4)
-            (define-key markdown-mode-map (kbd "TAB") 'traditional-indent)
-            (define-key markdown-mode-map (kbd "<backtab>") 'traditional-outdent)))
 
 ;; Convert hard tabs to spaces on save
 (add-hook 'before-save-hook
