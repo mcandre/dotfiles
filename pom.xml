@@ -183,6 +183,13 @@
             <systemPath>${tools-jar}</systemPath>
           </dependency>
         </dependencies>
+        <configuration>
+          <instrumentation>
+            <excludes>
+              <exclude>**/thrift/*.class</exclude>
+            </excludes>
+          </instrumentation>
+        </configuration>
       </plugin>
     </plugins>
   </build>
