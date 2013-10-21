@@ -410,12 +410,32 @@
     (progn
       (require 'mmm-auto)
       (setq mmm-global-mode 'auto)
+
+      ;; Handle PHP, CSS
+      (mmm-add-group
+       'fancy-html
+       '(
+         (html-php-tagged
+          :submode php-mode
+          :face mmm-code-submode-face
+          :front "<[?]php"
+          :back "[?]>")
+         (html-css-attribute
+          :submode css-mode
+          :face mmm-declaration-submode-face
+          :front "styleREMOVEME=\""
+          :back "\"")))
+
       (mmm-add-mode-ext-class 'html-erb-mode "\\.erb\\'" 'erb)
       (mmm-add-mode-ext-class 'html-erb-mode "\\.ejs\\'" 'ejs)
       (mmm-add-mode-ext-class 'html-erb-mode nil 'html-js)
       (mmm-add-mode-ext-class 'html-erb-mode nil 'html-css)
       (add-to-list 'auto-mode-alist '("\\.erb\\'" . html-erb-mode))
-      (add-to-list 'auto-mode-alist '("\\.ejs\\'"  . html-erb-mode)))
+      (add-to-list 'auto-mode-alist '("\\.ejs\\'"  . html-erb-mode))
+      (add-to-list 'auto-mode-alist '("\\.php\\'" . html-mode))
+      (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil html-js))
+      (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil embedded-css))
+      (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil fancy-html)))
   (error (warn "mmm-mode is not installed")))
 
 ;; Convert hard tabs to spaces on save
