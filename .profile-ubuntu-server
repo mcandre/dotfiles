@@ -15,8 +15,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-EDITOR="vim"
-export EDITOR
+export EDITOR="emacs"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
