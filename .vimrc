@@ -2,6 +2,7 @@
 
 "
 " Vundle
+" https://github.com/gmarik/vundle
 "
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
