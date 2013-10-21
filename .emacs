@@ -385,7 +385,8 @@
            "\\.gemspec$"
            "\\.ru$"
            "Gemfile$"
-           "Guardfile$"
+           "Guardfile"
+           "guardrc"
            "Vagrantfile$"))
   (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
 ;; We're Erlang, too!
