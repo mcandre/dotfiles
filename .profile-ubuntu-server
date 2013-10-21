@@ -22,9 +22,12 @@ if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
 
-# To include rails and other programs
-PATH="/var/lib/gems/1.8/bin:${PATH}"
-export PATH
+# Node.js
+nvm use 0.10
+
+# # To include rails and other programs
+# PATH="/var/lib/gems/1.8/bin:${PATH}"
+# export PATH
 
 # Specs
 export PATH="$PATH:/srv/d_hactar/usr/src/specs"
