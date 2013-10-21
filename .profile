@@ -6,9 +6,6 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
-# Cabal
-export PATH="$PATH:~/.cabal/bin"
-
 # Java
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
 
@@ -62,6 +59,7 @@ export PATH="$PATH:/usr/texbin"
 export PATH="$PATH:/Library/Haskell/bin"
 export PATH="$PATH:/Users/andrew/Library/Haskell/bin"
 export PATH="$PATH:/Users/andrew/Library/Haskell/ghc-7.0.3/lib/hlint-1.8.13/bin"
+export PATH="$PATH:/Users/andrew/.cabal/bin"
 
 # Add darcs
 export PATH="$PATH:~/Library/Haskell/ghc-7.0.2/lib/darcs-2.5.2/bin"
@@ -91,9 +89,6 @@ export CLASSPATH="$CLASSPATH:/Users/andrew/Desktop/src/gruesome/gruesome-0.0.1.j
 
 # MPlayer
 export PATH="$PATH:/Applications/MPlayer OSX Extended.app/Contents/Resources/Binaries/mpextended.mpBinaries/Contents/mpextended.mpBinaries/Contents/MacOS"
-
-# Python
-export PYTHONPATH="$PYTHONPATH:/usr/local/lib/python2.7/site-packages"
 
 # Perl6
 export PATH="$PATH:~/rakudo/install/bin"
