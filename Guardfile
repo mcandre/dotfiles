@@ -1,5 +1,20 @@
 guard :shell do
-  watch(/src\/(main|test)\/java\/.+\.java/) do |m|
+  watch("Gemfile") do |m|
+    title = "Bundler output"
+    msg = "Bundler Failure"
+    status = :failed
+
+    if system("bundle")
+      msg = "Bundled"
+      status = :status
+    end
+
+    n msg, title, status
+
+    "-> #{msg}"
+  end
+
+  watch(/(pom\.xml)|(src\/(main|test)\/java\/.+\.java)/) do |m|
     title = "Test output"
     status = :failed
 
