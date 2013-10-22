@@ -14,26 +14,11 @@ guard :shell do
     "-> #{msg}"
   end
 
-  watch(/(pom\.xml)|(src\/(main|test)\/java\/.+\.java)/) do |m|
+  watch(/(pom\.xml)|(src\/(main|test)\/.+\.(thrift|java))/) do |m|
     title = "Test output"
     status = :failed
 
     msg = `mvn test -q`
-
-    if $?.success?
-      status = :success
-    end
-
-    n msg, title, status
-
-    "-> #{msg}"
-  end
-
-  watch(/src\/(main|test)\/thrift\/.+\.thrift/) do |m|
-    title = "Thrift Generation"
-    status = :failed
-
-    msg = `mvn generate-sources -q`
 
     if $?.success?
       status = :success
