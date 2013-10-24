@@ -82,11 +82,12 @@
             <configuration>
               <tasks>
                 <mkdir dir="target/generated-sources/" />
-                <apply executable="thrift" parallel="false">
+                <apply executable="thrift" parallel="false" failonerror="true">
                   <arg value="&#45;&#45;gen" />
                   <arg value="java" />
-                  <arg value="-out" />
+                  <arg value="-o" />
                   <arg value="target/generated-sources/" />
+                  <arg value="-r" />
                   <fileset dir="src/main/thrift/">
                     <include name="*.thrift" />
                   </fileset>
@@ -255,7 +256,18 @@
     <dependency>
       <groupId>org.apache.thrift</groupId>
       <artifactId>libthrift</artifactId>
-      <version>0.9.1</version>
+      <version>0.6.1</version>
+      <!-- Fix spurious Maven/jUnit/Logger warnings -->
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.directory.studio</groupId>

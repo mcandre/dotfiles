@@ -18,7 +18,7 @@ guard :shell do
     title = "Test output"
     status = :failed
 
-    msg = `mvn test -q`
+    msg = `mvn generate-sources -q && mvn test -q`
 
     if $?.success?
       status = :success
