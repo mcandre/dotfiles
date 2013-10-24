@@ -6,6 +6,9 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
+# Personal binaries
+export PATH="$PATH:~/bin"
+
 # Java
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
 
@@ -14,9 +17,6 @@ export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
 
 # CLI homepage
 export WWW_HOME=https://duckduckgo.com/
-
-# Home scripts
-export PATH="$PATH:~/bin"
 
 # Add Git
 export PATH="$PATH:/usr/local/git/bin"
