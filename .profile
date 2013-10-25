@@ -10,7 +10,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$PATH:~/bin"
 
 # Java
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home"
 
 # RVM
 #export PATH="/Users/andrew/.rvm/bin:$PATH"
@@ -43,7 +43,7 @@ set +H
 export PATH="$PATH:/opt/local/x86_64-apple-darwin12.1.0/bin"
 
 # Add JARs
-export CLASSPATH="$CLASSPATH:/Users/andrew/junit.jar:/Users/andrew/getopt.jar:."
+export CLASSPATH="/Users/andrew/junit.jar:/Users/andrew/getopt.jar:."
 
 # Add Inkscape
 export PATH="$PATH:/Applications/Inkscape.app/Contents/Resources/bin"
