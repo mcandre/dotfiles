@@ -280,7 +280,9 @@
       ;; CUA
       (global-unset-key (kbd "C-z"))
       (global-set-key (kbd "C-z") 'undo-tree-undo)
-      (global-set-key (kbd "C-S-z") 'undo-tree-redo))
+      (global-set-key (kbd "C-S-z") 'undo-tree-redo)
+      (global-set-key (kbd "s-z") 'undo-tree-undo)
+      (global-set-key (kbd "s-Z") 'undo-tree-redo))
   (error (warn "undo-tree not installed")))
 
 ;; Markdown
