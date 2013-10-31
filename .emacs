@@ -480,7 +480,8 @@
 (condition-case nil
     (progn
       (require 'ack-and-a-half)
-      (global-set-key (kbd "C-x C-a") 'ack-and-a-half))
+      (global-set-key (kbd "C-x C-a") 'ack-and-a-half)
+      (global-set-key (kbd "s-F") 'ack-and-a-half))
   (error (warn "ack-and-a-half is not installed")))
 
 (eval-after-load "grep"
