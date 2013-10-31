@@ -130,9 +130,19 @@ Enter text to replace.
 
 `n` skips over current match.
 
-## Search in Directory
+## Search a Directory
+
+By default, Emacs offers grep for searching all files in a directory:
 
     M-x rgrep
+
+If Emacs has trouble finding the `grep` binary in Mac OS X, you can inform Mac apps of the full `PATH`:
+
+https://gist.github.com/mcandre/7235205
+
+## Fuzzy Find
+
+The [fiplr](https://github.com/d11wtq/fiplr#fiplr---find-in-project-for-emacs) package offers a command for finding files in nested directories by typing any part of the filename.
 
 ## Regular Expressions
 
