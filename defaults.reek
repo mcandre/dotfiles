@@ -8,4 +8,4 @@ FeatureEnvy:
 BooleanParameter:
   enabled: false
 TooManyStatements:
-  max_statements: 10
+  max_statements: 20
