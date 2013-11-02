@@ -15,3 +15,5 @@ UncommunicativeParameterName:
   enabled: false
 UncommunicativeMethodName:
   enabled: false
+UncommunicativeModuleName:
+  enabled: false
