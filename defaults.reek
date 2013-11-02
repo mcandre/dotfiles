@@ -5,11 +5,7 @@ UncommunicativeVariableName:
   enabled: false
 FeatureEnvy:
   enabled: false
-LargeClass:
-  enabled: false
-LongMethod:
-  max_statements: 20
 BooleanParameter:
   enabled: false
-ControlCouple:
-  enabled: false
+TooManyStatements:
+  max_statements: 10
