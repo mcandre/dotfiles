@@ -42,8 +42,8 @@ set +H
 # objdump
 export PATH="$PATH:/opt/local/x86_64-apple-darwin12.1.0/bin"
 
-# Add JARs
-export CLASSPATH="/Users/andrew/junit.jar:/Users/andrew/getopt.jar:."
+# # Add JARs
+# export CLASSPATH="/Users/andrew/junit.jar:/Users/andrew/getopt.jar:."
 
 # Add Inkscape
 export PATH="$PATH:/Applications/Inkscape.app/Contents/Resources/bin"
