@@ -9,6 +9,9 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # Personal binaries
 export PATH="$PATH:~/bin"
 
+# oclint
+export PATH="$PATH:~/oclint-0.8.dev.27d706b/bin"
+
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home"
 
@@ -35,6 +38,9 @@ export PATH="$PATH:~/Desktop/src/ehrlich"
 
 # proper
 export ERL_LIBS="/Users/andrew/Desktop/src/proper"
+
+# erlang getopt
+export ERL_LIBS="$ERL_LIBS:/Users/andrew/Desktop/src/getopt"
 
 # Correct quotes.
 set +H
