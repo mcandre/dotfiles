@@ -42,8 +42,12 @@ set +H
 # objdump
 export PATH="$PATH:/opt/local/x86_64-apple-darwin12.1.0/bin"
 
-# # Add JARs
-# export CLASSPATH="/Users/andrew/junit.jar:/Users/andrew/getopt.jar:."
+# # JUnit
+# export CLASSPATH="$CLASSPATH:/Users/andrew/junit.jar"
+# # GetOpt
+# export CLASSPATH="$CLASSPATH:/Users/andrew/getopt.jar"
+# # Gruesome
+# export CLASSPATH="$CLASSPATH:/Users/andrew/Desktop/src/gruesome/gruesome-0.0.1.jar"
 
 # Add Inkscape
 export PATH="$PATH:/Applications/Inkscape.app/Contents/Resources/bin"
@@ -83,9 +87,6 @@ export PATH="$PATH:/Applications/CoqIdE_8.3pl2.app/Contents/Resources/bin"
 
 # SML
 export CM_VERBOSE=false
-
-# Gruesome
-export CLASSPATH="$CLASSPATH:/Users/andrew/Desktop/src/gruesome/gruesome-0.0.1.jar"
 
 # MPlayer
 export PATH="$PATH:/Applications/MPlayer OSX Extended.app/Contents/Resources/Binaries/mpextended.mpBinaries/Contents/mpextended.mpBinaries/Contents/MacOS"
