@@ -10,7 +10,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$PATH:~/bin"
 
 # oclint
-export PATH="$PATH:~/oclint-0.8.dev.27d706b/bin"
+export PATH="$PATH:/Users/andrew/oclint-0.8.dev.27d706b/bin"
 
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home"
