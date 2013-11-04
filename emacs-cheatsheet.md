@@ -222,6 +222,16 @@ http://emacswiki.org/emacs/RegularExpression
 
     C-x 0
 
+### Grow Current Window
+
+    C-x ^
+
+### Shrink Current Window
+
+    M-x shrink-window
+
+Or switch windows and grow the other one.
+
 ## Buffers
 
 ### Create or Switch to Buffer
