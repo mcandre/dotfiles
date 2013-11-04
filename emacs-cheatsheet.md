@@ -53,9 +53,13 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
     M-! <command>
 
+### Ncurses Terminals
+
 For ncurses-style programs that erase the screen, use:
 
     M-x term
+
+In term-mode, `C-x ...` commands should be typed as `C-c ...`.
 
 ## Packages
 
