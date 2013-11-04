@@ -53,6 +53,10 @@ https://github.com/mcandre/dotfiles/blob/master/emacs-cheatsheet.md
 
     M-! <command>
 
+For ncurses-style programs that erase the screen, use:
+
+    M-x term
+
 ## Packages
 
     (package-refresh-contents)
