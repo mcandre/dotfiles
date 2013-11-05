@@ -1,2 +1,4 @@
 +warning-stream-stdout
 +skip-sys-headers
+-preproc
+-exportlocal
