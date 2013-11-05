@@ -4,7 +4,7 @@
 
   <groupId>orion.core.data.commoncrawler</groupId>
   <artifactId>commoncrawler</artifactId>
-  <version>0.0.0</version>
+  <version>0.0.3</version>
   <packaging>jar</packaging>
 
   <name>commoncrawler</name>
@@ -12,6 +12,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.generated.sources>${project.build.directory}${file.separator}generated-sources</project.generated.sources>
   </properties>
 
   <profiles>
@@ -63,13 +64,15 @@
           </execution>
         </executions>
       </plugin>
-      <!-- Fuller error traces for unit tests -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.9</version>
         <configuration>
+          <!-- Fuller error traces for unit tests. -->
           <useFile>false</useFile>
+          <!-- Memory management during unit tests -->
+          <argLine>-XX:+UseConcMarkSweepGC -Xmx1024m</argLine>
         </configuration>
       </plugin>
       <!-- Compile .thrift to .java -->
@@ -81,12 +84,12 @@
             <phase>generate-sources</phase>
             <configuration>
               <tasks>
-                <mkdir dir="target/generated-sources/" />
+                <mkdir dir="${project.generated.sources}" />
                 <apply executable="thrift" parallel="false" failonerror="true">
                   <arg value="&#45;&#45;gen" />
                   <arg value="java" />
                   <arg value="-o" />
-                  <arg value="target/generated-sources/" />
+                  <arg value="${project.generated.sources}" />
                   <arg value="-r" />
                   <fileset dir="src/main/thrift/">
                     <include name="*.thrift" />
@@ -114,7 +117,7 @@
             </goals>
             <configuration>
               <sources>
-                <source>target/generated-sources/</source>
+                <source>${project.generated.sources}${file.separator}gen-java</source>
               </sources>
             </configuration>
           </execution>
@@ -146,7 +149,7 @@
         </executions>
         <configuration>
           <includes>
-            <include>target/generated-sources/**/*.java</include>
+            <include>${project.generated.sources}**${file.separator}*.java</include>
           </includes>
           <regex>true</regex>
           <regexFlags>
@@ -288,6 +291,12 @@
       <groupId>net.sourceforge.htmlunit</groupId>
       <artifactId>htmlunit</artifactId>
       <version>2.13</version>
+    </dependency>
+    <!-- Fix dependency error -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.3.1</version>
     </dependency>
     <dependency>
       <groupId>redis.clients</groupId>
