@@ -149,7 +149,7 @@
         </executions>
         <configuration>
           <includes>
-            <include>${project.generated.sources}**${file.separator}*.java</include>
+            <include>target/generated-sources/**/*.java</include>
           </includes>
           <regex>true</regex>
           <regexFlags>
