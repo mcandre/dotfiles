@@ -31,6 +31,7 @@ checkstyle -c checkstyle.xml -r src/
 
     <!-- Lint javadocs -->
     <module name="JavadocType"/>
+    <module name="JavadocMethod"/>
 
     <module name="ConstantName"/>
     <module name="LocalFinalVariableName"/>
