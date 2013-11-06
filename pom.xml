@@ -43,27 +43,6 @@
 
   <build>
     <plugins>
-      <!-- Debug with jdb -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.2.1</version>
-        <configuration>
-          <executable>jdb</executable>
-          <arguments>
-            <argument>-classpath</argument>
-            <classpath />
-            <argument>${jdb}</argument>
-          </arguments>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
