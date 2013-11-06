@@ -29,6 +29,9 @@ checkstyle -c checkstyle.xml -r src/
   <module name="TreeWalker">
     <property name="fileExtensions" value="java,ejb,jpf" />
 
+    <!-- Lint javadocs -->
+    <module name="JavadocType"/>
+
     <module name="ConstantName"/>
     <module name="LocalFinalVariableName"/>
     <module name="LocalVariableName"/>
