@@ -18,7 +18,7 @@ guard :shell do
     title = "Javadoc output"
     status = :failed
 
-    msg = `mvn javadoc:javadoc -q && echo Success`
+    msg = `mvn javadoc:javadoc`
 
     if $?.success?
       status = :success
