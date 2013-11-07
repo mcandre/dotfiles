@@ -14,5 +14,9 @@ task :cane => [] do
   sh "bundle exec cane -f *.rb; bundle exec cane **/*.rb"
 end
 
-task :lint => [:reek, :flay, :roodi] do
+task :excellent => [] do
+  sh "bundle exec excellent ."
+end
+
+task :lint => [:reek, :flay, :roodi, :cane, :excellent] do
 end
