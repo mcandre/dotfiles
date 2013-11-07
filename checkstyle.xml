@@ -39,6 +39,7 @@ checkstyle -c checkstyle.xml -r src/
     <module name="MemberName"/>
     <module name="MethodName"/>
     <module name="PackageName"/>
+    <module name="PackageDeclaration"/>
     <module name="ParameterName"/>
     <module name="StaticVariableName"/>
     <module name="TypeName"/>
