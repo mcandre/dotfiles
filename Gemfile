@@ -10,4 +10,5 @@ group :development do
   gem "flog"
   gem "roodi"
   gem "churn"
+  gem "cane"
 end
