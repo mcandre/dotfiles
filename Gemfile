@@ -11,4 +11,5 @@ group :development do
   gem "roodi"
   gem "churn"
   gem "cane"
+  gem "excellent"
 end
