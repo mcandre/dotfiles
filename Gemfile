@@ -9,4 +9,5 @@ group :development do
   gem "flay"
   gem "flog"
   gem "roodi"
+  gem "churn"
 end
