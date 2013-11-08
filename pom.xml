@@ -160,7 +160,6 @@
         <configuration>
           <printFailingErrors>true</printFailingErrors>
           <verbose>true</verbose>
-          <format>txt</format>
           <includeTests>true</includeTests>
         </configuration>
       </plugin>
