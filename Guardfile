@@ -1,11 +1,11 @@
 guard :shell do
-  watch("Gemfile") do |m|
-    title = "Bundler output"
-    msg = "Bundler Failure"
+  watch('Gemfile') do |m|
+    title = 'Bundler output'
+    msg = 'Bundler Failure'
     status = :failed
 
-    if system("bundle")
-      msg = "Bundled"
+    if `bundle`
+      msg = 'Bundled'
       status = :status
     end
 
@@ -15,7 +15,7 @@ guard :shell do
   end
 
   watch(/src\/main\/java\/.+\.java/) do |m|
-    title = "Test output"
+    title = 'Test output'
     status = :failed
 
     msg = `mvn -Dtest=\`basename #{m[0]} .java\`Test test`
@@ -30,7 +30,7 @@ guard :shell do
   end
 
   watch(/src\/test\/java\/.+\.java/) do |m|
-    title = "Test output"
+    title = 'Test output'
     status = :failed
 
     msg = `mvn -Dtest=\`basename #{m[0]} .java\` test`
@@ -45,7 +45,7 @@ guard :shell do
   end
 
   watch(/(pom\.xml)|(src\/(main|test)\/thrift\/.+\.thrift)/) do |m|
-    title = "Test output"
+    title = 'Test output'
     status = :failed
 
     msg = `mvn generate-sources && mvn test`

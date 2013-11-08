@@ -1,11 +1,11 @@
 guard :shell do
-  watch("Gemfile") do |m|
-    title = "Bundler output"
-    msg = "Bundler Failure"
+  watch('Gemfile') do |m|
+    title = 'Bundler output'
+    msg = 'Bundler Failure'
     status = :failed
 
-    if system("bundle")
-      msg = "Bundled"
+    if `bundle`
+      msg = 'Bundled'
       status = :status
     end
 
@@ -15,7 +15,7 @@ guard :shell do
   end
 
   watch(/(pom\.xml)|(src\/(main|test)\/.+\.(thrift|java))/) do |m|
-    title = "Javadoc output"
+    title = 'Javadoc output'
     status = :failed
 
     msg = `mvn javadoc:javadoc`

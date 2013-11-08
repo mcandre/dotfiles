@@ -1,25 +1,25 @@
 task :reek => [] do
-  sh "bundle exec reek -q .; true"
+  sh 'bundle exec reek -q .; true'
 end
 
 task :flay => [] do
-  sh "bundle exec flay ."
+  sh 'bundle exec flay .'
 end
 
 task :roodi => [] do
-  sh "bundle exec roodi -config=roodi.yml *.rb **/*.rb"
+  sh 'bundle exec roodi -config=roodi.yml *.rb **/*.rb'
 end
 
 task :cane => [] do
-  sh "bundle exec cane -f *.rb; bundle exec cane **/*.rb"
+  sh 'bundle exec cane -f *.rb; bundle exec cane **/*.rb'
 end
 
 task :excellent => [] do
-  sh "bundle exec excellent ."
+  sh 'bundle exec excellent .'
 end
 
 task :rubocop => [] do
-  sh "bundle exec rubocop"
+  sh 'bundle exec rubocop'
 end
 
 task :lint => [:reek, :flay, :roodi, :cane, :excellent, :rubocop] do
