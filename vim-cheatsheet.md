@@ -22,13 +22,15 @@ https://github.com/mcandre/dotfiles/blob/master/vim-cheatsheet.md
 
     $ apt-get install vim
 
-    $ brew install vim
+    $ brew install vim macvim
 
     C:\> chocolatey install vim
 
 [vim-7.3.exe](http://www.vim.org/download.php#pc)
 
 By default, Ubuntu uses the `vim.tiny`, which lacks support for arrow key navigation. Use `apt-get install vim` to upgrade to full `vim` with arrow key support.
+
+
 
 ## Configure
 
