@@ -12,4 +12,5 @@ group :development do
   gem "churn"
   gem "cane"
   gem "excellent"
+  gem "rubocop"
 end
