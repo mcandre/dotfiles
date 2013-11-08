@@ -14,11 +14,11 @@ guard :shell do
     "-> #{msg}"
   end
 
-  watch(/src\/(main|test)\/java\/.+\.java/) do |m|
+  watch(/(pom\.xml)|(src\/(main|test)\.+)/) do |m|
     title = 'Lint output'
     status = :failed
 
-    msg = `mvn compile && mvn checkstyle:checkstyle`
+    msg = `mvn compile && mvn checkstyle:checkstyle && mvn pmd:check`
 
     if $?.success?
       status = :success
