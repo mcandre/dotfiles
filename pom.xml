@@ -48,7 +48,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.9</version>
         <configuration>
-          <!-- Fuller error traces for unit tests. -->
+          <!-- Fuller error traces for unit tests -->
           <useFile>false</useFile>
           <!-- Memory management during unit tests -->
           <argLine>-XX:+UseConcMarkSweepGC -Xmx1024m</argLine>
