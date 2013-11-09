@@ -1,3 +1,14 @@
+task :ruby => [] do
+  begin
+    sh 'for f in *.rb; do ruby -wc $f | grep -v "Syntax OK"; done'
+  rescue
+  end
+  begin
+    sh 'for f in **/*.rb; do ruby -wc $f | grep -v "Syntax OK"; done'
+  rescue
+  end
+end
+
 task :reek => [] do
   sh 'bundle exec reek -q .; true'
 end
@@ -22,5 +33,5 @@ task :rubocop => [] do
   sh 'bundle exec rubocop'
 end
 
-task :lint => [:reek, :flay, :roodi, :cane, :excellent, :rubocop] do
+task :lint => [:ruby, :reek, :flay, :roodi, :cane, :excellent, :rubocop] do
 end
