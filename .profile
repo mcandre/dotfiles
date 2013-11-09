@@ -9,6 +9,9 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # Personal binaries
 export PATH="$PATH:~/bin"
 
+# PHP
+export PATH="$PATH:~/pear/bin"
+
 # oclint
 export PATH="$PATH:/Users/andrew/oclint-0.8.dev.27d706b/bin"
 
