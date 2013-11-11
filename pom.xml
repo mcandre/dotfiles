@@ -161,6 +161,9 @@
           <printFailingErrors>true</printFailingErrors>
           <verbose>true</verbose>
           <includeTests>true</includeTests>
+          <rulesets>
+            <ruleset>${basedir}${file.separator}pmd.xml</ruleset>
+          </rulesets>
         </configuration>
       </plugin>
       <!-- Code coverage -->
