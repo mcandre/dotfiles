@@ -77,6 +77,7 @@
   <rule ref="rulesets/java/naming.xml">
     <exclude name="LongVariable" />
     <exclude name="ShortVariable" />
+    <exclude name="ShortClassName" />
   </rule>
 
   <rule ref="rulesets/java/optimizations.xml">
