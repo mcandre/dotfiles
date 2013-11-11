@@ -35,8 +35,12 @@
 
   <rule ref="rulesets/java/design.xml">
     <exclude name="UseLocaleWithCaseConversions" />
+
     <!-- False positives when comments are javadocs -->
     <exclude name="UncommentedEmptyConstructor" />
+
+    <!-- False positives for connection objects with no #close method -->
+    <exclude name="CloseResource" />
   </rule>
 
   <rule ref="rulesets/java/empty.xml" />
