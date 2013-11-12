@@ -1,31 +1,19 @@
 guard :shell do
   watch('Gemfile') do |m|
-    title = 'Bundler output'
-    msg = 'Bundler Failure'
-    status = :failed
-
-    if `bundle`
-      msg = 'Bundled'
-      status = :status
-    end
+    title = 'Bundler'
+    msg = `bundle`
+    status = ($?.success? && :success) || :failed
 
     n msg, title, status
-
     "-> #{msg}"
   end
 
   watch(/(pom\.xml)|(src\/(main|test)\/.+\.(thrift|java))/) do |m|
-    title = 'Test output'
-    status = :failed
-
+    title = 'Test'
     msg = `mvn generate-sources -q && mvn compile -q`
-
-    if $?.success?
-      status = :success
-    end
+    status = ($?.success? && :success) || :failed
 
     n msg, title, status
-
     "-> #{msg}"
   end
 end

@@ -6,3 +6,6 @@ MethodLength:
 
 CyclomaticComplexity:
   Max: 20
+
+SpecialGlobalVars:
+  Enabled: false
