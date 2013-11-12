@@ -17,7 +17,7 @@ guard :shell do
     "-> #{msg}"
   end
 
-  watch(/src\/main\/java\/.+\.java/) do |m|
+  watch(%r{src/main/java/.+\.java}) do |m|
     title = 'Test'
     msg = `mvn -Dtest=\`basename #{m[0]} .java\`Test test`
     status = ($?.success? && :success) || :failed
@@ -26,7 +26,7 @@ guard :shell do
     "-> #{msg}"
   end
 
-  watch(/src\/test\/java\/.+\.java/) do |m|
+  watch(%r{src/test/java/.+\.java}) do |m|
     title = 'Test'
     msg = `mvn -Dtest=\`basename #{m[0]} .java\` test`
     status = ($?.success? && :success) || :failed
@@ -35,7 +35,7 @@ guard :shell do
     "-> #{msg}"
   end
 
-  watch(/src\/main\/thrift\/.+\.thrift/) do |m|
+  watch(%r{src/main/thrift/.+\.thrift}) do |m|
     title = 'Test'
     msg = `mvn generate-sources && mvn -Dtest=\`basename #{m[0]} .thrift\`Test test`
     status = ($?.success? && :success) || :failed

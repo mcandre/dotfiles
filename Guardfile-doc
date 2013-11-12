@@ -8,7 +8,7 @@ guard :shell do
     "-> #{msg}"
   end
 
-  watch(/(pom\.xml)|(src\/(main|test)\/.+\.(thrift|java))/) do |m|
+  watch(%r{(pom\.xml)|(src/(main|test)/.+\.(thrift|java))}) do |m|
     title = 'Javadoc'
     msg = `mvn javadoc:javadoc`
     status = ($?.success? && :success) || :failed

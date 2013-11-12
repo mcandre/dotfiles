@@ -8,7 +8,7 @@ guard :shell do
     "-> #{msg}"
   end
 
-  watch(/(pom\.xml)|(src\/(main|test)\/.+\.(thrift|java))/) do |m|
+  watch(%r{(pom\.xml)|(src/(main|test)/.+\.(thrift|java))}) do |m|
     title = 'Test'
     msg = `mvn generate-sources -q && mvn compile -q`
     status = ($?.success? && :success) || :failed
