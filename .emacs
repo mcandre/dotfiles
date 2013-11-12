@@ -389,6 +389,7 @@
            "Gemfile$"
            "Guardfile"
            "guardrc"
+           "step_definitions"
            "Vagrantfile$"))
   (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
 ;; We're Erlang, too!
