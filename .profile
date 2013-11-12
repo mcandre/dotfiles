@@ -1,5 +1,9 @@
 # ln -s ...path/path/path/.profile ~/.profile
 
+# Fix recursive globs
+# Requires Bash 4+
+shopt -s globstar
+
 # Reset path
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 
