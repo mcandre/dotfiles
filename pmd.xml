@@ -55,9 +55,6 @@
     <exclude name="UseAssertTrueInsteadOfAssertEquals" />
     <exclude name="JUnitAssertionsShouldIncludeMessage" />
     <exclude name="JUnitTestContainsTooManyAsserts" />
-
-    <!-- Reuseable methods -->
-    <exclude name="JUnitTestsShouldIncludeAssert" />
   </rule>
 
   <rule ref="rulesets/java/logging-jakarta-commons.xml" />
@@ -65,14 +62,6 @@
   <rule ref="rulesets/java/migrating_to_13.xml" />
   <rule ref="rulesets/java/migrating_to_14.xml" />
   <rule ref="rulesets/java/migrating_to_15.xml" />
-
-  <!-- False positives for reused methods -->
-  <rule ref="rulesets/java/migrating_to_junit4.xml">
-    <exclude name="JUnit4TestShouldUseTestAnnotation" />
-  </rule>
-  <rule ref="rulesets/java/migrating.xml">
-    <exclude name="JUnit4TestShouldUseTestAnnotation" />
-  </rule>
 
   <rule ref="rulesets/java/naming.xml">
     <exclude name="LongVariable" />
