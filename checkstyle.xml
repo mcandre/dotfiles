@@ -58,7 +58,12 @@ checkstyle -c checkstyle.xml -r src/
     <module name="EmptyForIteratorPad"/>
     <module name="GenericWhitespace"/>
     <module name="MethodParamPad"/>
-    <module name="NoWhitespaceAfter"/>
+
+    <!-- Whitespace inside static arrays -->
+    <module name="NoWhitespaceAfter">
+      <property name="tokens" value="BNOT, DEC, DOT, INC, LNOT, UNARY_MINUS, UNARY_PLUS, TYPECAST" />
+    </module>
+
     <module name="NoWhitespaceBefore"/>
     <module name="OperatorWrap">
       <property name="tokens" value="PLUS" />
