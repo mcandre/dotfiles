@@ -262,6 +262,10 @@ Or switch windows and grow the other one.
 
     C-d
 
+### Delete trailing whitespace
+
+    M-x delete-trailing-whitespace
+
 ### Cut Line
 
     C-k
