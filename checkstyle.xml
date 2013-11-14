@@ -60,8 +60,9 @@ checkstyle -c checkstyle.xml -r src/
     <module name="MethodParamPad"/>
 
     <!-- Whitespace inside static arrays -->
+    <!-- Whitespace after type casts -->
     <module name="NoWhitespaceAfter">
-      <property name="tokens" value="BNOT, DEC, DOT, INC, LNOT, UNARY_MINUS, UNARY_PLUS, TYPECAST" />
+      <property name="tokens" value="BNOT, DEC, DOT, INC, LNOT, UNARY_MINUS, UNARY_PLUS" />
     </module>
 
     <module name="NoWhitespaceBefore"/>
