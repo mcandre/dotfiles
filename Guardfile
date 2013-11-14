@@ -1,13 +1,4 @@
 guard :shell do
-  watch('Gemfile') do |m|
-    title = 'Bundler'
-    msg = `bundle`
-    status = ($?.success? && :success) || :failed
-
-    n msg, title, status
-    "-> #{msg}"
-  end
-
   watch('pom.xml') do |m|
     title = 'Test'
     msg = `mvn clean && mvn test`

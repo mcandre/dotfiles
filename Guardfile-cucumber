@@ -1,13 +1,4 @@
 guard :shell do
-  watch('Gemfile') do |m|
-    title = 'Bundler'
-    msg = `bundle`
-    status = ($?.success? && :success) || :failed
-
-    n msg, title, status
-    "-> #{msg}"
-  end
-
   watch(/.*\.(rb|feature)/) do |m|
     title = 'Cucumber'
     msg = `cucumber 2>&1`
