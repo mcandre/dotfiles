@@ -1,3 +1,5 @@
+; Create shortcut in C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+
 ; Control+Alt+T launches Console2
 ^!t::
     run console.exe
