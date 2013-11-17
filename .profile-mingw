@@ -1,3 +1,8 @@
+# Store as /c/Users/$USERNAME/.profile
+
+# Fix current working directory
+cd ~
+
 # Disable cygwin path warning
 export CYGWIN="$CYGWIN nodosfilewarning"
 
@@ -15,9 +20,3 @@ alias emacs="emacs -nw"
 # Node
 export PATH=$PATH:"/c/Program Files/nodejs"
 export PATH=$PATH:"/c/Documents and Settings/apenneba/Application Data/npm"
-
-# Chocolatey
-export PATH=$PATH:"/c/Chocolatey/bin"
-
-# GameOn
-export PATH=$PATH:"/c/Documents and Settings/apenneba/Desktop/src/nicplus/node_modules/.bin"
