@@ -1,7 +1,7 @@
 guard :shell do
   watch(%r{(pom\.xml)|(src/(main|test)/.+\.(thrift|java))}) do |m|
     title = 'Test'
-    msg = `mvn generate-sources -q && mvn compile -q`
+    msg = `mvn generate-sources -q && mvn compile -q && echo Success`
     status = ($?.success? && :success) || :failed
 
     n msg, title, status
