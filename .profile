@@ -1,8 +1,14 @@
 # ln -s ...path/path/path/.profile ~/.profile
 
+#
+# Bash 4
+#
+
 # Fix recursive globs
-# Requires Bash 4+
 shopt -s globstar
+
+# Work around \w cd bug
+export PS1="\W\$ "
 
 # Reset path
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
@@ -26,16 +32,13 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Hom
 #export PATH="/Users/andrew/.rvm/bin:$PATH"
 
 # CLI homepage
-export WWW_HOME=https://duckduckgo.com/
+export WWW_HOME="https://duckduckgo.com/"
 
 # Add Git
 export PATH="$PATH:/usr/local/git/bin"
 
 # RubyGem binaries
 export PATH="$PATH:/usr/local/Cellar/ruby/1.9.3-p385/bin:/usr/local/Cellar/ruby/2.0.0-p195/bin"
-
-# Add personal executables.
-export PATH="$PATH:/Users/andrew/bin"
 
 # For `brew edit`, etc.
 export EDITOR="emacs -nw"
@@ -106,8 +109,6 @@ export PATH="$PATH:/Applications/MPlayer OSX Extended.app/Contents/Resources/Bin
 
 # Perl6
 export PATH="$PATH:~/rakudo/install/bin"
-
-export PS1="\w$ "
 
 # Xcode
 export PATH="$PATH:/Developer/usr/bin"
