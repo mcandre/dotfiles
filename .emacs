@@ -42,6 +42,9 @@
  indent-tabs-mode nil
  ;; Width: 2 spaces
  sws-tab-width 2
+ ;; And shell
+ sh-basic-offset 2
+ sh-indentation 2
  ;; And JavaScript
  js-indent-level 2)
 
