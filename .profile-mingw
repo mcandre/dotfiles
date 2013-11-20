@@ -15,6 +15,7 @@ alias ls="ls --color"
 # export GREP_OPTIONS="--exclude-from=~/.grepignore --exclude-from=.grepignore"
 
 # Emacs
+alias cocoamacs="runemacs"
 alias emacs="emacs -nw"
 
 # Node
