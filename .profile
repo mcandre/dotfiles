@@ -7,8 +7,11 @@
 # Fix recursive globs
 shopt -s globstar
 
-# Work around \w cd bug
-export PS1="\W\$ "
+# git prompt
+# https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+source ~/git-prompt.sh
+
+export PS1='\W$(__git_ps1 " (%s)")$ '
 
 # Reset path
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
