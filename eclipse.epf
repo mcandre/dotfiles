@@ -1,4 +1,4 @@
-#Fri Dec 06 14:15:07 EST 2013
+#Fri Dec 06 14:39:04 EST 2013
 /instance/org.eclipse.jdt.ui/semanticHighlighting.typeParameter.enabled=true
 /instance/com.adobe.flexide.as.core/asASDocColor=\#FFFFFF
 /instance/org.eclipse.jdt.ui/semanticHighlighting.inheritedMethodInvocation.color=190,214,255
@@ -11,6 +11,7 @@
 /instance/org.eclipse.team.core/file_types=xls\n2\ntif\n2\njpeg\n2\npdf\n2\nemof\n1\ndadx\n1\njpage\n1\nMF\n1\njar\n2\napi_filters\n1\nfactorypath\n1\nhtm\n1\ntiff\n2\nindex\n1\nso\n2\ncvsignore\n1\nclass\n2\nxmi\n1\nxml\n1\nproperties\n1\nini\n1\nppt\n2\nclasspath\n1\nbmp\n2\nproject\n1\nnst\n1\njardesc\n1\ndll\n2\necore\n1\ngif\n2\nexe\n2\nwsdl\n1\nexsd\n1\nlaunch\n1\nico\n2\ntxt\n1\nprefs\n1\nmxsd\n1\noptions\n1\nzip\n2\nxsl\n1\nproduct\n1\njpg\n2\nhistory\n1\nxslt\n1\npng\n2\nxsd\n1\ndoc\n2\nhtml\n1\njava\n1\n
 /instance/org.eclipse.ant.ui/useAnnotationsPrefPage=true
 /instance/org.cfeclipse.cfml/defaultTextColor=207,191,173
+@org.eclipse.ui.trace=1.0.100.v20130508-1926
 /instance/org.eclipse.cdt.ui/asm_label=207,191,173
 /instance/org.eclipse.pde.core/workspace_target_handle=local\:1386355752946.target
 /instance/org.eclipse.jdt.ui/semanticHighlighting.localVariableDeclaration.enabled=true
@@ -44,6 +45,7 @@
 /instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.gettersetter.use.is=true
 /instance/org.scala-ide.sdt.core/syntaxColoring.scaladoc.color=255,255,255
 /instance/org.eclipse.datatools.sqltools.sqleditor/Keyword=0,0,0,0,0,255,0,127
+/instance/org.eclipse.jdt.debug/org.eclipse.jdt.debugdefault_watchpoint_suspend_policy=0
 /instance/eclihx.ui/hx_editor_declare_keywords_color=255,0,127
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.field.color=207,191,173
 /instance/com.adobe.flexide.as.core/asFunctionColor=\#A7EC21
@@ -131,8 +133,10 @@
 /instance/org.eclipse.cdt.ui/pp_directive=255,0,127
 /instance/de.walware.statet.r.ui/rdBrackets.color=207,191,173
 /instance/org.eclipse.jdt.ui/sp_cleanup.add_missing_deprecated_annotations=true
+/instance/org.eclipse.jdt.launching/org.eclipse.jdt.launching.PREF_CONNECT_TIMEOUT=20000
 /instance/org.eclipse.jdt.ui/semanticHighlighting.staticFinalField.color=207,191,173
 /instance/org.scala-ide.sdt.core/syntaxColoring.default.color=207,191,173
+/instance/org.eclipse.jdt.debug/org.eclipse.jdt.debug.PREF_HCR_WITH_COMPILATION_ERRORS=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
 /instance/org.eclipse.wst.html.ui/entityReference=\#FF007F | null | null | null | null | null
 /instance/org.eclipse.wst.xml.core/lineWidth=80
@@ -166,6 +170,7 @@
 /instance/org.eclipse.m2e.core/eclipse.m2.WorkspacelifecycleMappingsLocation=/Users/apennebaker/Desktop/src/.metadata/.plugins/org.eclipse.m2e.core/lifecycle-mapping-metadata.xml
 /instance/org.eclipse.cdt.ui/semanticHighlighting.class.enabled=true
 /instance/org.eclipse.ui.editors/asOccurencesIndicationColor=0,0,0
+/instance/org.eclipse.ui.trace/tracingFilePath=/Users/apennebaker/Desktop/src/.metadata/trace.log
 /instance/ccw.core/ccw.preferences.editor_color.FUNCTION.enabled=true
 /instance/org.eclipse.wst.dtd.ui/dtdString=\#ECE47E | null | null | null | null | null
 /instance/org.eclipse.wst.css.ui/PROPERTY_NAME=\#CFBFAD | null | null | null | null | null
@@ -194,6 +199,7 @@
 @org.eclipse.epp.mpc.ui=1.2.1.I20130917-2019
 /instance/ccw.core/ccw.preferences.editor_color.FUNCTION.bold=false
 /instance/org.scala-ide.sdt.core/syntaxColouring.default.colour=207,191,173
+/instance/org.eclipse.debug.ui/pref_state_memento.org.eclipse.debug.ui.DebugVieworg.eclipse.debug.ui.DebugView=<?xml version\="1.0" encoding\="UTF-8"?>\n<DebugViewMemento org.eclipse.debug.ui.BREADCRUMB_DROPDOWN_AUTO_EXPAND\="false"/>
 /instance/org.cfeclipse.cfml/SQLKeywordColor=255,0,127
 /instance/org.eclipse.php.ui/semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.ClassHighlighting.color=\#52E3F6
 /instance/org.eclipse.e4.CSS/org.eclipse.e4.CSS.syntaxColorer.tokenStyles.default.color=207,191,173
@@ -246,6 +252,7 @@
 /instance/goclipse/syntax_highlighting_builtin_function_color=167,236,33
 /instance/org.eclipse.wst.xml.ui/commentBorder=\#FFFFFF | null | null | null | null | null
 /instance/com.adobe.flexide.as.core/asOperatorColor=\#FF007F
+/instance/org.eclipse.ui.trace/tracingMaxFileCount=10
 /instance/org.eclipse.dltk.ruby.ui/variable.global=207,191,173
 /instance/com.adobe.flexide.css.core/cssNamespaceColor=\#CFBFAD
 /instance/ccw.core/ccw.preferences.editor_color.symbol.enabled=true
@@ -309,6 +316,7 @@
 /instance/org.eclipse.wst.dtd.ui/dtdData=\#CFBFAD | null | null | null | null | null
 /instance/org.cloudsmith.geppetto.pp.dsl.PP/org.cloudsmith.geppetto.pp.dsl.PP.syntaxColorer.tokenStyles.task.color=255,255,255
 /instance/com.powerflasher.fdt.ui/com.powerflasher.fdt.ui.AS3SemanticHighlightGenerator.AS3.RegEx_color=236,228,126
+/instance/org.eclipse.jdt.debug/org.eclipse.jdt.debug.PREF_REQUEST_TIMEOUT=3000
 /instance/ccw.core/ccw.preferences.editor_color.callableJAVA_INSTANCE_METHOD=82,227,246
 /instance/ccw.core/ccw.preferences.editor_color.callableGLOBAL_VAR.enabled=true
 /instance/ccw.core/ccw.preferences.editor_color.GLOBAL_VAR.enabled=true
@@ -323,6 +331,7 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.annotationSuperInterface=ignore
 /instance/org.eclipse.php.ui/semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.DeprecatedHighlighting.enabled=true
 /instance/org.eclipse.jdt.ui/content_assist_proposals_background=255,255,255
+/instance/org.eclipse.jdt.debug/org.eclipse.jdt.debug.suspend_for_breakpoints_during_evaluation=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.fieldSuffixes=
 /instance/ccw.core/ccw.preferences.editor_color.callableSPECIAL_FORM.bold=false
 /instance/ccw.core/ccw.preferences.editor_color.int.italic=false
@@ -577,6 +586,7 @@
 /instance/de.walware.statet.base.ui/MatchingBrackets.color=0,0,0
 /instance/net.sf.eclipsefp.haskell.ui/stringColor=236,228,126
 /instance/com.spket.xml/xml_default=207,191,173
+/instance/org.eclipse.debug.ui/pref_state_memento.org.eclipse.debug.ui.VariableView=<?xml version\="1.0" encoding\="UTF-8"?>\n<VariablesViewMemento org.eclipse.debug.ui.SASH_DETAILS_PART\="315" org.eclipse.debug.ui.SASH_VIEW_PART\="684">\n<PRESENTATION_CONTEXT_PROPERTIES IMemento.internal.id\="org.eclipse.debug.ui.VariableView"/>\n</VariablesViewMemento>
 /instance/org.eclipse.dltk.tcl.ui/DLTK_function_definition=167,236,33
 /instance/org.python.pydev/EDITOR_MATCHING_BRACKETS_COLOR=249,250,244
 /instance/org.eclipse.pde.ui/editor.color.header_attributes=207,191,173
@@ -848,6 +858,7 @@
 /instance/com.adobe.flexide.as.core/asBracketColor=\#F9FAF4
 /instance/org.scala-ide.sdt.core/syntaxColoring.numberLiteral.color=196,140,255
 /instance/org.eclipse.e4.CSS/org.eclipse.e4.CSS.syntaxColorer.tokenStyles.string.color=236,228,126
+/instance/org.eclipse.debug.ui/preferredDetailPanes=DefaultDetailPane\:DefaultDetailPane|
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.classpathVariable.JRE_LIB=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home/jre/lib/rt.jar
 /instance/com.adobe.flexide.mxml.core/mxmlTagColor=\#CFBFAD
 /instance/org.eclipse.jst.jsp.ui/commentBorder=\#FFFFFF | null | null | null | null | null
@@ -945,12 +956,14 @@
 /instance/org.scala-ide.sdt.core/syntaxColouring.keyword.colour=255,0,127
 /instance/org.eclipse.ui.editors/AbstractTextEditor.Color.SelectionForeground=64,64,64
 /instance/ccw.core/ccw.preferences.editor_color.callableJAVA_STATIC_METHOD.bold=false
+/instance/org.eclipse.jdt.launching/org.eclipse.jdt.launching.only_include_exported_classpath_entries=false
 /instance/org.eclipse.jdt.ui/pf_coloring_key=207,191,173
 /instance/org.eclipse.debug.ui/org.eclipse.debug.ui.errorColor=255,255,255
 /instance/org.eclipse.ant.ui/org.eclipse.ant.ui.tagsColor=167,236,33
 /instance/de.walware.statet.r.ui/text_R_rUndefined.strikethrough=false
 /instance/net.sourceforge.texlipse/key.BibColor=255,0,127
 /instance/ccw.core/ccw.preferences.editor_color.comment.italic=false
+/instance/org.eclipse.ui.trace/tracingEntries=
 /instance/com.powerflasher.fdt.ui/com.powerflasher.fdt.ui.mxml.mxmlHighlightGenerator.AS3.MXMLState_color=191,164,164
 /instance/org.jboss.ide.eclipse.freemarker/color.interpolation=255,0,127
 /instance/org.eclipse.dltk.tcl.ui/content_assist_completion_replacement_foreground=207,191,173
@@ -976,6 +989,7 @@
 /instance/org.cloudsmith.geppetto.pp.dsl.PP/org.cloudsmith.geppetto.pp.dsl.PP.syntaxColorer.tokenStyles.punctuation.color=207,191,173
 /instance/ccw.core/ccw.preferences.editor_color.JAVA_CLASS.italic=false
 /instance/org.cloudsmith.geppetto.pp.dsl.PP/org.cloudsmith.geppetto.pp.dsl.PP.syntaxColorer.tokenStyles.spaces.color=207,191,173
+/instance/org.eclipse.ui.trace/tracingEnabled=false
 /instance/de.walware.statet.r.ui/text_R_rAssignment.color=255,0,127
 /instance/org.eclipse.wst.jsdt.ui/java_keyword=255,0,127
 /instance/org.eclipse.jdt.ui/sp_cleanup.add_generated_serial_version_id=false
@@ -1064,8 +1078,8 @@
 /instance/org.cloudsmith.geppetto.pp.dsl.PP/org.cloudsmith.geppetto.pp.dsl.PP.syntaxColorer.tokenStyles.variable.color=207,191,173
 /instance/org.eclipse.php.ui/semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.ConstantHighlighting.enabled=true
 /instance/com.adobe.flexide.as.core/asPackageColor=\#52E3F6
-/instance/org.cfeclipse.cfml/htmTableTagColor=207,191,173
 /instance/com.powerflasher.fdt.ui/AS_CONSTANTS_color_underline=false
+/instance/org.cfeclipse.cfml/htmTableTagColor=207,191,173
 /instance/de.walware.statet.r.ui/text_R_rGrouping.color=249,250,244
 /instance/de.walware.statet.r.ui/text_Rd_rdOtherTag.color=207,191,173
 /instance/org.epic.perleditor/othersIndicationColor=207,191,173
@@ -1109,6 +1123,7 @@
 /instance/org.cfeclipse.cfml/cfnumberColor=196,140,255
 /instance/com.powerflasher.fdt.ui/com.powerflasher.fdt.ui.mxml.mxmlHighlightGenerator.AS3.MXMLAirApplicationTag_color=207,191,173
 /instance/com.powerflasher.fdt.ui/com.powerflasher.fdt.ui.mxml.mxmlHighlightGenerator.AS3.MXMLState_enabled=true
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.remove_all_breakpoints_prompt=false
 /instance/ccw.core/ccw.preferences.editor_color.char.enabled=true
 /instance/org.eclipse.ant.ui/org.eclipse.ant.ui.textColor=207,191,173
 /instance/com.adobe.flexide.mxml.core/mxmlStringColor=\#ECE47E
@@ -1143,6 +1158,7 @@ file_export_version=3.0
 /instance/org.python.pydev/FUNC_NAME_COLOR=167,236,33
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.typeParameter.color=191,164,164
 /instance/org.cloudsmith.geppetto.pp.dsl.PP/org.cloudsmith.geppetto.pp.dsl.PP.syntaxColorer.tokenStyles.regexp.color=236,228,126
+/instance/org.eclipse.jdt.debug/org.eclipse.jdt.debug.default_breakpoint_suspend_policy=2
 /instance/net.sourceforge.texlipse/crl.TexColor=207,191,173
 /instance/org.eclipse.datatools.sqltools.sqleditor/Single\ quoted\ string=0,0,0,0,0,236,228,126
 /instance/org.eclipse.cdt.ui/c_default=207,191,173
@@ -1197,6 +1213,7 @@ file_export_version=3.0
 /instance/org.eclipse.cdt.ui/semanticHighlighting.field.enabled=true
 /instance/ccw.core/ccw.preferences.editor_color.callableFUNCTION=167,236,33
 /instance/org.eclipse.jdt.ui/java_doc_default=255,255,255
+/instance/org.eclipse.ui.trace/tracingMaxFileSize=1000
 /instance/org.eclipse.jdt.ui/semanticHighlighting.methodDeclarationName.enabled=true
 /instance/org.eclipse.jdt.ui/sp_cleanup.make_parameters_final=false
 /instance/com.spket.xml/xml_cdata=207,191,173
@@ -1209,8 +1226,8 @@ file_export_version=3.0
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=
 /instance/eclihx.ui/hx_editor_multiline_comment_color=255,255,255
 /instance/ccw.core/ccw.preferences.editor_color.callableFUNCTION.enabled=true
-/instance/org.eclipse.cdt.ui/semanticHighlighting.staticField.enabled=true
 /instance/org.eclipse.wst.xml.core/indentationSize=2
+/instance/org.eclipse.cdt.ui/semanticHighlighting.staticField.enabled=true
 /instance/org.cfeclipse.cfml/cftagColor=207,191,173
 /instance/com.powerflasher.fdt.ui/com.powerflasher.fdt.ui.mxml.mxmlHighlightGenerator.AS3.MXMLIDParameter_color=121,171,255
 /instance/org.eclipse.wst.html.ui/tagAttributeEquals=\#CFBFAD | null | null | null | null | null
@@ -1245,12 +1262,14 @@ file_export_version=3.0
 /instance/org.eclipse.dltk.tcl.ui/content_assist_parameters_background=39,40,34
 /instance/org.eclipse.cdt.ui/semanticHighlighting.function.enabled=true
 /instance/org.eclipse.php.ui/semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.FieldHighlighting.enabled=true
+@org.eclipse.jdt.debug=3.8.0.v20130514-0841
 /instance/org.eclipse.dltk.ruby.ui/DLTK_doc.topic=207,191,173
 /instance/org.eclipse.pde.ui/editor.color.instr=167,236,33
 /instance/org.eclipse.cdt.ui/pp_default=207,191,173
 /configuration/org.eclipse.ui.ide/RECENT_WORKSPACES=/Users/apennebaker/Desktop/src
 /instance/org.eclipse.cdt.ui/c_operators=255,0,127
 /instance/org.eclipse.wst.css.ui/SELECTOR=\#A7EC21 | null | null | null | null | null
+/instance/org.eclipse.debug.core/org.eclipse.debug.core.PREF_BREAKPOINT_MANAGER_ENABLED_STATE=true
 /instance/org.eclipse.php.ui/semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.FunctionHighlighting.enabled=true
 /instance/org.eclipse.cdt.ui/semanticHighlighting.method.color=167,236,33
 /instance/org.eclipse.datatools.sqltools.sqleditor/Single-line\ comment=0,0,0,0,0,255,255,255
