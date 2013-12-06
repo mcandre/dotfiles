@@ -1,5 +1,8 @@
 ;; Store as ~/.emacs
 
+;; Show line numbers
+(global-linum-mode t)
+
 ;; Highlight matching parentheses
 (show-paren-mode 1)
 
@@ -133,9 +136,6 @@
 
 ;; CUA tools in GUI mode
 (when window-system
-;; Show line numbers
-(global-linum-mode t)
-
   ;; Hide GUI toolbar
   (tool-bar-mode -1)
 
@@ -271,6 +271,15 @@
 
         (setq hs-set-up-overlay 'display-code-line-counts))
     (error (warn "hideshowvis is not installed"))))
+
+;; CUA OS copypasta even in ncurses mode
+(unless window-system
+  (setq interprogram-cut-function
+        (lambda (text &optional push)
+          (let* ((process-connection-type nil)
+                 (pbproxy (start-process "pbcopy" "pbcopy" "/usr/bin/pbcopy")))
+            (process-send-string pbproxy text)
+            (process-send-eof pbproxy)))))
 
 ;; Alt+F4 quits.
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
