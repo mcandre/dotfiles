@@ -1,8 +1,5 @@
 ;; Store as ~/.emacs
 
-;; Show line numbers
-(global-linum-mode t)
-
 ;; Highlight matching parentheses
 (show-paren-mode 1)
 
@@ -134,7 +131,11 @@
                                                 "*.zip")))))
     (error (warn "fiplr is not installed")))
 
+;; CUA tools in GUI mode
 (when window-system
+;; Show line numbers
+(global-linum-mode t)
+
   ;; Hide GUI toolbar
   (tool-bar-mode -1)
 
