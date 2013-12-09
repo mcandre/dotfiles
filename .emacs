@@ -200,6 +200,18 @@
       (when (not (string-match "unknown" system-configuration))
         (require 'hideshowvis)
 
+        ;; Help nxml-mode fold
+        (let ((nxml-mode-hs-info '(nxml-mode ("^\\s-*\\(<[^/].*>\\)\\s-*$" 1) 
+                                             "^\\s-*</.*>\\s-*$")))
+          (when (not (member nxml-mode-hs-info hs-special-modes-alist))
+            (setq hs-special-modes-alist
+                  (cons nxml-mode-hs-info hs-special-modes-alist))))
+
+        (defun my-nxml-mode-hook ()
+          (setq nxml-sexp-element-flag t))
+
+        (add-hook 'nxml-mode-hook 'my-nxml-mode-hook)
+
         (autoload 'hideshowvis-enable
           "hideshowvis"
           "Highlight foldable regions")
@@ -221,7 +233,8 @@
                         tcl-mode-hook
                         vhdl-mode-hook
                         fortran-mode-hook
-                        python-mode-hook))
+                        python-mode-hook
+                        nxml-mode-hook))
           (add-hook hook
                     (lambda ()
                       (condition-case nil
