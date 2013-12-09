@@ -13,6 +13,9 @@ Bundle 'fsouza/go.vim'
 Bundle 'fsouza/rust.vim'
 Bundle 'tomasr/molokai'
 
+" No swap files, use version control instead
+set noswapfile
+
 " Fix bad autoindent of pasted text
 set paste
 
