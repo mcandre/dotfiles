@@ -59,6 +59,9 @@
     <exclude name="UseAssertTrueInsteadOfAssertEquals" />
     <exclude name="JUnitAssertionsShouldIncludeMessage" />
     <exclude name="JUnitTestContainsTooManyAsserts" />
+
+    <!-- May use Mockito verify() instead -->
+    <exclude name="JUnitTestsShouldIncludeAssert" />
   </rule>
 
   <rule ref="rulesets/java/logging-jakarta-commons.xml" />
