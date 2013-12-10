@@ -469,17 +469,6 @@
       (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil fancy-html)))
   (error (warn "mmm-mode is not installed")))
 
-;; Convert hard tabs to spaces on save
-(add-hook 'before-save-hook
-          (lambda ()
-            ;; But not Makefiles
-            (if (member major-mode '(makefile-mode
-                                     makefile-gmake-mode
-                                     makefile-bsdmake-mode))
-              (tabify (point-min) (point-max))
-              (untabify (point-min) (point-max)))))
-;;              (indent-region (point-min) (point-max)))))
-
 ;; Fix C family autoindent
 ;;
 ;; K&R style, and
