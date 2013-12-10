@@ -50,7 +50,7 @@ checkstyle -c checkstyle.xml -r src/
     <module name="UnusedImports"/>
 
     <module name="LineLength">
-      <property name="max" value="120" />
+      <property name="max" value="180" />
     </module>
     <module name="MethodLength"/>
     <module name="ParameterNumber"/>
