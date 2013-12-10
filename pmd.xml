@@ -14,7 +14,11 @@
 
   <rule ref="rulesets/java/braces.xml" />
   <rule ref="rulesets/java/clone.xml" />
-  <rule ref="rulesets/java/codesize.xml" />
+
+  <rule ref="rulesets/java/codesize.xml">
+    <exclude name="TooManyMethods" />
+    <exclude name="CyclomaticComplexity" />
+  </rule>
 
   <rule ref="rulesets/java/comments.xml">
     <exclude name="CommentSize" />
@@ -70,18 +74,27 @@
   </rule>
 
   <rule ref="rulesets/java/optimizations.xml">
+    <exclude name="UseStringBufferForStringAppends" />
     <!-- Sometimes these are necessary -->
     <exclude name="AvoidInstantiatingObjectsInLoops" />
   </rule>
 
-  <rule ref="rulesets/java/strictexception.xml" />
+  <rule ref="rulesets/java/strictexception.xml">
+    <exclude name="AvoidRethrowingException" />
+    <exclude name="SignatureDeclareThrowsException" />
+    <exclude name="AvoidCatchingGenericException" />
+  </rule>
 
   <rule ref="rulesets/java/strings.xml">
     <exclude name="AvoidDuplicateLiterals" />
   </rule>
 
   <rule ref="rulesets/java/sunsecure.xml" />
-  <rule ref="rulesets/java/typeresolution.xml" />
+
+  <rule ref="rulesets/java/typeresolution.xml">
+    <exclude name="SignatureDeclareThrowsException" />
+  </rule>
+
   <rule ref="rulesets/java/unnecessary.xml" />
   <rule ref="rulesets/java/unusedcode.xml" />
 </ruleset>
