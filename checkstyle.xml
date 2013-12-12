@@ -54,7 +54,7 @@ checkstyle -c checkstyle.xml -r src/
     </module>
 
     <module name="MethodLength">
-      <property name="max" value="250" />
+      <property name="max" value="350" />
     </module>
 
     <module name="ParameterNumber"/>
