@@ -404,7 +404,8 @@
 (autoload 'R-mode "ess-site.el" "" t)
 (add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
 
-(add-to-list 'auto-mode-alist '("pep8" . conf-unix-mode))
+(add-to-list 'auto-mode-alist '("pylintrc" . conf-mode))
+(add-to-list 'auto-mode-alist '("pep8" . conf-mode))
 
 ;; We're Makefile, too!
 (add-to-list 'auto-mode-alist '("\\.mf\\'" . makefile-mode))
