@@ -15,6 +15,11 @@
     run chrome.exe
     return
 
+; Control+Alt+S launches Steam
+^!s::
+    run steam.exe
+    return
+
 ; Control+Alt+W launches Wunderlist
 ^!w::
     run wunderlist.exe
