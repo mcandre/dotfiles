@@ -14,3 +14,8 @@
 ^!g::
     run chrome.exe
     return
+
+; Control+Alt+W launches Wunderlist
+^!w::
+    run wunderlist.exe
+    return
