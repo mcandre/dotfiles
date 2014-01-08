@@ -282,4 +282,17 @@ Or switch windows and grow the other one.
 
 # IRC
 
+## Launch IRC
+
     M-x irc
+
+## Join server
+
+    M-: (rcirc-connect server port nick
+                   rcirc-default-user-name
+                   rcirc-default-full-name
+                   channels)
+
+## Leave room
+
+    /part
