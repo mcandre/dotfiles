@@ -1,3 +1,5 @@
+task :default => :lint
+
 task :ruby => [] do
   begin
     sh 'for f in **/*.rb; do ruby -wc $f 2>&1 | grep -v "Syntax OK" | grep -v "ssl.rb"; done'
