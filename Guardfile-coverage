@@ -1,5 +1,5 @@
 guard :shell do
-  watch(%r{(pom\.xml)|(src/(main|test)/java/.+\.java)} do |m|
+  watch %r{(pom\.xml)|(src/(main|test)/java/.+\.java)} do |m|
     title = 'Coverage'
     msg = `mvn cobertura:cobertura`
     status = ($?.success? && :success) || :failed
