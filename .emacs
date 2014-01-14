@@ -66,7 +66,8 @@
                   python-indent-offset 2)))
 ;; And Rust
 (add-hook 'rust-mode-hook
-          (lambda () (setq rust-indent-unit 2)))
+          (lambda () (setq rust-indent-unit 2
+                           rust-indent-offset 2)))
 ;; And Go
 (add-hook 'go-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
