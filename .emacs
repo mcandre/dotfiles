@@ -83,6 +83,9 @@
 ;; And PostScript
 (add-hook 'ps-mode-hook
           (lambda () (setq ps-mode-tab tab-width)))
+;; And Objective C
+(add-hook 'objc-mode-hook
+          (lambda () (setq indent-tabs-mode nil)))
 ;; And Mozart/Oz
 (add-hook 'oz-mode-hook
           (lambda () (setq oz-indent-chars tab-width)))
