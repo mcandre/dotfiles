@@ -4,23 +4,28 @@
 
   <groupId>orion.core.data.commoncrawler</groupId>
   <artifactId>commoncrawler</artifactId>
-  <version>0.0.9</version>
+  <version>0.0.11-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>commoncrawler</name>
-  <url>http://git.lab76.org/apennebaker/commoncrawler</url>
+  <url>http://git.lab76.org/data-team-42six/commoncrawler</url>
 
   <distributionManagement>
     <repository>
-      <id>Lab76Artifacts</id>
-      <name>Lab76Artifacts-releases</name>
-      <url>https://artifacts.lab76.org/artifactory/ext-release-local</url>
+      <id>central</id>
+      <name>libs-release</name>
+      <url>https://artifacts.lab76.org/artifactory/libs-release-local</url>
     </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>libs-snapshots</name>
+      <url>https://artifacts.lab76.org/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
   </distributionManagement>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.generated.sources>${project.build.directory}${file.separator}generated-sources</project.generated.sources>
+    <project.generated.sources>src${file.separator}generated-sources</project.generated.sources>
     <jetty.version>7.6.14.v20131031</jetty.version>
   </properties>
 
@@ -63,34 +68,37 @@
           <argLine>-XX:+UseConcMarkSweepGC -Xmx1024m</argLine>
         </configuration>
       </plugin>
-      <!-- Compile .thrift to .java -->
-      <plugin>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>generate-sources</id>
-            <phase>generate-sources</phase>
-            <configuration>
-              <tasks>
-                <mkdir dir="${project.generated.sources}" />
-                <apply executable="thrift" parallel="false" failonerror="true">
-                  <arg value="&#45;&#45;gen" />
-                  <arg value="java" />
-                  <arg value="-o" />
-                  <arg value="${project.generated.sources}" />
-                  <arg value="-r" />
-                  <fileset dir="src/main/thrift/">
-                    <include name="*.thrift" />
-                  </fileset>
-                </apply>
-              </tasks>
-            </configuration>
-            <goals>
-              <goal>run</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+      <!-- Manually compile .thrift to .java -->
+      <!-- mkdir -p src/generated-sources/ -->
+      <!-- for f in src/main/thrift/*.thrift; do thrift &#45;&#45;gen java -o src/generated-sources/ -r $f; done -->
+
+      <!-- <plugin> -->
+      <!--   <artifactId>maven-antrun-plugin</artifactId> -->
+      <!--   <executions> -->
+      <!--     <execution> -->
+      <!--       <id>generate-sources</id> -->
+      <!--       <phase>generate-sources</phase> -->
+      <!--       <configuration> -->
+      <!--         <tasks> -->
+      <!--           <mkdir dir="${project.generated.sources}" /> -->
+      <!--           <apply executable="thrift" parallel="false" failonerror="true"> -->
+      <!--             <arg value="&#45;&#45;gen" /> -->
+      <!--             <arg value="java" /> -->
+      <!--             <arg value="-o" /> -->
+      <!--             <arg value="${project.generated.sources}" /> -->
+      <!--             <arg value="-r" /> -->
+      <!--             <fileset dir="src/main/thrift/"> -->
+      <!--               <include name="*.thrift" /> -->
+      <!--             </fileset> -->
+      <!--           </apply> -->
+      <!--         </tasks> -->
+      <!--       </configuration> -->
+      <!--       <goals> -->
+      <!--         <goal>run</goal> -->
+      <!--       </goals> -->
+      <!--     </execution> -->
+      <!--   </executions> -->
+      <!-- </plugin> -->
       <!-- Add generated Java classes to the CLASSPATH -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -137,7 +145,7 @@
         </executions>
         <configuration>
           <includes>
-            <include>target/generated-sources/**/*.java</include>
+            <include>${project.generated.sources}${file.separator}/**/*.java</include>
           </includes>
           <regex>true</regex>
           <regexFlags>
