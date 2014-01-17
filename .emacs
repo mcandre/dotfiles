@@ -106,6 +106,12 @@
 (defadvice save-buffer (before save-buffer-always activate)
   (set-buffer-modified-p t))
 
+;; Keep region highlighted after copy
+(defadvice kill-ring-save (after keep-transient-mark-active ())
+  "Override the deactivation of the mark."
+  (setq deactivate-mark nil))
+(ad-activate 'kill-ring-save)
+
 (require 'package)
 (setq package-archives
       (append '(("melpa" . "http://melpa.milkbox.net/packages/")
