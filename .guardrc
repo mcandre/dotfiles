@@ -1,1 +1,1 @@
-Guard.options[:clear] = true
+Guard.options[:clear] = false # eager
