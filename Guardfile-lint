@@ -1,10 +1,9 @@
 guard :shell do
   watch(%r{(pom\.xml)|(src/(main|test)/.+\.java)}) do |m|
     title = 'Lint'
-    msg = `mvn compile && mvn checkstyle:checkstyle && mvn pmd:check`
+    eager 'mvn compile && mvn checkstyle:checkstyle && mvn pmd:check'
     status = ($?.success? && :success) || :failed
-
-    n msg, title, status
-    "-> #{msg}"
+    n '', title, status
+    ''
   end
 end

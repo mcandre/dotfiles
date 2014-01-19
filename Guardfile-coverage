@@ -1,10 +1,9 @@
 guard :shell do
   watch %r{(pom\.xml)|(src/(main|test)/java/.+\.java)} do |m|
     title = 'Coverage'
-    msg = `mvn cobertura:cobertura`
+    eager 'mvn cobertura:cobertura'
     status = ($?.success? && :success) || :failed
-
-    n msg, title, status
-    "-> #{msg}"
+    n '', title, status
+    ''
   end
 end
