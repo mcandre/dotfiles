@@ -124,6 +124,9 @@
                                                 ".hg"
                                                 ".bzr"
 
+                                                ;; NPM
+                                                "node_modules"
+
                                                 ;; Maven
                                                 "target"
                                                 "resources"))
