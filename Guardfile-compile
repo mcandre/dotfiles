@@ -1,5 +1,5 @@
 guard :shell do
-  watch(%r{(pom\.xml)|(src/(main|test)/.+\.(thrift|java))}) do |m|
+  watch(%r{^pom\.xml|src/(main|test)/.+\.(thrift|java)$}) do |m|
     title = 'Test'
     eager 'mvn generate-sources -q && mvn compile -q && echo Success'
     status = ($?.success? && :success) || :failed

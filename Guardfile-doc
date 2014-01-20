@@ -1,5 +1,5 @@
 guard :shell do
-  watch(%r{(pom\.xml)|(src/(main|test)/.+\.(thrift|java))}) do |m|
+  watch(%r{^pom\.xml|src/(main|test)/.+\.(thrift|java)$}) do |m|
     title = 'Javadoc'
     eager 'mvn javadoc:javadoc'
     status = ($?.success? && :success) || :failed
