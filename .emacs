@@ -141,15 +141,15 @@
                                                 "*.zip")))))
     (error (warn "fiplr is not installed")))
 
+;; Monokai
+(condition-case nil
+    (load-theme 'monokai t)
+  (error (warn "monokai-theme is not installed")))
+
 ;; CUA tools in GUI mode
 (when window-system
   ;; Hide GUI toolbar
   (tool-bar-mode -1)
-
-  ;; Monokai
-  (condition-case nil
-      (load-theme 'monokai t)
-    (error (warn "monokai-theme is not installed")))
 
   ;; Font: Monaco
   (condition-case nil
