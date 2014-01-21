@@ -1,0 +1,49 @@
+# Recursive globs
+# Requires bash 4+
+shopt -s globstar
+
+# Homebrew
+export PATH=/usr/local/bin:$PATH
+
+# Personal binaries
+export PATH="$PATH:~/bin"
+export PATH="$PATH:~/Desktop/src/dotfiles/"
+
+# csv2thrift
+export PATH="$PATH:~/Desktop/src/csv2thrift/bin"
+
+# Java 1.6
+export JAVA_HOME=/Library/Java/Home
+
+# Java 1.7
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home
+
+# FindBugs CLI by default
+alias findbugs="findbugs -textui"
+
+# Hadoop
+export HADOOP_VERSION=1.2.1
+export HADOOP_PREFIX=/usr/local/Cellar/hadoop/$HADOOP_VERSION/libexec/
+
+# For `brew edit`, etc.
+export EDITOR="emacs -nw"
+
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Node.js
+[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh # This loads NVM
+nvm use 0.10 > /dev/null
+
+# Prevent ._ files from being created in archives
+# Per http://www.litfuel.net/plush/?postid=147
+export COPYFILE_DISABLE=true
+
+# Cabal
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+
+# git prompt
+# https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+source ~/git-prompt.sh
+
+export PS1='\W$(__git_ps1 " (%s)")$ '
