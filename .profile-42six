@@ -47,3 +47,7 @@ export PATH="$HOME/Library/Haskell/bin:$PATH"
 source ~/git-prompt.sh
 
 export PS1='\W$(__git_ps1 " (%s)")$ '
+
+# Monokai
+export CLICOLOR="1"
+export GREP_OPTIONS="--color=auto"
