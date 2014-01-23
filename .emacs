@@ -141,6 +141,17 @@
                                                 "*.zip")))))
     (error (warn "fiplr is not installed")))
 
+;; C-x <direction> to switch windows
+(condition-case nil
+    (progn
+      (require 'window-jump)
+
+      (global-set-key (kbd "C-x <up>") 'window-jump-up)
+      (global-set-key (kbd "C-x <down>") 'window-jump-down)
+      (global-set-key (kbd "C-x <left>") 'window-jump-left)
+      (global-set-key (kbd "C-x <right>") 'window-jump-right))
+  (error (warn "window-jump is not installed")))
+
 ;; Monokai
 (condition-case nil
     (load-theme 'monokai t)
