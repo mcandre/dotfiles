@@ -1,7 +1,10 @@
 # Store as /c/Users/$USERNAME/.profile
 
-# Inform ncurses of cygwin
+# Inform ncurses
 export TERM=cygwin
+
+# Fix current working directory
+cd ~
 
 # Disable cygwin path warning
 export CYGWIN="$CYGWIN nodosfilewarning"
