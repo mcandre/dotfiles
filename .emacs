@@ -436,7 +436,8 @@
            "Gemfile$"
            "Guardfile"
            "guardrc"
-           "Vagrantfile$"))
+           "Vagrantfile"
+           "Cheffile"))
   (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
 ;; We're Erlang, too!
 (dolist (extension
