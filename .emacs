@@ -68,6 +68,9 @@
 (add-hook 'rust-mode-hook
           (lambda () (setq rust-indent-unit 2
                            rust-indent-offset 2)))
+;; And Shell scripts
+(add-hook 'shell-mode-hook
+          (lambda () (setq indent-tabs-mode nil)))
 ;; And Go
 (add-hook 'go-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
