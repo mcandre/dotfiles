@@ -77,7 +77,10 @@
 ;; And Erlang
 (add-hook 'erlang-mode-hook
           (lambda ()
-            (setq erlang-indent-level tab-width)))
+            (setq erlang-indent-level tab-width)
+
+            ; Disable autocomplete
+            (setq erlang-electric-commands '())))
 ;; And Haskell
 (add-hook 'haskell-mode-hook
           (lambda ()
