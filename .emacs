@@ -519,6 +519,10 @@
 (add-hook 'dart-mode-hook
   (lambda ()
     (c-add-style "dart" gangnam-style t)))
+;; R, too
+(add-hook 'R-mode-hook
+  (lambda ()
+    (setq ess-indent-level 2)))
 
 (condition-case nil
     (progn
