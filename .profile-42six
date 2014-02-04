@@ -7,7 +7,7 @@ export PATH=/usr/local/bin:$PATH
 
 # Personal binaries
 export PATH="$PATH:~/bin"
-export PATH="$PATH:~/Desktop/src/dotfiles/"
+export PATH="$PATH:~/Desktop/src/dotfiles"
 
 # csv2thrift
 export PATH="$PATH:~/Desktop/src/csv2thrift/bin"
