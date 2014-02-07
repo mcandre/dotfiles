@@ -11,7 +11,7 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'fsouza/go.vim'
 Bundle 'fsouza/rust.vim'
-Bundle 'tomasr/molokai'
+Bundle 'lsdr/monokai'
 
 " No swap files, use version control instead
 set noswapfile
@@ -23,7 +23,7 @@ set paste
 syntax on
 
 " Monokai-like theme
-colorscheme molokai
+colorscheme monokai
 
 " Show line numbers
 set number
