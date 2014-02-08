@@ -1,5 +1,8 @@
 ;; Store as ~/.emacs
 
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 ;; Show line numbers
 (global-linum-mode t)
 
@@ -111,13 +114,6 @@
 ;; Force save.
 (defadvice save-buffer (before save-buffer-always activate)
   (set-buffer-modified-p t))
-
-(require 'package)
-(setq package-archives
-      (append '(("melpa" . "http://melpa.milkbox.net/packages/")
-                ("marmalade" . "http://marmalade-repo.org/packages/"))
-              package-archives))
-(package-initialize)
 
 ;; Open project file by fuzzy name
 (condition-case nil
@@ -335,10 +331,6 @@
       (global-set-key (kbd "s-Z") 'undo-tree-redo))
   (error (warn "undo-tree not installed")))
 
-;; Markdown
-(autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
 ;; If mark exists, indent rigidly.
 ;; Otherwise, insert a hard or soft tab indentation.
 (defun traditional-indent ()
@@ -352,6 +344,17 @@
     (indent-rigidly (region-beginning) (region-end) (* tab-width -1))
     (delete-backward-char tab-width)))
 
+(condition-case nil
+    (progn
+      (require 'markdown-mode)
+
+      (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+      ;; Use markdown-mode for *scratch*.
+      (setq initial-scratch-message nil
+            initial-major-mode 'markdown-mode))
+  (error (warn "markdown-mode not installed")))
+
 ;; Block indent for Markdown
 (add-hook 'markdown-mode-hook
           (lambda ()
@@ -359,12 +362,6 @@
                   tab-width 4)
           (define-key markdown-mode-map (kbd "<tab>") 'traditional-indent)
           (define-key markdown-mode-map (kbd "<backtab>") 'traditional-outdent)))
-
-;; Use markdown-mode for *scratch*.
-(condition-case nil
-    (setq initial-scratch-message nil
-          initial-major-mode 'markdown-mode)
-  (error (warn "markdown-mode not installed")))
 
 ;; M-; toggles commenting for marked region or current line.
 (autoload 'evilnc-comment-or-uncomment-lines "evil-nerd-commenter" "" t)
@@ -456,6 +453,9 @@
            "rebar.config"))
   (add-to-list 'auto-mode-alist (cons extension 'erlang-mode)))
 
+;; two-mode is loaded through the erlang package
+(add-to-list 'auto-mode-alist '("\\.yaws$" . two-mode-mode))
+
 ;; We're YAML, too!
 (autoload 'yaml-mode "yaml-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.reek\\'" . yaml-mode))
@@ -495,6 +495,9 @@
       (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil fancy-html)))
   (error (warn "mmm-mode is not installed")))
 
+(autoload 'brainfuck-mode "brainfuck-mode" "Major mode for editing Brainfuck code" t)
+(add-to-list 'auto-mode-alist '("\\.bf\\'" . brainfuck-mode))
+
 ;; Fix C family autoindent
 ;;
 ;; K&R style, and
@@ -531,19 +534,10 @@
       (global-set-key (kbd "s-F") 'ack-and-a-half))
   (error (warn "ack-and-a-half is not installed")))
 
-(eval-after-load "grep"
-  '(progn
-     (add-to-list 'grep-find-ignored-directories "node_modules")
-     (add-to-list 'grep-find-ignored-files "*.min.js")
-     (add-to-list 'grep-find-ignored-files "*-min.js")))
-
-;; two-mode is loaded through the erlang package
-(add-to-list 'auto-mode-alist '("\\.yaws$" . two-mode-mode))
-
 ;; IRC Authentication
-(setq rcirc-default-nick "preyalone")
-(setq rcirc-default-user-name "preyalone")
-(setq rcirc-default-full-name "Prey Alone")
+(setq-default rcirc-default-nick "preyalone"
+              rcirc-default-user-name "preyalone"
+              rcirc-default-full-name "Prey Alone")
 
 (add-hook 'rcirc-mode-hook
           (lambda ()

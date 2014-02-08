@@ -19,6 +19,9 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
+# Cask
+export PATH="$PATH:~/.cask/bin"
+
 # Personal binaries
 export PATH="$PATH:~/bin"
 
