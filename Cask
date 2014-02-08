@@ -36,6 +36,7 @@
 (depends-on "d-mode")
 (depends-on "dart-mode")
 (depends-on "fasm-mode")
+(depends-on "feature-mode")
 (depends-on "fsharp-mode")
 (depends-on "io-mode")
 (depends-on "j-mode")
@@ -46,7 +47,9 @@
 (depends-on "newlisp-mode")
 (depends-on "tuareg") ; ocaml
 (depends-on "oz")
+(depends-on "puppet-mode")
 (depends-on "racket-mode")
 (depends-on "sass-mode")
 (depends-on "stylus-mode")
+(depends-on "thrift")
 (depends-on "brainfuck-mode")
