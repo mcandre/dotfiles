@@ -24,8 +24,8 @@
  ;; Always display error backtraces
  debug-on-error t
 
- ;; Don't prompt when saving abbreviations file
- save-abbrevs t
+ ;; Disable prompt to saving abbreviations
+ save-abbrevs nil
 
  ;; Disable start screen 
  inhibit-startup-screen t
