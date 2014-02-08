@@ -22,8 +22,10 @@ set paste
 " Enable syntax highlighting
 syntax on
 
-" Monokai-like theme
-colorscheme monokai
+" Monokai theme
+if filereadable($HOME . "/.vim/bundle/monokai/colors/monokai.vim")
+   colorscheme monokai
+endif
 
 " Show line numbers
 set number
