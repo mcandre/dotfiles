@@ -142,7 +142,6 @@
 ;; Open project file by fuzzy name
 (condition-case nil
     (progn
-      ;; (require 'fiplr)
       (autoload 'filpr-find-file "fiplr" "" t)
 
       (global-set-key (kbd "C-p") 'fiplr-find-file)
@@ -173,7 +172,10 @@
 ;; C-x <direction> to switch windows
 (condition-case nil
     (progn
-      (require 'window-jump)
+      (autoload 'window-jump-up "window-jump" "" t)
+      (autoload 'window-jump-down "window-jump" "" t)
+      (autoload 'window-jump-left "window-jump" "" t)
+      (autoload 'window-jump-right "window-jump" "" t)
 
       (global-set-key (kbd "C-x <up>") 'window-jump-up)
       (global-set-key (kbd "C-x <down>") 'window-jump-down)
