@@ -69,20 +69,25 @@
 ;; And CSS
 (add-hook 'css-mode-hook
           (lambda ()
-            (defvar css-indent-offset 2)))
+            (defvar css-indent-offset)
+            (setq css-indent-offset 2)))
 ;; And Perl
 (fset 'perl-mode 'cperl-mode)
 ;; And Python
 (add-hook 'python-mode-hook
           (lambda ()
-            (setq tab-width 2)
-            (defvar python-indent 2)
-            (defvar python-indent-offset 2)))
+            (defvar python-indent)
+            (defvar python-indent-offset)
+            (setq tab-width 2
+                  python-indent 2
+                  python-indent-offset 2)))
 ;; And Rust
 (add-hook 'rust-mode-hook
           (lambda ()
-            (defvar rust-indent-unit 2)
-            (defvar rust-indent-offset 2)))
+            (defvar rust-indent-unit)
+            (defvar rust-indent-offset)
+            (setq rust-indent-unit tab-width
+                  rust-indent-offset tab-width)))
 ;; And Shell scripts
 (add-hook 'shell-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
@@ -92,10 +97,11 @@
 ;; And Erlang
 (add-hook 'erlang-mode-hook
           (lambda ()
-            (defvar erlang-indent-level tab-width)
+            (defvar erlang-indent-level)
+            (defvar erlang-electric-commands)
 
-            ; Disable autocomplete
-            (defvar erlang-electric-commands '())))
+            (setq erlang-indent-level tab-width
+                  erlang-electric-commands '()))) ;; disable autocomplete
 ;; And Haskell
 (add-hook 'haskell-mode-hook
           (lambda ()
@@ -104,15 +110,18 @@
 ;; And PostScript
 (add-hook 'ps-mode-hook
           (lambda ()
-            (defvar ps-mode-tab tab-width)))
+            (defvar ps-mode-tab)
+            (setq ps-mode-tab tab-width)))
 ;; And Objective C
 (add-hook 'objc-mode-hook
           (lambda ()
-            (defvar indent-tabs-mode nil)))
+            (defvar indent-tabs-mode)
+            (setq indent-tabs-mode nil)))
 ;; And Mozart/Oz
 (add-hook 'oz-mode-hook
           (lambda ()
-            (defvar oz-indent-chars tab-width)))
+            (defvar oz-indent-chars)
+            (setq oz-indent-chars tab-width)))
 ;; But not Makefiles
 (defun hard-tabs ()
   (setq-default indent-tabs-mode t)
@@ -133,9 +142,12 @@
 ;; Open project file by fuzzy name
 (condition-case nil
     (progn
-      (require 'fiplr)
+      ;; (require 'fiplr)
+      (autoload 'filpr-find-file "fiplr" "" t)
+
       (global-set-key (kbd "C-p") 'fiplr-find-file)
 
+      (defvar fiplr-ignored-globs)
       (setq fiplr-ignored-globs '((directories (".git"
                                                 ".svn"
                                                 ".hg"
@@ -219,7 +231,8 @@
         (condition-case nil
             (progn
               (require 'cl)
-              (defvar tabbar-ruler-invert-deselected nil)
+              (defvar tabbar-ruler-invert-deselected)
+              (setq tabbar-ruler-invert-deselected nil)
               (require 'tabbar-ruler))
         (error (warn "tabbar-ruler is not installed"))))
     (error (warn "tabbar is not installed")))
@@ -243,7 +256,8 @@
                   (cons nxml-mode-hs-info hs-special-modes-alist))))
 
         (defun my-nxml-mode-hook ()
-          (defvar nxml-sexp-element-flag t))
+          (defvar nxml-sexp-element-flag)
+          (setq nxml-sexp-element-flag t))
 
         (add-hook 'nxml-mode-hook 'my-nxml-mode-hook)
 
@@ -317,7 +331,8 @@
               (put-text-property 0 (length display-string) 'face 'hs-face display-string)
               (overlay-put ov 'display display-string))))
 
-        (defvar hs-set-up-overlay 'display-code-line-counts))
+        (defvar hs-set-up-overlay)
+        (setq hs-set-up-overlay 'display-code-line-counts))
     (error (warn "hideshowvis is not installed"))))
 
 ;; CUA OS copypasta even in ncurses mode
@@ -409,7 +424,8 @@
                   (require 'dired-details)
                   (declare-function dired-details-install "dired-details.el" nil)
                   (dired-details-install)
-                  (defvar dired-details-hidden-string ""))
+                  (defvar dired-details-hidden-string)
+                  (setq dired-details-hidden-string ""))
               (error (warn "dired-details is not installed")))
 
             (condition-case nil
@@ -420,7 +436,8 @@
                   ;; Fix color theme
                   (setq-default dired-omit-files-p t)
                   (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
-                  (defvar dired-omit-files (concat dired-omit-files "\\.")))
+                  (defvar dired-omit-files)
+                  (setq dired-omit-files (concat dired-omit-files "\\.")))
               (error (warn "dired+ is not installed")))))
 
 ;;
@@ -542,7 +559,8 @@
 ;; R, too
 (add-hook 'R-mode-hook
   (lambda ()
-    (defvar ess-indent-level 2)))
+    (defvar ess-indent-level)
+    (setq ess-indent-level tab-width)))
 
 (condition-case nil
     (progn
@@ -558,16 +576,19 @@
 
 (add-hook 'rcirc-mode-hook
           (lambda ()
+            (defvar rcirc-fill-flag)
+            (defvar tabbar-header-line-format)
+
             (condition-case nil
                 (load "~/rcirc-auth.el")
               (error (warn "~/rcirc-auth.el is not configured")))
 
             ;; Don't indent long messages
-            (defvar rcirc-fill-flag nil)
+            (setq rcirc-fill-flag nil)
 
             (when window-system
               ;; Don't hide tabbar with connection rate.
-              (defvar tabbar-header-line-format)
+              (setq tabbar-header-line-format)
               (when tabbar-header-line-format
                 (setq header-line-format tabbar-header-line-format)))))
 
