@@ -18,6 +18,7 @@
 (depends-on "undo-tree")
 (depends-on "ack-and-a-half")
 
+(depends-on "apache-mode")
 (depends-on "gitignore-mode")
 (depends-on "json-mode")
 (depends-on "yaml-mode")
@@ -38,6 +39,7 @@
 (depends-on "fasm-mode")
 (depends-on "feature-mode")
 (depends-on "fsharp-mode")
+(depends-on "groovy-mode")
 (depends-on "io-mode")
 (depends-on "j-mode")
 (depends-on "less-css-mode")
