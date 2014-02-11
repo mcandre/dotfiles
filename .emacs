@@ -559,8 +559,8 @@
   (lambda ()
     (c-add-style "gangnam-style" gangnam-style t)
 
-    ;; Preferred comment style
-    (setq comment-start "// "
+    (setq indent-tabs-mode nil
+          comment-start "// "
           comment-end "")))
 ;; Dart, too
 (autoload 'dart-mode "dart-mode" "" t)
