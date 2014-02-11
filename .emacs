@@ -400,7 +400,7 @@
 
 ;; M-; toggles commenting for marked region or current line.
 (autoload 'evilnc-comment-or-uncomment-lines "evil-nerd-commenter" "" t)
-(global-set-key (kbd "\M-;") 'evilnc-comment-or-uncomment-lines)
+(global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
 
 ;; Single dired buffer
 (autoload 'dired-single-buffer "dired-single" "" t)

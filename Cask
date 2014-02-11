@@ -13,6 +13,7 @@
 (depends-on "dired-details")
 (depends-on "erlang")
 (depends-on "ess")
+(depends-on "evil-nerd-commenter")
 (depends-on "fasm-mode")
 (depends-on "feature-mode")
 (depends-on "fiplr")
