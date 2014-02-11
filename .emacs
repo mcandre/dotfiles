@@ -557,7 +557,11 @@
       (statement-cont . +))))
 (add-hook 'c-mode-common-hook
   (lambda ()
-    (c-add-style "gangnam-style" gangnam-style t)))
+    (c-add-style "gangnam-style" gangnam-style t)
+
+    ;; Preferred comment style
+    (setq comment-start "// "
+          comment-end "")))
 ;; Dart, too
 (autoload 'dart-mode "dart-mode" "" t)
 (add-hook 'dart-mode-hook
