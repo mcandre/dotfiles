@@ -383,7 +383,7 @@
     (progn
       (require 'markdown-mode)
 
-      (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+      (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
       ;; Use markdown-mode for *scratch*.
       (setq initial-scratch-message nil
@@ -452,25 +452,28 @@
 (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
 
 (autoload 'gitignore-mode "gitignore-mode" "" t)
-(add-to-list 'auto-mode-alist '("\\.jshintignore\\'" . gitignore-mode))
-(add-to-list 'auto-mode-alist '("\\.ackrc\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.jshintignore$" . gitignore-mode))
+(add-to-list 'auto-mode-alist '("\\.ackrc$" . conf-mode))
 
 (autoload 'ntcmd-mode "ntcmd" "" t)
-(add-to-list 'auto-mode-alist '("\\.bat\\'" . ntcmd-mode))
+(add-to-list 'auto-mode-alist '("\\.bat$" . ntcmd-mode))
 
 (add-to-list 'auto-mode-alist '("Cask$" . lisp-mode))
 
 (autoload 'oz-mode "oz" "Major mode for interacting with Oz code." t)
-(add-to-list 'auto-mode-alist '("\\.oz\\'" . oz-mode))
+(add-to-list 'auto-mode-alist '("\\.oz$" . oz-mode))
 
 (autoload 'R-mode "ess-site.el" "" t)
-(add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
+(add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
 
 (add-to-list 'auto-mode-alist '("pylintrc" . conf-mode))
 (add-to-list 'auto-mode-alist '("pep8" . conf-mode))
 
+;; We're Perl, too!
+(add-to-list 'auto-mode-alist '("\\.t$" . cperl-mode))
+
 ;; We're Makefile, too!
-(add-to-list 'auto-mode-alist '("\\.mf\\'" . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.mf$" . makefile-mode))
 ;; We're Ruby, too!
 (dolist (extension
          '("\\.rake$"
@@ -499,9 +502,9 @@
 
 ;; We're YAML, too!
 (autoload 'yaml-mode "yaml-mode" "" t)
-(add-to-list 'auto-mode-alist '("\\.reek\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.reek$" . yaml-mode))
 ;; We're JavaScript, too!
-(add-to-list 'auto-mode-alist '("\\.jshintrc\\'" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.jshintrc$" . js-mode))
 
 ;; ERB/EJS
 (condition-case nil
@@ -524,20 +527,20 @@
           :front "styleREMOVEME=\""
           :back "\"")))
 
-      (mmm-add-mode-ext-class 'html-erb-mode "\\.erb\\'" 'erb)
-      (mmm-add-mode-ext-class 'html-erb-mode "\\.ejs\\'" 'ejs)
+      (mmm-add-mode-ext-class 'html-erb-mode "\\.erb$" 'erb)
+      (mmm-add-mode-ext-class 'html-erb-mode "\\.ejs$" 'ejs)
       (mmm-add-mode-ext-class 'html-erb-mode nil 'html-js)
       (mmm-add-mode-ext-class 'html-erb-mode nil 'html-css)
-      (add-to-list 'auto-mode-alist '("\\.erb\\'" . html-erb-mode))
-      (add-to-list 'auto-mode-alist '("\\.ejs\\'"  . html-erb-mode))
-      (add-to-list 'auto-mode-alist '("\\.php\\'" . html-mode))
+      (add-to-list 'auto-mode-alist '("\\.erb$" . html-erb-mode))
+      (add-to-list 'auto-mode-alist '("\\.ejs$"  . html-erb-mode))
+      (add-to-list 'auto-mode-alist '("\\.php$" . html-mode))
       (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil html-js))
       (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil embedded-css))
       (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil fancy-html)))
   (error (warn "mmm-mode is not installed")))
 
 (autoload 'brainfuck-mode "brainfuck-mode" "Major mode for editing Brainfuck code" t)
-(add-to-list 'auto-mode-alist '("\\.bf\\'" . brainfuck-mode))
+(add-to-list 'auto-mode-alist '("\\.bf$" . brainfuck-mode))
 
 ;; Fix C family autoindent
 ;;
