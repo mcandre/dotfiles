@@ -69,6 +69,11 @@
 (setq-default indent-tabs-mode nil
               tab-width 2)
 
+;; And Tcl
+(add-hook 'tcl-mode-hook
+          (lambda ()
+            (defvar tcl-indent-level)
+            (setq tcl-indent-level tab-width)))
 ;; And CSS
 (add-hook 'css-mode-hook
           (lambda ()
