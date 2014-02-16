@@ -22,6 +22,9 @@ if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
 
+# Cask
+export PATH="$PATH:~/.cask/bin"
+
 # Node.js
 nvm use 0.10
 
