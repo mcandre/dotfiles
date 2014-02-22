@@ -34,6 +34,9 @@ export PATH="$PATH:/Users/andrew/oclint-0.8.dev.27d706b/bin"
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home"
 
+# Hadoop
+export HADOOP_OPTS="-Djava.security.krb5.realm= -Djava.security.krb5.kdc= -Djava.security.krb5.conf=/dev/null"
+
 # RVM
 #export PATH="/Users/andrew/.rvm/bin:$PATH"
 
