@@ -1,5 +1,6 @@
 (source melpa)
 (source marmalade)
+(source gnu)
 
 (depends-on "ack-and-a-half")
 (depends-on "apache-mode")
@@ -19,7 +20,7 @@
 (depends-on "fiplr")
 (depends-on "fold-dwim")
 (depends-on "fsharp-mode")
-(depends-on "fuel")
+;; (depends-on "fuel")
 (depends-on "gitignore-mode")
 (depends-on "go-mode")
 (depends-on "groovy-mode")
@@ -50,5 +51,5 @@
 (depends-on "undo-tree")
 (depends-on "vimrc-mode")
 (depends-on "window-jump")
-(depends-on "wolfram-mode")
+;; (depends-on "wolfram-mode")
 (depends-on "yaml-mode")
