@@ -4,7 +4,7 @@
 
   <groupId>orion.core.data.commoncrawler</groupId>
   <artifactId>commoncrawler</artifactId>
-  <version>0.0.11-SNAPSHOT</version>
+  <version>0.0.12-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>commoncrawler</name>
@@ -25,7 +25,6 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.generated.sources>src${file.separator}generated-sources</project.generated.sources>
     <jetty.version>7.6.14.v20131031</jetty.version>
   </properties>
 
@@ -68,57 +67,6 @@
           <argLine>-XX:+UseConcMarkSweepGC -Xmx1024m</argLine>
         </configuration>
       </plugin>
-      <!-- Manually compile .thrift to .java -->
-      <!-- mkdir -p src/generated-sources/ -->
-      <!-- for f in src/main/thrift/*.thrift; do thrift &#45;&#45;gen java -o src/generated-sources/ -r $f; done -->
-
-      <!-- <plugin> -->
-      <!--   <artifactId>maven-antrun-plugin</artifactId> -->
-      <!--   <executions> -->
-      <!--     <execution> -->
-      <!--       <id>generate-sources</id> -->
-      <!--       <phase>generate-sources</phase> -->
-      <!--       <configuration> -->
-      <!--         <tasks> -->
-      <!--           <mkdir dir="${project.generated.sources}" /> -->
-      <!--           <apply executable="thrift" parallel="false" failonerror="true"> -->
-      <!--             <arg value="&#45;&#45;gen" /> -->
-      <!--             <arg value="java" /> -->
-      <!--             <arg value="-o" /> -->
-      <!--             <arg value="${project.generated.sources}" /> -->
-      <!--             <arg value="-r" /> -->
-      <!--             <fileset dir="src/main/thrift/"> -->
-      <!--               <include name="*.thrift" /> -->
-      <!--             </fileset> -->
-      <!--           </apply> -->
-      <!--         </tasks> -->
-      <!--       </configuration> -->
-      <!--       <goals> -->
-      <!--         <goal>run</goal> -->
-      <!--       </goals> -->
-      <!--     </execution> -->
-      <!--   </executions> -->
-      <!-- </plugin> -->
-      <!-- Add generated Java classes to the CLASSPATH -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.1</version>
-        <executions>
-          <execution>
-            <id>add-source</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>add-source</goal>
-            </goals>
-            <configuration>
-              <sources>
-                <source>${project.generated.sources}${file.separator}gen-java</source>
-              </sources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
       <!-- Lint with Java's builtin Xlint flag -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -128,35 +76,6 @@
           <source>${jdk.version}</source>
           <target>${jdk.version}</target>
           <compilerArgument>-Xlint:all</compilerArgument>
-        </configuration>
-      </plugin>
-      <!-- Don't lint generated code -->
-      <plugin>
-        <groupId>com.google.code.maven-replacer-plugin</groupId>
-        <artifactId>replacer</artifactId>
-        <version>1.5.2</version>
-        <executions>
-          <execution>
-            <phase>process-sources</phase>
-            <goals>
-              <goal>replace</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <includes>
-            <include>${project.generated.sources}${file.separator}/**/*.java</include>
-          </includes>
-          <regex>true</regex>
-          <regexFlags>
-            <regexFlag>MULTILINE</regexFlag>
-          </regexFlags>
-          <replacements>
-            <replacement>
-              <token>^public class</token>
-              <value>@SuppressWarnings("unchecked") public class</value>
-            </replacement>
-          </replacements>
         </configuration>
       </plugin>
       <!-- Lint with Checkstyle -->
@@ -228,38 +147,39 @@
           </formats>
         </configuration>
       </plugin>
+      <!-- Work around icu4j-2.6.1 error -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.6</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>help</report>
+              <report>index</report>
+              <report>project-team</report>
+              <report>modules</report>
+              <report>plugins</report>
+              <report>cim</report>
+              <report>issue-tracking</report>
+              <report>scm</report>
+              <report>license</report>
+              <report>plugin-management</report>
+              <report>distribution-management</report>
+              <report>summary</report>
+              <report>mailing-list</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
     </plugins>
   </reporting>
 
   <dependencies>
     <dependency>
-      <groupId>net.sourceforge.cobertura</groupId>
-      <artifactId>cobertura</artifactId>
-      <version>2.0.3</version>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>com.sun</groupId>
-          <artifactId>tools</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.mortbay.jetty</groupId>
-          <artifactId>servlet-api</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.mortbay.jetty</groupId>
-          <artifactId>jetty</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.mortbay.jetty</groupId>
-          <artifactId>jetty-util</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <version>1.7.5</version>
+      <groupId>orion.core.data.commoncrawler</groupId>
+      <artifactId>commoncrawler-protocols</artifactId>
+      <version>0.0.2-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -280,6 +200,34 @@
       </exclusions>
     </dependency>
     <dependency>
+      <groupId>net.sourceforge.htmlunit</groupId>
+      <artifactId>htmlunit</artifactId>
+      <version>2.13</version>
+    </dependency>
+    <!-- Fix htmlunit dependency error -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty.aggregate</groupId>
+      <artifactId>jetty-all</artifactId>
+      <version>${jetty.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.sourceforge.cobertura</groupId>
+      <artifactId>cobertura</artifactId>
+      <version>2.0.3</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.sun</groupId>
+          <artifactId>tools</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
       <groupId>org.codehaus.mojo</groupId>
       <artifactId>cobertura-maven-plugin</artifactId>
       <version>2.6</version>
@@ -289,106 +237,6 @@
           <artifactId>jtidy</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.thrift</groupId>
-      <artifactId>libthrift</artifactId>
-      <version>0.6.1</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.slf4j</groupId>
-          <artifactId>slf4j-log4j12</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>log4j</groupId>
-          <artifactId>log4j</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>javax.servlet</groupId>
-          <artifactId>servlet-api</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>2.4</version>
-    </dependency>
-    <dependency>
-      <groupId>joda-time</groupId>
-      <artifactId>joda-time</artifactId>
-      <version>2.3</version>
-    </dependency>
-    <dependency>
-      <groupId>net.sourceforge.htmlunit</groupId>
-      <artifactId>htmlunit</artifactId>
-      <version>2.13</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.eclipse.jetty</groupId>
-          <artifactId>jetty-websocket</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>net.sf.jtidy</groupId>
-      <artifactId>jtidy</artifactId>
-      <version>r938</version>
-    </dependency>
-    <!-- Fix dependency error -->
-    <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpclient</artifactId>
-      <version>4.3.1</version>
-    </dependency>
-    <dependency>
-      <groupId>redis.clients</groupId>
-      <artifactId>jedis</artifactId>
-      <version>2.2.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.jetty.aggregate</groupId>
-      <artifactId>jetty-all</artifactId>
-      <version>${jetty.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.ftpserver</groupId>
-      <artifactId>ftpserver-core</artifactId>
-      <version>1.0.6</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>commons-net</groupId>
-      <artifactId>commons-net</artifactId>
-      <version>3.3</version>
-    </dependency>
-    <dependency>
-      <groupId>jmimemagic</groupId>
-      <artifactId>jmimemagic</artifactId>
-      <version>0.1.2</version>
-      <exclusions>
-        <exclusion>
-          <groupId>xml-apis</groupId>
-          <artifactId>xml-apis</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>ch.ethz.ganymed</groupId>
-      <artifactId>ganymed-ssh2</artifactId>
-      <version>261</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.slf4j</groupId>
-          <artifactId>slf4j-log4j12</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.sshd</groupId>
-      <artifactId>sshd-core</artifactId>
-      <version>0.9.0</version>
     </dependency>
   </dependencies>
 </project>
