@@ -155,7 +155,6 @@
         <reportSets>
           <reportSet>
             <reports>
-              <report>help</report>
               <report>index</report>
               <report>project-team</report>
               <report>modules</report>
