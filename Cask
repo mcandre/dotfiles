@@ -46,6 +46,7 @@
 (depends-on "stylus-mode")
 (depends-on "tabbar")
 (depends-on "tabbar-ruler")
+(depends-on "tbemail")
 (depends-on "thrift")
 (depends-on "tuareg")
 (depends-on "undo-tree")
