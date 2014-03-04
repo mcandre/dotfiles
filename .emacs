@@ -474,9 +474,6 @@
 (add-to-list 'auto-mode-alist '("pylintrc" . conf-mode))
 (add-to-list 'auto-mode-alist '("pep8" . conf-mode))
 
-;; We're Perl, too!
-(add-to-list 'auto-mode-alist '("\\.t$" . cperl-mode))
-
 ;; We're Makefile, too!
 (add-to-list 'auto-mode-alist '("\\.mf$" . makefile-mode))
 ;; We're Ruby, too!
