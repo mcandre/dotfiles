@@ -5,7 +5,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
 
   #
-  # Use host authenticaton for git and maven
+  # Use host authenticaton for git and maven.
+  #
+  # Ensure host private key is registered with host SSH agent:
+  #
+  # ssh-add -L
+  # ssh-add ~/.ssh/id_rsa
+  # ssh-add -L
   #
 
   config.ssh.private_key_path = ['~/.vagrant.d/insecure_private_key', '~/.ssh/id_rsa']
