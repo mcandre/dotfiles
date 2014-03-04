@@ -547,6 +547,9 @@
 (autoload 'brainfuck-mode "brainfuck-mode" "Major mode for editing Brainfuck code" t)
 (add-to-list 'auto-mode-alist '("\\.bf$" . brainfuck-mode))
 
+(autoload 'tbemail-mode "tbemail" "Major mode for editing Emails" t)
+(add-to-list 'auto-mode-alist '("\\.eml$" . tbemail-mode))
+
 ;; Fix C family autoindent
 ;;
 ;; K&R style, and
