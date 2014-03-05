@@ -54,6 +54,12 @@ rvm_gem { [
     require      => Rvm_system_ruby['ruby-2.1.0'];
 }
 
+#
+# Install and start Zookeeper server with init.d
+#
+# Confirm with sudo /usr/share/zookeeper/bin/zkCli.sh
+#
+
 class { 'zookeeper': }
 
 #
