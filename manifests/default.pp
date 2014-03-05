@@ -19,16 +19,42 @@ apt::ppa { 'ppa:wnoronha/thrift':
 }
 
 package { [
+  'build-essential',
+  'curl',
   'git-core',
   'maven',
   'openjdk-6-jdk',
   'thrift-compiler',
-  'tree',
-  'zookeeper'
+  'tree'
   ]:
   ensure  => present,
   require => Exec['apt-update']
 }
+
+class { 'rvm':
+  version => '1.25.17',
+  require => Package['curl']
+}
+
+rvm::system_user { 'vagrant': ; }
+
+rvm_system_ruby {
+  'ruby-2.1.0':
+    ensure      => present,
+    default_use => false;
+}
+
+rvm_gem { [
+  'bundler',
+  'cucumber',
+  'rspec',
+   ]:
+    ensure       => present,
+    ruby_version => 'ruby-2.1.0',
+    require      => Rvm_system_ruby['ruby-2.1.0'];
+}
+
+class { 'zookeeper': }
 
 #
 # User settings
@@ -100,6 +126,10 @@ exec { 'mvn install geosvc':
   path    => '/bin:/usr/bin',
   cwd     => '/ezbake-common-services-parent/geospatial-extraction-service',
   user    => 'vagrant',
+  refreshonly => true,
+  subscribe   => [
+    Vcsrepo['/home/vagrant/Desktop/src/ezbake-common-services-parent']
+  ],
   require => [
     File['/ezbake-common-services-parent'],
     Vcsrepo['/home/vagrant/Desktop/src/datasets-parent'],

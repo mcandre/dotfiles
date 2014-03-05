@@ -26,6 +26,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppetlabs-stdlib
     puppetlabs/apt
     puppetlabs/vcsrepo
+    maestrodev/rvm
+    deric/zookeeper
   )
 
   config.vm.provision :puppet do |puppet|
