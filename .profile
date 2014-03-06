@@ -28,6 +28,9 @@ export PATH="$PATH:~/bin"
 # PHP
 export PATH="$PATH:~/pear/bin"
 
+# llvm-as
+export PATH="$PATH:/usr/local/Cellar/llvm/3.4/bin"
+
 # oclint
 export PATH="$PATH:/Users/andrew/oclint-0.8.dev.27d706b/bin"
 
