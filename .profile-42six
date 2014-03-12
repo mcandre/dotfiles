@@ -24,6 +24,7 @@ alias findbugs="findbugs -textui"
 # Hadoop
 export HADOOP_VERSION=1.2.1
 export HADOOP_PREFIX=/usr/local/Cellar/hadoop/$HADOOP_VERSION/libexec/
+source $HADOOP_PREFIX/conf/hadoop-env.sh
 
 # For `brew edit`, etc.
 export EDITOR="emacs -nw"
