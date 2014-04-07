@@ -43,7 +43,7 @@ autocmd FileType make set ts=2
 " And Markdown
 autocmd FileType markdown set sw=4
 autocmd FileType markdown set sts=4
-autocmd FileType markdown let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_folding_disabled=1
 
 " Reindent on load
 autocmd FileType * normal! gg=G
