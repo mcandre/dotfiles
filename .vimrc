@@ -45,11 +45,6 @@ let g:vim_markdown_folding_disabled=1
 autocmd FileType mkd set sw=4
 autocmd FileType mkd set sts=4
 
-" Reindent on load
-autocmd FileType * normal! gg=G
-" Reindent on save
-autocmd BufWritePre normal! gg=G
-
 " Default to Unix LF line endings
 set ffs=unix
 
