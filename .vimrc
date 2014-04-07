@@ -1,4 +1,4 @@
-" Store as ~/.emacs (Unix) or ~/_vimrc (Windows)
+" Store as ~/.vimrc (Unix) or ~/_vimrc (Windows)
 
 "
 " Vundle
