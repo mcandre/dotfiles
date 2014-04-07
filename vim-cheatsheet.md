@@ -129,7 +129,7 @@ To return to Normal mode, press `ESC`.
 
     dd
 
-## Cut to end of line
+## Cut to End of Line
 
     D
 
@@ -175,6 +175,14 @@ Arrow keys may also be used, but they require a full `vim` package, provided by 
 ## End of Line
 
     A
+
+## Start of Line (Visual)
+
+    0
+
+## End of Line (Visual)
+
+    $
 
 ## Go to Line
 
