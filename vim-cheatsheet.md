@@ -206,4 +206,4 @@ Arrow keys require full `vim` package.
 ## Nerd Commenter
 
 1. Select text with Visual mode (`v`).
-2. Press `<Leader>cc` (`\cc`).
+2. Press `<Leader>c<space>` (`\c `).

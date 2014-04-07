@@ -11,8 +11,18 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'fsouza/go.vim'
 Bundle 'fsouza/rust.vim'
-Bundle 'lsdr/monokai'
+Bundle 'benjaminwhite/Benokai'
 Bundle 'scrooloose/nerdcommenter'
+
+" Enable syntax highlighting
+syntax on
+
+" Enable auto-indentation
+set autoindent
+filetype plugin indent on
+
+" Monokai theme
+colorscheme Benokai
 
 " No swap files, use version control instead
 set noswapfile
@@ -20,20 +30,8 @@ set noswapfile
 " Fix bad autoindent of pasted text
 set paste
 
-" Enable syntax highlighting
-syntax on
-
-" Monokai theme
-if filereadable($HOME . "/.vim/bundle/monokai/colors/monokai.vim")
-   colorscheme monokai
-endif
-
 " Show line numbers
 set number
-
-" Enable auto-indentation
-set autoindent
-filetype plugin indent on
 
 " Default to soft tabs, 2 spaces
 set expandtab
@@ -46,9 +44,9 @@ autocmd FileType markdown set sw=4
 autocmd FileType markdown set sts=4
 
 " Reindent on load
-"autocmd FileType * normal! gg=G
+autocmd FileType * normal! gg=G
 " Reindent on save
-"autocmd BufWritePre normal! gg=G
+autocmd BufWritePre normal! gg=G
 
 " Default to Unix LF line endings
 set ffs=unix
