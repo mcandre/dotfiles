@@ -234,3 +234,11 @@ Or
 
 1. Select text with Visual mode (`v`).
 2. Press `<Leader>c<space>` (`\c `).
+
+## Open Shell
+
+    :sh
+
+## Close Shell
+
+    Control+d
