@@ -103,7 +103,7 @@ To return to Normal mode, press `ESC`.
 
     Control+R
 
-## Cancel Vim Command Chain
+## Cancel Vim Command
 
     ESC
 
@@ -125,6 +125,19 @@ To return to Normal mode, press `ESC`.
 
     :grep <term> *.?<file extensions>
 
+## Cut Line
+
+    dd
+
+## Cut to end of line
+
+    D
+
+## Cut selected text
+
+1. Use Visual mode (`v`) and arrow keys to select text.
+2. `d`
+
 ## Copy Lines
 
     yy[n]
@@ -137,7 +150,7 @@ To return to Normal mode, press `ESC`.
 
 ## Move Cursor
 
-Arrow keys require full `vim` package.
+Arrow keys may also be used, but they require a full `vim` package, provided by default in some Unix installations but not all.
 
 ## Left (Visual)
 
@@ -167,6 +180,18 @@ Arrow keys require full `vim` package.
 
     :<n>
 
+## Go to Start of File
+
+    :1
+
+Or
+
+    gg
+
+## Go to End of File
+
+    G
+
 ## Insert Line Below
 
     o
@@ -180,10 +205,6 @@ Arrow keys require full `vim` package.
     x
     
     Control+D
-
-### End of File
-
-    G
 
 # Help
 
