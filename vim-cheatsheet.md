@@ -32,9 +32,9 @@ By default, Ubuntu uses the `vim.tiny`, which lacks support for arrow key naviga
 
 ## Configure
 
-~/.vimrc
+    ~/.vimrc
 
-~/_vimrc
+    ~/_vimrc
 
 [Reference Dotfile](https://github.com/mcandre/dotfiles/blob/master/.vimrc)
 
@@ -64,74 +64,74 @@ To return to Normal mode, press `ESC`.
 
 ## Open File/Directory
 
-$ vim <file/dir>
+    $ vim <file/dir>
 
-$ vim
-:e <file/dir>
+    $ vim
+    :e <file/dir>
 
 ## View File
 
-$ view <file/dir>
+    $ view <file/dir>
 
 ### Windows
 
-C:\> vim <file/dir>
+    C:\> vim <file/dir>
 
-gitbash$ vim <file/dir>
+    gitbash$ vim <file/dir>
 
 ## Save
 
-:w
+    :w
 
 ## Save As...
 
-:o
+    :o
 
 ## Quit
 
-:q
+    :q
 
 ## Force Quit
 
-:q!
+    :q!
 
 ## Undo
 
-u
+    u
 
 ## Redo
 
-Control+R
+    Control+R
 
 ## Cancel Vim Command Chain
 
-ESC
+    ESC
 
 ## Next Search Result
 
-n
+    n
 
 ## Find
 
-/<term>
+    /<term>
 
 `n` next match.
 
 ## Replace
 
-:s/<term>/<replacement>/g
+    :s/<term>/<replacement>/g
 
 ## Search in Directory
 
-:grep <term> *.?<file extensions>
+    :grep <term> *.?<file extensions>
 
 ## Copy Lines
 
-yy[n]
+    yy[n]
 
 ## Paste Lines
 
-p
+    p
 
 # Navigation
 
@@ -141,67 +141,67 @@ Arrow keys require full `vim` package.
 
 ## Left (Visual)
 
-h
+    h
 
 ## Down (Visual)
 
-j
+    j
 
 ## Up (Visual)
 
-k
+    k
 
 ## Right (Visual)
 
-l
+    l
 
 ## Start of Line
 
-I
+    I
 
 ## End of Line
 
-A
+    A
 
 ## Go to Line
 
-:<n>
+    :<n>
 
 ## Insert Line Below
 
-o
+    o
 
 ## Insert Line Above
 
-O
+    O
 
 ## Delete
 
-x
-
-Control+D
+    x
+    
+    Control+D
 
 ### End of File
 
-G
+    G
 
 # Help
 
-:h '<term>
+    :h '<term>
 
 # Windows
 
 ## Split Windows
 
-Control+W, S
+    Control+W, S
 
 ## Switch Window
 
-Control+W, Control+W
+    Control+W, Control+W
 
 ## Close Window
 
-:hide
+    :hide
 
 ## Nerd Commenter
 
