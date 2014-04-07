@@ -30,8 +30,6 @@ https://github.com/mcandre/dotfiles/blob/master/vim-cheatsheet.md
 
 By default, Ubuntu uses the `vim.tiny`, which lacks support for arrow key navigation. Use `apt-get install vim` to upgrade to full `vim` with arrow key support.
 
-
-
 ## Configure
 
     ~/.vimrc
@@ -60,7 +58,7 @@ To return to Normal mode, press `ESC`.
 
 ### Visual
 
-From Normal mode, press `v` to switch to Visual mode.
+From Normal mode, press `v` to switch to Visual mode. This also allows highlighting text by moving the cursor.
 
 To return to Normal mode, press `ESC`.
 
@@ -204,3 +202,8 @@ Arrow keys require full `vim` package.
 ## Close Window
 
     :hide
+
+## Nerd Commenter
+
+1. Select text with Visual mode (`v`).
+2. Press `<Leader>cc` (`\cc`).

@@ -12,6 +12,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'fsouza/go.vim'
 Bundle 'fsouza/rust.vim'
 Bundle 'lsdr/monokai'
+Bundle 'scrooloose/nerdcommenter'
 
 " No swap files, use version control instead
 set noswapfile
