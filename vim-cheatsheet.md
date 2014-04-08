@@ -99,7 +99,7 @@ To return to Normal mode, press `ESC`.
 
 ## Redo
 
-    Control+R
+    Control+r
 
 ## Cancel Vim Command
 
@@ -209,8 +209,6 @@ Or
 ## Delete
 
     x
-    
-    Control+D
 
 # Help
 
@@ -220,11 +218,11 @@ Or
 
 ## Split Windows
 
-    Control+W, S
+    Control+w, s
 
 ## Switch Window
 
-    Control+W, Control+W
+    Control+w, Control+w
 
 ## Close Window
 
