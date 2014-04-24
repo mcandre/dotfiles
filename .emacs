@@ -587,30 +587,3 @@
       (global-set-key (kbd "C-x C-a") 'ack-and-a-half)
       (global-set-key (kbd "s-F") 'ack-and-a-half))
   (error (warn "ack-and-a-half is not installed")))
-
-;; IRC Authentication
-(setq-default rcirc-default-nick "preyalone"
-              rcirc-default-user-name "preyalone"
-              rcirc-default-full-name "Prey Alone")
-
-(add-hook 'rcirc-mode-hook
-          (lambda ()
-            (defvar rcirc-fill-flag)
-            (defvar tabbar-header-line-format)
-
-            (condition-case nil
-                (load "~/rcirc-auth.el")
-              (error (warn "~/rcirc-auth.el is not configured")))
-
-            ;; Don't indent long messages
-            (setq rcirc-fill-flag nil)
-
-            (when window-system
-              ;; Don't hide tabbar with connection rate.
-              (setq tabbar-header-line-format)
-              (when tabbar-header-line-format
-                (setq header-line-format tabbar-header-line-format)))))
-
-(custom-set-variables
- ;; Don't join #rcirc by default
- '(rcirc-server-alist (quote (("irc.freenode.net" :channels nil)))))
