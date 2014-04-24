@@ -36,6 +36,7 @@
 (depends-on "mmm-mode")
 (depends-on "monokai-theme")
 (depends-on "newlisp-mode")
+(depends-on "nlinum")
 (depends-on "ntcmd")
 (depends-on "oz")
 (depends-on "puppet-mode")

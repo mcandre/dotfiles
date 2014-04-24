@@ -3,8 +3,9 @@
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
-;; Show line numbers
-(global-linum-mode t)
+;; Fast line numbers
+(require 'nlinum)
+(global-nlinum-mode)
 
 ;; Highlight matching parentheses
 (show-paren-mode 1)
@@ -16,7 +17,6 @@
   (let ((dotemacs (expand-file-name "~/.emacs")))
     (if (string= (buffer-file-name) (file-chase-links dotemacs))
         (byte-compile-file dotemacs))))
-
 
 (add-hook 'after-save-hook 'autocompile)
 
