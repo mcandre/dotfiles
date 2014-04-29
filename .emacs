@@ -7,7 +7,8 @@
 (require 'nlinum)
 
 ;; Line number gutter in ncurses mode
-(setq nlinum-format "%d ")
+(unless window-system
+  (setq nlinum-format "%d "))
 
 (global-nlinum-mode)
 
