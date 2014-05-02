@@ -21,3 +21,5 @@ ControlParameter:
   enabled: false
 ClassVariable:
   enabled: false
+PrimaDonnaMethod:
+  enabled: false
