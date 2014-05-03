@@ -1,11 +1,10 @@
 LineLength:
-  Max: 130
-
+  Max: 140
 MethodLength:
   Max: 60
-
 CyclomaticComplexity:
   Max: 20
-
 SpecialGlobalVars:
+  Enabled: false
+NumericLiterals:
   Enabled: false
