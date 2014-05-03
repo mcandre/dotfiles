@@ -12,3 +12,5 @@ ParameterNumberCheck:
   false
 AbcMetricMethodCheck:
   false
+ClassVariableCheck:
+  false
