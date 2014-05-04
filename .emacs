@@ -70,6 +70,9 @@
  ;; And JavaScript
  js-indent-level 2)
 
+;; Disable ncurses menubar
+(menu-bar-mode -1)
+
 ;; I said, soft tabs, width 2 spaces!
 (setq-default indent-tabs-mode nil
               tab-width 2)
