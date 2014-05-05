@@ -22,6 +22,9 @@ syntax on
 set autoindent
 filetype plugin indent on
 
+" Use OS clipboard for copypasta
+set clipboard=unnamed
+
 " Monokai theme
 colorscheme Benokai
 
