@@ -22,7 +22,7 @@ https://github.com/mcandre/dotfiles/blob/master/vim-cheatsheet.md
 
     $ apt-get install vim
 
-    $ brew install vim macvim
+    $ brew install macvim --override-system-vim && brew linkapps
 
     C:\> chocolatey install vim
 
@@ -122,6 +122,14 @@ To return to Normal mode, press `ESC`.
 ## Search in Directory
 
     :grep <term> *.?<file extensions>
+
+## Clipboard
+
+Vim will integrate with the OS clipboard, provided that +clipboard is enabled at compile time, and:
+
+    set clipboard=unnamed
+
+is configured in vimrc.
 
 ## Cut Line
 
