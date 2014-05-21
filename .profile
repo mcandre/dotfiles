@@ -24,6 +24,7 @@ export PATH="$PATH:~/.cask/bin"
 
 # Personal binaries
 export PATH="$PATH:~/bin"
+export PATH="$PATH:~/Desktop/src/mcandre/bash/lib"
 
 # PHP
 export PATH="$PATH:~/pear/bin"
