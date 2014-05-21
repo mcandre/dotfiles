@@ -1,0 +1,5 @@
+# Soft link to ~/.ssh/config
+
+# Enable X11 forwarding for mouse events
+Host *
+   ForwardX11 yes
