@@ -35,6 +35,10 @@ if has("mouse")
   set mouse=a
 endif
 
+" Bash-style tab completion
+set wildmode=longest,list
+set wildmenu
+
 " Monokai theme
 colorscheme Benokai
 
