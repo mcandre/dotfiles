@@ -73,6 +73,23 @@
 ;; Disable ncurses menubar
 (menu-bar-mode -1)
 
+;;
+;; Enable OS mouse clicking and scrolling
+;;
+;; Note for Mac OS X: Requires SIMBL and MouseTerm
+;;
+;; http://www.culater.net/software/SIMBL/SIMBL.php
+;; https://bitheap.org/mouseterm/
+;;
+(unless window-system
+  (xterm-mouse-mode 1)
+  (global-set-key [mouse-4] (lambda ()
+                              (interactive)
+                              (scroll-down 1)))
+  (global-set-key [mouse-5] (lambda ()
+                              (interactive)
+                              (scroll-up 1))))
+
 ;; I said, soft tabs, width 2 spaces!
 (setq-default indent-tabs-mode nil
               tab-width 2)

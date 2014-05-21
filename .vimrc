@@ -25,6 +25,16 @@ filetype plugin indent on
 " Use OS clipboard for copypasta
 set clipboard=unnamed
 
+" Enable OS mouse clicking and scrolling
+"
+" Note for Mac OS X: Requires SIMBL and MouseTerm
+"
+" http://www.culater.net/software/SIMBL/SIMBL.php
+" https://bitheap.org/mouseterm/
+if has("mouse")
+  set mouse=a
+endif
+
 " Monokai theme
 colorscheme Benokai
 
