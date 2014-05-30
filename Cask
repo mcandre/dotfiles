@@ -34,6 +34,7 @@
 (depends-on "markdown-mode")
 (depends-on "matlab-mode")
 (depends-on "mmm-mode")
+(depends-on "mustache-mode")
 (depends-on "monokai-theme")
 (depends-on "newlisp-mode")
 (depends-on "nlinum")
