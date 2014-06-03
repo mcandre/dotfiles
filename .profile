@@ -23,7 +23,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$PATH:~/.cask/bin"
 
 # Personal binaries
-export PATH="$PATH:~/"
+export PATH="$PATH:~"
 export PATH="$PATH:~/bin"
 export PATH="$PATH:~/Desktop/src/mcandre/bash/lib"
 
