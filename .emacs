@@ -482,6 +482,7 @@
 (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
 
 (autoload 'mustache-mode "mustache-mode" "" t)
+(add-to-list 'auto-mode-alist '("\\.mustache$" . mustache-mode))
 (add-to-list 'auto-mode-alist '("\\.mst$" . mustache-mode))
 
 (autoload 'gitignore-mode "gitignore-mode" "" t)
