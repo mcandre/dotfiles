@@ -1,3 +1,5 @@
+;; Soft link to ~/.emacs.d/Cask
+
 (source melpa)
 (source marmalade)
 (source gnu)
