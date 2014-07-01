@@ -1,4 +1,6 @@
-;; Soft link to ~/.emacs.d/Cask
+;; ln -s .../Cask ~/.emacs.d/Cask
+;; cd ~/.emacs.d/
+;; cask install
 
 (source melpa)
 (source marmalade)
