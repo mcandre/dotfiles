@@ -131,3 +131,5 @@ export PATH="$PATH:$HOME/.cask/bin"
 # git prompt
 # https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
 source ~/git-prompt.sh
+export PS1='\W$(__git_ps1 " (%s)")$ '
+source ~/.rvm/scripts/rvm
