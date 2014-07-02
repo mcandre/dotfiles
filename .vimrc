@@ -4,19 +4,22 @@
 " Vundle
 " https://github.com/gmarik/vundle
 "
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-let g:vundle_default_git_proto = 'git'
-Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'benjaminwhite/Benokai'
-Bundle 'fsouza/go.vim'
-Bundle 'fsouza/rust.vim'
-Bundle 'plasticboy/vim-markdown'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'gmarik/vundle'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'benjaminwhite/Benokai'
+Plugin 'fsouza/go.vim'
+Plugin 'fsouza/rust.vim'
+Plugin 'plasticboy/vim-markdown'
+call vundle#end()
 
 " Enable syntax highlighting
 syntax on
+colorscheme Benokai
 
 " Enable auto-indentation
 set autoindent
@@ -38,9 +41,6 @@ endif
 " Bash-style tab completion
 set wildmode=longest,list
 set wildmenu
-
-" Monokai theme
-colorscheme Benokai
 
 " No swap files, use version control instead
 set noswapfile
