@@ -230,11 +230,11 @@
   ;; Font: Monaco
   (condition-case nil
       (progn
-        ;; Font size: 10pt
+        ;; Font size: ~10pt
         (set-face-attribute 'default nil :height
-                            (if (eq system-type 'darwin)
-                                120
-                              80))
+                            (case system-type
+                              ('darwin 120)
+                              ('gnu/linux 90)))
         (set-frame-font "Monaco"))
     (error (warn "Monaco font is not installed")))
 
