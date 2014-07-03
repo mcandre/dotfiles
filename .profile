@@ -1,5 +1,8 @@
 # ln -s ...path/path/path/.profile ~/.profile
 
+# Pass aliases to sudo commands
+alias sudo='sudo '
+
 #
 # Bash 4
 #
