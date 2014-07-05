@@ -10,8 +10,7 @@
 (unless window-system
   (setq nlinum-format "%d "))
 
-;; Until nlinum v1.4 is fixed
-;; (global-nlinum-mode)
+(global-nlinum-mode)
 
 ;; Highlight matching parentheses
 (show-paren-mode 1)
