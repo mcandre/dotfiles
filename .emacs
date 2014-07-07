@@ -16,6 +16,10 @@
 (show-paren-mode 1)
 
 ;; Compile .emacs
+;;
+;; Note: git-pulled changes may be shadowed by the last local .emacs.elc version.
+;; Manually save this file (C-x C-s) to update the compiled version.
+;;
 (defun autocompile nil
   (interactive)
   (require 'bytecomp)
