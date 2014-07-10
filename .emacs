@@ -15,6 +15,9 @@
 ;; Highlight matching parentheses
 (show-paren-mode 1)
 
+;; Typing text replaces marked regions
+(delete-selection-mode 1)
+
 ;; Compile .emacs
 ;;
 ;; Note: git-pulled changes may be shadowed by the last local .emacs.elc version.
