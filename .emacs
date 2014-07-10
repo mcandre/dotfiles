@@ -238,9 +238,9 @@
       (progn
         ;; Font size: ~10pt
         (set-face-attribute 'default nil :height
-                            (case system-type
-                              ('darwin 120)
-                              ('gnu/linux 90)))
+                            (pcase system-type
+                              (`darwin 120)
+                              (`gnu/linux 90)))
         (set-frame-font "Monaco"))
     (error (warn "Monaco font is not installed")))
 
