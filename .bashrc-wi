@@ -132,7 +132,7 @@ export EDITOR="emacs -nw"
 
 export PATH="$PATH:$HOME/.cask/bin"
 
-export PATH="$PATH:~/.cabal/bin"
+export PATH="$PATH:$HOME/.cabal/bin"
 
 # git prompt
 # https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
