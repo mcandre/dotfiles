@@ -1,0 +1,8 @@
+[push]
+	default = matching
+[branch]
+	autosetuprebase = always
+[color]
+	status = auto
+[merge]
+	ff = true
