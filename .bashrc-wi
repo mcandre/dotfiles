@@ -132,6 +132,8 @@ export EDITOR="emacs -nw"
 
 export PATH="$PATH:$HOME/.cask/bin"
 
+export PATH="$PATH:~/.cabal/bin"
+
 # git prompt
 # https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
 source /etc/bash_completion.d/git-prompt
