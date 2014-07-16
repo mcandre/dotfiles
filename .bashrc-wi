@@ -139,9 +139,11 @@ export PATH="$PATH:$HOME/.cabal/bin"
 source /etc/bash_completion.d/git-prompt
 export PS1='\W$(__git_ps1 " (%s)")$ '
 
-source ~/.rvm/scripts/rvm
+source $HOME/.rvm/scripts/rvm
 
-source ~/.nvm/nvm.sh
+export NVM_DIR="/home/apenneb/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+nvm use 0.10
 
 # OPAM configuration
 . /home/apenneb/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
