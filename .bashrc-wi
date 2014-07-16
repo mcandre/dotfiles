@@ -142,3 +142,6 @@ export PS1='\W$(__git_ps1 " (%s)")$ '
 source ~/.rvm/scripts/rvm
 
 source ~/.nvm/nvm.sh
+
+# OPAM configuration
+. /home/apenneb/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
