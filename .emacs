@@ -496,6 +496,9 @@
                   (setq dired-omit-files (concat dired-omit-files "\\.")))
               (error (warn "dired+ is not installed")))))
 
+;; Disable paging, esp. for psql
+(setenv "PAGER" (executable-find "cat"))
+
 ;;
 ;; Syntax highlighting
 ;;
