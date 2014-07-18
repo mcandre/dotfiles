@@ -500,7 +500,9 @@
 ;; Syntax highlighting
 ;;
 
-(add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
+(add-to-list 'auto-mode-alist '("\\.vim\\(rc\\)?$" . vimrc-mode))
+
+(add-to-list 'auto-mode-alist '("\\.psql$" . sql-mode))
 
 (autoload 'mustache-mode "mustache-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.mustache$" . mustache-mode))
