@@ -228,7 +228,11 @@ Or
 
     Control+w, s
 
-## Switch Window
+## Switch Window Directionally
+
+    Control+W+(direction)
+
+## Switch to Next Window
 
     Control+w, Control+w
 
