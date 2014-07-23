@@ -393,7 +393,8 @@
                      (let* ((process-connection-type nil)
                             (pbproxy (start-process "pbcopy" "pbcopy" "/usr/bin/pbcopy")))
                        (process-send-string pbproxy text)
-                       (process-send-eof pbproxy))))))
+                       (process-send-eof pbproxy))))
+             (setq interprogram-paste-function (lambda () (shell-command-to-string "pbpaste")))))
   ('gnu/linux (progn
                 (setq x-select-enable-clipboard t)
                 (defun xsel-cut-function (text &optional push)
