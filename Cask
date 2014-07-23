@@ -11,6 +11,7 @@
 (depends-on "brainfuck-mode")
 (depends-on "clojure-mode")
 (depends-on "coffee-mode")
+(depends-on "column-enforce-mode")
 (depends-on "d-mode")
 (depends-on "dart-mode")
 (depends-on "dired+")

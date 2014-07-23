@@ -80,6 +80,14 @@
 ;; Disable ncurses menubar
 (menu-bar-mode -1)
 
+;; Column 80 marker
+(condition-case nil
+    (progn
+      (require 'column-enforce-mode)
+      (set-face-background 'column-enforce-face "#660000")
+      (add-hook 'prog-mode-hook 'column-enforce-mode))
+  (error (warn "column-marker is not installed")))
+
 ;;
 ;; Enable OS mouse clicking and scrolling
 ;;
