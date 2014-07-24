@@ -10,4 +10,4 @@ https://github.com/mcandre/dotfiles
 
 ## Git Hooks
 
-https://github.com/mcandre/dotfiles/wiki/git-hooks
+See `hooks/`.

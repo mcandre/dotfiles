@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# post-merge-checkout
+#
+# Clean and update on git pull, merge, and checkout.
+#
+# Install:
+#
+# ln -s .../post-merge-checkout .../.git/hooks/post-merge
+# ln -s .../post-merge-checkout .../.git/hooks/post-checkout
+
+check_run() {
+  echo "$(git diff --cached --name-only)" | grep --quiet "$1" && eval "$2"
+}
+
+check_run Cask \
+  "cd ~/.emacs.d/ && cask install"
+
+check_run .emacs \
+  "emacs --batch --eval '(load \"~/.emacs\")' -f batch-byte-compile ~/.emacs"
