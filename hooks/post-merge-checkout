@@ -18,3 +18,6 @@ check_run Cask \
 
 check_run .emacs \
   "emacs --batch --eval '(load \"~/.emacs\")' -f batch-byte-compile ~/.emacs"
+
+check_run .vimrc \
+  "vim +BundleInstall +qall"
