@@ -513,7 +513,10 @@
 
 (add-to-list 'auto-mode-alist '("\\.vim\\(rc\\)?$" . vimrc-mode))
 
-(add-to-list 'auto-mode-alist '("\\.psql$" . sql-mode))
+(add-to-list 'auto-mode-alist
+             '("\\.psql$" . (lambda ()
+                              (sql-mode)
+                              (sql-highlight-postgres-keywords))))
 
 (autoload 'mustache-mode "mustache-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.mustache$" . mustache-mode))
