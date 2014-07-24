@@ -1,3 +1,5 @@
+-- ln -s .../.cabal/config ~/.cabal/config
+
 -- This is the configuration file for the 'cabal' command line tool.
 
 -- The available configuration options are listed below.
@@ -35,7 +37,7 @@ world-file: /Users/andrew/.cabal/world
 -- extra-include-dirs:
 -- extra-lib-dirs:
 -- tests: False
--- library-coverage: False
+-- library-coverage: True
 -- benchmarks: False
 -- cabal-lib-version:
 -- constraint:
