@@ -60,7 +60,7 @@ From Normal mode, press `v` to switch to Visual mode. This also allows highlight
 
 To return to Normal mode, press `ESC`.
 
-## Open File/Directory
+## Open or Refresh File/Directory
 
     $ vim <file/dir>
 
@@ -82,6 +82,8 @@ To return to Normal mode, press `ESC`.
     :w
 
 ## Save As...
+
+    :w <filename>
 
     :o
 
@@ -193,6 +195,8 @@ Arrow keys may also be used, but they require a full `vim` package, provided by 
 ## Go to Line
 
     :<n>
+
+    <n>G
 
 ## Go to Start of File
 
