@@ -15,6 +15,10 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+[[ -s /home/andrew/.nvm/nvm.sh ]] && . /home/andrew/.nvm/nvm.sh # This loads NVM
+
 export EDITOR="emacs"
 
 # set PATH so it includes user's private bin if it exists
@@ -26,7 +30,7 @@ fi
 export PATH="$PATH:~/.cask/bin"
 
 # Node.js
-nvm use 0.10
+nvm use 0.10.29
 
 # # To include rails and other programs
 # PATH="/var/lib/gems/1.8/bin:${PATH}"
