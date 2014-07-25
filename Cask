@@ -45,7 +45,6 @@
 (depends-on "nlinum")
 (depends-on "ntcmd")
 (depends-on "oz")
-(depends-on "plsql")
 (depends-on "puppet-mode")
 (depends-on "racket-mode")
 (depends-on "rust-mode")
