@@ -202,6 +202,10 @@ http://emacswiki.org/emacs/RegularExpression
 
     C-c <
 
+## Print buffer
+
+    M-x print-buffer
+
 # Screens
 
 ## Windows
