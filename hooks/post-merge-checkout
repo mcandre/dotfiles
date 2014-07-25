@@ -9,15 +9,23 @@
 # ln -s .../post-merge-checkout .../.git/hooks/post-merge
 # ln -s .../post-merge-checkout .../.git/hooks/post-checkout
 
+#
+# check_run $1
+#
+# Return true if files matching pattern $1 have changed in git.
+# Otherwise, return false.
+#
+# Example: check_run package.json && npm install
+#
 check_run() {
-  echo "$(git diff --cached --name-only)" | grep --quiet "$1" && eval "$2"
+  git diff HEAD@{1} HEAD --name-only | grep --quiet "$1"
 }
 
-check_run Cask \
-  "cd ~/.emacs.d/ && cask install"
+check_run Cask && \
+  bash -c 'cd ~/.emacs.d/ && cask install'
 
-check_run .emacs \
-  "emacs --batch --eval '(load \"~/.emacs\")' -f batch-byte-compile ~/.emacs"
+check_run .emacs && \
+  emacs --batch --eval '(load "~/.emacs")' -f batch-byte-compile ~/.emacs
 
-check_run .vimrc \
-  "vim +BundleInstall +qall"
+check_run .vimrc && \
+  vim +BundleInstall +qall
