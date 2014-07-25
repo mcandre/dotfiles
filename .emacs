@@ -520,6 +520,7 @@
 (add-to-list 'auto-mode-alist
              '("\\.psql$" . (lambda ()
                               (sql-mode)
+                              (sqlup-mode)
                               (sql-highlight-postgres-keywords))))
 
 (autoload 'mustache-mode "mustache-mode" "" t)
