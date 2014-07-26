@@ -85,14 +85,14 @@
                   (setq interprogram-cut-function 'xsel-cut-function)
                   (setq interprogram-paste-function 'xsel-paste-function)))))
 
-;; Compile .emacs
-(defun autocompile nil
-  (interactive)
-  (require 'bytecomp)
-  (let ((dotemacs (expand-file-name "~/.emacs")))
-    (if (string= (buffer-file-name) (file-chase-links dotemacs))
-        (byte-compile-file dotemacs))))
-(add-hook 'after-save-hook 'autocompile)
+;; Compile .emacs on save
+(add-hook 'after-save-hook
+          (lambda ()
+            ;; (interactive)
+            ;; (require 'bytecomp)
+            (let ((dotemacs (expand-file-name "~/.emacs")))
+              (if (string= (buffer-file-name) (file-chase-links dotemacs))
+                  (byte-compile-file dotemacs)))))
 
 ;;
 ;; Enable OS mouse clicking and scrolling
@@ -164,11 +164,6 @@
             (setq tab-width 2
                   python-indent 2
                   python-indent-offset 2)))
-;; R indentation
-(add-hook 'R-mode-hook
-          (lambda ()
-            (defvar ess-indent-level)
-            (setq ess-indent-level tab-width)))
 ;; Rust indentation
 (add-hook 'rust-mode-hook
           (lambda ()
@@ -367,6 +362,10 @@
 (use-package vimrc-mode
   :mode "\\.vim\\(rc\\)?\\'")
 
+;;
+;; SQL
+;;
+
 (add-to-list 'auto-mode-alist '("\\.sql$" . sql-mode))
 (add-hook 'sql-mode-hook 'sqlup-mode)
 (add-to-list 'auto-mode-alist
@@ -473,8 +472,14 @@
 (use-package oz
   :mode ("\\.oz\\'" . oz-mode))
 
-(use-package ess-site
-  :mode ("\\.R\\'" . R-mode))
+(autoload 'R-mode "ess-site.el" "" t)
+(add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
+
+;; R indentation
+(add-hook 'R-mode-hook
+          (lambda ()
+            (defvar ess-indent-level)
+            (setq ess-indent-level tab-width)))
 
 (dolist (extension
          '("\\.rake\\'"
