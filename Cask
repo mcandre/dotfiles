@@ -8,7 +8,6 @@
 
 (depends-on "ack-and-a-half")
 (depends-on "apache-mode")
-(depends-on "brainfuck-mode")
 (depends-on "clojure-mode")
 (depends-on "coffee-mode")
 (depends-on "column-enforce-mode")
