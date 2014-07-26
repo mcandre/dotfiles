@@ -119,8 +119,15 @@
 (setq-default indent-tabs-mode nil
               tab-width 2)
 
+(add-to-list 'auto-mode-alist '("\\.mf$" . makefile-mode))
+
+(add-to-list 'auto-mode-alist '("pylintrc" . conf-mode))
+(add-to-list 'auto-mode-alist '("pep8" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.ackrc$" . conf-mode))
+
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
+(add-to-list 'auto-mode-alist '("Cask$" . lisp-mode))
 
 (require 'use-package)
 
@@ -179,13 +186,6 @@
 ;; Go indentation
 (add-hook 'go-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
-;; Erlang indentation
-(add-hook 'erlang-mode-hook
-          (lambda ()
-            (defvar erlang-indent-level)
-            (defvar erlang-electric-commands)
-            (setq erlang-indent-level tab-width
-                  erlang-electric-commands '()))) ;; disable autocomplete
 ;; Haskell indentation
 (add-hook 'haskell-mode-hook
           (lambda ()
@@ -304,11 +304,10 @@
 ;;     (delete-backward-char tab-width)))
 
 (use-package markdown-mode
+  :mode "\\.md\\'"
   :init
   (progn
-    (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
-
-    ;; Use markdown-mode for *scratch*.
+    ;; Use markdown-mode for *scratch*
     (setq initial-scratch-message nil
           initial-major-mode 'markdown-mode)
 
@@ -369,11 +368,11 @@
 ;; Syntax highlighting
 ;;
 
-(add-to-list 'auto-mode-alist '("\\.vim\\(rc\\)?$" . vimrc-mode))
+(use-package vimrc-mode
+  :mode "\\.vim\\(rc\\)?\\'")
 
 (add-to-list 'auto-mode-alist '("\\.sql$" . sql-mode))
 (add-hook 'sql-mode-hook 'sqlup-mode)
-
 (add-to-list 'auto-mode-alist
              '("\\.psql$" . (lambda ()
                               (sql-mode)
@@ -466,60 +465,57 @@
                       (make-local-variable 'indent-line-function)
                       (setq indent-line-function 'ig-indent-sql))))
 
-(autoload 'mustache-mode "mustache-mode" "" t)
-(add-to-list 'auto-mode-alist '("\\.mustache$" . mustache-mode))
-(add-to-list 'auto-mode-alist '("\\.mst$" . mustache-mode))
+(use-package mustache-mode
+  :mode "\\.\\(mst|mustache\\)\\'")
 
-(autoload 'gitignore-mode "gitignore-mode" "" t)
-(add-to-list 'auto-mode-alist '("\\.jshintignore$" . gitignore-mode))
-(add-to-list 'auto-mode-alist '("\\.ackrc$" . conf-mode))
+(use-package gitignore-mod
+  :mode "\\.\\(gitignore|jshintignore\\)\\'")
 
-(autoload 'ntcmd-mode "ntcmd" "" t)
-(add-to-list 'auto-mode-alist '("\\.bat$" . ntcmd-mode))
+(use-package ntcmd
+  :mode ("\\.bat\\'" . ntcmd-mode))
 
-(add-to-list 'auto-mode-alist '("Cask$" . lisp-mode))
+(use-package oz
+  :mode ("\\.oz\\'" . oz-mode))
 
-(autoload 'oz-mode "oz" "Major mode for interacting with Oz code." t)
-(add-to-list 'auto-mode-alist '("\\.oz$" . oz-mode))
-
-(autoload 'R-mode "ess-site.el" "" t)
-(add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
-
-(add-to-list 'auto-mode-alist '("pylintrc" . conf-mode))
-(add-to-list 'auto-mode-alist '("pep8" . conf-mode))
-
-(add-to-list 'auto-mode-alist '("\\.mf$" . makefile-mode))
+(use-package ess-site
+  :mode ("\\.R\\'" . R-mode))
 
 (dolist (extension
-         '("\\.rake$"
-           "Rakefile$"
-           "\\.gemspec$"
-           "\\.ru$"
-           "Gemfile$"
+         '("\\.rake\\'"
+           "Rakefile\\'"
+           "\\.gemspec\\'"
+           "\\.ru\\'"
+           "Gemfile\\'"
            "Guardfile"
            "guardrc"
            "Vagrantfile"
            "Cheffile"))
   (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
 
-(dolist (extension
-         '("\\.hrl$"
-           "\\.yrl$"
-           "\\.app$"
-           "\\.appSrc$"
-           "\\.app.src$"
-           "\\.rel$"
-           "rebar.config"))
-  (add-to-list 'auto-mode-alist (cons extension 'erlang-mode)))
+(use-package erlang
+  :mode
+  ("\\(\\.hrl|\\.yrl|\\.app|\\.appSrc|\\.app.src|\\.rel|rebar.config\\)\\'" .
+   erlang-mode)
+  :init
+  (progn
+    (add-hook 'erlang-mode-hook
+              (lambda ()
+                (defvar erlang-indent-level)
+                (defvar erlang-electric-commands)
+                ;; Erlang indentation
+                ;; Disable autocomplete
+                (setq erlang-indent-level tab-width
+                      erlang-electric-commands '())))))
 
-;; two-mode is loaded through the erlang package
-(add-to-list 'auto-mode-alist '("\\.yaws$" . two-mode-mode))
+;; (autoload ("\\.yaws\\'" . two-mode-mode))
 
-(autoload 'yaml-mode "yaml-mode" "" t)
+(use-package yaml-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.reek\\'" . yaml-mode)))
 
-(add-to-list 'auto-mode-alist '("\\.reek$" . yaml-mode))
-
-(add-to-list 'auto-mode-alist '("\\.jshintrc$" . js-mode))
+(use-package json-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.jshintrc\\'" . json-mode)))
 
 ;; ERB/EJS
 (use-package mmm-auto
@@ -552,8 +548,8 @@
     (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil embedded-css))
     (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil fancy-html))))
 
-(autoload 'tbemail-mode "tbemail" "Major mode for editing Emails" t)
-(add-to-list 'auto-mode-alist '("\\.eml$" . tbemail-mode))
+(use-package tbemail
+  :mode ("\\.eml\\'" . tbemail-mode))
 
 ;;
 ;; Fix C family autoindent
@@ -580,13 +576,14 @@
             (setq indent-tabs-mode nil
                   comment-start "// "
                   comment-end "")))
-(autoload 'dart-mode "dart-mode" "" t)
-(add-hook 'dart-mode-hook
-          (lambda ()
-            (c-add-style "dart" gangnam-style t)))
+
+(use-package dart-mode
+  :init
+  (add-hook 'dart-mode-hook
+            (lambda ()
+              (c-add-style "dart" gangnam-style t))))
 
 (use-package ack-and-a-half
   :commands ack-and-a-half
-  :init
   :bind (("C-x C-a" . ack-and-a-half)
          ("s-F" . ack-and-a-half)))
