@@ -214,36 +214,34 @@
 
 ;; Open project file by fuzzy name
 (use-package fiplr
-  :init
-  :bind ("C-p" . fiplr-find-file))
-(eval-after-load "fiplr"
-  '(progn
-     (defvar fiplr-ignored-globs)
-     (setq fiplr-ignored-globs
-           '((directories (".git"
-                           ".svn"
-                           ".hg"
-                           ".bzr"
+  :bind ("C-p" . fiplr-find-file)
+  :config
+  (progn
+    (defvar fiplr-ignored-globs)
+    (setq fiplr-ignored-globs
+          '((directories (".git"
+                          ".svn"
+                          ".hg"
+                          ".bzr"
 
-                           ;; NPM
-                           "node_modules"
+                          ;; NPM
+                          "node_modules"
 
-                           ;; Maven
-                           "target"
-                           "resources"))
-             (files       (".#*"
-                           "*~"
-                           "*.so"
-                           "*.jpg"
-                           "*.png"
-                           "*.gif"
-                           "*.pdf"
-                           "*.gz"
-                           "*.zip"))))))
+                          ;; Maven
+                          "target"
+                          "resources"))
+            (files       (".#*"
+                          "*~"
+                          "*.so"
+                          "*.jpg"
+                          "*.png"
+                          "*.gif"
+                          "*.pdf"
+                          "*.gz"
+                          "*.zip"))))))
 
 ;; C-x <direction> to switch windows
 (use-package window-jump
-  :commands window-jump-up window-jump-down window-jump-left window-jump-right
   :bind (("C-x <up>" . window-jump-up)
          ("C-x <down>" . window-jump-down)
          ("C-x <left>" . window-jump-left)
@@ -275,11 +273,10 @@
 ;; CUA-like Undo (Control+Z, Control+R)
 ;;
 (use-package undo-tree
-  :commands undo-tree undo undo-tree redo
   :bind (("C-z" . undo-tree-undo)
-         ("C-r" . undo-tree-redo)))
-(eval-after-load "undo-tree"
-  '(global-undo-tree-mode))
+         ("C-r" . undo-tree-redo))
+  :config
+  (global-undo-tree-mode))
 
 ;; If mark exists, indent rigidly.
 ;; Otherwise, insert a hard or soft tab indentation.
@@ -312,48 +309,46 @@
 
 ;; M-; toggles commenting for marked region or current line.
 (use-package evil-nerd-commenter
-  :commands evilnc-comment-or-uncomment-lines
-  :init
   :bind ("M-;" . evilnc-comment-or-uncomment-lines))
 
 ;; Single dired buffer
 (use-package dired-single
-  :commands dired-single-buffer dired-single-buffer-mouse)
+  :commands dired-single-buffer dired-single-buffer-mouse
+  :init
+  (add-hook 'dired-mode-hook
+            (lambda ()
+              ;; Enable all commands
+              (setq disabled-command-function nil)
 
-(add-hook 'dired-mode-hook
-          (lambda ()
-            ;; Enable all commands
-            (setq disabled-command-function nil)
+              (defvar dired-mode-map)
+              (define-key dired-mode-map [return] 'dired-single-buffer)
+              (define-key dired-mode-map [down-mouse-1] 'dired-single-buffer-mouse)
+              (define-key dired-mode-map [^]
+                (lambda ()
+                  (interactive)
+                  (dired-single-buffer "..")))
 
-            (defvar dired-mode-map)
-            (define-key dired-mode-map [return] 'dired-single-buffer)
-            (define-key dired-mode-map [down-mouse-1] 'dired-single-buffer-mouse)
-            (define-key dired-mode-map [^]
-              (lambda ()
-                (interactive)
-                (dired-single-buffer "..")))
+              ;; Auto-refresh dired on file change
+              (auto-revert-mode)
+              (setq-default auto-revert-interval 1)
 
-            ;; Auto-refresh dired on file change
-            (auto-revert-mode)
-            (setq-default auto-revert-interval 1)
+              (use-package dired-details
+                :init
+                (progn
+                  ;; Hide dired file permissions
+                  (declare-function dired-details-install "dired-details.el" nil)
+                  (dired-details-install)
+                  (defvar dired-details-hidden-string)
+                  (setq dired-details-hidden-string "")))
 
-            (use-package dired-details
-              :init
-              (progn
-                ;; Hide dired file permissions
-                (declare-function dired-details-install "dired-details.el" nil)
-                (dired-details-install)
-                (defvar dired-details-hidden-string)
-                (setq dired-details-hidden-string "")))
-
-            (use-package dired+
-              :init
-              (progn
-                ;; Fix color theme
-                (setq-default dired-omit-files-p t)
-                (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
-                (defvar dired-omit-files)
-                (setq dired-omit-files (concat dired-omit-files "\\."))))))
+              (use-package dired+
+                :init
+                (progn
+                  ;; Fix color theme
+                  (setq-default dired-omit-files-p t)
+                  (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
+                  (defvar dired-omit-files)
+                  (setq dired-omit-files (concat dired-omit-files "\\.")))))))
 
 ;;
 ;; Syntax highlighting
@@ -366,12 +361,12 @@
 ;; SQL
 ;;
 
-(add-to-list 'auto-mode-alist '("\\.sql$" . sql-mode))
 (add-hook 'sql-mode-hook 'sqlup-mode)
 (add-to-list 'auto-mode-alist
-             '("\\.psql$" . (lambda ()
-                              (sql-mode)
-                              (sql-highlight-postgres-keywords))))
+             '("\\.psql$" .
+               (lambda ()
+                 (sql-mode)
+                 (sql-highlight-postgres-keywords))))
 
 ;;
 ;; Fix SQL indentation
@@ -436,7 +431,8 @@
              (insert (make-string col ?\s)))))))
 
 (defun ig-indent-sql ()
-  "Indent by `tab-width` at most 1 time greater than the previously indented line otherwise go to the beginning of the line indent forward by `tab-width`"
+  "Indent by `tab-width` at most 1 time greater than the previously indented
+line otherwise go to the beginning of the line indent forward by `tab-width`"
   (let ((previous (get-previous-indentation))
         (current (get-current-indentation)))
     (cond ( ;; exactly at previous line's indentation
@@ -456,9 +452,9 @@
            (ig-move-line-to-column (+ current tab-width))))))
 
 (add-hook 'sql-mode-hook
-          (function (lambda ()
-                      (make-local-variable 'indent-line-function)
-                      (setq indent-line-function 'ig-indent-sql))))
+          (lambda ()
+            (make-local-variable 'indent-line-function)
+            (setq indent-line-function 'ig-indent-sql)))
 
 (use-package mustache-mode
   :mode "\\.\\(mst|mustache\\)$")
@@ -522,8 +518,12 @@
 (use-package mmm-auto
   :init
   (progn
-    (setq mmm-global-mode 'auto)
 
+    (add-to-list 'auto-mode-alist '("\\.erb$" . html-erb-mode))
+    (add-to-list 'auto-mode-alist '("\\.ejs$"  . html-erb-mode))
+    (add-to-list 'auto-mode-alist '("\\.php$" . html-mode)))
+  :config
+  (progn
     ;; Handle PHP, CSS
     (mmm-add-group
      'fancy-html
@@ -542,12 +542,12 @@
     (mmm-add-mode-ext-class 'html-erb-mode "\\.ejs$" 'ejs)
     (mmm-add-mode-ext-class 'html-erb-mode nil 'html-js)
     (mmm-add-mode-ext-class 'html-erb-mode nil 'html-css)
-    (add-to-list 'auto-mode-alist '("\\.erb$" . html-erb-mode))
-    (add-to-list 'auto-mode-alist '("\\.ejs$"  . html-erb-mode))
-    (add-to-list 'auto-mode-alist '("\\.php$" . html-mode))
+
     (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil html-js))
     (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil embedded-css))
-    (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil fancy-html))))
+    (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil fancy-html))
+
+    (setq mmm-global-mode 'auto)))
 
 (use-package tbemail
   :mode ("\\.eml$" . tbemail-mode))
@@ -579,12 +579,12 @@
                   comment-end "")))
 
 (use-package dart-mode
-  :init
+  :defer t
+  :config
   (add-hook 'dart-mode-hook
             (lambda ()
               (c-add-style "dart" gangnam-style t))))
 
 (use-package ack-and-a-half
-  :commands ack-and-a-half
   :bind (("C-x C-a" . ack-and-a-half)
          ("s-F" . ack-and-a-half)))
