@@ -13,7 +13,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'benjaminwhite/Benokai'
 Plugin 'fsouza/go.vim'
-Plugin 'fsouza/rust.vim'
+Plugin 'wting/rust.vim'
 Plugin 'plasticboy/vim-markdown'
 call vundle#end()
 
