@@ -14,6 +14,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'benjaminwhite/Benokai'
 Plugin 'fsouza/go.vim'
 Plugin 'wting/rust.vim'
+Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'mtth/scratch.vim'
 call vundle#end()
@@ -79,3 +80,6 @@ let ruby_fold=1                       " Ruby
 let sh_fold_enabled=1                 " sh
 let vimsyn_folding='af'               " Vim script
 let xml_syntax_folding=1              " XML
+
+" Scratch opens in Markdown format
+let g:scratch_filetype = 'markdown'
