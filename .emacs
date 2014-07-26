@@ -132,9 +132,9 @@
   (progn
     ;; Line number gutter in ncurses mode
     (unless window-system
-      (setq nlinum-format "%d "))
-
-    (global-nlinum-mode)))
+      (setq nlinum-format "%d ")))
+  :idle
+  (global-nlinum-mode))
 
 ;; Column 80 marker
 (use-package column-enforce-mode
@@ -248,7 +248,7 @@
 
 ;; Monokai
 (use-package monokai-theme
-  :init
+  :idle
   (load-theme 'monokai t))
 
 ;; CUA tools in GUI mode
@@ -525,25 +525,25 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 
     (defun sanityinc/set-up-mode-for-erb (mode)
       (add-hook (derived-mode-hook-name mode) 'sanityinc/ensure-mmm-erb-loaded)
-      (mmm-add-mode-ext-class mode "\\.erb\\'" 'erb))
+      (mmm-add-mode-ext-class mode "\\.erb$" 'erb))
 
     (let ((html-erb-modes '(html-mode html-erb-mode nxml-mode)))
       (dolist (mode html-erb-modes)
         (sanityinc/set-up-mode-for-erb mode)
-        (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?\\'" 'html-js)
-        (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?\\'" 'html-css)))
+        (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-js)
+        (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css)))
 
     (mapc 'sanityinc/set-up-mode-for-erb
           '(coffee-mode js-mode js2-mode js3-mode markdown-mode textile-mode))
 
-    (mmm-add-mode-ext-class 'html-erb-mode "\\.jst\\.ejs\\'" 'ejs)
+    (mmm-add-mode-ext-class 'html-erb-mode "\\.jst\\.ejs$" 'ejs)
 
-    (add-to-list 'auto-mode-alist '("\\.rhtml\\'" "\\.html\\.erb\\'" . html-erb-mode))
-    (add-to-list 'auto-mode-alist '("\\.jst\\.ejs\\'"  . html-erb-mode))
-    (mmm-add-mode-ext-class 'yaml-mode "\\.yaml\\'" 'erb)
+    (add-to-list 'auto-mode-alist '("\\.\\(r\\)?html\\(erb\\)?$" . html-erb-mode))
+    (add-to-list 'auto-mode-alist '("\\.jst\\.ejs$"  . html-erb-mode))
+    (mmm-add-mode-ext-class 'yaml-mode "\\.yaml$" 'erb)
 
     (dolist (mode (list 'js-mode 'js2-mode 'js3-mode))
-      (mmm-add-mode-ext-class mode "\\.js\\.erb\\'" 'erb))
+      (mmm-add-mode-ext-class mode "\\.js\\.erb$" 'erb))
 
     ;; CSS
     (mmm-add-group
@@ -568,7 +568,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
         :front "style=\""
         :back "\"")))
     (dolist (mode (list 'html-mode 'nxml-mode))
-      (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?\\'" 'html-css))))
+      (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css))))
 
 (use-package rainbow-mode
   :init
