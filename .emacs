@@ -64,15 +64,15 @@
 
 ;; CUA OS copypasta in ncurses mode
 (unless window-system
-  (case system-type
-    ('darwin (setq interprogram-cut-function
+  (pcase system-type
+    (`darwin (setq interprogram-cut-function
                    (lambda (text &optional push)
                      (let* ((process-connection-type nil)
                             (pbproxy (start-process "pbcopy" "pbcopy" "/usr/bin/pbcopy")))
                        (process-send-string pbproxy text)
                        (process-send-eof pbproxy))))
              (setq interprogram-paste-function (lambda () (shell-command-to-string "pbpaste"))))
-    ('gnu/linux (progn
+    (`gnu/linux (progn
                   (setq x-select-enable-clipboard t)
                   (defun xsel-cut-function (text &optional push)
                     (with-temp-buffer
@@ -86,10 +86,6 @@
                   (setq interprogram-paste-function 'xsel-paste-function)))))
 
 ;; Compile .emacs
-;;
-;; Note: git-pulled changes may be shadowed by the last local .emacs.elc version.
-;; Manually save this file (C-x C-s) to update the compiled version.
-;;
 (defun autocompile nil
   (interactive)
   (require 'bytecomp)
