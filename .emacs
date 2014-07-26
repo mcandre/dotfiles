@@ -514,40 +514,62 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   :init
   (add-to-list 'auto-mode-alist '("\\.jshintrc$" . json-mode)))
 
-;; ERB/EJS
-(use-package mmm-auto
+;; Embedded HTML/CSS/JS
+(use-package mmm-mode
   :init
   (progn
+    ;; ERB
+    (defun sanityinc/ensure-mmm-erb-loaded ()
+      (require 'mmm-erb))
 
-    (add-to-list 'auto-mode-alist '("\\.erb$" . html-erb-mode))
-    (add-to-list 'auto-mode-alist '("\\.ejs$"  . html-erb-mode))
-    (add-to-list 'auto-mode-alist '("\\.php$" . html-mode)))
-  :config
-  (progn
-    ;; Handle PHP, CSS
+    (require 'derived)
+
+    (defun sanityinc/set-up-mode-for-erb (mode)
+      (add-hook (derived-mode-hook-name mode) 'sanityinc/ensure-mmm-erb-loaded)
+      (mmm-add-mode-ext-class mode "\\.erb\\'" 'erb))
+
+    (let ((html-erb-modes '(html-mode html-erb-mode nxml-mode)))
+      (dolist (mode html-erb-modes)
+        (sanityinc/set-up-mode-for-erb mode)
+        (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?\\'" 'html-js)
+        (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?\\'" 'html-css)))
+
+    (mapc 'sanityinc/set-up-mode-for-erb
+          '(coffee-mode js-mode js2-mode js3-mode markdown-mode textile-mode))
+
+    (mmm-add-mode-ext-class 'html-erb-mode "\\.jst\\.ejs\\'" 'ejs)
+
+    (add-to-list 'auto-mode-alist '("\\.rhtml\\'" "\\.html\\.erb\\'" . html-erb-mode))
+    (add-to-list 'auto-mode-alist '("\\.jst\\.ejs\\'"  . html-erb-mode))
+    (mmm-add-mode-ext-class 'yaml-mode "\\.yaml\\'" 'erb)
+
+    (dolist (mode (list 'js-mode 'js2-mode 'js3-mode))
+      (mmm-add-mode-ext-class mode "\\.js\\.erb\\'" 'erb))
+
+    ;; CSS
     (mmm-add-group
-     'fancy-html
-       '((html-php-tagged
-          :submode php-mode
-          :face mmm-code-submode-face
-          :front "<[?]php"
-          :back "[?]>")
-         (html-css-attribute
-          :submode css-mode
-          :face mmm-declaration-submode-face
-          :front "styleREMOVEME=\""
-          :back "\"")))
-
-    (mmm-add-mode-ext-class 'html-erb-mode "\\.erb$" 'erb)
-    (mmm-add-mode-ext-class 'html-erb-mode "\\.ejs$" 'ejs)
-    (mmm-add-mode-ext-class 'html-erb-mode nil 'html-js)
-    (mmm-add-mode-ext-class 'html-erb-mode nil 'html-css)
-
-    (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil html-js))
-    (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil embedded-css))
-    (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil fancy-html))
-
-    (setq mmm-global-mode 'auto)))
+     'html-css
+     '((css-cdata
+        :submode css-mode
+        :face mmm-code-submode-face
+        :front "<style[^>]*>[ \t\n]*\\(//\\)?<!\\[CDATA\\[[ \t]*\n?"
+        :back "[ \t]*\\(//\\)?]]>[ \t\n]*</style>"
+        :insert ((?j js-tag nil @ "<style type=\"text/css\">"
+                     @ "\n" _ "\n" @ "</script>" @)))
+       (css
+        :submode css-mode
+        :face mmm-code-submode-face
+        :front "<style[^>]*>[ \t]*\n?"
+        :back "[ \t]*</style>"
+        :insert ((?j js-tag nil @ "<style type=\"text/css\">"
+                     @ "\n" _ "\n" @ "</style>" @)))
+       (css-inline
+        :submode css-mode
+        :face mmm-code-submode-face
+        :front "style=\""
+        :back "\"")))
+    (dolist (mode (list 'html-mode 'nxml-mode))
+      (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?\\'" 'html-css))))
 
 (use-package tbemail
   :mode ("\\.eml$" . tbemail-mode))
