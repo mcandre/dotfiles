@@ -295,7 +295,7 @@
 ;;     (delete-backward-char tab-width)))
 
 (use-package markdown-mode
-  :mode "\\.md\\'"
+  :mode "\\.md$"
   :init
   (progn
     ;; Use markdown-mode for *scratch*
@@ -360,7 +360,7 @@
 ;;
 
 (use-package vimrc-mode
-  :mode "\\.vim\\(rc\\)?\\'")
+  :mode "\\.vim\\(rc\\)?$")
 
 ;;
 ;; SQL
@@ -461,19 +461,19 @@
                       (setq indent-line-function 'ig-indent-sql))))
 
 (use-package mustache-mode
-  :mode "\\.\\(mst|mustache\\)\\'")
+  :mode "\\.\\(mst|mustache\\)$")
 
 (use-package gitignore-mod
-  :mode "\\.\\(gitignore|jshintignore\\)\\'")
+  :mode "\\.\\(gitignore|jshintignore\\)$")
 
 (use-package ntcmd
-  :mode ("\\.bat\\'" . ntcmd-mode))
+  :mode ("\\.bat$" . ntcmd-mode))
 
 (use-package oz
-  :mode ("\\.oz\\'" . oz-mode))
+  :mode ("\\.oz$" . oz-mode))
 
 (autoload 'R-mode "ess-site.el" "" t)
-(add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
+(add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
 
 ;; R indentation
 (add-hook 'R-mode-hook
@@ -482,11 +482,11 @@
             (setq ess-indent-level tab-width)))
 
 (dolist (extension
-         '("\\.rake\\'"
-           "Rakefile\\'"
-           "\\.gemspec\\'"
-           "\\.ru\\'"
-           "Gemfile\\'"
+         '("\\.rake$"
+           "Rakefile$"
+           "\\.gemspec$"
+           "\\.ru$"
+           "Gemfile$"
            "Guardfile"
            "guardrc"
            "Vagrantfile"
@@ -495,7 +495,7 @@
 
 (use-package erlang
   :mode
-  ("\\(\\.hrl|\\.yrl|\\.app|\\.appSrc|\\.app.src|\\.rel|rebar.config\\)\\'" .
+  ("\\(\\.hrl|\\.yrl|\\.app|\\.appSrc|\\.app.src|\\.rel|rebar.config\\)$" .
    erlang-mode)
   :init
   (progn
@@ -508,15 +508,15 @@
                 (setq erlang-indent-level tab-width
                       erlang-electric-commands '())))))
 
-;; (autoload ("\\.yaws\\'" . two-mode-mode))
+;; (autoload ("\\.yaws$" . two-mode-mode))
 
 (use-package yaml-mode
   :init
-  (add-to-list 'auto-mode-alist '("\\.reek\\'" . yaml-mode)))
+  (add-to-list 'auto-mode-alist '("\\.reek$" . yaml-mode)))
 
 (use-package json-mode
   :init
-  (add-to-list 'auto-mode-alist '("\\.jshintrc\\'" . json-mode)))
+  (add-to-list 'auto-mode-alist '("\\.jshintrc$" . json-mode)))
 
 ;; ERB/EJS
 (use-package mmm-auto
@@ -550,7 +550,7 @@
     (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil fancy-html))))
 
 (use-package tbemail
-  :mode ("\\.eml\\'" . tbemail-mode))
+  :mode ("\\.eml$" . tbemail-mode))
 
 ;;
 ;; Fix C family autoindent
