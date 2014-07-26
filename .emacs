@@ -158,6 +158,7 @@
 
 ;; Column 80 marker
 (use-package column-enforce-mode
+  :diminish column-enforce-mode
   :init
   (progn
     (set-face-background 'column-enforce-face "#660000")
