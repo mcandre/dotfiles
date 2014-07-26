@@ -15,6 +15,7 @@ Plugin 'benjaminwhite/Benokai'
 Plugin 'fsouza/go.vim'
 Plugin 'wting/rust.vim'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'mtth/scratch.vim'
 call vundle#end()
 
 " Enable syntax highlighting
