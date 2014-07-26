@@ -327,8 +327,8 @@
   :bind ("M-;" . evilnc-comment-or-uncomment-lines))
 
 ;; Single dired buffer
-(autoload 'dired-single-buffer "dired-single" "" t)
-(autoload 'dired-single-buffer-mouse "dired-single" "" t)
+(use-package dired-single
+  :commands dired-single-buffer dired-single-buffer-mouse)
 
 (add-hook 'dired-mode-hook
           (lambda ()
@@ -551,9 +551,6 @@
     (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil html-js))
     (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil embedded-css))
     (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil fancy-html))))
-
-(autoload 'brainfuck-mode "brainfuck-mode" "Major mode for editing Brainfuck code" t)
-(add-to-list 'auto-mode-alist '("\\.bf$" . brainfuck-mode))
 
 (autoload 'tbemail-mode "tbemail" "Major mode for editing Emails" t)
 (add-to-list 'auto-mode-alist '("\\.eml$" . tbemail-mode))
