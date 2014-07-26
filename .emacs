@@ -571,6 +571,11 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
     (dolist (mode (list 'html-mode 'nxml-mode))
       (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?\\'" 'html-css))))
 
+(use-package rainbow-mode
+  :init
+  (dolist (hook '(css-mode-hook html-mode-hook sass-mode-hook))
+    (add-hook hook 'rainbow-mode)))
+
 (use-package tbemail
   :mode ("\\.eml$" . tbemail-mode))
 

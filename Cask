@@ -46,6 +46,7 @@
 (depends-on "php-mode")
 (depends-on "puppet-mode")
 (depends-on "racket-mode")
+(depends-on "rainbow-mode")
 (depends-on "rust-mode")
 (depends-on "sass-mode")
 (depends-on "scala-mode2")
