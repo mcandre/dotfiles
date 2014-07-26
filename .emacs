@@ -62,28 +62,65 @@
 ;; Alt+F4 quits.
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
-;; CUA OS copypasta in ncurses mode
-(unless window-system
-  (pcase system-type
-    (`darwin (setq interprogram-cut-function
-                   (lambda (text &optional push)
-                     (let* ((process-connection-type nil)
-                            (pbproxy (start-process "pbcopy" "pbcopy" "/usr/bin/pbcopy")))
-                       (process-send-string pbproxy text)
-                       (process-send-eof pbproxy))))
-             (setq interprogram-paste-function (lambda () (shell-command-to-string "pbpaste"))))
-    (`gnu/linux (progn
-                  (setq x-select-enable-clipboard t)
-                  (defun xsel-cut-function (text &optional push)
-                    (with-temp-buffer
-                      (insert text)
-                      (call-process-region (point-min) (point-max) "xsel" nil 0 nil "--clipboard" "--input")))
-                  (defun xsel-paste-function()
-                    (let ((xsel-output (shell-command-to-string "xsel --clipboard --output")))
-                      (unless (string= (car kill-ring) xsel-output)
-                        xsel-output )))
-                  (setq interprogram-cut-function 'xsel-cut-function)
-                  (setq interprogram-paste-function 'xsel-paste-function)))))
+(if window-system
+    ;; CUA tools in GUI mode
+    (progn
+
+      ;; Hide GUI toolbar
+      (tool-bar-mode -1)
+
+      ;; Font: Monaco
+      ;; http://usystem.googlecode.com/files/MONACO.TTF
+      (condition-case nil
+          (progn
+            ;; Font size: ~10pt
+            (set-face-attribute 'default nil :height
+                                (pcase system-type
+                                  (`darwin 120)
+                                  (`gnu/linux 90)))
+            (set-frame-font "Monaco"))
+        (error (warn "Monaco font is not installed"))))
+
+  (progn
+    ;; CUA OS copypasta in ncurses mode
+    (pcase system-type
+      (`darwin (setq interprogram-cut-function
+                     (lambda (text &optional push)
+                       (let* ((process-connection-type nil)
+                              (pbproxy (start-process "pbcopy" "pbcopy" "/usr/bin/pbcopy")))
+                         (process-send-string pbproxy text)
+                         (process-send-eof pbproxy))))
+               (setq interprogram-paste-function (lambda () (shell-command-to-string "pbpaste"))))
+      (`gnu/linux (progn
+                    (setq x-select-enable-clipboard t)
+                    (defun xsel-cut-function (text &optional push)
+                      (with-temp-buffer
+                        (insert text)
+                        (call-process-region (point-min) (point-max) "xsel" nil 0 nil "--clipboard" "--input")))
+                    (defun xsel-paste-function()
+                      (let ((xsel-output (shell-command-to-string "xsel --clipboard --output")))
+                        (unless (string= (car kill-ring) xsel-output)
+                          xsel-output )))
+                    (setq interprogram-cut-function 'xsel-cut-function)
+                    (setq interprogram-paste-function 'xsel-paste-function))))
+
+    ;;
+    ;; Enable OS mouse clicking and scrolling
+    ;;
+    ;; Note for Mac OS X: Requires SIMBL and MouseTerm
+    ;;
+    ;; http://www.culater.net/software/SIMBL/SIMBL.php
+    ;; https://bitheap.org/mouseterm/
+    ;;
+    (xterm-mouse-mode 1)
+    (global-set-key [mouse-4]
+                    (lambda ()
+                      (interactive)
+                      (scroll-down 1)))
+    (global-set-key [mouse-5]
+                    (lambda ()
+                      (interactive)
+                      (scroll-up 1)))))
 
 ;; Compile .emacs on save
 (add-hook 'after-save-hook
@@ -93,23 +130,6 @@
             (let ((dotemacs (expand-file-name "~/.emacs")))
               (if (string= (buffer-file-name) (file-chase-links dotemacs))
                   (byte-compile-file dotemacs)))))
-
-;;
-;; Enable OS mouse clicking and scrolling
-;;
-;; Note for Mac OS X: Requires SIMBL and MouseTerm
-;;
-;; http://www.culater.net/software/SIMBL/SIMBL.php
-;; https://bitheap.org/mouseterm/
-;;
-(unless window-system
-  (xterm-mouse-mode 1)
-  (global-set-key [mouse-4] (lambda ()
-                              (interactive)
-                              (scroll-down 1)))
-  (global-set-key [mouse-5] (lambda ()
-                              (interactive)
-                              (scroll-up 1))))
 
 ;; I say, soft tabs, width 2 spaces!
 (setq-default indent-tabs-mode nil
@@ -250,23 +270,6 @@
 (use-package monokai-theme
   :idle
   (load-theme 'monokai t))
-
-;; CUA tools in GUI mode
-(when window-system
-  ;; Hide GUI toolbar
-  (tool-bar-mode -1)
-
-  ;; Font: Monaco
-  ;; http://usystem.googlecode.com/files/MONACO.TTF
-  (condition-case nil
-      (progn
-        ;; Font size: ~10pt
-        (set-face-attribute 'default nil :height
-                            (pcase system-type
-                              (`darwin 120)
-                              (`gnu/linux 90)))
-        (set-frame-font "Monaco"))
-    (error (warn "Monaco font is not installed"))))
 
 ;;
 ;; CUA-like Undo (Control+Z, Control+R)
