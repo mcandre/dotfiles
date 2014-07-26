@@ -116,14 +116,13 @@
               tab-width 2)
 
 (add-to-list 'auto-mode-alist '("\\.mf$" . makefile-mode))
-
 (add-to-list 'auto-mode-alist '("pylintrc" . conf-mode))
 (add-to-list 'auto-mode-alist '("pep8" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.ackrc$" . conf-mode))
+(add-to-list 'auto-mode-alist '("Cask$" . lisp-mode))
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
-(add-to-list 'auto-mode-alist '("Cask$" . lisp-mode))
 
 (require 'use-package)
 
