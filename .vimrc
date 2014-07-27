@@ -16,7 +16,7 @@ set clipboard=unnamed
 " http://www.culater.net/software/SIMBL/SIMBL.php
 " https://bitheap.org/mouseterm/
 if has("mouse")
-  set mouse=a
+   set mouse=a
 endif
 
 " Bash-style tab completion
