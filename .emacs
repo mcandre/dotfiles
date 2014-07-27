@@ -515,7 +515,8 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 
 (use-package json-mode
   :init
-  (add-to-list 'auto-mode-alist '("\\.jshintrc$" . json-mode)))
+  (add-to-list 'auto-mode-alist '("\\.jshintrc$" . json-mode))
+  (add-to-list 'auto-mode-alist '("\\.bowerrc$" . json-mode)))
 
 ;; Embedded HTML/CSS/JS
 (use-package mmm-mode
