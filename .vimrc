@@ -1,29 +1,8 @@
 " Store as ~/.vimrc (Unix) or ~/_vimrc (Windows)
 
-"
-" Vundle
-" https://github.com/gmarik/vundle
-"
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'gmarik/vundle'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'benjaminwhite/Benokai'
-Plugin 'fsouza/go.vim'
-Plugin 'wting/rust.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'mtth/scratch.vim'
-call vundle#end()
-
-" Enable syntax highlighting
 syntax on
-colorscheme Benokai
 
-" Enable auto-indentation
+" Indentation
 set autoindent
 filetype plugin indent on
 
@@ -80,6 +59,31 @@ let ruby_fold=1                       " Ruby
 let sh_fold_enabled=1                 " sh
 let vimsyn_folding='af'               " Vim script
 let xml_syntax_folding=1              " XML
+
+"
+" Vundle
+" https://github.com/gmarik/vundle
+"
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'gmarik/vundle'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'benjaminwhite/Benokai'
+Plugin 'fsouza/go.vim'
+Plugin 'wting/rust.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'mtth/scratch.vim'
+call vundle#end()
+
+colorscheme Benokai
+
+" Column 80 marker
+highlight OverLength ctermbg=red ctermfg=white guibg=#660000
+match OverLength /\%81v.\+/
 
 " Scratch opens in Markdown format
 let g:scratch_filetype = 'markdown'
