@@ -5,6 +5,7 @@
 --ignore-dir=is:node_modules
 --ignore-dir=is:target
 --ignore-dir=is:vendor
+--ignore-dir=is:bower_components
 --ignore-file=match:min\.js
 --ignore-file=match:log
 --ignore-file=is:erl_crash.dump
