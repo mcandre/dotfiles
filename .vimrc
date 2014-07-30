@@ -85,5 +85,6 @@ colorscheme Benokai
 highlight OverLength ctermbg=red ctermfg=white guibg=#660000
 match OverLength /\%81v.\+/
 
+let g:scratch_height = 0.50
 " Scratch opens in Markdown format
 let g:scratch_filetype = 'markdown'
