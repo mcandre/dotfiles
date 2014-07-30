@@ -1,7 +1,6 @@
 # ln -s .../.ackrc ~/.ackrc
 
 --sort-files
---ignore-file=is:.gitignore
 --ignore-dir=is:node_modules
 --ignore-dir=is:target
 --ignore-dir=is:vendor
