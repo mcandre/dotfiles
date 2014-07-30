@@ -1,3 +1,2 @@
---quiet
 --ignore=ids,unique-headings,box-model
 --exclude-list=node_modules/
