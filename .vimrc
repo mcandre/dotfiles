@@ -89,7 +89,3 @@ match OverLength /\%81v.\+/
 let g:scratch_height = 0.50
 " Scratch opens in Markdown format
 let g:scratch_filetype = 'markdown'
-" Allow quickly switching back and forth
-" between Scratch and other windows
-set hidden
-let g:scratch_autohide = 0
