@@ -232,6 +232,10 @@
   (untabify (point-min) (point-max))
   (indent-region (point-min) (point-max)))
 
+;; Find and Replace
+(use-package findr
+  :commands findr-query-replace)
+
 ;; Open project file by fuzzy name
 (use-package fiplr
   :bind ("C-p" . fiplr-find-file)

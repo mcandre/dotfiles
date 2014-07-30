@@ -21,6 +21,7 @@
 (depends-on "evil-nerd-commenter")
 (depends-on "fasm-mode")
 (depends-on "feature-mode")
+(depends-on "findr")
 (depends-on "fiplr")
 (depends-on "fsharp-mode")
 ;; (depends-on "fuel")
