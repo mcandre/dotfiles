@@ -164,6 +164,11 @@
     (set-face-background 'column-enforce-face "#660000")
     (add-hook 'prog-mode-hook 'column-enforce-mode)))
 
+;; Lua indentation
+(add-hook 'lua-mode-hook
+          (lambda ()
+            (defvar lua-indent-level)
+            (setq lua-indent-level tab-width)))
 ;; Tcl indentation
 (add-hook 'tcl-mode-hook
           (lambda ()
