@@ -147,3 +147,5 @@ nvm use 0.10 > /dev/null
 
 # OPAM configuration
 . /home/apenneb/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+export PATH="$PATH:$HOME/LuaDist/bin"
