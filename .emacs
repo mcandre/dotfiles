@@ -366,9 +366,6 @@
 ;; Syntax highlighting
 ;;
 
-(use-package vimrc-mode
-  :mode "\\.vim\\(rc\\)?$")
-
 ;;
 ;; SQL
 ;;
