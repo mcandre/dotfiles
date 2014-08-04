@@ -21,6 +21,18 @@ check_run() {
   git diff HEAD@{1} HEAD --name-only | grep --quiet "$1"
 }
 
+#
+# branch_run $1
+#
+# Returns true if current branch matches pattern $1 in git.
+# Otherwise, returns false.
+#
+# Example: branch_run master && echo "Remember, you're on master!"
+#
+branch_run() {
+  [[ $(git rev-parse --symbolic-full-name HEAD) = */"$1" ]]
+}
+
 check_run Cask && \
   bash -c 'cd ~/.emacs.d/ && cask install'
 
