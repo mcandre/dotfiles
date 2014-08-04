@@ -6,3 +6,5 @@
 	status = auto
 [merge]
 	ff = true
+[pull]
+	rebase = true
