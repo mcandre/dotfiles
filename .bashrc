@@ -7,7 +7,7 @@ nvm use 0.10 > /dev/null
 # Ruby
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 rvm use 2.0.0 > /dev/null
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # OCaml show error traces
 export OCAMLRUNPARAM="b"
