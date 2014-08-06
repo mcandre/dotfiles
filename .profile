@@ -27,6 +27,7 @@ export PATH="$PATH:~/.cask/bin"
 export PATH="$PATH:~"
 export PATH="$PATH:~/bin"
 export PATH="$PATH:~/Desktop/src/mcandre/bash/lib"
+export PATH="$PATH:~/Desktop/src/mcandre/sh/lib"
 export PATH="$PATH:~/Desktop/src/wget-nsfw/lib"
 
 # PHP
