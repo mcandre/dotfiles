@@ -1,9 +1,16 @@
 # ln -s .../.bashrc ~/.bashrc
 
+# Node.js
+[[ -s /Users/andrew/.nvm/nvm.sh ]] && . /Users/andrew/.nvm/nvm.sh # This loads NVM
+nvm use 0.10 > /dev/null
+
 # Ruby
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 rvm use 2.0.0 > /dev/null
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-# OPAM configuration
+# OCaml show error traces
+export OCAMLRUNPARAM="b"
+
+# OPAM
 . /Users/andrew/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
