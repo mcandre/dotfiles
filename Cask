@@ -23,6 +23,7 @@
 (depends-on "feature-mode")
 (depends-on "findr")
 (depends-on "fiplr")
+(depends-on "fish-mode")
 (depends-on "fsharp-mode")
 ;; (depends-on "fuel")
 (depends-on "gitignore-mode")

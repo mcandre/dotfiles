@@ -625,6 +625,8 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
             (lambda ()
               (c-add-style "dart" gangnam-style t))))
 
+(use-package fish-mode)
+
 (use-package ack-and-a-half
   :bind (("C-x C-a" . ack-and-a-half)
          ("s-F" . ack-and-a-half)))
