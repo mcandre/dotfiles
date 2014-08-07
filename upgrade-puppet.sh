@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 apt-get install --yes lsb-release > /dev/null
 DISTRIB_CODENAME=$(lsb_release --codename --short)
