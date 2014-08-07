@@ -498,6 +498,9 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
            "Cheffile"))
   (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
 
+(use-package xahk-mode
+  :mode "\\.ahk$")
+
 (use-package erlang
   :mode
   ("\\(\\.hrl|\\.yrl|\\.app|\\.appSrc|\\.app.src|\\.rel|rebar.config\\)$" .
