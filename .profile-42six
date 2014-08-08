@@ -6,11 +6,11 @@ shopt -s globstar
 export PATH=/usr/local/bin:$PATH
 
 # Personal binaries
-export PATH="$PATH:~/bin"
-export PATH="$PATH:~/Desktop/src/dotfiles"
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/Desktop/src/dotfiles"
 
 # csv2thrift
-export PATH="$PATH:~/Desktop/src/csv2thrift/bin"
+export PATH="$PATH:$HOME/Desktop/src/csv2thrift/bin"
 
 # Java 1.6
 export JAVA_HOME=/Library/Java/Home
@@ -24,16 +24,16 @@ alias findbugs="findbugs -textui"
 # Hadoop
 export HADOOP_VERSION=1.2.1
 export HADOOP_PREFIX=/usr/local/Cellar/hadoop/$HADOOP_VERSION/libexec/
-source $HADOOP_PREFIX/conf/hadoop-env.sh
+. $HADOOP_PREFIX/conf/hadoop-env.sh
 
 # For `brew edit`, etc.
 export EDITOR="emacs -nw"
 
 # RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # Node.js
-[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh # This loads NVM
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
 nvm use 0.10 > /dev/null
 
 # Prevent ._ files from being created in archives
@@ -44,8 +44,7 @@ export COPYFILE_DISABLE=true
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 
 # git prompt
-# https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
-source ~/git-prompt.sh
+. $HOME/git-prompt.sh
 
 export PS1='\W$(__git_ps1 " (%s)")$ '
 

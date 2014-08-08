@@ -24,8 +24,7 @@ export EDITOR="emacs -nw"
 shopt -s globstar
 
 # git prompt
-# https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
-source $HOME/git-prompt.sh
+. $HOME/git-prompt.sh
 export PS1='\W$(__git_ps1 " (%s)")$ '
 
 # Reset path
@@ -100,4 +99,4 @@ PATH="$PATH:/Applications/Mozart.app/Contents/Resources/bin"
 
 export PATH
 
-source $HOME/.bashrc
+. $HOME/.bashrc

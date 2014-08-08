@@ -135,11 +135,10 @@ export PATH="$PATH:$HOME/.cask/bin"
 export PATH="$PATH:$HOME/.cabal/bin"
 
 # git prompt
-# https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
-source /etc/bash_completion.d/git-prompt
+. /etc/bash_completion.d/git-prompt
 export PS1='\W$(__git_ps1 " (%s)")$ '
 
-source $HOME/.rvm/scripts/rvm
+. $HOME/.rvm/scripts/rvm
 
 export NVM_DIR="/home/apenneb/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
