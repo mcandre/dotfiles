@@ -372,6 +372,9 @@
 ;; Syntax highlighting
 ;;
 
+;; To be fixed in Emacs 24.4
+(add-to-list 'interpreter-mode-alist '("dash" . shell-script-mode))
+
 ;;
 ;; SQL
 ;;
