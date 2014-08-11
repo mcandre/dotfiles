@@ -7,7 +7,7 @@
 # Install:
 #
 # ln -s ../../hooks/post-merge-checkout .git/hooks/post-merge
-# ln -s post-merge .git/hooks/post-checkout
+# ln -s ../../hooks/post-merge-checkout .git/hooks/post-checkout
 
 #
 # git_modified $1
