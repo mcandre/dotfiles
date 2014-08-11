@@ -260,8 +260,7 @@
                           "node_modules"
 
                           ;; Maven
-                          "target"
-                          "resources"))
+                          "target"))
             (files       (".#*"
                           "*~"
                           "*.so"
