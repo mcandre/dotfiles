@@ -52,6 +52,10 @@
 ;; Disable version control integration
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
 
+;; Fix shell-mode autoscrolling
+(remove-hook 'comint-output-filter-functions
+             'comint-postoutput-scroll-to-bottom)
+
 ;; Disable paging, esp. for psql
 (setenv "PAGER" (executable-find "cat"))
 
