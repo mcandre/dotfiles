@@ -6,38 +6,47 @@
 #
 # Install:
 #
-# ln -s .../post-merge-checkout .../.git/hooks/post-merge
-# ln -s .../post-merge-checkout .../.git/hooks/post-checkout
+# ln -s ../../hooks/post-merge-checkout .git/hooks/post-merge
+# ln -s post-merge .git/hooks/post-checkout
 
 #
-# file_run $1
+# git_modified $1
 #
 # Return true if files matching pattern $1 have changed in git.
 # Otherwise, return false.
 #
-# Example: file_run package.json && npm install
+# Example:
 #
-file_run() {
-  git diff HEAD@{1} HEAD --name-only | grep --quiet "$1"
+# if git_modified package.json; then
+#   npm install
+# fi
+#
+git_modified() {
+  ! git diff --quiet HEAD@{1} HEAD -- "**/$1"
 }
 
 #
-# branch_run $1
+# git_branched $1
 #
 # Returns true if current branch matches pattern $1 in git.
 # Otherwise, returns false.
 #
-# Example: branch_run master && echo "Remember, you're on master!"
+# Example: git_branched master && echo "Remember, you're on master!"
 #
-branch_run() {
+git_branched() {
   [[ $(git rev-parse --symbolic-full-name HEAD) = */"$1" ]]
 }
 
-file_run Cask && \
+if git_modified Cask; then
   bash -c 'cd ~/.emacs.d/ && cask install'
+fi
 
-file_run .emacs && \
+if git_modified .emacs; then
   emacs --batch --eval '(load "~/.emacs")' -f batch-byte-compile ~/.emacs
+fi
 
-file_run .vimrc && \
+if git_modified .vimrc; then
   vim +BundleUpdate +BundleInstall +qall
+fi
+
+exit 0
