@@ -49,6 +49,9 @@
  ;; And JavaScript
  js-indent-level 2)
 
+;; Disable version control integration
+(remove-hook 'find-file-hooks 'vc-find-file-hook)
+
 ;; Disable paging, esp. for psql
 (setenv "PAGER" (executable-find "cat"))
 
