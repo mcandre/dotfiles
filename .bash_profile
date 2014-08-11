@@ -39,8 +39,7 @@ PATH="$PATH:$HOME/.cask/bin"
 # Home binaries
 PATH="$PATH:$HOME"
 PATH="$PATH:$HOME/bin"
-PATH="$PATH:$HOME/Desktop/src/mcandre/bash/lib"
-PATH="$PATH:$HOME/Desktop/src/mcandre/sh/lib"
+PATH="$PATH:$HOME/Desktop/src/politerips/lib"
 PATH="$PATH:$HOME/Desktop/src/wget-nsfw/lib"
 
 # llvm-as
