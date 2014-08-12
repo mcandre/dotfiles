@@ -627,6 +627,12 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                   comment-start "// "
                   comment-end "")))
 
+;; TODO: Fix ruby-mode closing parentheses/brackets nested too deep
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (defvar ruby-deep-indent-paren)
+            (setq ruby-deep-indent-paren nil)))
+
 (use-package dart-mode
   :defer t
   :config
