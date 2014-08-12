@@ -19,6 +19,9 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+. /etc/bash_completion.d/git
+export PS1='\W$(__git_ps1 " (%s)")$ '
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 [[ -s /home/andrew/.nvm/nvm.sh ]] && . /home/andrew/.nvm/nvm.sh # This loads NVM
@@ -42,5 +45,3 @@ nvm use 0.10.29
 
 # Specs
 export PATH="$PATH:/srv/d_hactar/usr/src/specs"
-
-export PS1="\u@\h:\w$ "
