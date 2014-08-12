@@ -293,7 +293,7 @@
 (use-package undo-tree
   :bind (("C-z" . undo-tree-undo)
          ("C-r" . undo-tree-redo))
-  :config
+  :init
   (global-undo-tree-mode))
 
 ;; If mark exists, indent rigidly.
