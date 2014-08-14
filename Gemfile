@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
-gem 'contracts'
+
+gem 'contracts', '~> 0.4'
 
 group :development do
   gem 'guard', '~> 2.6'
