@@ -297,6 +297,7 @@
 ;; CUA-like Undo (Control+Z, Control+R)
 ;;
 (use-package undo-tree
+  :diminish undo-tree-mode
   :bind (("C-z" . undo-tree-undo)
          ("C-r" . undo-tree-redo))
   :init
