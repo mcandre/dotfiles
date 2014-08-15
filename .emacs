@@ -163,6 +163,12 @@
   :idle
   (global-nlinum-mode))
 
+;; Show path information in buffer names and mode-lines
+(use-package uniquify
+  :init
+  (setq uniquify-buffer-name-style 'post-forward
+        uniquify-min-dir-content 7))
+
 ;; Column 80 marker
 (use-package column-enforce-mode
   :diminish column-enforce-mode
