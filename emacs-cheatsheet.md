@@ -119,6 +119,10 @@ In term-mode, `C-x ...` commands should be typed as `C-c ...`.
 
     C-s
 
+## Treat search pattern as regex
+
+    M-r
+
 ## Find and Replace
 
 Find/Replace from cursor to end of file:
