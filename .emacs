@@ -177,8 +177,8 @@
 ;;
 
 (use-package whitespace
-  :diminish
-  :init
+  :diminish global-whitespace-mode
+  :idle
   (progn
     (setq whitespace-style '(face
                              trailing
