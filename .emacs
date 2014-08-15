@@ -49,6 +49,10 @@
  ;; And JavaScript
  js-indent-level 2)
 
+;; I say, soft tabs, width 2 spaces!
+(setq-default indent-tabs-mode nil
+              tab-width 2)
+
 ;; Disable version control integration
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
 
@@ -62,20 +66,16 @@
 ;; Disable ncurses menubar
 (menu-bar-mode -1)
 
-;; Force save.
+;; Force save
 (defadvice save-buffer (before save-buffer-always activate)
   (set-buffer-modified-p t))
 
-;; Prevent accidental suspension on CUA undo
-(global-unset-key (kbd "C-x C-z"))
-
-;; Alt+F4 quits.
+;; CUA key: Alt+F4 quits
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
 (if window-system
     ;; CUA tools in GUI mode
     (progn
-
       ;; Hide GUI toolbar
       (tool-bar-mode -1)
 
@@ -135,15 +135,9 @@
 ;; Compile .emacs on save
 (add-hook 'after-save-hook
           (lambda ()
-            ;; (interactive)
-            ;; (require 'bytecomp)
             (let ((dotemacs (expand-file-name "~/.emacs")))
               (if (string= (buffer-file-name) (file-chase-links dotemacs))
                   (byte-compile-file dotemacs)))))
-
-;; I say, soft tabs, width 2 spaces!
-(setq-default indent-tabs-mode nil
-              tab-width 2)
 
 (add-to-list 'auto-mode-alist '("\\.mf$" . makefile-mode))
 (add-to-list 'auto-mode-alist '("pylintrc" . conf-mode))
@@ -263,7 +257,6 @@
   (setq indent-tabs-mode t
         tab-width 2))
 
-;; Makefile indentation
 (add-hook 'makefile-mode-hook 'hard-tabs)
 (add-hook 'makefile-gmake-mode-hook 'hard-tabs)
 (add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
@@ -283,25 +276,35 @@
   (progn
     (defvar fiplr-ignored-globs)
     (setq fiplr-ignored-globs
-          '((directories (".git"
-                          ".svn"
-                          ".hg"
-                          ".bzr"
-
-                          ;; NPM
-                          "node_modules"
-
-                          ;; Maven
-                          "target"))
-            (files       (".#*"
-                          "*~"
-                          "*.so"
-                          "*.jpg"
-                          "*.png"
-                          "*.gif"
-                          "*.pdf"
-                          "*.gz"
-                          "*.zip"))))))
+          '((directories
+             ;; Version control
+             (".git"
+              ".svn"
+              ".hg"
+              ".bzr"
+              ;; NPM
+              "node_modules"
+              ;; Bower
+              "bower_components"
+              ;; Maven
+              "target"))
+            (files
+             ;; Emacs
+             (".#*"
+              ;; Vim
+              "*~"
+              ;; Objects
+              "*.so"
+              "*.o"
+              "*.obj"
+              ;; Media
+              "*.jpg"
+              "*.png"
+              "*.gif"
+              "*.pdf"
+              ;; Archives
+              "*.gz"
+              "*.zip"))))))
 
 ;; C-x <direction> to switch windows
 (use-package window-jump
@@ -323,7 +326,10 @@
   :bind (("C-z" . undo-tree-undo)
          ("C-r" . undo-tree-redo))
   :init
-  (global-undo-tree-mode))
+  (progn
+    (global-undo-tree-mode)
+    ;; Prevent accidental suspension on CUA undo
+    (global-unset-key (kbd "C-x C-z"))))
 
 ;; If mark exists, indent rigidly.
 ;; Otherwise, insert a hard or soft tab indentation.
@@ -331,12 +337,6 @@
   (interactive)
   (if mark-active
     (indent-rigidly (region-beginning) (region-end) tab-width)))
-;; ;; Inverse.
-;; (defun traditional-outdent ()
-;;   (interactive)
-;;   (if mark-active
-;;     (indent-rigidly (region-beginning) (region-end) (* tab-width -1))
-;;     (delete-backward-char tab-width)))
 
 (use-package markdown-mode
   :mode "\\.md$"
@@ -377,25 +377,30 @@
 
               ;; Auto-refresh dired on file change
               (auto-revert-mode)
-              (setq-default auto-revert-interval 1)
+              (setq-default auto-revert-interval 1))))
 
-              (use-package dired-details
-                :init
-                (progn
-                  ;; Hide dired file permissions
-                  (declare-function dired-details-install "dired-details.el" nil)
-                  (dired-details-install)
-                  (defvar dired-details-hidden-string)
-                  (setq dired-details-hidden-string "")))
+    ;; Hide dired file permissions
+(use-package dired-details
+  :idle
+  :config
+  (progn
+    (dired-details-install)
+    (defvar dired-details-hidden-string)
+    (setq dired-details-hidden-string "")))
 
-              (use-package dired+
-                :init
-                (progn
-                  ;; Fix color theme
-                  (setq-default dired-omit-files-p t)
-                  (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
-                  (defvar dired-omit-files)
-                  (setq dired-omit-files (concat dired-omit-files "\\.")))))))
+(use-package ack-and-a-half
+  :bind (("C-x C-a" . ack-and-a-half)
+         ("s-F" . ack-and-a-half)))
+
+(use-package dired+
+  :idle
+  :config
+  (progn
+    ;; Fix color theme
+    (setq-default dired-omit-files-p t)
+    (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
+    (defvar dired-omit-files)
+    (setq dired-omit-files (concat dired-omit-files "\\."))))
 
 ;;
 ;; Syntax highlighting
@@ -442,7 +447,7 @@
       (current-column))))
 
 (defun point-at-current-indentation ()
-  "Return point at current indentation"  
+  "Return point at current indentation"
   (interactive)
   (save-excursion
     (progn
@@ -499,7 +504,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
              ;; go back to previous indentation level
              (ig-move-line-to-column previous)))
 
-          (t 
+          (t
            (ig-move-line-to-column (+ current tab-width))))))
 
 (add-hook 'sql-mode-hook
@@ -519,15 +524,24 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 (use-package oz
   :mode ("\\.oz$" . oz-mode))
 
+(use-package xahk-mode
+  :mode "\\.ahk$")
+
+(use-package tbemail
+  :mode ("\\.eml$" . tbemail-mode))
+
+(use-package wolfram-mode
+  :mode ("\\.ma$" . wolfram-mode))
+
+;; R
 (autoload 'R-mode "ess-site.el" "" t)
 (add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
-
-;; R indentation
 (add-hook 'R-mode-hook
           (lambda ()
             (defvar ess-indent-level)
             (setq ess-indent-level tab-width)))
 
+;; More Ruby files
 (dolist (extension
          '("\\.rake$"
            "Rakefile$"
@@ -539,9 +553,6 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
            "Vagrantfile"
            "Cheffile"))
   (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
-
-(use-package xahk-mode
-  :mode "\\.ahk$")
 
 (use-package erlang
   :mode
@@ -558,12 +569,12 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                 (setq erlang-indent-level tab-width
                       erlang-electric-commands '())))))
 
-;; (autoload ("\\.yaws$" . two-mode-mode))
-
+;; More YAML files
 (use-package yaml-mode
   :init
   (add-to-list 'auto-mode-alist '("\\.reek$" . yaml-mode)))
 
+;; More JSON files
 (use-package json-mode
   :init
   (add-to-list 'auto-mode-alist '("\\.jshintrc$" . json-mode))
@@ -626,15 +637,6 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
     (dolist (mode (list 'html-mode 'nxml-mode))
       (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css))))
 
-(use-package rainbow-mode
-  :diminish rainbow-mode
-  :init
-  (dolist (hook '(css-mode-hook html-mode-hook sass-mode-hook))
-    (add-hook hook 'rainbow-mode)))
-
-(use-package tbemail
-  :mode ("\\.eml$" . tbemail-mode))
-
 ;;
 ;; Fix C family autoindent
 ;;
@@ -661,7 +663,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                   comment-start "// "
                   comment-end "")))
 
-;; TODO: Fix ruby-mode closing parentheses/brackets nested too deep
+;; TODO: Fix ruby-mode closing parentheses/brackets nesting too deep
 (add-hook 'ruby-mode-hook
           (lambda ()
             (defvar ruby-deep-indent-paren)
@@ -674,6 +676,11 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
             (lambda ()
               (c-add-style "dart" gangnam-style t))))
 
-(use-package ack-and-a-half
-  :bind (("C-x C-a" . ack-and-a-half)
-         ("s-F" . ack-and-a-half)))
+(use-package rainbow-mode
+  :diminish rainbow-mode
+  :init
+  (dolist (hook '(css-mode-hook
+                  html-mode-hook
+                  sass-mode-hook
+                  less-css-mode-hook))
+    (add-hook hook 'rainbow-mode)))
