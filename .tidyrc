@@ -21,7 +21,8 @@ output-encoding: utf8
 quiet: true
 quote-ampersand: true
 quote-marks: false
-show-warnings: false
+show-warnings: true
 tidy-mark: false
 uppercase-tags: false
+uppercase-attributes: false
 write-back: true
