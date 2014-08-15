@@ -172,6 +172,25 @@
   (setq uniquify-buffer-name-style 'post-forward
         uniquify-min-dir-content 7))
 
+;;
+;; Highlight strange characters
+;;
+
+(use-package whitespace
+  :diminish
+  :init
+  (progn
+    (setq whitespace-style '(face
+                             trailing
+                             space-before-tab
+                             space-after-tab
+                             indentation
+                             empty)
+          ;; Make inappropriate indentations more visible
+          ;; in a dark theme like Monokai
+          whitespace-indentation 'whitespace-trailing)
+    (global-whitespace-mode)))
+
 ;; Column 80 marker
 (use-package column-enforce-mode
   :diminish column-enforce-mode
