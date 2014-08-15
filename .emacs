@@ -66,6 +66,9 @@
 (defadvice save-buffer (before save-buffer-always activate)
   (set-buffer-modified-p t))
 
+;; Prevent accidental suspension on CUA undo
+(global-unset-key (kbd "C-x C-z"))
+
 ;; Alt+F4 quits.
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
