@@ -1,2 +1,2 @@
 --ignore=ids,unique-headings,box-model
---exclude-list=node_modules/
+--exclude-list=node_modules/,bower_components/
