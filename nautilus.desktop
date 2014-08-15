@@ -1,4 +1,8 @@
-# Configure:
+#
+# Configure Ubuntu/Unity/Files/Nautilus dock icon
+# to open ~/Downloads by default, instead of ~.
+#
+# Note: Command line `nautilus` will still open ~ by default.
 #
 # ln -s .../nautilus.desktop ~/.local/share/applications/nautilus.desktop
 #
