@@ -13,7 +13,7 @@
  ;; Disable prompt to saving abbreviations
  save-abbrevs nil
 
- ;; Disable start screen 
+ ;; Disable start screen
  inhibit-startup-screen t
 
  ;; Disable backup files
