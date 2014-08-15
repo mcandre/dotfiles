@@ -69,9 +69,6 @@
 ;; Alt+F4 quits.
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
-;; Find in file with regex by default
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-
 (if window-system
     ;; CUA tools in GUI mode
     (progn

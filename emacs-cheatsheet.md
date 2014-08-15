@@ -119,7 +119,7 @@ In term-mode, `C-x ...` commands should be typed as `C-c ...`.
 
     C-s
 
-## Treat search pattern as regex
+## Toggle treating search pattern as literal vs regex
 
     M-r
 
