@@ -385,12 +385,16 @@
 ;; SQL
 ;;
 
-(add-hook 'sql-mode-hook 'sqlup-mode)
 (add-to-list 'auto-mode-alist
              '("\\.psql$" .
                (lambda ()
                  (sql-mode)
                  (sql-highlight-postgres-keywords))))
+
+(use-package sqlup-mode
+  :diminish sqlup-mode
+  :init
+  (add-hook 'sql-mode-hook 'sqlup-mode))
 
 ;;
 ;; Fix SQL indentation
@@ -600,6 +604,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
       (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css))))
 
 (use-package rainbow-mode
+  :diminish rainbow-mode
   :init
   (dolist (hook '(css-mode-hook html-mode-hook sass-mode-hook))
     (add-hook hook 'rainbow-mode)))
