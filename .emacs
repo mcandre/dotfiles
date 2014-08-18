@@ -395,8 +395,7 @@
 ;; Hide dired file permissions
 (use-package dired-details
   :commands dired-details-install
-  :idle
-  :config
+  :init
   (progn
     (dired-details-install)
     (defvar dired-details-hidden-string)
