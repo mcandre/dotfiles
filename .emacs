@@ -74,10 +74,13 @@
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
 ;; Keep window split size uniform
+;; Move focus to new window
 (defadvice split-window-below (after restore-balanace-below activate)
-  (balance-windows))
+  (balance-windows)
+  (window-jump-down))
 (defadvice split-window-right (after restore-balance-right activate)
-  (balance-windows))
+  (balance-windows)
+  (window-jump-right))
 (defadvice delete-window (after restore-balance activate)
   (balance-windows))
 
