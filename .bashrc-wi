@@ -144,6 +144,8 @@ export NVM_DIR="/home/apenneb/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 nvm use 0.10 > /dev/null
 
+export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+
 # OPAM configuration
 . /home/apenneb/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
