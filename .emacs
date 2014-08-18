@@ -704,6 +704,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 ;; 5. Wait for the analyzer to finish.
 ;;
 (use-package ensime
+  :commands ensime-scala-mode-hook
   :bind ("M-/" . ensime-inspect-type-at-point)
   :init
   (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
