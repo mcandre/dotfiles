@@ -54,6 +54,7 @@
               tab-width 2)
 
 ;; Disable version control integration
+(setq vc-handled-backends ())
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
 
 ;; Fix shell-mode autoscrolling
