@@ -77,10 +77,12 @@
 ;; Move focus to new window
 (defadvice split-window-below (after restore-balanace-below activate)
   (balance-windows)
-  (window-jump-down))
+  (window-jump-down)
+  (switch-to-buffer "*scratch*"))
 (defadvice split-window-right (after restore-balance-right activate)
   (balance-windows)
-  (window-jump-right))
+  (window-jump-right)
+  (switch-to-buffer "*scratch*"))
 (defadvice delete-window (after restore-balance activate)
   (balance-windows))
 
