@@ -73,6 +73,14 @@
 ;; CUA key: Alt+F4 quits
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
+;; Keep window split size uniform
+(defadvice split-window-below (after restore-balanace-below activate)
+  (balance-windows))
+(defadvice split-window-right (after restore-balance-right activate)
+  (balance-windows))
+(defadvice delete-window (after restore-balance activate)
+  (balance-windows))
+
 (if window-system
     ;; CUA tools in GUI mode
     (progn
