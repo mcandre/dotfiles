@@ -73,19 +73,6 @@
 ;; CUA key: Alt+F4 quits
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
-;; Keep window split size uniform
-;; Move focus to new window
-(defadvice split-window-below (after restore-balanace-below activate)
-  (balance-windows)
-  (window-jump-down)
-  (switch-to-buffer "*scratch*"))
-(defadvice split-window-right (after restore-balance-right activate)
-  (balance-windows)
-  (window-jump-right)
-  (switch-to-buffer "*scratch*"))
-(defadvice delete-window (after restore-balance activate)
-  (balance-windows))
-
 (if window-system
     ;; CUA tools in GUI mode
     (progn
@@ -324,7 +311,24 @@
   :bind (("C-x <up>" . window-jump-up)
          ("C-x <down>" . window-jump-down)
          ("C-x <left>" . window-jump-left)
-         ("C-x <right>" . window-jump-right)))
+         ("C-x <right>" . window-jump-right))
+  :init
+  (progn
+    ;; Wrap around
+    (setq wj-wrap t)
+
+    ;; Keep window split size uniform
+    ;; Move focus to new window
+    (defadvice split-window-below (after restore-balanace-below activate)
+      (balance-windows)
+      (window-jump-down)
+      (switch-to-buffer "*scratch*"))
+    (defadvice split-window-right (after restore-balance-right activate)
+      (balance-windows)
+    (window-jump-right)
+    (switch-to-buffer "*scratch*"))
+    (defadvice delete-window (after restore-balance activate)
+      (balance-windows))))
 
 ;; Monokai
 (use-package monokai-theme
