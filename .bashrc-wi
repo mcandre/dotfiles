@@ -149,4 +149,6 @@ export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 # OPAM configuration
 . /home/apenneb/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
+PATH="$PATH:$HOME/Desktop/src/ccap3-apenneb"
+
 export PATH="$PATH:$HOME/LuaDist/bin"
