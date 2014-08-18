@@ -689,6 +689,25 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
             (lambda ()
               (c-add-style "dart" gangnam-style t))))
 
+;;
+;; Autocomplete and type checking for Scala code
+;;
+;; * M-/ will show documentation, including type information, for the expression the cursor is on.
+;; * Type errors will be underlined.
+;;
+;; Ensime requires a number of manual setup steps:
+;;
+;; 1. Install the ensime SBT plugin: Add `addSbtPlugin("org.ensime" % "ensime-sbt-cmd" % "0.1.4")` to `Build.scala`
+;; 2. Generate a .ensime project file: Run sbt 'ensime generate -s'
+;; 3. Start an ensime server: M-x ensime
+;; 4. Confirm the project root directory and specific sub-project in question.
+;; 5. Wait for the analyzer to finish.
+;;
+(use-package ensime
+  :bind ("M-/" . ensime-inspect-type-at-point)
+  :init
+  (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
+
 (use-package rainbow-mode
   :diminish rainbow-mode
   :init
