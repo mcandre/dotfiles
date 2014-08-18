@@ -379,8 +379,9 @@
               (auto-revert-mode)
               (setq-default auto-revert-interval 1))))
 
-    ;; Hide dired file permissions
+;; Hide dired file permissions
 (use-package dired-details
+  :commands dired-details-install
   :idle
   :config
   (progn
