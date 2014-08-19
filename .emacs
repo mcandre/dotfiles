@@ -232,11 +232,6 @@
 ;; Go indentation
 (add-hook 'go-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
-;; Haskell indentation
-(add-hook 'haskell-mode-hook
-          (lambda ()
-            (turn-on-haskell-indentation)
-            (setq tab-width tab-width)))
 ;; PostScript indentation
 (add-hook 'ps-mode-hook
           (lambda ()
@@ -572,6 +567,23 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
            "Cheffile"))
   (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
 
+;; Fix Haskell indentation
+(add-hook 'haskell-mode-hook
+          (lambda ()
+            (turn-on-haskell-indentation)
+            (setq tab-width tab-width)
+            (inf-haskell-mode)))
+
+;; Show Haskell type information
+(add-hook 'inf-haskell-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-/")
+                           (lambda ()
+                             (interactive)
+                             (declare-function haskell-ident-at-point "haskell-mode" nil)
+                             (inferior-haskell-load-file nil)
+                             (inferior-haskell-type (haskell-ident-at-point))))))
+
 (use-package erlang
   :mode
   ("\\(\\.hrl|\\.yrl|\\.app|\\.appSrc|\\.app.src|\\.rel|rebar.config\\)$" .
@@ -694,6 +706,8 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
             (lambda ()
               (c-add-style "dart" gangnam-style t))))
 
+(global-unset-key (kbd "M-/"))
+
 ;;
 ;; Autocomplete and type checking for Scala code
 ;;
@@ -710,9 +724,12 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 ;;
 (use-package ensime
   :commands ensime-scala-mode-hook
-  :bind ("M-/" . ensime-inspect-type-at-point)
   :init
-  (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
+  (progn
+    (add-hook 'scala-mode-hook
+              (lambda ()
+                (ensime-scala-mode-hook)
+                (local-set-key (kbd "M-/") 'ensime-inspect-type-at-point)))))
 
 (use-package rainbow-mode
   :diminish rainbow-mode
