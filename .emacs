@@ -37,6 +37,9 @@
  ;; Smoother mouse scrolling
  mouse-wheel-scroll-amount '(0.01)
 
+ ;; Show buffer name in title bar
+ frame-title-format '("%b")
+
  ;; Default to Unix LF line endings
  buffer-file-coding-system 'utf-8-unix
  ;; Soft tabs
@@ -73,9 +76,6 @@
 
 ;; CUA key: Alt+F4 quits
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
-
-;; Show buffer name in title bar
-(setq frame-title-format '("%b"))
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
