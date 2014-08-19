@@ -74,6 +74,15 @@
 ;; CUA key: Alt+F4 quits
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
+;; Show buffer name in title bar
+(setq frame-title-format
+      '("%b"))
+
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
+(require 'use-package)
+
 (if window-system
     ;; CUA tools in GUI mode
     (progn
@@ -131,7 +140,15 @@
     (global-set-key [mouse-5]
                     (lambda ()
                       (interactive)
-                      (scroll-up 1)))))
+                      (scroll-up 1)))
+
+    ;; ;; Wait for https://github.com/milkypostman/melpa/pull/1950
+    ;; (use-package xterm-frobs
+    ;;   :commands xterm-title-mode
+    ;;   :init
+    ;;   (when (string-match "^xterm" (getenv "TERM"))
+    ;;     (xterm-title-mode 1)))
+))
 
 ;; Compile .emacs on save
 (add-hook 'after-save-hook
@@ -145,11 +162,6 @@
 (add-to-list 'auto-mode-alist '("pep8" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.ackrc$" . conf-mode))
 (add-to-list 'auto-mode-alist '("Cask$" . lisp-mode))
-
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
-
-(require 'use-package)
 
 ;; Fast line numbers
 (use-package nlinum
