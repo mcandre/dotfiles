@@ -186,14 +186,6 @@
           whitespace-indentation 'whitespace-trailing)
     (global-whitespace-mode)))
 
-;; Column 80 marker
-(use-package column-enforce-mode
-  :diminish column-enforce-mode
-  :init
-  (progn
-    (set-face-background 'column-enforce-face "#660000")
-    (add-hook 'prog-mode-hook 'column-enforce-mode)))
-
 ;; Lua indentation
 (add-hook 'lua-mode-hook
           (lambda ()
