@@ -14,7 +14,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # ssh-add -L
   #
 
-  config.ssh.private_key_path = ['~/.vagrant.d/insecure_private_key', '~/.ssh/id_rsa']
+  config.ssh.private_key_path = [
+    '~/.vagrant.d/insecure_private_key',
+    '~/.ssh/id_rsa'
+  ]
   config.ssh.forward_agent = true
 
   config.vm.synced_folder "~/.m2", "/home/vagrant/.m2"

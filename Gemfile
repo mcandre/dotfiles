@@ -14,6 +14,8 @@ group :development do
   gem 'cane', '~> 2.6'
   gem 'excellent', '~> 2.1'
   gem 'rubocop', '~> 0.24'
+  gem 'tailor', '~> 1.4'
   gem 'rspec', '~> 3.0'
   gem 'cucumber', '~> 1.3'
+  gem 'cowl', '~> 0.2'
 end

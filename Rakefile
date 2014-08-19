@@ -31,5 +31,13 @@ task :rubocop => [] do
   sh 'bundle exec rubocop **/*.rb **/*.erb **/Guardfile*'
 end
 
-task :lint => [:ruby, :reek, :flay, :roodi, :cane, :excellent, :rubocop] do
+task :tailor => [] do
+  sh 'bundle exec tailor'
+end
+
+task :cowl => [] do
+  sh 'cowl .'
+end
+
+task :lint => [:ruby, :reek, :flay, :roodi, :cane, :excellent, :rubocop, :tailor, :cowl] do
 end
