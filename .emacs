@@ -75,8 +75,7 @@
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
 ;; Show buffer name in title bar
-(setq frame-title-format
-      '("%b"))
+(setq frame-title-format '("%b"))
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
