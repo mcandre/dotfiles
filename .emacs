@@ -142,11 +142,14 @@
                       (scroll-up 1)))
 
     ;; Show buffer name in terminal title in ncurses mode
-    (use-package xterm-title
-      :commands xterm-title-mode
-      :init
-      (when (string-match "^xterm" (getenv "TERM"))
-        (xterm-title-mode 1)))))
+    (if (and (not window-system)
+             (string-match "^xterm" (getenv "TERM")))
+        (use-package xterm-frobs
+          :init
+          (progn
+            (defun my-xterm-title-hook ()
+              (xterm-set-window-title (buffer-name)))
+            (add-hook 'post-command-hook  'my-xterm-title-hook))))))
 
 ;; Compile .emacs on save
 (add-hook 'after-save-hook

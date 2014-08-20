@@ -63,5 +63,5 @@
 (depends-on "window-jump")
 (depends-on "wolfram-mode")
 (depends-on "xahk-mode")
-(depends-on "xterm-title")
+(depends-on "xterm-frobs")
 (depends-on "yaml-mode")
