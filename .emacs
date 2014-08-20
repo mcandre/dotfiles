@@ -141,13 +141,12 @@
                       (interactive)
                       (scroll-up 1)))
 
-    ;; ;; Wait for https://github.com/milkypostman/melpa/pull/1950
-    ;; (use-package xterm-frobs
-    ;;   :commands xterm-title-mode
-    ;;   :init
-    ;;   (when (string-match "^xterm" (getenv "TERM"))
-    ;;     (xterm-title-mode 1)))
-))
+    ;; Show buffer name in terminal title in ncurses mode
+    (use-package xterm-title
+      :commands xterm-title-mode
+      :init
+      (when (string-match "^xterm" (getenv "TERM"))
+        (xterm-title-mode 1)))))
 
 ;; Compile .emacs on save
 (add-hook 'after-save-hook
