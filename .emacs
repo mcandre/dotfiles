@@ -147,17 +147,17 @@
         (use-package xterm-frobs
           :init
           (progn
+            ;; Work around broken xterm-title in Mac OS X
+            (declare-function xterm-title-mode "xterm-title" nil)
             (pcase system-type
-              ;; Work around broken xterm-title in Mac OS X
               (`darwin (progn
                          (defun my-xterm-title-hook ()
                          (xterm-set-window-title (buffer-name)))
                          (add-hook 'post-command-hook  'my-xterm-title-hook)))
               (`gnu/linux (progn
                             (use-package xterm-title
-                              :commands xterm-title-mode
-                              :init
-                              (xterm-title-mode 1))))))))))
+                              :config
+                              (xterm-title-mode))))))))))
 
 ;; Compile .emacs on save
 (add-hook 'after-save-hook
