@@ -152,3 +152,5 @@ export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 PATH="$PATH:$HOME/Desktop/src/ccap3-apenneb"
 
 export PATH="$PATH:$HOME/LuaDist/bin"
+
+export GUARD_NOTIFY=false
