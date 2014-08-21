@@ -64,4 +64,5 @@
 (depends-on "wolfram-mode")
 (depends-on "xahk-mode")
 (depends-on "xterm-frobs")
+(depends-on "xterm-title")
 (depends-on "yaml-mode")
