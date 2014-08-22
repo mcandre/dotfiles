@@ -143,6 +143,7 @@
 
     ;; Show buffer name in terminal title in ncurses mode
     (if (and (not window-system)
+             (not noninteractive)
              (string-match "^xterm" (getenv "TERM")))
         (use-package xterm-frobs
           :init
