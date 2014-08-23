@@ -598,20 +598,20 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                              (inferior-haskell-load-file nil)
                              (inferior-haskell-type (haskell-ident-at-point))))))
 
-(use-package erlang
-  :mode
-  ("\\(\\.hrl|\\.yrl|\\.app|\\.appSrc|\\.app.src|\\.rel|rebar.config\\)$" .
-   erlang-mode)
-  :init
-  (progn
-    (add-hook 'erlang-mode-hook
-              (lambda ()
-                (defvar erlang-indent-level)
-                (defvar erlang-electric-commands)
-                ;; Erlang indentation
-                ;; Disable autocomplete
-                (setq erlang-indent-level tab-width
-                      erlang-electric-commands '())))))
+;; (use-package erlang
+;;   :mode
+;;   ("\\(\\.hrl|\\.yrl|\\.app|\\.appSrc|\\.app.src|\\.rel|rebar.config\\)$" .
+;;    erlang-mode)
+;;   :init
+;;   (progn
+;;     (add-hook 'erlang-mode-hook
+;;               (lambda ()
+;;                 (defvar erlang-indent-level)
+;;                 (defvar erlang-electric-commands)
+;;                 ;; Erlang indentation
+;;                 ;; Disable autocomplete
+;;                 (setq erlang-indent-level tab-width
+;;                       erlang-electric-commands '())))))
 
 ;; More YAML files
 (use-package yaml-mode
@@ -722,28 +722,28 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 
 (global-unset-key (kbd "M-/"))
 
-;;
-;; Autocomplete and type checking for Scala code
-;;
-;; * M-/ will show documentation, including type information, for the expression the cursor is on.
-;; * Type errors will be underlined.
-;;
-;; Ensime requires a number of manual setup steps:
-;;
-;; 1. Install the ensime SBT plugin: Add `addSbtPlugin("org.ensime" % "ensime-sbt-cmd" % "0.1.4")` to `Build.scala`
-;; 2. Generate a .ensime project file: Run sbt 'ensime generate -s'
-;; 3. Start an ensime server: M-x ensime
-;; 4. Confirm the project root directory and specific sub-project in question.
-;; 5. Wait for the analyzer to finish.
-;;
-(use-package ensime
-  :commands ensime-scala-mode-hook
-  :init
-  (progn
-    (add-hook 'scala-mode-hook
-              (lambda ()
-                (ensime-scala-mode-hook)
-                (local-set-key (kbd "M-/") 'ensime-inspect-type-at-point)))))
+;; ;;
+;; ;; Autocomplete and type checking for Scala code
+;; ;;
+;; ;; * M-/ will show documentation, including type information, for the expression the cursor is on.
+;; ;; * Type errors will be underlined.
+;; ;;
+;; ;; Ensime requires a number of manual setup steps:
+;; ;;
+;; ;; 1. Install the ensime SBT plugin: Add `addSbtPlugin("org.ensime" % "ensime-sbt-cmd" % "0.1.4")` to `Build.scala`
+;; ;; 2. Generate a .ensime project file: Run sbt 'ensime generate -s'
+;; ;; 3. Start an ensime server: M-x ensime
+;; ;; 4. Confirm the project root directory and specific sub-project in question.
+;; ;; 5. Wait for the analyzer to finish.
+;; ;;
+;; (use-package ensime
+;;   :commands ensime-scala-mode-hook
+;;   :init
+;;   (progn
+;;     (add-hook 'scala-mode-hook
+;;               (lambda ()
+;;                 (ensime-scala-mode-hook)
+;;                 (local-set-key (kbd "M-/") 'ensime-inspect-type-at-point)))))
 
 (use-package rainbow-mode
   :diminish rainbow-mode
