@@ -1,8 +1,8 @@
 guard :shell do
-  watch %r{^pom\.xml|src/(main|test)/java/.+\.java$} do |m|
+  watch %r{^pom\.xml|src/(main|test)/java/.+\.java$} do ||
     title = 'Coverage'
     eager 'mvn cobertura:cobertura'
-    status = ($?.success? && :success) || :failed
+    status = ($CHILD_STATUS.success? && :success) || :failed
     n '', title, status
     ''
   end

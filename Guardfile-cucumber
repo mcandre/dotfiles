@@ -1,8 +1,8 @@
 guard :shell do
-  watch(/^.*\.(rb|feature|java|xml|thrift)$/) do |m|
+  watch(/^.*\.(rb|feature|java|xml|thrift)$/) do ||
     title = 'Cucumber'
     eager 'cucumber 2>&1'
-    status = ($?.success? && :success) || :failed
+    status = ($CHILD_STATUS.success? && :success) || :failed
     n '', title, status
     ''
   end

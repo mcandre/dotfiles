@@ -1,8 +1,8 @@
 guard :shell do
-  watch(/^pom\.xml$/) do |m|
+  watch(/^pom\.xml$/) do ||
     title = 'Test'
     eager 'mvn clean && mvn test'
-    status = ($?.success? && :success) || :failed
+    status = ($CHILD_STATUS.success? && :success) || :failed
     n '', title, status
     ''
   end
@@ -10,7 +10,7 @@ guard :shell do
   watch(%r{^src/main/java/.+\.java$}) do |m|
     title = 'Test'
     eager 'mvn test-compile -q && mvn -Dtest=\`basename #{m[0]} .java\`Test test'
-    status = ($?.success? && :success) || :failed
+    status = ($CHILD_STATUS.success? && :success) || :failed
     n '', title, status
     ''
   end
@@ -18,7 +18,7 @@ guard :shell do
   watch(%r{^src/test/java/.+\.java$}) do |m|
     title = 'Test'
     eager 'mvn test-compile -q && mvn -Dtest=\`basename #{m[0]} .java\` test'
-    status = ($?.success? && :success) || :failed
+    status = ($CHILD_STATUS.success? && :success) || :failed
     n '', title, status
     ''
   end
@@ -26,7 +26,7 @@ guard :shell do
   watch(%r{^src/main/thrift/.+\.thrift$}) do |m|
     title = 'Test'
     eager 'mvn generate-sources && mvn test-compile -q && mvn -Dtest=\`basename #{m[0]} .thrift\`Test test'
-    status = ($?.success? && :success) || :failed
+    status = ($CHILD_STATUS.success? && :success) || :failed
     n '', title, status
     ''
   end
