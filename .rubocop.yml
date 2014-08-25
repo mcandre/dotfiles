@@ -8,3 +8,6 @@ SpecialGlobalVars:
   Enabled: false
 NumericLiterals:
   Enabled: false
+Style/FileName:
+  Exclude:
+    - 'Guardfile*'
