@@ -9,7 +9,7 @@ guard :shell do
 
   watch(%r{^src/main/java/.+\.java$}) do |m|
     title = 'Test'
-    eager 'mvn test-compile -q && mvn -Dtest=\`basename #{m[0]} .java\`Test test'
+    eager "mvn test-compile -q && mvn -Dtest=\`basename #{m[0]} .java\`Test test"
     status = ($CHILD_STATUS.success? && :success) || :failed
     n '', title, status
     ''
@@ -17,7 +17,7 @@ guard :shell do
 
   watch(%r{^src/test/java/.+\.java$}) do |m|
     title = 'Test'
-    eager 'mvn test-compile -q && mvn -Dtest=\`basename #{m[0]} .java\` test'
+    eager "mvn test-compile -q && mvn -Dtest=\`basename #{m[0]} .java\` test"
     status = ($CHILD_STATUS.success? && :success) || :failed
     n '', title, status
     ''
@@ -25,7 +25,7 @@ guard :shell do
 
   watch(%r{^src/main/thrift/.+\.thrift$}) do |m|
     title = 'Test'
-    eager 'mvn generate-sources && mvn test-compile -q && mvn -Dtest=\`basename #{m[0]} .thrift\`Test test'
+    eager "mvn generate-sources && mvn test-compile -q && mvn -Dtest=\`basename #{m[0]} .thrift\`Test test"
     status = ($CHILD_STATUS.success? && :success) || :failed
     n '', title, status
     ''
