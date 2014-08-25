@@ -2,7 +2,12 @@ task :default => :lint
 
 task :ruby => [] do
   begin
-    sh 'for f in **/*.rb; do ruby -wc $f 2>&1 | grep -v "Syntax OK" | grep -v openssl | grep -v rubygems; done'
+    sh 'find . -name \'*.rb\' -exec \
+ruby -wc {} 2>&1 \; | \
+grep -v "Syntax OK" | \
+grep -v openssl | \
+grep -v rubygems; \
+done'
   rescue
   end
 end
@@ -39,5 +44,20 @@ task :cowl => [] do
   sh 'cowl .'
 end
 
-task :lint => [:ruby, :reek, :flay, :roodi, :cane, :excellent, :rubocop, :tailor, :cowl] do
+task :gtdlint => [] do
+  sh 'gtdlint .'
+end
+
+task :lint => [
+  :ruby,
+  :reek,
+  :flay,
+  :roodi,
+  :cane,
+  :excellent,
+  :rubocop,
+  :tailor,
+  :cowl,
+  :gtdlint
+] do
 end

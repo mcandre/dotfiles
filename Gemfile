@@ -18,4 +18,5 @@ group :development do
   gem 'rspec', '~> 3.0'
   gem 'cucumber', '~> 1.3'
   gem 'cowl', '~> 0.2'
+  gem 'gtdlint', '~> 0.1'
 end
