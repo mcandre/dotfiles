@@ -206,7 +206,10 @@
           ;; Make inappropriate indentations more visible
           ;; in a dark theme like Monokai
           whitespace-indentation 'whitespace-trailing)
-    (global-whitespace-mode)))
+    (global-whitespace-mode)
+    ;; Toggle whitespace-mode back to disabled for dired-mode
+    (add-hook dired-mode-hook (lambda ()
+                                (whitespace-mode)))))
 
 ;; Lua indentation
 (add-hook 'lua-mode-hook
