@@ -207,9 +207,7 @@
           ;; in a dark theme like Monokai
           whitespace-indentation 'whitespace-trailing)
     (global-whitespace-mode)
-    ;; Toggle whitespace-mode back to disabled for dired-mode
-    (add-hook dired-mode-hook (lambda ()
-                                (whitespace-mode)))))
+    (add-hook 'dired-mode-hook '(whitespace-mode -1))))
 
 ;; Lua indentation
 (add-hook 'lua-mode-hook
