@@ -276,6 +276,9 @@
   (untabify (point-min) (point-max))
   (indent-region (point-min) (point-max)))
 
+(defun i-said-hard-tabs ()
+  (tabify (point-min) (point-max)))
+
 ;; Find and Replace
 (use-package findr
   :commands findr-query-replace)
