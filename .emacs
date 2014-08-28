@@ -206,8 +206,8 @@
           ;; Make inappropriate indentations more visible
           ;; in a dark theme like Monokai
           whitespace-indentation 'whitespace-trailing)
-    (global-whitespace-mode)
-    (add-hook 'dired-mode-hook '(whitespace-mode -1))))
+    (add-hook 'prog-mode-hook 'whitespace-mode)
+    (add-hook 'conf-mode-hook 'whitespace-mode)))
 
 ;; Lua indentation
 (add-hook 'lua-mode-hook
