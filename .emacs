@@ -40,6 +40,9 @@
  ;; Show buffer name in title bar
  frame-title-format '("%b")
 
+ ;; Case-insensitive buffer name tab autocompletion
+ read-buffer-completion-ignore-case t
+
  ;; Default to Unix LF line endings
  buffer-file-coding-system 'utf-8-unix
  ;; Soft tabs
