@@ -37,6 +37,9 @@
  ;; Smoother mouse scrolling
  mouse-wheel-scroll-amount '(0.01)
 
+ ;; Less jumpy arrow key scrolling
+ scroll-conservatively 1
+
  ;; Show buffer name in title bar
  frame-title-format '("%b")
 
