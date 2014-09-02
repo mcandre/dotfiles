@@ -12,5 +12,7 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # OCaml show error traces
 export OCAMLRUNPARAM="b"
 
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
 # OPAM
 . /Users/andrew/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
