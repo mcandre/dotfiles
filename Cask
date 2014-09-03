@@ -59,7 +59,7 @@
 (depends-on "tuareg")
 (depends-on "undo-tree")
 (depends-on "use-package")
-;; (depends-on "vala-mode")
+(depends-on "vala-mode")
 (depends-on "vimrc-mode")
 (depends-on "window-jump")
 ;; (depends-on "wolfram-mode")

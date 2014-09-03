@@ -575,6 +575,9 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 (use-package wolfram-mode
   :mode ("\\.ma$" . wolfram-mode))
 
+(use-package vala-mode
+  :mode ("\\.vala$" . vala-mode))
+
 ;; R
 (autoload 'R-mode "ess-site.el" "" t)
 (add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
