@@ -368,12 +368,17 @@
     ;; Prevent accidental suspension on CUA undo
     (global-unset-key (kbd "C-x C-z"))))
 
-;; If mark exists, indent rigidly.
-;; Otherwise, insert a hard or soft tab indentation.
+;; If mark exists, indent rigidly
 (defun traditional-indent ()
   (interactive)
-  (if mark-active
+  (when mark-active
     (indent-rigidly (region-beginning) (region-end) tab-width)))
+
+;; If mark exists, outdent rigidly
+(defun traditional-outdent ()
+  (interactive)
+  (when mark-active
+    (indent-rigidly (region-beginning) (region-end) (* tab-width -1))))
 
 (use-package markdown-mode
   :mode "\\.md$"
@@ -388,7 +393,7 @@
               (lambda ()
                 (setq indent-tabs-mode nil
                       tab-width 4)
-                (define-key markdown-mode-map (kbd "<tab>") 'traditional-indent)
+                (define-key markdown-mode-map (kbd "TAB") 'traditional-indent)
                 (define-key markdown-mode-map (kbd "<backtab>") 'traditional-outdent)))))
 
 ;; M-; toggles commenting for marked region or current line.
