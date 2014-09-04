@@ -7,6 +7,9 @@
 (delete-selection-mode 1)
 
 (setq
+ ;; Ensure final end of line
+ require-final-newline t
+
  ;; Always display error backtraces
  debug-on-error t
 
@@ -215,6 +218,10 @@
     (add-hook 'prog-mode-hook 'whitespace-mode)
     (add-hook 'conf-mode-hook 'whitespace-mode)))
 
+;; JSON indentation
+(add-hook 'json-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)))
 ;; Lua indentation
 (add-hook 'lua-mode-hook
           (lambda ()
