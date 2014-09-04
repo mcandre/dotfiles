@@ -1,7 +1,9 @@
-exclude: '*.css'
+exclude: 'node_modules/*'
 
 linters:
   EmptyLineBetweenBlocks:
     enabled: false
   Indentation:
+    enabled: false
+  SingleLinePerSelector:
     enabled: false
