@@ -1,0 +1,7 @@
+exclude: '*.css'
+
+linters:
+  EmptyLineBetweenBlocks:
+    enabled: false
+  Indentation:
+    enabled: false
