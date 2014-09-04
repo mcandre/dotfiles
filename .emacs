@@ -57,9 +57,7 @@
  sws-tab-width 2
  ;; And shell
  sh-basic-offset 2
- sh-indentation 2
- ;; And JavaScript
- js-indent-level 2)
+ sh-indentation 2)
 
 ;; I say, soft tabs, width 2 spaces!
 (setq-default indent-tabs-mode nil
@@ -218,6 +216,12 @@
     (add-hook 'prog-mode-hook 'whitespace-mode)
     (add-hook 'conf-mode-hook 'whitespace-mode)))
 
+;; JavaScript indentation
+(add-hook 'js-mode-hook
+          (lambda ()
+            (setq
+             js-indent-level 2
+             indent-tabs-mode nil)))
 ;; JSON indentation
 (add-hook 'json-mode-hook
           (lambda ()
