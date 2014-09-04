@@ -9,3 +9,5 @@ linters:
     enabled: false
   SingleLinePerSelector:
     enabled: false
+  Comment:
+    enabled: false
