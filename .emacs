@@ -202,7 +202,8 @@
 
 (use-package whitespace
   :diminish global-whitespace-mode
-  :idle
+  ;; work around https://github.com/jwiegley/use-package/issues/122
+  :init
   (progn
     (setq whitespace-style '(face
                              trailing
