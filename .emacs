@@ -769,14 +769,14 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 
 (use-package whitespace
   :diminish whitespace-mode
-  ;; work around https://github.com/jwiegley/use-package/issues/122
-  :config
+  :idle
   (progn
     (setq whitespace-style '(face
                              trailing
                              space-before-tab
                              space-after-tab
-                             indentation
+                             ;; work around https://github.com/jwiegley/use-package/issues/122
+                             ;; indentation
                              empty)
           ;; Make inappropriate indentations more visible
           ;; in a dark theme like Monokai
