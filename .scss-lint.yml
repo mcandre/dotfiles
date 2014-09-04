@@ -11,3 +11,5 @@ linters:
     enabled: false
   Comment:
     enabled: false
+  LeadingZero:
+    enabled: false
