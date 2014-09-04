@@ -196,27 +196,6 @@
   (setq uniquify-buffer-name-style 'post-forward
         uniquify-min-dir-content 7))
 
-;;
-;; Highlight strange characters
-;;
-
-(use-package whitespace
-  :diminish global-whitespace-mode
-  ;; work around https://github.com/jwiegley/use-package/issues/122
-  :init
-  (progn
-    (setq whitespace-style '(face
-                             trailing
-                             space-before-tab
-                             space-after-tab
-                             indentation
-                             empty)
-          ;; Make inappropriate indentations more visible
-          ;; in a dark theme like Monokai
-          whitespace-indentation 'whitespace-trailing)
-    (add-hook 'prog-mode-hook 'whitespace-mode)
-    (add-hook 'conf-mode-hook 'whitespace-mode)))
-
 ;; JavaScript indentation
 (add-hook 'js-mode-hook
           (lambda ()
@@ -783,3 +762,24 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                   sass-mode-hook
                   less-css-mode-hook))
     (add-hook hook 'rainbow-mode)))
+
+;;
+;; Highlight strange characters
+;;
+
+(use-package whitespace
+  :diminish whitespace-mode
+  ;; work around https://github.com/jwiegley/use-package/issues/122
+  :config
+  (progn
+    (setq whitespace-style '(face
+                             trailing
+                             space-before-tab
+                             space-after-tab
+                             indentation
+                             empty)
+          ;; Make inappropriate indentations more visible
+          ;; in a dark theme like Monokai
+          whitespace-indentation 'whitespace-trailing)
+    (add-hook 'prog-mode-hook 'whitespace-mode)
+    (add-hook 'conf-mode-hook 'whitespace-mode)))
