@@ -768,7 +768,9 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 ;;
 
 (use-package whitespace
-  :diminish whitespace-mode
+  :diminish (global-whitespace-mode
+             whitespace-mode
+             whitespace-newline-mode)
   :idle
   (progn
     (setq whitespace-style '(face
