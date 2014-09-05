@@ -46,6 +46,7 @@
 (depends-on "ntcmd")
 (depends-on "oz")
 (depends-on "php-mode")
+(depends-on "powershell-mode")
 (depends-on "puppet-mode")
 (depends-on "racket-mode")
 (depends-on "rainbow-mode")
