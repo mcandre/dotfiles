@@ -48,6 +48,10 @@ task :gtdlint => [] do
   sh 'gtdlint .'
 end
 
+task :lili => [] do
+  sh 'bundle exec lili .'
+end
+
 task :lint => [
   :ruby,
   :reek,
@@ -58,6 +62,7 @@ task :lint => [
   :rubocop,
   :tailor,
   :cowl,
-  :gtdlint
+  :gtdlint,
+  :lili
 ] do
 end

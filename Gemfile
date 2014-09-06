@@ -19,4 +19,5 @@ group :development do
   gem 'cucumber', '~> 1.3'
   gem 'cowl', '~> 0.2'
   gem 'gtdlint', '~> 0.1'
+  gem 'lili', '~> 0.2'
 end
