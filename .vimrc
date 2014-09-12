@@ -66,6 +66,7 @@ let xml_syntax_folding=1              " XML
 "
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'gmarik/vundle'
@@ -77,6 +78,8 @@ Plugin 'wting/rust.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'mtth/scratch.vim'
+Plugin 'greplace.vim'
+
 call vundle#end()
 
 colorscheme Benokai
