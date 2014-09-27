@@ -148,24 +148,28 @@
                       (interactive)
                       (scroll-up 1)))
 
-    ;; Show buffer name in terminal title in ncurses mode
-    (if (and (not window-system)
-             (not noninteractive)
-             (string-match "^xterm" (getenv "TERM")))
-        (use-package xterm-frobs
-          :init
-          (progn
-            ;; Work around broken xterm-title in Mac OS X
-            (declare-function xterm-title-mode "xterm-title" nil)
-            (pcase system-type
-              (`darwin (progn
-                         (defun my-xterm-title-hook ()
-                         (xterm-set-window-title (buffer-name)))
-                         (add-hook 'post-command-hook  'my-xterm-title-hook)))
-              (`gnu/linux (progn
-                            (use-package xterm-title
-                              :config
-                              (xterm-title-mode))))))))))
+    ;; Work around Ubuntu server 12.04 / SSH bug
+    ;;
+    ;; ;; Show buffer name in terminal title in ncurses mode
+    ;; (if (and (not window-system)
+    ;;          (not noninteractive)
+    ;;          (string-match "^xterm" (getenv "TERM")))
+    ;;     (use-package xterm-frobs
+    ;;       :init
+    ;;       (progn
+    ;;         ;; Work around broken xterm-title in Mac OS X
+    ;;         (declare-function xterm-title-mode "xterm-title" nil)
+    ;;         (pcase system-type
+    ;;           (`darwin (progn
+    ;;                      (defun my-xterm-title-hook ()
+    ;;                      (xterm-set-window-title (buffer-name)))
+    ;;                      (add-hook 'post-command-hook  'my-xterm-title-hook)))
+    ;;           (`gnu/linux (progn
+    ;;                         (use-package xterm-title
+    ;;                           :config
+    ;;                           (xterm-title-mode))))))))
+
+))
 
 ;; Compile .emacs on save
 (add-hook 'after-save-hook
