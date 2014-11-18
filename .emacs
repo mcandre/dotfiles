@@ -33,9 +33,6 @@
  ;; Mac ls does not implement --dired
  dired-use-ls-dired nil
 
- ;; Find files in home directory by default
- default-directory "~/"
-
  ;; Minibuffer line and column
  line-number-mode t
  column-number-mode t
