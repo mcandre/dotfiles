@@ -55,6 +55,7 @@
 (depends-on "scala-mode2")
 (depends-on "sqlup-mode")
 (depends-on "stylus-mode")
+(depends-on "swift-mode")
 (depends-on "tbemail")
 (depends-on "thrift")
 (depends-on "tuareg")
