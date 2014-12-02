@@ -584,6 +584,12 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
             (defvar ess-indent-level)
             (setq ess-indent-level tab-width)))
 
+(add-hook 'swift-mode-hook
+          (lambda ()
+            (setq-local tab-width 2)
+            (defvar swift-indent-offset)
+            (setq-local swift-indent-offset 2)))
+
 ;; More Ruby files
 (dolist (extension
          '("\\.rake$"
