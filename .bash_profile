@@ -36,6 +36,9 @@ PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # Cask
 PATH="$PATH:$HOME/.cask/bin"
 
+# Factor
+PATH="$PATH:/opt/homebrew-cask/Caskroom/factor/0.96/factor"
+
 # Home binaries
 PATH="$PATH:$HOME"
 PATH="$PATH:$HOME/bin"
