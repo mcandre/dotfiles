@@ -640,6 +640,11 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   :init
   (add-to-list 'auto-mode-alist '("\\.reek$" . yaml-mode)))
 
+;; Node shell scripts
+(use-package js2-mode
+  :init
+  (add-to-list 'interpreter-mode-alist '("node" . js2-mode)))
+
 ;; More JSON files
 (use-package json-mode
   :init
