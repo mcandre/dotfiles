@@ -16,5 +16,8 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 
 export CVSROOT=$HOME/cvs
 
+# Docker
+eval $(dvm env)
+
 # # OPAM
 # . /Users/andrew/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
