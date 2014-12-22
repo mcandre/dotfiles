@@ -375,13 +375,13 @@
   (when mark-active
     (indent-rigidly (region-beginning) (region-end) (* tab-width -1))))
 
-(use-package markdown-mode
+(use-package gfm-mode
   :mode "\\.md$"
   :init
   (progn
     ;; Use markdown-mode for *scratch*
     (setq initial-scratch-message nil
-          initial-major-mode 'markdown-mode)
+          initial-major-mode 'gfm-mode)
 
     ;; Block indent for Markdown
     (add-hook 'markdown-mode-hook
@@ -791,6 +791,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
              whitespace-newline-mode)
   :idle
   (progn
+    (defvar whitespace-face)
     (setq whitespace-style '(face
                              trailing
                              space-before-tab
@@ -800,6 +801,6 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                              empty)
           ;; Make inappropriate indentations more visible
           ;; in a dark theme like Monokai
-          whitespace-indentation 'whitespace-trailing)
+          whitespace-face 'whitespace-trailing)
     (add-hook 'prog-mode-hook 'whitespace-mode)
     (add-hook 'conf-mode-hook 'whitespace-mode)))
