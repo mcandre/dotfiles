@@ -21,7 +21,7 @@ download_rate = 0
 upload_rate = 300
 
 # Default directory to save the downloaded torrents.
-directory = ./leeching
+directory = /home/pi/.rtorrent/leeching
 
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a
@@ -41,7 +41,7 @@ schedule = low_diskspace,5,60,close_low_diskspace=2000M
 schedule = session_save,240,300,session_save=
 
 # Enable the default ratio group.
-ratio.enable=
+# ratio.enable=
 # Change the limits, the defaults should be sufficient.
 # Upload to a minimum ratio of 4.0
 ratio.min.set=400
