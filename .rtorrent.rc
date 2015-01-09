@@ -57,7 +57,7 @@ system.method.set = group.seeding.ratio.command, d.close=
 system.method.set_key = event.download.finished,move_complete,"execute=mv,-n,$d.get_base_path=,/home/pi/Downloads/finished/;d.set_directory=/home/pi/Downloads/finished/"
 
 # Port range to use for listening.
-port_range = 33101-33199
+port_range = 51777-51787
 
 # Start opening ports at a random position within the port range.
 port_random = yes
