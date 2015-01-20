@@ -24,6 +24,7 @@ export EDITOR="emacs -nw"
 shopt -s globstar
 
 # git prompt
+# See https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
 . $HOME/git-prompt.sh
 export PS1='\W$(__git_ps1 " (%s)")$ '
 
