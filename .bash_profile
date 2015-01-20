@@ -99,3 +99,5 @@ PATH="$PATH:/Applications/Mozart.app/Contents/Resources/bin"
 export PATH
 
 . $HOME/.bashrc
+
+alias ll='ls -Ahl'
