@@ -71,6 +71,10 @@
 (remove-hook 'comint-output-filter-functions
              'comint-postoutput-scroll-to-bottom)
 
+;; Handle large shell output more quickly
+(add-hook 'comint-output-filter-functions
+                    'comint-truncate-buffer)
+
 ;; Disable paging, esp. for psql
 (setenv "PAGER" (executable-find "cat"))
 
