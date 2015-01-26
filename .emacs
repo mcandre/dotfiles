@@ -655,6 +655,11 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   (add-to-list 'auto-mode-alist '("\\.jshintrc$" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.bowerrc$" . json-mode)))
 
+;; JSP
+(use-package crappy-jsp-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.jsp$" . crappy-jsp-mode)))
+
 ;; Embedded HTML/CSS/JS
 (use-package mmm-mode
   :init
