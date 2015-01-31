@@ -1,8 +1,5 @@
 # ln -s ...path/path/path/.bash_profile ~/.bash_profile
 
-# Pass aliases to sudo commands
-alias sudo='sudo '
-
 # Correct quotes.
 set +H
 
@@ -101,4 +98,11 @@ export PATH
 
 . $HOME/.bashrc
 
+# Pass aliases to sudo commands
+alias sudo='sudo '
+
+# Life's too short
 alias ll='ls -Ahl'
+
+# Hide progress bar
+alias curl='curl -s'
