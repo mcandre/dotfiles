@@ -23,7 +23,20 @@ shopt -s globstar
 # git prompt
 # See https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
 . $HOME/git-prompt.sh
-export PS1='\W$(__git_ps1 " (%s)")$ '
+
+# svn prompt
+# See https://raw.githubusercontent.com/regit/subversion-prompt/master/subversion-prompt
+parse_svn_branch() {
+  parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | egrep -o '(tags|branches)/[^/]+|trunk' | egrep -o '[^/]+$' | awk '{print " ("$1")" }'
+}
+parse_svn_url() {
+  svn info 2>/dev/null | sed -ne 's#^URL: ##p'
+}
+parse_svn_repository_root() {
+  svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
+}
+
+export PS1='\W$(__git_ps1 " (%s)")$(parse_svn_branch)$ '
 
 # Reset path
 PATH="/usr/bin:/bin:/usr/sbin:/sbin"
