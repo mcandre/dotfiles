@@ -79,6 +79,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'mtth/scratch.vim'
 Plugin 'greplace.vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
 
