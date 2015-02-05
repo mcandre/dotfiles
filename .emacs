@@ -186,6 +186,7 @@
 (add-to-list 'auto-mode-alist '("pylintrc" . conf-mode))
 (add-to-list 'auto-mode-alist '("pep8" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.ackrc$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.editorconfig$" . conf-mode))
 (add-to-list 'auto-mode-alist '("Cask$" . lisp-mode))
 
 ;; Fast line numbers
