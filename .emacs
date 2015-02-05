@@ -813,3 +813,5 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
           whitespace-face 'whitespace-trailing)
     (add-hook 'prog-mode-hook 'whitespace-mode)
     (add-hook 'conf-mode-hook 'whitespace-mode)))
+
+(use-package editorconfig)
