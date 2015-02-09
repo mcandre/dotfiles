@@ -2,3 +2,7 @@
 
 # Suppress banners
 LogLevel QUIET
+
+# # Enable X11 forwarding for mouse events
+# Host *
+# ForwardX11 yes
