@@ -111,6 +111,3 @@ alias ll='ls -Ahl'
 
 # Hide progress bar
 alias curl='curl -s'
-
-# Hide SSH banners
-alias ssh='ssh -q'

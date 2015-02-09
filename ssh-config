@@ -1,0 +1,4 @@
+# ln -s .../ssh-config ~/.ssh/config
+
+# Suppress banners
+LogLevel QUIET
