@@ -1,3 +1,0 @@
-# ln -s .../.lftp.rc ~/.lftprc
-
-set cache:enable no
