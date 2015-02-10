@@ -16,7 +16,7 @@ indent_style = space
 indent_size = 2
 indent_brace_style = K&R
 curly_bracket_next_line = false
-continuation_indent_size 2
+continuation_indent_size 4
 
 [*.{make}]
 indent_style = tab
