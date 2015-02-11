@@ -105,7 +105,7 @@ export PATH
 
 # lftp bookmark tab completion
 completelftp () {
-  mapfile -t COMPREPLY < <(echo 'bookmark list; quit' | lftp | awk '{print $1}');
+  mapfile -t COMPREPLY < <(lftp -e 'bookmark list' | awk '{print $1}');
 }
 
 complete -F completelftp lftp
