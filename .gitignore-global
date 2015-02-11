@@ -1,0 +1,6 @@
+# ln -s .../.gitignore-global ~/.gitignore-global
+# git config --global core.excludesfile ~/.gitignore-global
+
+# IntelliJ
+.idea/
+*.iml
