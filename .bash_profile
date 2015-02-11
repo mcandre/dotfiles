@@ -103,6 +103,13 @@ export PATH
 
 . $HOME/.bashrc
 
+# lftp bookmark tab completion
+completelftp () {
+  mapfile -t COMPREPLY < <(echo 'bookmark list; quit' | lftp | awk '{print $1}');
+}
+
+complete -F completelftp lftp
+
 # Pass aliases to sudo commands
 alias sudo='sudo '
 
