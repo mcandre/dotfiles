@@ -41,6 +41,7 @@ autocmd FileType make set ts=2
 " And Markdown
 autocmd FileType mkd set sw=4
 autocmd FileType mkd set sts=4
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " Default to Unix LF line endings
 set ffs=unix
