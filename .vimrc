@@ -35,6 +35,9 @@ set number
 " Case-insensitive search
 set ignorecase
 
+" Highlight search matches
+set hlsearch
+
 " Default to soft tabs, 2 spaces
 set expandtab
 set sw=2
