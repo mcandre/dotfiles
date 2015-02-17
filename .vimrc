@@ -123,10 +123,16 @@ colorscheme Benokai
 highlight OverLength ctermbg=red ctermfg=white guibg=#660000
 match OverLength /\%81v.\+/
 
+" " Alt+; to toggle comments
+" nnoremap <silent> <Alt-;> gc
+
 " Scratch splits the current window in half
 let g:scratch_height = 0.50
 " Scratch opens in Markdown format
 let g:scratch_filetype = 'markdown'
 
-" Conque: Allow C-w window navigation while in insert mode
+" Conque Allow C-w window navigation while in insert mode
 let g:ConqueTerm_CWInsert = 1
+
+" " Replace shell with Conque-Shell
+" cabbrev sh sh<C-\>esubstitute(getcmdline(), '^sh', 'ConqueTerm bash', '')<cr>
