@@ -33,10 +33,21 @@ nnoremap <silent> <C-e> $
 vnoremap <silent> <C-a> ^
 vnoremap <silent> <C-e> $
 
-" Broken due to Vim/Alt issues
-" " Emacs-style start of file / end of file navigation
-" nnoremap <silent> <M-lt> gg
-" nnoremap <silent> <M-gt> G$
+" Fix Alt key in MacVIM GUI
+" TODO - Fix in MacVIM terminal
+if has("unix")
+  let s:uname = system("uname")
+
+  if s:uname == "Darwin\n"
+    set macmeta
+  endif
+endif
+
+" Emacs-style start of file / end of file navigation
+nnoremap <silent> <M-<> gg
+nnoremap <silent> <M->> G$
+vnoremap <silent> <M-<> gg
+vnoremap <silent> <M->> G$
 
 " Do not attempt to fix style on paste
 " Normally we would just `set paste`, but this interferes with other aliases.
@@ -57,7 +68,7 @@ set hlsearch
 set expandtab
 set sw=2
 set sts=2
-" Except for Makefiles; hard tabs of width 2
+" Except for Makefiles: Hard tabs of width 2
 autocmd FileType make set ts=2
 " And Markdown
 autocmd FileType mkd set sw=4
@@ -139,9 +150,10 @@ colorscheme Benokai
 highlight OverLength ctermbg=red ctermfg=white guibg=#660000
 match OverLength /\%81v.\+/
 
-" Broken due to Vim/Alt issues
-" " Alt+; to toggle comments
-" nnoremap <silent> <Alt-;> gc
+" Currently broken due to Vim/Semicolon issues
+" Alt+; to toggle comments
+nnoremap <silent> <M-;> gc
+vnoremap <silent> <M-;> gc
 
 " Scratch splits the current window in half
 let g:scratch_height = 0.50
