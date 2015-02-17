@@ -31,6 +31,8 @@ set paste
 
 " Show line numbers
 set number
+" Show column numbers
+set ruler
 
 " Case-insensitive search
 set ignorecase
