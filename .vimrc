@@ -81,6 +81,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'mtth/scratch.vim'
 Plugin 'greplace.vim'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'mcandre/Conque-Shell'
 
 call vundle#end()
 
@@ -94,3 +95,6 @@ match OverLength /\%81v.\+/
 let g:scratch_height = 0.50
 " Scratch opens in Markdown format
 let g:scratch_filetype = 'markdown'
+
+" Conque: Allow C-w window navigation while in insert mode
+let g:ConqueTerm_CWInsert = 1
