@@ -27,8 +27,9 @@ set wildmenu
 " No swap files, use version control instead
 set noswapfile
 
-" Fix bad autoindent of pasted text
-set paste
+" Interferes with aliases for some reason
+" " Fix bad autoindent of pasted text
+" set paste
 
 " Show line numbers
 set number
@@ -136,6 +137,5 @@ let g:scratch_filetype = 'markdown'
 let g:ConqueTerm_CWInsert = 1
 
 " Replace shell with Conque-Shell
-" Currently broken for some ungodly reason
 set nocp
 cabbrev sh sh<C-\>esubstitute(getcmdline(), '^sh', 'ConqueTerm bash', '')<cr> 
