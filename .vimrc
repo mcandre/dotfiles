@@ -1,5 +1,6 @@
 " Store as ~/.vimrc (Unix) or ~/_vimrc (Windows)
 
+" Enable syntax highlighting
 syntax on
 
 " Indentation
@@ -37,7 +38,7 @@ set ruler
 " Case-insensitive search
 set ignorecase
 
-" Highlight search matches
+" Highlight search results
 set hlsearch
 
 " Default to soft tabs, 2 spaces
@@ -135,4 +136,6 @@ let g:scratch_filetype = 'markdown'
 let g:ConqueTerm_CWInsert = 1
 
 " Replace shell with Conque-Shell
-" cabbrev sh ConqueTerm bash
+" Currently broken for some ungodly reason
+set nocp
+cabbrev sh sh<C-\>esubstitute(getcmdline(), '^sh', 'ConqueTerm bash', '')<cr> 
