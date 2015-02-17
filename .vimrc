@@ -27,9 +27,9 @@ set wildmenu
 " No swap files, use version control instead
 set noswapfile
 
-" Interferes with aliases for some reason
-" " Fix bad autoindent of pasted text
-" set paste
+" Do not attempt to fix style on paste
+" Normally we would just `set paste`, but this interferes with other aliases.
+nnoremap <silent> p "+p
 
 " Show line numbers
 set number
