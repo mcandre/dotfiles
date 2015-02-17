@@ -30,7 +30,7 @@ shopt -s globstar
 
 export PS1='\W$(__git_ps1 " (%s)")$(parse_svn_branch)$ '
 
-# git completion
+# git tab completion
 # See https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 source $HOME/.git-completion.sh
 
