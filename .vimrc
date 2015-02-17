@@ -134,5 +134,5 @@ let g:scratch_filetype = 'markdown'
 " Conque Allow C-w window navigation while in insert mode
 let g:ConqueTerm_CWInsert = 1
 
-" " Replace shell with Conque-Shell
-" cabbrev sh sh<C-\>esubstitute(getcmdline(), '^sh', 'ConqueTerm bash', '')<cr>
+" Replace shell with Conque-Shell
+" cabbrev sh ConqueTerm bash
