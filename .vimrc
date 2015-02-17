@@ -52,6 +52,8 @@ autocmd FileType make set ts=2
 autocmd FileType mkd set sw=4
 autocmd FileType mkd set sts=4
 au BufRead,BufNewFile *.md set filetype=markdown
+" And Java
+autocmd FileType java set sw=2
 
 " Default to Unix LF line endings
 set ffs=unix
