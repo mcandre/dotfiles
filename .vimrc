@@ -27,6 +27,16 @@ set wildmenu
 " No swap files, use version control instead
 set noswapfile
 
+" Emacs-style start of line / end of line navigation
+nnoremap <silent> <C-a> ^
+nnoremap <silent> <C-e> $
+" TODO - Map C-a/Ce to ^/$ in visual mode as well as command mode
+
+" Broken due to Vim/Alt issues
+" " Emacs-style start of file / end of file navigation
+" nnoremap <silent> <M-lt> gg
+" nnoremap <silent> <M-gt> G$
+
 " Do not attempt to fix style on paste
 " Normally we would just `set paste`, but this interferes with other aliases.
 nnoremap <silent> p "+p
@@ -107,6 +117,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'gmarik/vundle'
+Plugin 'bruno-/vim-alt-mappings'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'benjaminwhite/Benokai'
@@ -127,6 +138,7 @@ colorscheme Benokai
 highlight OverLength ctermbg=red ctermfg=white guibg=#660000
 match OverLength /\%81v.\+/
 
+" Broken due to Vim/Alt issues
 " " Alt+; to toggle comments
 " nnoremap <silent> <Alt-;> gc
 
