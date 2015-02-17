@@ -30,7 +30,8 @@ set noswapfile
 " Emacs-style start of line / end of line navigation
 nnoremap <silent> <C-a> ^
 nnoremap <silent> <C-e> $
-" TODO - Map C-a/Ce to ^/$ in visual mode as well as command mode
+vnoremap <silent> <C-a> ^
+vnoremap <silent> <C-e> $
 
 " Broken due to Vim/Alt issues
 " " Emacs-style start of file / end of file navigation
