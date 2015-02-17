@@ -1,3 +1,6 @@
+(add-to-list 'load-path "~/Desktop/src/benchmark-init-el/")
+(require 'benchmark-init)
+
 ;; ln -s .../.emacs ~/.emacs
 
 ;; Highlight matching parentheses
