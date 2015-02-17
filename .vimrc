@@ -104,7 +104,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'gmarik/vundle'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'tomtom/tcomment_vim'
 Plugin 'benjaminwhite/Benokai'
 Plugin 'fsouza/go.vim'
 Plugin 'wting/rust.vim'
