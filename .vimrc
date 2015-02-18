@@ -1,5 +1,8 @@
 " Store as ~/.vimrc (Unix) or ~/_vimrc (Windows)
 
+" Fix Delete (backspace) on Mac OS X
+set backspace=2
+
 " Enable syntax highlighting
 syntax on
 
