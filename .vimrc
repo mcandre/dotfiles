@@ -32,6 +32,8 @@ nnoremap <silent> <C-a> ^
 nnoremap <silent> <C-e> $
 vnoremap <silent> <C-a> ^
 vnoremap <silent> <C-e> $
+inoremap <silent> <C-a> <esc>^i
+inoremap <silent> <C-e> <esc>$i
 
 " Fix Alt key in MacVIM GUI
 " TODO - Fix in MacVIM terminal
@@ -44,6 +46,8 @@ nnoremap <silent> <M-<> gg
 nnoremap <silent> <M->> G$
 vnoremap <silent> <M-<> gg
 vnoremap <silent> <M->> G$
+inoremap <silent> <M-<> <esc>ggi
+inoremap <silent> <M->> <esc>G$i
 
 " Do not attempt to fix style on paste
 " Normally we would just `set paste`, but this interferes with other aliases.
@@ -146,10 +150,11 @@ colorscheme Benokai
 highlight OverLength ctermbg=red ctermfg=white guibg=#660000
 match OverLength /\%81v.\+/
 
-" Currently broken due to Vim/Semicolon issues
-" Alt+; to toggle comments
-nnoremap <silent> <M-;> gc
-vnoremap <silent> <M-;> gc
+" " Currently broken due to Vim/Semicolon issues
+" " Alt+; to toggle comments
+" nnoremap <silent> <M-;> gc
+" vnoremap <silent> <M-;> gc
+" inoremap <silent> <M-;> <esc>gci
 
 " Scratch splits the current window in half
 let g:scratch_height = 0.50
