@@ -35,12 +35,8 @@ vnoremap <silent> <C-e> $
 
 " Fix Alt key in MacVIM GUI
 " TODO - Fix in MacVIM terminal
-if has("unix")
-  let s:uname = system("uname")
-
-  if s:uname == "Darwin\n"
-    set macmeta
-  endif
+if has("gui_macvim")
+  set macmeta
 endif
 
 " Emacs-style start of file / end of file navigation
