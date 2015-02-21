@@ -2,7 +2,7 @@
 
 # Node.js
 [[ -s /Users/andrew/.nvm/nvm.sh ]] && . /Users/andrew/.nvm/nvm.sh # This loads NVM
-nvm use 0.10 > /dev/null
+nvm use 0.12 > /dev/null
 
 # Ruby
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
