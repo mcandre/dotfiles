@@ -1,9 +1,9 @@
 # ln -s .../.bashrc ~/.bashrc
 
 # NPM
-[[ -s /Users/andrew/.nvm/nvm.sh ]] && . /Users/andrew/.nvm/nvm.sh
+[[ -s $HOME/.nvm/nvm.sh ]] && source $HOME/.nvm/nvm.sh
 # Node.js
-nvm use 0.12 > /dev/null
+nvm use 0.10 > /dev/null
 # # io.js
 # nvm use iojs > /dev/null
 
