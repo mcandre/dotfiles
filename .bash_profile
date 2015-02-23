@@ -105,11 +105,8 @@ PATH="$PATH:/Applications/Mozart.app/Contents/Resources/bin"
 
 export PATH
 
-# lftp bookmark tab completion
-completelftp () {
-  mapfile -t COMPREPLY < <(lftp -c 'bookmark list' | awk '{print $1}');
-}
-
-complete -F completelftp lftp
+# lftp-completion
+# See https://raw.githubusercontent.com/mcandre/lftp-completion/master/lftp-completion.sh
+. $HOME/lftp-completion.sh
 
 . $HOME/.bashrc
