@@ -1,5 +1,14 @@
 # ln -s .../.bashrc ~/.bashrc
 
+# Pass aliases to sudo commands
+alias sudo='sudo '
+
+# Life's too short
+alias ll='ls -Ahl'
+
+# Hide progress bar
+alias curl='curl -s'
+
 # NPM
 if [[ -s "$HOME/.nvm/nvm.sh" ]]; then
   source "$HOME/.nvm/nvm.sh"

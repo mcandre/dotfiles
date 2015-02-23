@@ -105,8 +105,6 @@ PATH="$PATH:/Applications/Mozart.app/Contents/Resources/bin"
 
 export PATH
 
-. $HOME/.bashrc
-
 # lftp bookmark tab completion
 completelftp () {
   mapfile -t COMPREPLY < <(lftp -c 'bookmark list' | awk '{print $1}');
@@ -114,11 +112,4 @@ completelftp () {
 
 complete -F completelftp lftp
 
-# Pass aliases to sudo commands
-alias sudo='sudo '
-
-# Life's too short
-alias ll='ls -Ahl'
-
-# Hide progress bar
-alias curl='curl -s'
+. $HOME/.bashrc
