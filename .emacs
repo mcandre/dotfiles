@@ -278,6 +278,10 @@
 (add-hook 'makefile-gmake-mode-hook 'hard-tabs)
 (add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
 
+(defun sh ()
+  (interactive)
+  (shell))
+
 (defun i-said-soft-tabs ()
   (untabify (point-min) (point-max))
   (indent-region (point-min) (point-max)))
