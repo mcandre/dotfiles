@@ -1,8 +1,8 @@
 # ln -s .../.bashrc ~/.bashrc
 
 # NPM
-if [[ -s $HOME/.nvm/nvm.sh ]]; then
-  source $HOME/.nvm/nvm.sh
+if [[ -s "$HOME/.nvm/nvm.sh" ]]; then
+  source "$HOME/.nvm/nvm.sh"
 
   # Node.js
   nvm use v0.10 > /dev/null
