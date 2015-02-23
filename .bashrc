@@ -3,7 +3,7 @@
 # NPM
 [[ -s $HOME/.nvm/nvm.sh ]] && source $HOME/.nvm/nvm.sh
 # Node.js
-nvm use 0.10 > /dev/null
+nvm use v0.10 > /dev/null
 # # io.js
 # nvm use iojs > /dev/null
 
