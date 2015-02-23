@@ -9,16 +9,6 @@ alias ll='ls -Ahl'
 # Hide progress bar
 alias curl='curl -s'
 
-# NPM
-if [[ -s "$HOME/.nvm/nvm.sh" ]]; then
-  source "$HOME/.nvm/nvm.sh"
-
-  # Node.js
-  nvm use v0.10 > /dev/null
-  # # io.js
-  # nvm use iojs > /dev/null
-fi
-
 # OCaml show error traces
 export OCAMLRUNPARAM="b"
 
@@ -29,10 +19,9 @@ export CVSROOT=$HOME/cvs
 # # OPAM
 # . /Users/andrew/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-# Ruby
-if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
-  source "$HOME/.rvm/scripts/rvm"
+# NPM
+[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
 
-  rvm use 2.0.0 > /dev/null
-fi
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+export PATH="$PATH:$HOME/.rvm/bin"
