@@ -6,5 +6,6 @@
     "$",
     "describe",
     "it"
-  ]
+  ],
+  "terse": true
 }
