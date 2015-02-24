@@ -1,3 +1,7 @@
 # ln -s .../.lftprc ~/.lftprc
 
+# Keep ls refreshed
 set cache:enable no
+
+# Default local directory to Downloads
+lcd ~/Downloads
