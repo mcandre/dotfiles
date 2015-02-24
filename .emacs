@@ -71,6 +71,23 @@
 (remove-hook 'comint-output-filter-functions
              'comint-postoutput-scroll-to-bottom)
 
+;; Shorter M-x sh command
+(defun sh () (interactive) (shell))
+
+;; Automatically move cursor to prompt on shell up/down
+(add-hook 'shell-mode-hook
+          (lambda ()
+            (define-key comint-mode-map (kbd "M-p")
+              (lambda (arg)
+                (interactive "*p")
+                (end-of-buffer)
+                (comint-previous-input arg)))
+            (define-key comint-mode-map (kbd "M-n")
+              (lambda (arg)
+                (interactive "*p")
+                (end-of-buffer)
+                (comint-next-input arg)))))
+
 ;; Handle large shell output more quickly
 (add-hook 'comint-output-filter-functions
                     'comint-truncate-buffer)
@@ -277,10 +294,6 @@
 (add-hook 'makefile-mode-hook 'hard-tabs)
 (add-hook 'makefile-gmake-mode-hook 'hard-tabs)
 (add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
-
-(defun sh ()
-  (interactive)
-  (shell))
 
 (defun i-said-soft-tabs ()
   (untabify (point-min) (point-max))
