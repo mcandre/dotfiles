@@ -1,0 +1,11 @@
+{
+  "node": true,
+  "browser": true,
+  "vars": true,
+  "white": true,
+  "predef": [
+    "$",
+    "describe",
+    "it"
+  ]
+}
