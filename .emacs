@@ -833,3 +833,6 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
     (add-hook 'conf-mode-hook 'whitespace-mode)))
 
 (use-package editorconfig)
+
+;; Enable erase-buffer function
+(put 'erase-buffer 'disabled nil)
