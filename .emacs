@@ -80,12 +80,12 @@
             (define-key comint-mode-map (kbd "M-p")
               (lambda (arg)
                 (interactive "*p")
-                (end-of-buffer)
+                (goto-char (point-max))
                 (comint-previous-input arg)))
             (define-key comint-mode-map (kbd "M-n")
               (lambda (arg)
                 (interactive "*p")
-                (end-of-buffer)
+                (goto-char (point-max))
                 (comint-next-input arg)))))
 
 ;; Handle large shell output more quickly
