@@ -37,6 +37,7 @@ export CVSROOT=$HOME/cvs
 
 # NPM
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
+nvm use v0.10 > /dev/null
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
