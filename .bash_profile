@@ -20,16 +20,6 @@ export EDITOR="emacs -nw"
 # Fix recursive globs
 shopt -s globstar
 
-# git prompt
-# See https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
-. $HOME/git-prompt.sh
-
-# svn prompt
-# See https://raw.githubusercontent.com/mcandre/svn-prompt/master/svn-prompt.sh
-. $HOME/svn-prompt.sh
-
-export PS1='\W$(__git_ps1 " (%s)")$(parse_svn_branch)$ '
-
 # git tab completion
 # See https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 source $HOME/.git-completion.sh
