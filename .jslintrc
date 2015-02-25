@@ -1,6 +1,7 @@
 {
   "node": true,
   "browser": true,
+  "bitwise": true,
   "plusplus": true,
   "white": true,
   "predef": [
