@@ -8,7 +8,9 @@
   "camelcase": true,
   "globalstrict": true,
   "node": true,
+  "browser": true,
   "globals": {
+    "alert": false,
     "$": false,
     "describe": false,
     "it": false
