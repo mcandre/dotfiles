@@ -1,5 +1,7 @@
 {
   "node": true,
+  "browser": true,
+  "plusplus": true,
   "white": true,
   "predef": [
     "alert",
