@@ -1,6 +1,5 @@
 {
   "node": true,
-  "browser": true,
   "white": true,
   "predef": [
     "$",

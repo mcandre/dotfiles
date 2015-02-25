@@ -5,5 +5,12 @@
   "eqeqeq": true,
   "quotmark": true,
   "curly": true,
-  "camelcase": true
+  "camelcase": true,
+  "globalstrict": true,
+  "node": true,
+  "globals": {
+    "$": false,
+    "describe": false,
+    "it": false
+  }
 }
