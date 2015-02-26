@@ -1,5 +1,13 @@
 {
+  "env": {
+    "node": true,
+    "browser": true,
+    "mocha": true,
+    "jquery": true
+  },
   "rules": {
-    "global-strict": true
+    "global-strict": true,
+    "no-mixed-requires": true,
+    "no-unused-vars": true
   }
 }
