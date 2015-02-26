@@ -41,4 +41,5 @@ nvm use v0.10 > /dev/null
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+rvm use 2.0 > /dev/null
 export PATH="$PATH:$HOME/.rvm/bin"
