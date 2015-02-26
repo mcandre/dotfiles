@@ -2,6 +2,7 @@
   "node": true,
   "browser": true,
   "bitwise": true,
+  "nomen": true,
   "plusplus": true,
   "white": true,
   "predef": [
