@@ -214,6 +214,7 @@
                   (byte-compile-file dotemacs)))))
 
 (add-to-list 'auto-mode-alist '("\\.mf$" . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.gitconfig$" . conf-mode))
 (add-to-list 'auto-mode-alist '("pylintrc" . conf-mode))
 (add-to-list 'auto-mode-alist '("pep8" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.ackrc$" . conf-mode))
