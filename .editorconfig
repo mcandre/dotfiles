@@ -41,6 +41,8 @@ quote_type = single
 # Windows files
 [{*.bat,*reg,*.cs,*.fs,*.ahk}]
 end_of_line = crlf
+max_line_length = 1000
+insert_final_newline = false
 
 # Configuration files
 [{*.xml,*.ahk,.*}]
