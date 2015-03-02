@@ -1,10 +1,14 @@
 [push]
-	default = matching
+default = matching
+
 [branch]
-	autosetuprebase = always
+autosetuprebase = always
+
 [color]
-	status = auto
+status = auto
+
 [merge]
-	ff = true
+ff = true
+
 [pull]
-	rebase = true
+rebase = true
