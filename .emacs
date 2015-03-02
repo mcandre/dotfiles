@@ -128,28 +128,42 @@
             (set-frame-font "Monaco"))
         (error (warn "Monaco font is not installed"))))
 
+  ;;
+  ;; CUA OS copypasta in ncurses mode
+  ;;
   (progn
-    ;; CUA OS copypasta in ncurses mode
+    (defun mac-cut (text &optional push)
+      (let* ((process-connection-type nil)
+             (pbproxy (start-process "pbcopy" "pbcopy" "/usr/bin/pbcopy")))
+        (process-send-string pbproxy text)
+        (process-send-eof pbproxy)))
+
+    (defun mac-paste () (shell-command-to-string "pbpaste"))
+
+    (defun linux-cut-function (text &optional push)
+      (with-temp-buffer
+        (insert text)
+        (call-process-region
+         (point-min)
+         (point-max)
+         "xsel"
+         nil
+         0
+         nil
+         "--clipboard"
+         "--input")))
+
+    (defun linux-paste-function()
+      (let ((xsel-output (shell-command-to-string "xsel --clipboard --output")))
+        (unless (string= (car kill-ring) xsel-output)
+          xsel-output )))
+
     (pcase system-type
-      (`darwin (setq interprogram-cut-function
-                     (lambda (text &optional push)
-                       (let* ((process-connection-type nil)
-                              (pbproxy (start-process "pbcopy" "pbcopy" "/usr/bin/pbcopy")))
-                         (process-send-string pbproxy text)
-                         (process-send-eof pbproxy))))
-               (setq interprogram-paste-function (lambda () (shell-command-to-string "pbpaste"))))
-      (`gnu/linux (progn
-                    (setq x-select-enable-clipboard t)
-                    (defun xsel-cut-function (text &optional push)
-                      (with-temp-buffer
-                        (insert text)
-                        (call-process-region (point-min) (point-max) "xsel" nil 0 nil "--clipboard" "--input")))
-                    (defun xsel-paste-function()
-                      (let ((xsel-output (shell-command-to-string "xsel --clipboard --output")))
-                        (unless (string= (car kill-ring) xsel-output)
-                          xsel-output )))
-                    (setq interprogram-cut-function 'xsel-cut-function)
-                    (setq interprogram-paste-function 'xsel-paste-function))))
+      (`darwin (setq interprogram-cut-function 'mac-cut
+                     interprogram-paste-function 'mac-paste))
+      (`gnu/linux (setq x-select-enable-clipboard t
+                        interprogram-cut-function 'linux-cut-function
+                        interprogram-paste-function 'linux-paste-function)))
 
     ;;
     ;; Enable OS mouse clicking and scrolling
