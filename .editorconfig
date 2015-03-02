@@ -24,7 +24,3 @@ tab_width = 2
 
 [*.js]
 quote_type = single
-
-[*.scpt]
-end_of_line = cr
-insert_final_newline = false

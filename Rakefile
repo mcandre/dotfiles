@@ -52,6 +52,10 @@ task :lili => [] do
   sh 'bundle exec lili .'
 end
 
+task :editorconfig=> [] do
+  sh 'find . -type d -name .git -prune -o -name "*.app*" -prune -o -type f -name "*.scpt" -prune -o -type d -name .xcodeproj -prune -o -type f -name .exe -prune -o -type f -name "*" -exec editorconfig-tools check {} \\;'
+end
+
 task :lint => [
   :ruby,
   :reek,
@@ -63,6 +67,7 @@ task :lint => [
   :tailor,
   :cowl,
   :gtdlint,
-  :lili
+  :lili,
+  :editorconfig
 ] do
 end
