@@ -36,5 +36,5 @@ tab_width = 2
 [*.js]
 quote_type = single
 
-[{*.xml,*.bash*,.profile,.editorconfig,.emacs}]
+[{*.xml,*.bash*,.profile*,.editorconfig,.emacs}]
 max_line_length = 1000
