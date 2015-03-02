@@ -1,8 +1,17 @@
 # ln -s .../.editorconfig ~/.editorconfig
-
+#
 # EditorConfig + Google Style Guide
 # http://editorconfig.org/
 # https://code.google.com/p/google-styleguide/
+#
+# Usage:
+#
+# npm install -g editorconfig-tools
+# find . -type d -name .git -prune -o -name "*.app*" -prune -o -type f -name "*.scpt" -prune -o -type d -name .xcodeproj -prune -o -type f -name .exe -prune -o -type f -name "*" -exec editorconfig-tools check {} \;
+#
+# Or use a plugin:
+#
+# http://editorconfig.org/#download
 
 root = true
 
