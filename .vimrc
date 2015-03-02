@@ -169,4 +169,4 @@ let g:ConqueTerm_CWInsert = 1
 
 " Replace shell with Conque-Shell
 set nocp
-cabbrev sh sh<C-\>esubstitute(getcmdline(), '^sh', 'ConqueTerm bash', '')<cr> 
+cabbrev sh sh<C-\>esubstitute(getcmdline(), '^sh', 'ConqueTerm bash', '')<cr>

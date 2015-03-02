@@ -15,6 +15,7 @@
 
 root = true
 
+# Most files
 [*]
 end_of_line = lf
 insert_final_newline = true
@@ -29,6 +30,7 @@ indent_brace_style = K&R
 curly_bracket_next_line = false
 continuation_indent_size 4
 
+# Makefiles
 [{Makefile,*.mf}]
 indent_style = tab
 tab_width = 2
@@ -36,5 +38,10 @@ tab_width = 2
 [*.js]
 quote_type = single
 
-[{*.xml,*.bash*,.profile*,.editorconfig,.emacs}]
+# Windows files
+[{*.bat,*reg,*.cs,*.fs,*.ahk}]
+end_of_line = crlf
+
+# Configuration files
+[{*.xml,*.ahk,.*}]
 max_line_length = 1000
