@@ -30,7 +30,7 @@
 ;; (depends-on "fuel")
 (depends-on "gitignore-mode")
 ;; (depends-on "go-mode")
-;; (depends-on "groovy-mode")
+(depends-on "groovy-mode")
 (depends-on "haskell-mode")
 (depends-on "hideshowvis")
 (depends-on "io-mode")
