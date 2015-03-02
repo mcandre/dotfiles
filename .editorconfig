@@ -18,9 +18,13 @@ indent_brace_style = K&R
 curly_bracket_next_line = false
 continuation_indent_size 4
 
-[*.{make}]
+[{Makefile,*.mf}]
 indent_style = tab
 tab_width = 2
 
-[*.{js}]
+[*.js]
 quote_type = single
+
+[*.scpt]
+end_of_line = cr
+insert_final_newline = false
