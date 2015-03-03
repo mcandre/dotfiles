@@ -34,7 +34,7 @@ indent_size = 4
 quote_type = single
 
 # Lisp
-[{*.lisp,*.scm,*.lsp,*.clj,*.el}]
+[{*.lisp,*.scm,*.rkt,*.lsp,*.clj,*.el}]
 indent_size = none
 
 # Windows files
