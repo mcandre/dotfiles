@@ -47,6 +47,6 @@ indent_size = none
 [{*.bat,*reg,*.ps1,*.cs,*.fs,*.ahk}]
 end_of_line = crlf
 
-# Configuration files and shell scripts
-[{Makefile*,*.mf,Rakefile*,Gruntfile*,Guardfile*,*.xml,*.ahk,*.epf,.*,*.profile,*.conf,*.cfg,*.plist,*-init,*.bf,*.bs}]
+# Configuration files, shell scripts, and documentation
+[{Makefile*,*.mf,Rakefile*,Gruntfile*,Guardfile*,*.xml,*.ahk,*.epf,.*,*.profile,*.conf,*.cfg,*.plist,*-init,*.bf,*.bs,*.md,*.markdown,*.htm*}]
 max_line_length = 1000
