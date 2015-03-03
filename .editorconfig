@@ -22,9 +22,8 @@ curly_bracket_next_line = false
 continuation_indent_size 4
 
 # Makefiles
-[{Makefile,*.mf}]
+[{Makefile*,*.mf}]
 indent_style = tab
-tab_width = 2
 
 # JavaScript
 [*.js]
