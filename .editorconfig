@@ -40,7 +40,7 @@ tab_width = 2
 quote_type = single
 
 # Lisp
-[{*.lisp,*.lsp,*.clj,*.el}]
+[{*.lisp,*.scm,*.lsp,*.clj,*.el}]
 indent_size = none
 
 # Windows files
@@ -48,5 +48,5 @@ indent_size = none
 end_of_line = crlf
 
 # Configuration files and shell scripts
-[{Makefile*,*.mf,Rakefile*,Gruntfile*,Guardfile*,*.xml,*.ahk,*.epf,.*,*.profile,*.conf,*.cfg,*.plist,*-init}]
+[{Makefile*,*.mf,Rakefile*,Gruntfile*,Guardfile*,*.xml,*.ahk,*.epf,.*,*.profile,*.conf,*.cfg,*.plist,*-init,*.bf,*.bs}]
 max_line_length = 1000
