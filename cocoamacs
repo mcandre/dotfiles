@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-
-nohup open -a Emacs ${1+"$@"} > /dev/null &
-osascript -e 'tell application "System Events" to set frontmost of process "Emacs" to true'
