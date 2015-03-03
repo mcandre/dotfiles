@@ -1,5 +1,9 @@
+[core]
+editor = emacs
+excludesfile = ~/.gitignore-global
+
 [push]
-default = matching
+default = simple
 
 [branch]
 autosetuprebase = always
