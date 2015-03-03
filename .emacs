@@ -627,6 +627,9 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
             (defvar swift-indent-offset)
             (setq-local swift-indent-offset 2)))
 
+;; More JavaScript files
+(add-to-list 'auto-mode-alist '("\\.pjs$" . js-mode))
+
 ;; More Ruby files
 (dolist (extension
          '("\\.rake$"
