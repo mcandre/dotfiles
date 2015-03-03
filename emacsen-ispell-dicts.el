@@ -1,6 +1,7 @@
 ;; ln -s .../emacsen-ispell-dicts.el /var/cache/dictionaries-common/emacsen-ispell-dicts.el
 
-;; Prevent error during Emacs launch by commenting out all dictionary code
+;; Prevent error during Emacs launch
+;; by commenting out all dictionary code
 ;;
 ;; ;;; This file is part of the dictionaries-common package.
 ;; ;;; It has been automatically generated.

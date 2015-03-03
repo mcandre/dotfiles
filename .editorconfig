@@ -21,7 +21,7 @@ end_of_line = lf
 insert_final_newline = true
 charset = utf-8
 trim_trailing_whitespace = true
-max_line_length = 80
+max_line_length = 100
 spaces_around_operators = true
 spaces_around_brackets = false
 indent_style = space
@@ -35,14 +35,18 @@ continuation_indent_size 4
 indent_style = tab
 tab_width = 2
 
+# JavaScript
 [*.js]
 quote_type = single
 
-# Windows files
-[{*.bat,*reg,*.cs,*.fs,*.ahk}]
-end_of_line = crlf
-max_line_length = 1000
+# Lisp
+[{*.lisp,*.lsp,*.clj,*.el}]
+indent_size = none
 
-# Configuration files
-[{*.xml,*.ahk,.*}]
+# Windows files
+[{*.bat,*reg,*.ps1,*.cs,*.fs,*.ahk}]
+end_of_line = crlf
+
+# Configuration files and shell scripts
+[{Makefile*,*.mf,Guardfile*,*.xml,*.ahk,*.epf,.*,*.profile,*.conf,*.cfg}]
 max_line_length = 1000
