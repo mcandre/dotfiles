@@ -8,6 +8,7 @@
   "rules": {
     "global-strict": true,
     "no-mixed-requires": true,
-    "no-unused-vars": true
+    "no-unused-vars": true,
+    "quotes": "single"
   }
 }
