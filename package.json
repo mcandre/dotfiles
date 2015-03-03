@@ -1,10 +1,10 @@
 {
-  "name": "mcandre",
-  "description": "Demo scripts",
+  "name": "dotfiles",
+  "description": "Configuration files",
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mcandre/mcandre.git"
+    "url": "git://github.com/dotfiles/dotfiles.git"
   },
   "author": "Andrew Pennebaker <andrew.pennebaker@gmail.com> (http://www.yellosoft.us/)",
   "directories": {
