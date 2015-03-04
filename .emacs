@@ -356,7 +356,12 @@
               "*.pdf"
               ;; Archives
               "*.gz"
-              "*.zip"))))))
+              "*.zip"))))
+
+    ;; Better TAB handling
+    (define-key *fiplr-keymap* (kbd "TAB")
+      (lambda ()
+        (interactive)))))
 
 ;; C-x <direction> to switch windows
 (use-package window-jump
