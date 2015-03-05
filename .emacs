@@ -237,6 +237,11 @@
   (setq uniquify-buffer-name-style 'post-forward
         uniquify-min-dir-content 7))
 
+;; Don't bind M-: to some stupid newLISP evaluator
+(use-package newlisp-mode
+  :init
+  (define-key newlisp-mode-map (kbd "M-:") nil))
+
 ;; JavaScript indentation
 (add-hook 'js-mode-hook
           (lambda ()
