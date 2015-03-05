@@ -339,7 +339,9 @@
               ;; Bower
               "bower_components"
               ;; Maven
-              "target"))
+              "target"
+              ;; Python
+              "__pycache__"))
             (files
              ;; Emacs
              (".#*"
