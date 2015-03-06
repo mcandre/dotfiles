@@ -16,6 +16,7 @@
 (depends-on "dired+")
 (depends-on "dired-single")
 (depends-on "dired-details")
+(depends-on "dockerfile-mode")
 (depends-on "editorconfig")
 (depends-on "ensime")
 (depends-on "erlang")
