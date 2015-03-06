@@ -45,4 +45,4 @@ rvm use 2.0 > /dev/null
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # boot2docker
-[[ -s /usr/local/bin/boot2docker ]] && boot2docker up 2>/dev/null > /dev/null && boot2docker init 2>/dev/null > /dev/null && eval $(boot2docker shellinit 2>/dev/null)
+[[ -s /usr/local/bin/boot2docker ]] && boot2docker init 2>/dev/null > /dev/null && boot2docker up 2>/dev/null > /dev/null && eval $(boot2docker shellinit 2>/dev/null)
