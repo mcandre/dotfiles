@@ -43,3 +43,6 @@ nvm use v0.10 > /dev/null
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 rvm use 2.0 > /dev/null
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Docker
+[[ -s /usr/local/bin/boot2docker ]] && eval $(boot2docker shellinit 2>/dev/null)
