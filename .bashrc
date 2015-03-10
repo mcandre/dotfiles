@@ -16,6 +16,12 @@ esac
 
 export PS1='\W$(__git_ps1 " (%s)")$(parse_svn_branch)$ '
 
+# gitignore
+# See https://www.gitignore.io/
+function gitignore {
+  curl -L -s https://www.gitignore.io/api/$1
+}
+
 # Pass aliases to sudo commands
 alias sudo='sudo '
 
