@@ -16,6 +16,7 @@
 --align-reference=name
 
 --max-code-length=80
+--break-after-logical
 
 --pad-oper
 --unpad-paren
