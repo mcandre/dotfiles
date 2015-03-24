@@ -12,7 +12,7 @@
 
 --add-brackets 
 
---align-pointer=type
+--align-pointer=name
 --align-reference=name
 
 --max-code-length=80
