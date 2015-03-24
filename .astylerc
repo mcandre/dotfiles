@@ -1,17 +1,24 @@
 # ln -s .../.astylerc $HOME/.astylerc
 
---style=google
-
 --lineend=linux
+
+--style=google
 
 --indent=spaces=2
 
+--attach-namespaces
+--attach-classes
+--attach-inlines
+
 --add-brackets 
 
---align-pointer=middle
+--align-pointer=type
 --align-reference=name
 
 --max-code-length=80
 
 --pad-oper
 --unpad-paren
+
+--break-blocks
+--pad-header
