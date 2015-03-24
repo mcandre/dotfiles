@@ -57,11 +57,17 @@ task :editorconfig=> [] do
 end
 
 task :astyle_apply => [] do
-  sh 'find . -type d -name android -prune -o -type f -name "*.java" -o -name "*.c" -exec astyle {} \\; | grep -v Unchanged'
+  begin
+    sh 'find . -type d -name android -prune -o -type f -name "*.java" -o -name "*.c" -exec astyle {} \\; | grep -v Unchanged'
+  rescue
+  end
 end
 
 task :astyle => [] do
-  sh 'find . -type d -name android -prune -o -type f -name "*.java" -o -name "*.c" -exec astyle --dry-run {} \\; | grep -v Unchanged'
+  begin
+    sh 'find . -type d -name android -prune -o -type f -name "*.java" -o -name "*.c" -exec astyle --dry-run {} \\; | grep -v Unchanged'
+  rescue
+  end
 end
 
 task :clean_astyle => [] do
