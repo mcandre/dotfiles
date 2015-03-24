@@ -1,0 +1,17 @@
+# ln -s .../.astylerc $HOME/.astylerc
+
+--style=google
+
+--lineend=linux
+
+--indent=spaces=2
+
+--add-brackets 
+
+--align-pointer=middle
+--align-reference=name
+
+--max-code-length=80
+
+--pad-oper
+--unpad-paren
