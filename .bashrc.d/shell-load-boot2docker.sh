@@ -1,5 +1,5 @@
 # mkdir -p $HOME/.bashrc.d/
-# ln -s .../boot2dockerrc $HOME/.bashrc.d/boot2dockerrc
+# ln -s .../shell-load-boot2docker.sh $HOME/.bashrc.d/shell-load-boot2docker.sh
 # echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
 
 # boot2docker
