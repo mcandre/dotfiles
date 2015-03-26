@@ -41,8 +41,4 @@ export CVSROOT=$HOME/cvs
 # # OPAM
 # . /Users/andrew/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-# NPM
-[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
-nvm use v0.10 > /dev/null
-
 for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done
