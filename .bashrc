@@ -45,9 +45,4 @@ export CVSROOT=$HOME/cvs
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
 nvm use v0.10 > /dev/null
 
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-rvm use 2.0 > /dev/null
-export PATH="$PATH:$HOME/.rvm/bin"
-
 for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done
