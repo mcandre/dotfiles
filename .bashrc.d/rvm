@@ -1,5 +1,5 @@
 # mkdir -p $HOME/.bashrc.d/
-# ln -s .../shell-load-rvm.sh $HOME/.bashrc.d/shell-load-rvm.sh
+# ln -s .../rvm $HOME/.bashrc.d/rvm
 # echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
 
 # RVM

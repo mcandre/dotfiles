@@ -1,5 +1,5 @@
 # mkdir -p $HOME/.bashrc.d/
-# ln -s .../shell-load-nvm.sh $HOME/.bashrc.d/shell-load-nvm.sh
+# ln -s .../nvm $HOME/.bashrc.d/nvm
 # echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
 
 # NPM
