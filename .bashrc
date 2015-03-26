@@ -50,4 +50,4 @@ nvm use v0.10 > /dev/null
 rvm use 2.0 > /dev/null
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# source ~/boot2dockerrc
+for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done
