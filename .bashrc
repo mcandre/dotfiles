@@ -32,7 +32,7 @@ alias ll='ls -Ahl'
 alias curl='curl -s'
 
 # Show progress bar
-alias rsync='rsync -ru --partial --info=progress2'
+alias rsync='rsync -a --info=progress2'
 
 # OCaml show error traces
 export OCAMLRUNPARAM="b"
