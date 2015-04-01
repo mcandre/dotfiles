@@ -7,6 +7,10 @@
 
 Run:
 
+mvn checkstyle:checkstyle
+
+Or:
+
 checkstyle -c checkstyle.xml -r src/
 
 -->
