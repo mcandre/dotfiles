@@ -248,6 +248,9 @@
             (setq
              js-indent-level 2
              indent-tabs-mode nil)))
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (setq js2-basic-offset 2)))
 ;; JSON indentation
 (add-hook 'json-mode-hook
           (lambda ()
@@ -640,7 +643,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
             (setq-local swift-indent-offset 2)))
 
 ;; More JavaScript files
-(add-to-list 'auto-mode-alist '("\\.pjs$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.pjs$" . js2-mode))
 
 ;; More Ruby files
 (dolist (extension
