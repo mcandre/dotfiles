@@ -31,8 +31,9 @@ alias ll='ls -Ahl'
 # Hide progress bar
 alias curl='curl -s'
 
+# Don't split spaces into multiple filenames
 # Show progress bar
-alias rsync='rsync --info=progress2'
+alias rsync='rsync -s --info=progress2'
 
 # OCaml show error traces
 export OCAMLRUNPARAM="b"
