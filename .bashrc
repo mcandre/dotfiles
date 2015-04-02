@@ -48,4 +48,8 @@ export CVSROOT=$HOME/cvs
 for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done
 
 # Cabal
-export PATH="$PATH:$HOME/.cabal/bin"
+PATH="$PATH:/Library/Haskell/bin"
+PATH="$PATH:$HOME/Library/Haskell/bin"
+PATH="$PATH:$HOME/.cabal/bin"
+
+export PATH

@@ -70,11 +70,6 @@ PATH="$PATH:/Applications/Inkscape.app/Contents/Resources/bin"
 # MacTex LaTeX
 PATH="$PATH:/usr/texbin"
 
-# Cabal
-PATH="$PATH:/Library/Haskell/bin"
-PATH="$PATH:$HOME/Library/Haskell/bin"
-PATH="$PATH:$HOME/.cabal/bin"
-
 #Coq
 PATH="$PATH:/Applications/CoqIdE_8.3pl2.app/Contents/Resources/bin"
 
