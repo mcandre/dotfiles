@@ -46,3 +46,6 @@ export CVSROOT=$HOME/cvs
 # . /Users/andrew/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
 for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done
+
+# Cabal
+export PATH="$PATH:$HOME/.cabal/bin"
