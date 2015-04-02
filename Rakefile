@@ -17,7 +17,7 @@ task :roodi => [] do
 end
 
 task :cane => [] do
-  sh 'bundle exec cane -f *.rb; bundle exec cane **/*.rb'
+  sh 'find . -name "*.rb" -exec bundle exec cane -f {} \\;'
 end
 
 task :excellent => [] do
