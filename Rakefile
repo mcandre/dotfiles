@@ -5,7 +5,7 @@ task :ruby => [] do
 end
 
 task :reek => [] do
-  sh 'bundle exec reek -q .; true'
+  sh 'bundle exec reek -q .; echo ""'
 end
 
 task :flay => [] do
