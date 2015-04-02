@@ -1,15 +1,7 @@
 task :default => :lint
 
 task :ruby => [] do
-  begin
-    sh 'find . -name \'*.rb\' -exec \
-ruby -wc {} 2>&1 \; | \
-grep -v "Syntax OK" | \
-grep -v openssl | \
-grep -v rubygems; \
-done'
-  rescue
-  end
+  sh 'find . -name "*.rb" -exec ruby -wc {} 2>&1 \; | grep -v "Syntax OK" | grep -v openssl | grep -v rubygems; true'
 end
 
 task :reek => [] do
