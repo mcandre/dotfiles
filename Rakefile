@@ -13,7 +13,7 @@ task :flay => [] do
 end
 
 task :roodi => [] do
-  sh 'bundle exec roodi -config=roodi.yml *.rb **/*.rb'
+  sh 'find . -name "*.rb" -exec bundle exec roodi -config=roodi.yml {} \\;'
 end
 
 task :cane => [] do
