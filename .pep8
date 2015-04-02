@@ -1,0 +1,4 @@
+# ln -s .../.pep8 $HOME/.pep8
+
+[pep8]
+ignore = E111,E302,E121,E251,E501,E261,E201,E202,E114
