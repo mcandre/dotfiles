@@ -5,3 +5,6 @@ set cache:enable no
 
 # Default local directory to Downloads
 lcd ~/Downloads
+
+# Remember passwords
+set bmk:save-passwords true
