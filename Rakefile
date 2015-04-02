@@ -25,7 +25,7 @@ task :excellent => [] do
 end
 
 task :rubocop => [] do
-  sh 'bundle exec rubocop **/*.rb **/*.erb **/Guardfile*'
+  sh 'find . \\( -name "*.rb" -or -name "*.rb" -or -name "Guardfile*" \\) -exec rubocop {} \\; | grep -v "no offenses detected" | grep -v "Inspecting 1 file" | grep -v "^\\\\.$" | grep -v "^$"; echo ""'
 end
 
 task :tailor => [] do
