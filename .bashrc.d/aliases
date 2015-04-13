@@ -1,0 +1,15 @@
+# mkdir -p $HOME/.bashrc.d/
+# ln -s .../aliases $HOME/.bashrc.d/aliases
+# echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
+
+# Pass aliases to sudo commands
+alias sudo='sudo '
+
+# Life's too short
+alias ll='ls -Ahl'
+
+# Hide progress bar
+alias curl='curl -s'
+
+# Show progress bar
+alias rsync='rsync --info=progress2 -a'

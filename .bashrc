@@ -12,19 +12,6 @@ function gitignore {
   curl -L -s https://www.gitignore.io/api/$1
 }
 
-# Pass aliases to sudo commands
-alias sudo='sudo '
-
-# Life's too short
-alias ll='ls -Ahl'
-
-# Hide progress bar
-alias curl='curl -s'
-
-# Don't split spaces into multiple filenames
-# Show progress bar
-alias rsync='rsync -a --info=progress2'
-
 # OCaml show error traces
 export OCAMLRUNPARAM="b"
 
