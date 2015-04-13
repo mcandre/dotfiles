@@ -6,10 +6,6 @@ case "$TERM" in
     PROMPT_COMMAND=
 esac
 
-export ANDROID_HOME=/usr/local/opt/android-sdk
-
-export CVSROOT=$HOME/cvs
-
 for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done
 
 # Cabal
