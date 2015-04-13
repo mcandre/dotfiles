@@ -1,0 +1,9 @@
+# mkdir -p $HOME/.bashrc.d/
+# ln -s .../git-prompt $HOME/.bashrc.d/git-prompt
+# echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
+
+# git prompt
+# See https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+. $HOME/git-prompt.sh
+
+export PS1='\W$(__git_ps1 " (%s)")$ '

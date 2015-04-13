@@ -1,0 +1,9 @@
+# mkdir -p $HOME/.bashrc.d/
+# ln -s .../git-prompt $HOME/.bashrc.d/git-prompt
+# echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
+
+# svn prompt
+# See https://raw.githubusercontent.com/mcandre/svn-prompt/master/svn-prompt.sh
+. $HOME/svn-prompt.sh
+
+export PS1='\W$(parse_svn_branch)$ '
