@@ -6,12 +6,6 @@ case "$TERM" in
     PROMPT_COMMAND=
 esac
 
-# gitignore
-# See https://www.gitignore.io/
-function gitignore {
-  curl -L -s https://www.gitignore.io/api/$1
-}
-
 # OCaml show error traces
 export OCAMLRUNPARAM="b"
 
