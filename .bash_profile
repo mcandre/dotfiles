@@ -86,4 +86,4 @@ PATH="$PATH:/Applications/Mozart.app/Contents/Resources/bin"
 
 export PATH
 
-. $HOME/.bashrc
+[[ -s $HOME/.bashrc ]] && source $HOME/.bashrc
