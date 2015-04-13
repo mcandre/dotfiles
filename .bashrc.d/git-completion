@@ -1,0 +1,7 @@
+# mkdir -p $HOME/.bashrc.d/
+# ln -s .../git-completion $HOME/.bashrc.d/git-completion
+# echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
+
+# git tab completion
+# See https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+source $HOME/.git-completion.sh

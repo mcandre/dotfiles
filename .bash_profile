@@ -20,10 +20,6 @@ export EDITOR="emacs -nw"
 # Fix recursive globs
 shopt -s globstar
 
-# git tab completion
-# See https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-source $HOME/.git-completion.sh
-
 # Reset path
 PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 
