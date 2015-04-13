@@ -86,8 +86,4 @@ PATH="$PATH:/Applications/Mozart.app/Contents/Resources/bin"
 
 export PATH
 
-# lftp-completion
-# See https://raw.githubusercontent.com/mcandre/lftp-completion/master/lftp-completion.sh
-. $HOME/lftp-completion.sh
-
 . $HOME/.bashrc
