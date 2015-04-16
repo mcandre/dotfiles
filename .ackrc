@@ -6,6 +6,7 @@
 --ignore-dir=is:vendor
 --ignore-dir=is:bower_components
 --ignore-file=match:min\.js
+--ignore-file=match:min\.map
 --ignore-file=match:\.log
 --ignore-file=is:erl_crash.dump
 --ignore-file=is:.ensime
