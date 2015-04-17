@@ -3,7 +3,7 @@
 # echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
 
 # Pass aliases to sudo commands
-alias sudo='sudo '
+alias fuck='sudo '
 
 # Life's too short
 alias ll='ls -Ahl'
