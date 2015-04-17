@@ -4,12 +4,13 @@
 
 if [[ -s /usr/local/opt/chruby/share/chruby/chruby.sh ]]; then
   source /usr/local/opt/chruby/share/chruby/chruby.sh
+  source /usr/local/opt/chruby/share/chruby/auto.sh
 
   if [[ -s $HOME/.rvm/scripts/extras/chruby.sh ]]; then
     source $HOME/.rvm/scripts/extras/chruby.sh
-  fi
 
-  RUBIES+=($HOME/.rvm/rubies/*)
+    RUBIES+=($HOME/.rvm/rubies/*)
+  fi
 
   chruby 2.0 2>&1 >/dev/null
 fi
