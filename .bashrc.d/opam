@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # mkdir -p $HOME/.bashrc.d/
 # ln -s .../opam $HOME/.bashrc.d/opam
 # echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc

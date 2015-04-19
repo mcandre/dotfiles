@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # mkdir -p $HOME/.bashrc.d/
 # ln -s .../gitignore $HOME/.bashrc.d/gitignore
 # echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc

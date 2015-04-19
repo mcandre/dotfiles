@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # mkdir -p $HOME/.bashrc.d/
 # ln -s .../git-prompt $HOME/.bashrc.d/git-prompt
 # echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
