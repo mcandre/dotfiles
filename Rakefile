@@ -70,6 +70,10 @@ task :xmllint => [] do
   sh 'find . -name "*.xml" -exec xmllint --noout {} 2>&1 \\;'
 end
 
+task :infernu => [] do
+  sh 'find . -type d -name node_modules -prune -o -type d -name bower_components -prune -o -type d -name target -prune -o -type f -name "*.js" -exec infernu {} \\;'
+end
+
 task :lint => [
   :ruby,
   :reek,
@@ -84,7 +88,8 @@ task :lint => [
   :lili,
   :editorconfig,
   :astyle,
-  :xmllint
+  :xmllint,
+  :infernu
 ] do
 end
 
