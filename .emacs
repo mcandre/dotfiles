@@ -646,6 +646,9 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 ;; More JavaScript files
 (add-to-list 'auto-mode-alist '("\\.pjs$" . js2-mode))
 
+;; crontab
+(add-to-list 'auto-mode-alist '("\\.crontab$" . crontab-mode))
+
 ;; More Ruby files
 (dolist (extension
          '("\\.rake$"

@@ -11,6 +11,7 @@
 (depends-on "clojure-mode")
 (depends-on "coffee-mode")
 (depends-on "crappy-jsp-mode")
+(depends-on "crontab-mode")
 (depends-on "d-mode")
 (depends-on "dart-mode")
 (depends-on "dired+")
