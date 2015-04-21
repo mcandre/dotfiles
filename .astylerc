@@ -10,7 +10,7 @@
 --attach-classes
 --attach-inlines
 
---add-brackets 
+--add-brackets
 
 --align-pointer=name
 --align-reference=name
