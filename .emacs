@@ -67,6 +67,9 @@
 (setq vc-handled-backends ())
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
 
+;; Automatically revert unmodified buffers on file change
+(global-auto-revert-mode 1)
+
 ;; Fix shell-mode autoscrolling
 (remove-hook 'comint-output-filter-functions
              'comint-postoutput-scroll-to-bottom)
