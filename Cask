@@ -50,6 +50,7 @@
 (depends-on "nlinum")
 (depends-on "ntcmd")
 (depends-on "oz")
+(depends-on "perl6-mode")
 (depends-on "php-mode")
 (depends-on "powershell")
 (depends-on "puppet-mode")
