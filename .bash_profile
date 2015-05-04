@@ -1,33 +1,8 @@
-# ln -s ../.bash_profile ~/.bash_profile
+# ln -s .../.bash_profile ~/.bash_profile
 
-# Correct quotes.
-set +H
+[[ -s "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 
-# Prevent ._ files from being created in archives
-export COPYFILE_DISABLE=true
-
-# Monokai
-export CLICOLOR="1"
-export GREP_OPTIONS="--color=auto"
-
-# Emacs
-export EDITOR="emacs -nw"
-
-#
-# Bash 4
-#
-
-# Fix recursive globs
-shopt -s globstar
-
-# Reset path
-PATH="/usr/bin:/bin:/usr/sbin:/sbin"
-
-# Homebrew
-PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
-# Cask
-PATH="$PATH:$HOME/.cask/bin"
+for f in "$HOME"/.bash_profile.d/* ; do source "$f"; done
 
 # Home binaries
 PATH="$PATH:$HOME"
@@ -42,19 +17,16 @@ PATH="$PATH:/usr/local/Cellar/llvm/3.4/bin"
 PATH="$PATH:$HOME/oclint-0.8.dev.27d706b/bin"
 
 # Java
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home"
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
 
 # Hadoop
-export HADOOP_OPTS="-Djava.security.krb5.realm= -Djava.security.krb5.kdc= -Djava.security.krb5.conf=/dev/null"
+export HADOOP_OPTS='-Djava.security.krb5.realm= -Djava.security.krb5.kdc= -Djava.security.krb5.conf=/dev/null'
 
 # ehrlich
 PATH="$PATH:$HOME/Desktop/src/ehrlich"
 
-# proper
 ERL_LIBS="$HOME/Desktop/src/proper"
-# getopt
 ERL_LIBS="$ERL_LIBS:$HOME/Desktop/src/getopt"
-
 export ERL_LIBS
 
 # objdump
@@ -86,6 +58,18 @@ PATH="$PATH:/Applications/Mozart.app/Contents/Resources/bin"
 
 export PATH
 
-[[ -s $HOME/.bashrc ]] && source $HOME/.bashrc
+# Correct quotes.
+set +H
 
-for f in $HOME/.bash_profile.d/* ; do [[ -s $f ]] && source "$f" ; done
+# Prevent ._ files from being created in archives
+export COPYFILE_DISABLE='true'
+
+# Monokai
+export CLICOLOR='1'
+export GREP_OPTIONS='--color=auto'
+
+# Emacs
+export EDITOR='emacs -nw'
+
+# Bash 4: Fix recursive globs
+shopt -s globstar
