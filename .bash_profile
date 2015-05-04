@@ -1,6 +1,6 @@
 # ln -s .../.bash_profile ~/.bash_profile
 
-[[ -s "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
+[ -e "$HOME/.bashrc" ] && source "$HOME/.bashrc"
 
 for f in "$HOME"/.bash_profile.d/*; do source "$f"; done
 

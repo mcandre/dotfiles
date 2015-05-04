@@ -17,4 +17,4 @@ PATH="$PATH:$HOME/.cabal/bin"
 
 export PATH
 
-for f in "$HOME"/.bashrc.d/* ; do source "$f"; done
+for f in "$HOME"/.bashrc.d/*; do source "$f"; done
