@@ -6,4 +6,4 @@ PATH='/usr/bin:/bin:/usr/sbin:/sbin'
 # Fix prompt for emacs shell-mode
 [ "$TERM" = 'dumb' ] && export PROMPT_COMMAND=''
 
-for f in "$HOME/.bashrc.d/enabled/"*; do . "$f"; done
+for f in $(find "$HOME/.bashrc.d/enabled" -type f -o -type l); do . "$f"; done
