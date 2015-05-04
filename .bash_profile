@@ -2,7 +2,7 @@
 
 [[ -s "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 
-for f in "$HOME"/.bash_profile.d/* ; do source "$f"; done
+for f in "$HOME"/.bash_profile.d/*; do source "$f"; done
 
 # Home binaries
 PATH="$PATH:$HOME"
