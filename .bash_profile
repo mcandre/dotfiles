@@ -1,8 +1,6 @@
 # ln -s .../.bash_profile ~/.bash_profile
 
-[ -e "$HOME/.bashrc" ] && source "$HOME/.bashrc"
-
-for f in "$HOME"/.bash_profile.d/*; do source "$f"; done
+[ -e "$HOME/.bashrc" ] && . "$HOME/.bashrc"
 
 # Home binaries
 PATH="$PATH:$HOME"
@@ -73,3 +71,5 @@ export EDITOR='emacs -nw'
 
 # Bash 4: Fix recursive globs
 shopt -s globstar
+
+for f in "$HOME"/.bash_profile.d/*; do . "$f"; done
