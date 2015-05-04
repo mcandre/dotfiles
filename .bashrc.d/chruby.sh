@@ -1,6 +1,6 @@
-# mkdir -p $HOME/.bashrc.d/
-# ln -s .../chruby $HOME/.bashrc.d/chruby
-# echo 'for f in "$HOME"/.bashrc.d/* ; do . "$f" ; done' >> $HOME/.bashrc
+# mkdir -p $HOME/.bashrc.d/enabled/
+# ln -s .../chruby $HOME/.bashrc.d/enabled/chruby.sh
+# echo 'for f in "$HOME/.bashrc.d/enabled/"* ; do . "$f" ; done' >> $HOME/.bashrc
 
 if [ -e /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
   . /usr/local/opt/chruby/share/chruby/chruby.sh

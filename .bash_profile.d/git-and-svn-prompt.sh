@@ -1,6 +1,6 @@
-# mkdir -p $HOME/.bash_profile.d/
-# ln -s .../git-and-svn-prompt $HOME/.bash_profile.d/git-and-svn-prompt
-# echo 'for f in "$HOME"/.bash_profile.d/* ; do . "$f" ; done' >> $HOME/.bash_profile
+# mkdir -p $HOME/.bash_profile.d/enabled/
+# ln -s .../git-and-svn-prompt $HOME/.bash_profile.d/enabled/git-and-svn-prompt.sh
+# echo 'for f in "$HOME/.bash_profile.d/enabled/"* ; do . "$f" ; done' >> $HOME/.bash_profile
 
 # git prompt
 # See https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh

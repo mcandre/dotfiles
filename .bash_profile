@@ -72,4 +72,4 @@ export EDITOR='emacs -nw'
 # Bash 4: Fix recursive globs
 shopt -s globstar
 
-for f in "$HOME"/.bash_profile.d/*; do . "$f"; done
+for f in "$HOME/.bash_profile.d/enabled/"*; do . "$f"; done

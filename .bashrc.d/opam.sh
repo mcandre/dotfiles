@@ -1,6 +1,6 @@
-# mkdir -p $HOME/.bashrc.d/
-# ln -s .../opam $HOME/.bashrc.d/opam
-# echo 'for f in "$HOME"/.bashrc.d/* ; do . "$f" ; done' >> $HOME/.bashrc
+# mkdir -p $HOME/.bashrc.d/enabled/
+# ln -s .../opam $HOME/.bashrc.d/enabled/opam.sh
+# echo 'for f in "$HOME/.bashrc.d/enabled/"* ; do . "$f" ; done' >> $HOME/.bashrc
 
 # OCaml show error traces
 export OCAMLRUNPARAM="b"

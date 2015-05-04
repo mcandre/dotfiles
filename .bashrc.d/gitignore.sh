@@ -1,6 +1,6 @@
-# mkdir -p $HOME/.bashrc.d/
-# ln -s .../gitignore $HOME/.bashrc.d/gitignore
-# echo 'for f in "$HOME"/.bashrc.d/* ; do . "$f" ; done' >> $HOME/.bashrc
+# mkdir -p $HOME/.bashrc.d/enabled/
+# ln -s .../gitignore $HOME/.bashrc.d/enabled/gitignore.sh
+# echo 'for f in "$HOME/.bashrc.d/enabled/"* ; do . "$f" ; done' >> $HOME/.bashrc
 
 # gitignore
 # See https://www.gitignore.io/

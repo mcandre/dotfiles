@@ -1,6 +1,6 @@
-# mkdir -p $HOME/.bashrc.d/
-# ln -s .../rvm $HOME/.bashrc.d/rvm
-# echo 'for f in "$HOME"/.bashrc.d/* ; do . "$f" ; done' >> $HOME/.bashrc
+# mkdir -p $HOME/.bashrc.d/enabled/
+# ln -s .../rvm $HOME/.bashrc.d/enabled/rvm
+# echo 'for f in "$HOME/.bashrc.d/enabled/"* ; do . "$f" ; done' >> $HOME/.bashrc
 
 # RVM
 [ -e "$HOME/.rvm/scripts/rvm" ] && . "$HOME/.rvm/scripts/rvm"
