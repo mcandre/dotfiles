@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # mkdir -p $HOME/.bash_profile.d/
 # ln -s .../git-and-svn-prompt $HOME/.bash_profile.d/git-and-svn-prompt
 # echo 'for f in $HOME/.bash_profile.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bash_profile

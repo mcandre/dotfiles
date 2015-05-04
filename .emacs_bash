@@ -1,2 +1,3 @@
 # ln -s .../.emacs_bash ~/.emacs_bash
-. ~/.bash_profile
+
+source ~/.bash_profile

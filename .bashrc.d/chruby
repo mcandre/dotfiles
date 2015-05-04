@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # mkdir -p $HOME/.bashrc.d/
 # ln -s .../chruby $HOME/.bashrc.d/chruby
 # echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
