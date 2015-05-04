@@ -1,5 +1,5 @@
 # mkdir -p $HOME/.bash_profile.d/enabled/
-# ln -s .../git-prompt $HOME/.bash_profile.d/enabled/git-prompt.sh
+# ln -s .../git-prompt.sh $HOME/.bash_profile.d/enabled/git-prompt.sh
 # echo 'for f in "$HOME/.bash_profile.d/enabled/"* ; do . "$f" ; done' >> $HOME/.bash_profile
 
 # git prompt

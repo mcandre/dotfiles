@@ -1,5 +1,5 @@
 # mkdir -p $HOME/.bashrc.d/enabled/
-# ln -s .../nvm $HOME/.bashrc.d/enabled/nvm
+# ln -s .../nvm.sh $HOME/.bashrc.d/enabled/nvm.sh
 # echo 'for f in "$HOME/.bashrc.d/enabled/"* ; do . "$f" ; done' >> $HOME/.bashrc
 
 # NVM

@@ -1,5 +1,5 @@
 # mkdir -p $HOME/.bashrc.d/enabled/
-# ln -s .../gitignore $HOME/.bashrc.d/enabled/gitignore.sh
+# ln -s .../gitignore.sh $HOME/.bashrc.d/enabled/gitignore.sh
 # echo 'for f in "$HOME/.bashrc.d/enabled/"* ; do . "$f" ; done' >> $HOME/.bashrc
 
 # gitignore

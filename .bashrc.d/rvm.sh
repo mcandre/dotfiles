@@ -1,5 +1,5 @@
 # mkdir -p $HOME/.bashrc.d/enabled/
-# ln -s .../rvm $HOME/.bashrc.d/enabled/rvm
+# ln -s .../rvm.sh $HOME/.bashrc.d/enabled/rvm
 # echo 'for f in "$HOME/.bashrc.d/enabled/"* ; do . "$f" ; done' >> $HOME/.bashrc
 
 # RVM

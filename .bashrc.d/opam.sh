@@ -1,5 +1,5 @@
 # mkdir -p $HOME/.bashrc.d/enabled/
-# ln -s .../opam $HOME/.bashrc.d/enabled/opam.sh
+# ln -s .../opam.sh $HOME/.bashrc.d/enabled/opam.sh
 # echo 'for f in "$HOME/.bashrc.d/enabled/"* ; do . "$f" ; done' >> $HOME/.bashrc
 
 # OCaml show error traces
