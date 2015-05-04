@@ -1,11 +1,7 @@
-# mkdir -p $HOME/.bash_profile.d/enabled/
-# ln -s .../aliases $HOME/.bash_profile.d/enabled/aliases.sh
-# echo 'for f in "$HOME/.bash_profile.d/enabled/"* ; do . "$f" ; done' >> $HOME/.bash_profile
-
 # Pass aliases to sudo commands
 alias sudo='sudo '
 
-# Life's too short
+# Show details
 alias ll='ls -Ahl'
 
 # Colorize soft links
