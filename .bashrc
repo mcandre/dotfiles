@@ -8,7 +8,7 @@ PATH='/usr/bin:/bin:/usr/sbin:/sbin'
 
 # Homebrew
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-PATH="$PATH:$HOME/.cask/bin"
+PATH="$HOME/.cask/bin:$PATH"
 
 # Cabal
 PATH="$PATH:/Library/Haskell/bin"
