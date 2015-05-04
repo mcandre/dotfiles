@@ -17,6 +17,3 @@ alias curl='curl -s'
 
 # Show progress bar
 alias rsync='rsync --info=progress2 -a'
-
-# thefuck
-alias fuck='$(thefuck $(fc -ln -1))'
