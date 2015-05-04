@@ -1,1 +1,3 @@
-function gitignore { curl -L -s "https://www.gitignore.io/api/$1" }
+function gitignore {
+  curl -L -s "https://www.gitignore.io/api/$1"
+}
