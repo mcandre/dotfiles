@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# mkdir -p $HOME/.bashrc.d/
-# ln -s .../docker-completion $HOME/.bashrc.d/docker-completion
-# echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
-
-# docker tab completion
-# See https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker
-source $HOME/.docker-completion.sh

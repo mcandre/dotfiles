@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# mkdir -p $HOME/.bashrc.d/
-# ln -s .../git-and-svn-prompt $HOME/.bashrc.d/git-and-svn-prompt
-# echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
+# mkdir -p $HOME/.bash_profile.d/
+# ln -s .../git-and-svn-prompt $HOME/.bash_profile.d/git-and-svn-prompt
+# echo 'for f in $HOME/.bash_profile.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bash_profile
 
 # git prompt
 # See https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh

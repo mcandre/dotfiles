@@ -1,4 +1,4 @@
-# ln -s ...path/path/path/.bash_profile ~/.bash_profile
+# ln -s ../.bash_profile ~/.bash_profile
 
 # Correct quotes.
 set +H
@@ -66,7 +66,7 @@ PATH="$PATH:/Applications/Inkscape.app/Contents/Resources/bin"
 # MacTex LaTeX
 PATH="$PATH:/usr/texbin"
 
-#Coq
+# Coq
 PATH="$PATH:/Applications/CoqIdE_8.3pl2.app/Contents/Resources/bin"
 
 # SML
@@ -87,3 +87,5 @@ PATH="$PATH:/Applications/Mozart.app/Contents/Resources/bin"
 export PATH
 
 [[ -s $HOME/.bashrc ]] && source $HOME/.bashrc
+
+for f in $HOME/.bash_profile.d/* ; do [[ -s $f ]] && source "$f" ; done

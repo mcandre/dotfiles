@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# mkdir -p $HOME/.bashrc.d/
-# ln -s .../aliases $HOME/.bashrc.d/aliases
-# echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
+# mkdir -p $HOME/.bash_profile.d/
+# ln -s .../aliases $HOME/.bash_profile.d/aliases
+# echo 'for f in $HOME/.bash_profile.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bash_profile
 
 # Pass aliases to sudo commands
 alias sudo='sudo '

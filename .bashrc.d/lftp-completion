@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# mkdir -p $HOME/.bashrc.d/
-# ln -s .../lftp-completion $HOME/.bashrc.d/lftp-completion
-# echo 'for f in $HOME/.bashrc.d/* ; do [[ -s $f ]] && source "$f" ; done' >> $HOME/.bashrc
-
-# lftp-completion
-# See https://raw.githubusercontent.com/mcandre/lftp-completion/master/lftp-completion.sh
-. $HOME/lftp-completion.sh
