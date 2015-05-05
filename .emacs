@@ -856,22 +856,28 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   :diminish (global-whitespace-mode
              whitespace-mode
              whitespace-newline-mode)
-  :idle
+  :config
   (progn
-    (defvar whitespace-face)
-    (setq whitespace-style '(face
-                             trailing
-                             space-before-tab
-                             space-after-tab
-                             ;; work around https://github.com/jwiegley/use-package/issues/122
-                             ;; indentation
-                             empty)
-          ;; Make inappropriate indentations more visible
-          ;; in a dark theme like Monokai
-          whitespace-face 'whitespace-trailing)
-    (add-hook 'prog-mode-hook 'whitespace-mode)
-    (add-hook 'conf-mode-hook 'whitespace-mode)
-    (add-hook 'groovy-mode-hook 'whitespace-mode)))
+    (dolist (hook '(prog-mode-hook
+                    conf-mode-hook
+                    groovy-mode-hook
+                    text-mode-hook
+                    html-erb-mode-hook
+                    nxml-mode-hook))
+      (add-hook hook (lambda ()
+                       (defvar whitespace-face)
+                       (setq whitespace-style
+                             '(face
+                               trailing
+                               space-before-tab
+                               space-after-tab
+                               ;; work around https://github.com/jwiegley/use-package/issues/122
+                               ;; indentation
+                               empty)
+                             ;; Make inappropriate indentations more visible
+                             ;; in a dark theme like Monokai
+                             whitespace-face 'whitespace-trailing)
+                       (whitespace-mode))))))
 
 (use-package hideshowvis
   :diminish hs-minor-mode
