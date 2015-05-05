@@ -93,7 +93,7 @@
 
 ;; Handle large shell output more quickly
 (add-hook 'comint-output-filter-functions
-                    'comint-truncate-buffer)
+          'comint-truncate-buffer)
 
 ;; Disable paging, esp. for psql
 (setenv "PAGER" (executable-find "cat"))
@@ -131,83 +131,83 @@
             (set-frame-font "Monaco"))
         (error (warn "Monaco font is not installed"))))
 
-  ;;
-  ;; CUA OS copypasta in ncurses mode
-  ;;
-  (progn
-    (defun mac-cut (text &optional push)
-      (let* ((process-connection-type nil)
-             (pbproxy (start-process "pbcopy" "pbcopy" "/usr/bin/pbcopy")))
-        (process-send-string pbproxy text)
-        (process-send-eof pbproxy)))
-
-    (defun mac-paste () (shell-command-to-string "pbpaste"))
-
-    (defun linux-cut-function (text &optional push)
-      (with-temp-buffer
-        (insert text)
-        (call-process-region
-         (point-min)
-         (point-max)
-         "xsel"
-         nil
-         0
-         nil
-         "--clipboard"
-         "--input")))
-
-    (defun linux-paste-function()
-      (let ((xsel-output (shell-command-to-string "xsel --clipboard --output")))
-        (unless (string= (car kill-ring) xsel-output)
-          xsel-output )))
-
-    (pcase system-type
-      (`darwin (setq interprogram-cut-function 'mac-cut
-                     interprogram-paste-function 'mac-paste))
-      (`gnu/linux (setq x-select-enable-clipboard t
-                        interprogram-cut-function 'linux-cut-function
-                        interprogram-paste-function 'linux-paste-function)))
-
     ;;
-    ;; Enable OS mouse clicking and scrolling
+    ;; CUA OS copypasta in ncurses mode
     ;;
-    ;; Note for Mac OS X: Requires SIMBL and MouseTerm
-    ;;
-    ;; http://www.culater.net/software/SIMBL/SIMBL.php
-    ;; https://bitheap.org/mouseterm/
-    ;;
-    (xterm-mouse-mode 1)
-    (global-set-key [mouse-4]
-                    (lambda ()
-                      (interactive)
-                      (scroll-down 1)))
-    (global-set-key [mouse-5]
-                    (lambda ()
-                      (interactive)
-                      (scroll-up 1)))
+    (progn
+      (defun mac-cut (text &optional push)
+        (let* ((process-connection-type nil)
+               (pbproxy (start-process "pbcopy" "pbcopy" "/usr/bin/pbcopy")))
+          (process-send-string pbproxy text)
+          (process-send-eof pbproxy)))
 
-    ;; Work around Ubuntu server 12.04 / SSH bug
-    ;;
-    ;; ;; Show buffer name in terminal title in ncurses mode
-    ;; (if (and (not window-system)
-    ;;          (not noninteractive)
-    ;;          (string-match "^xterm" (getenv "TERM")))
-    ;;     (use-package xterm-frobs
-    ;;       :init
-    ;;       (progn
-    ;;         ;; Work around broken xterm-title in Mac OS X
-    ;;         (declare-function xterm-title-mode "xterm-title" nil)
-    ;;         (pcase system-type
-    ;;           (`darwin (progn
-    ;;                      (defun my-xterm-title-hook ()
-    ;;                      (xterm-set-window-title (buffer-name)))
-    ;;                      (add-hook 'post-command-hook  'my-xterm-title-hook)))
-    ;;           (`gnu/linux (progn
-    ;;                         (use-package xterm-title
-    ;;                           :config
-    ;;                           (xterm-title-mode))))))))
+      (defun mac-paste () (shell-command-to-string "pbpaste"))
 
-))
+      (defun linux-cut-function (text &optional push)
+        (with-temp-buffer
+          (insert text)
+          (call-process-region
+           (point-min)
+           (point-max)
+           "xsel"
+           nil
+           0
+           nil
+           "--clipboard"
+           "--input")))
+
+      (defun linux-paste-function()
+        (let ((xsel-output (shell-command-to-string "xsel --clipboard --output")))
+          (unless (string= (car kill-ring) xsel-output)
+            xsel-output )))
+
+      (pcase system-type
+        (`darwin (setq interprogram-cut-function 'mac-cut
+                       interprogram-paste-function 'mac-paste))
+        (`gnu/linux (setq x-select-enable-clipboard t
+                          interprogram-cut-function 'linux-cut-function
+                          interprogram-paste-function 'linux-paste-function)))
+
+      ;;
+      ;; Enable OS mouse clicking and scrolling
+      ;;
+      ;; Note for Mac OS X: Requires SIMBL and MouseTerm
+      ;;
+      ;; http://www.culater.net/software/SIMBL/SIMBL.php
+      ;; https://bitheap.org/mouseterm/
+      ;;
+      (xterm-mouse-mode 1)
+      (global-set-key [mouse-4]
+                      (lambda ()
+                        (interactive)
+                        (scroll-down 1)))
+      (global-set-key [mouse-5]
+                      (lambda ()
+                        (interactive)
+                        (scroll-up 1)))
+
+      ;; Work around Ubuntu server 12.04 / SSH bug
+      ;;
+      ;; ;; Show buffer name in terminal title in ncurses mode
+      ;; (if (and (not window-system)
+      ;;          (not noninteractive)
+      ;;          (string-match "^xterm" (getenv "TERM")))
+      ;;     (use-package xterm-frobs
+      ;;       :init
+      ;;       (progn
+      ;;         ;; Work around broken xterm-title in Mac OS X
+      ;;         (declare-function xterm-title-mode "xterm-title" nil)
+      ;;         (pcase system-type
+      ;;           (`darwin (progn
+      ;;                      (defun my-xterm-title-hook ()
+      ;;                      (xterm-set-window-title (buffer-name)))
+      ;;                      (add-hook 'post-command-hook  'my-xterm-title-hook)))
+      ;;           (`gnu/linux (progn
+      ;;                         (use-package xterm-title
+      ;;                           :config
+      ;;                           (xterm-title-mode))))))))
+
+      ))
 
 ;; Compile .emacs on save
 (add-hook 'after-save-hook
@@ -396,8 +396,8 @@
       (switch-to-buffer "*scratch*"))
     (defadvice split-window-right (after restore-balance-right activate)
       (balance-windows)
-    (window-jump-right)
-    (switch-to-buffer "*scratch*"))
+      (window-jump-right)
+      (switch-to-buffer "*scratch*"))
     (defadvice delete-window (after restore-balance activate)
       (balance-windows))))
 
@@ -565,7 +565,7 @@
            ;; delete to beginning of line or do nothing
            (if (= col-at-cur-indent 0)
                nil
-             (delete-region point-at-cur-indent (point-at-column-on-line 0))))
+               (delete-region point-at-cur-indent (point-at-column-on-line 0))))
           (
            (< col col-at-cur-indent)
            ;; delete from our current point BACK to col
@@ -594,8 +594,8 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
            (if (= tab-width (- current previous))
                ;; move line to beginning
                (ig-move-line-to-column 0)
-             ;; go back to previous indentation level
-             (ig-move-line-to-column previous)))
+               ;; go back to previous indentation level
+               (ig-move-line-to-column previous)))
 
           (t
            (ig-move-line-to-column (+ current tab-width))))))
@@ -872,6 +872,47 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
     (add-hook 'prog-mode-hook 'whitespace-mode)
     (add-hook 'conf-mode-hook 'whitespace-mode)
     (add-hook 'groovy-mode-hook 'whitespace-mode)))
+
+;;
+;; Folding
+;;
+
+(use-package hideshowvis
+  :diminish hs-minor-mode
+  :bind ("M-[" . hs-toggle-hiding)
+  :commands hideshowvis-enable
+  :init
+  (progn
+    (defvar nxml-sexp-element-flag)
+    (defvar hs-set-up-overlay)
+
+    ;; Help nxml-mode fold
+    (let ((nxml-mode-hs-info '(nxml-mode ("^\\s-*\\(<[^/].*>\\)\\s-*$" 1) 
+                                         "^\\s-*</.*>\\s-*$")))
+      (when (not (member nxml-mode-hs-info hs-special-modes-alist))
+        (setq hs-special-modes-alist
+              (cons nxml-mode-hs-info hs-special-modes-alist))))
+
+    (defun my-nxml-mode-hook ()
+      (setq nxml-sexp-element-flag t))
+
+    (add-hook 'nxml-mode-hook 'my-nxml-mode-hook)
+
+    (autoload 'hideshowvis-enable
+      "hideshowvis"
+      "Highlight foldable regions")
+
+    (autoload 'hideshowvis-minor-mode
+      "hideshowvis"
+      "Will indicate regions foldable with hideshow in the fringe."
+      'interactive)
+
+    (dolist (hook '(prog-mode-hook
+                    nxml-mode-hook))
+      (add-hook hook 'hideshowvis-enable))
+
+    ;; graphical +/- fold buttons
+    (hideshowvis-symbols)))
 
 (use-package editorconfig)
 
