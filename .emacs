@@ -873,10 +873,6 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
     (add-hook 'conf-mode-hook 'whitespace-mode)
     (add-hook 'groovy-mode-hook 'whitespace-mode)))
 
-;;
-;; Folding
-;;
-
 (use-package hideshowvis
   :diminish hs-minor-mode
   :bind ("M-[" . hs-toggle-hiding)
