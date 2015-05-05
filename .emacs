@@ -880,36 +880,9 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 (use-package hideshowvis
   :diminish hs-minor-mode
   :bind ("M-[" . hs-toggle-hiding)
-  :commands hideshowvis-enable
-  :init
+  :config
   (progn
-    (defvar nxml-sexp-element-flag)
-    (defvar hs-set-up-overlay)
-
-    ;; Help nxml-mode fold
-    (let ((nxml-mode-hs-info '(nxml-mode ("^\\s-*\\(<[^/].*>\\)\\s-*$" 1) 
-                                         "^\\s-*</.*>\\s-*$")))
-      (when (not (member nxml-mode-hs-info hs-special-modes-alist))
-        (setq hs-special-modes-alist
-              (cons nxml-mode-hs-info hs-special-modes-alist))))
-
-    (defun my-nxml-mode-hook ()
-      (setq nxml-sexp-element-flag t))
-
-    (add-hook 'nxml-mode-hook 'my-nxml-mode-hook)
-
-    (autoload 'hideshowvis-enable
-      "hideshowvis"
-      "Highlight foldable regions")
-
-    (autoload 'hideshowvis-minor-mode
-      "hideshowvis"
-      "Will indicate regions foldable with hideshow in the fringe."
-      'interactive)
-
-    (dolist (hook '(prog-mode-hook
-                    nxml-mode-hook))
-      (add-hook hook 'hideshowvis-enable))
+    (hideshowvis-enable)
 
     ;; graphical +/- fold buttons
     (hideshowvis-symbols)))
