@@ -1,6 +1,7 @@
 Thumbs.db
 .DS_Store
 Gemfile.lock
+*.pyc
 __pycache__/
 node_modules/
 target/
