@@ -12,6 +12,6 @@ def pylint():
 def pyflakes():
   run("pyflakes .")
 
-@task("pep8", "pylint", "pyflakes")
+@task(pre=[pep8, pylint, pyflakes])
 def lint():
   pass
