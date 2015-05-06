@@ -879,15 +879,18 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                              whitespace-face 'whitespace-trailing)
                        (whitespace-mode))))))
 
-(use-package hideshowvis
+(use-package hideshow
   :diminish hs-minor-mode
   :bind ("M-]" . hs-toggle-hiding)
-  :config
+  :init
   (progn
-    (hideshowvis-enable)
-
-    ;; graphical +/- fold buttons
-    (hideshowvis-symbols)))
+    (dolist (hook '(prog-mode-hook
+                    conf-mode-hook
+                    groovy-mode-hook
+                    text-mode-hook
+                    html-erb-mode-hook
+                    nxml-mode-hook))
+      (add-hook hook 'hs-minor-mode))))
 
 (use-package editorconfig)
 

@@ -35,7 +35,6 @@
 ;; (depends-on "go-mode")
 (depends-on "groovy-mode")
 (depends-on "haskell-mode")
-(depends-on "hideshowvis")
 (depends-on "io-mode")
 (depends-on "j-mode")
 (depends-on "js2-mode")
