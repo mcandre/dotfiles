@@ -881,7 +881,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 
 (use-package hideshowvis
   :diminish hs-minor-mode
-  :bind ("M-(" . hs-toggle-hiding)
+  :bind ("M-]" . hs-toggle-hiding)
   :config
   (progn
     (hideshowvis-enable)
