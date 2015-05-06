@@ -890,7 +890,28 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                     text-mode-hook
                     html-erb-mode-hook
                     nxml-mode-hook))
-      (add-hook hook 'hs-minor-mode))))
+      (add-hook hook 'hs-minor-mode))
+
+    ;; Fix XML folding
+    (add-to-list 'hs-special-modes-alist
+                 '(nxml-mode
+                   "<!--\\|<[^/>]*[^/]>"
+                   "-->\\|</[^/>]*[^/]>"
+                   "<!--"
+                   nxml-forward-element
+                   nil))
+
+    ;; Fix HTML folding
+    (dolist (mode '(sgml-mode
+                    html-mode
+                    html-erb-mode))
+      (add-to-list 'hs-special-modes-alist
+                   (list mode
+                         "<!--\\|<[^/>]*[^/]>"
+                         "-->\\|</[^/>]*[^/]>"
+                         "<!--"
+                         'sgml-skip-tag-forward
+                         nil)))))
 
 (use-package editorconfig)
 
