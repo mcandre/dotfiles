@@ -894,12 +894,12 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 
     ;; Fix XML folding
     (add-to-list 'hs-special-modes-alist
-                 '(nxml-mode
-                   "<!--\\|<[^/>]*[^/]>"
-                   "-->\\|</[^/>]*[^/]>"
-                   "<!--"
-                   nxml-forward-element
-                   nil))
+                 (list 'nxml-mode
+                       "<!--\\|<[^/>]*[^/]>"
+                       "-->\\|</[^/>]*[^/]>"
+                       "<!--"
+                       'nxml-forward-element
+                       nil))
 
     ;; Fix HTML folding
     (dolist (mode '(sgml-mode
