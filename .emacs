@@ -466,7 +466,7 @@
 (use-package dired-single
   :commands dired-single-buffer dired-single-buffer-mouse
   :defines dired-mode-map
-  :config
+  :init
   (add-hook 'dired-mode-hook
             (lambda ()
               ;; Enable all commands
