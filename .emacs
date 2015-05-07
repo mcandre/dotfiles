@@ -644,13 +644,13 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   :no-require t
   :mode ("\\.ps1$" . powershell-mode))
 
-;; R
-(autoload 'R-mode "ess-site.el" "" t)
-(add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
-(add-hook 'R-mode-hook
-          (lambda ()
-            (defvar ess-indent-level)
-            (setq ess-indent-level tab-width)))
+(use-package ess-site
+  :mode ("\\.R$" . R-mode)
+  :defines ess-indent-level
+  :init
+  (add-hook 'R-mode-hook
+            (lambda ()
+              (setq ess-indent-level tab-width))))
 
 (use-package swift-mode
   :mode "\\.swift$"
