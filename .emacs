@@ -108,10 +108,13 @@
 ;; CUA key: Alt+F4 quits
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
-(require 'cask "~/.cask/cask.el")
+(require 'cask "$HOME/.cask/cask.el")
 (cask-initialize)
 
-(require 'use-package)
+(eval-when-compile
+  (require 'use-package))
+(require 'diminish)
+(require 'bind-key)  
 
 (if window-system
     ;; CUA tools in GUI mode
@@ -193,10 +196,10 @@
       ;;          (not noninteractive)
       ;;          (string-match "^xterm" (getenv "TERM")))
       ;;     (use-package xterm-frobs
-      ;;       :init
+      ;;       :functions xterm-title-mode
+      ;;       :config
       ;;       (progn
       ;;         ;; Work around broken xterm-title in Mac OS X
-      ;;         (declare-function xterm-title-mode "xterm-title" nil)
       ;;         (pcase system-type
       ;;           (`darwin (progn
       ;;                      (defun my-xterm-title-hook ()
@@ -227,23 +230,24 @@
 
 ;; Fast line numbers
 (use-package nlinum
-  :init
+  :config
   (progn
     ;; Line number gutter in ncurses mode
     (unless window-system
       (setq nlinum-format "%d ")))
-  :idle
+  ;; :idle
   (global-nlinum-mode))
 
 ;; Show path information in buffer names and mode-lines
 (use-package uniquify
-  :init
+  :config
   (setq uniquify-buffer-name-style 'post-forward
         uniquify-min-dir-content 7))
 
 ;; Don't bind M-: to some stupid newLISP evaluator
 (use-package newlisp-mode
-  :init
+  :mode "\\.lsp$"
+  :config
   (define-key newlisp-mode-map (kbd "M-:") nil))
 
 ;; JavaScript indentation
@@ -260,20 +264,24 @@
           (lambda ()
             (setq indent-tabs-mode nil)))
 ;; Lua indentation
-(add-hook 'lua-mode-hook
-          (lambda ()
-            (defvar lua-indent-level)
-            (setq lua-indent-level tab-width)))
+(use-package lua-mode
+  :mode "\\.lua$"
+  :defines lua-indent-level
+  :init
+  (add-hook 'lua-mode-hook
+            (lambda ()
+              (setq lua-indent-level tab-width))))
 ;; Tcl indentation
 (add-hook 'tcl-mode-hook
           (lambda ()
             (defvar tcl-indent-level)
             (setq tcl-indent-level tab-width)))
-;; CSS indentation
-(add-hook 'css-mode-hook
-          (lambda ()
-            (defvar css-indent-offset)
-            (setq css-indent-offset 2)))
+(use-package css-mode
+  :mode "\\.css$"
+  :init
+  (add-hook 'css-mode-hook
+            (lambda ()
+              (setq css-indent-offset 2))))
 ;; Perl indentation
 (fset 'perl-mode 'cperl-mode)
 ;; Python indentation
@@ -285,12 +293,14 @@
                   python-indent 2
                   python-indent-offset 2)))
 ;; Rust indentation
-(add-hook 'rust-mode-hook
-          (lambda ()
-            (defvar rust-indent-unit)
-            (defvar rust-indent-offset)
-            (setq rust-indent-unit tab-width
-                  rust-indent-offset tab-width)))
+(use-package rust-mode
+  :mode "\\.rs$"
+  :defines rust-indent-unit rust-indent-offset
+  :init
+  (add-hook 'rust-mode-hook
+            (lambda ()
+              (setq rust-indent-unit tab-width
+                    rust-indent-offset tab-width))))
 ;; Shell script indentation
 (add-hook 'shell-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
@@ -298,20 +308,26 @@
 (add-hook 'go-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
 ;; PostScript indentation
-(add-hook 'ps-mode-hook
-          (lambda ()
-            (defvar ps-mode-tab)
-            (setq ps-mode-tab tab-width)))
+(use-package ps-mode
+  :mode "\\.ps$"
+  :defines ps-mode-tab
+  :init
+  (add-hook 'ps-mode-hook
+            (lambda ()
+              (setq ps-mode-tab tab-width))))
 ;; Objective C indentation
 (add-hook 'objc-mode-hook
           (lambda ()
             (defvar indent-tabs-mode)
             (setq indent-tabs-mode nil)))
 ;; Mozart/Oz indentation
-(add-hook 'oz-mode-hook
-          (lambda ()
-            (defvar oz-indent-chars)
-            (setq oz-indent-chars tab-width)))
+(use-package oz
+  :mode ("\\.oz$" . oz-mode)
+  :defines oz-indent-chars
+  :init
+  (add-hook 'oz-mode-hook
+            (lambda ()
+              (setq oz-indent-chars tab-width))))
 
 (defun hard-tabs ()
   (setq-default indent-tabs-mode t)
@@ -336,9 +352,9 @@
 ;; Open project file by fuzzy name
 (use-package fiplr
   :bind ("C-p" . fiplr-find-file)
+  :defines fipl-ignored-globs
   :config
   (progn
-    (defvar fiplr-ignored-globs)
     (setq fiplr-ignored-globs
           '((directories
              ;; Version control
@@ -383,7 +399,7 @@
          ("C-x <down>" . window-jump-down)
          ("C-x <left>" . window-jump-left)
          ("C-x <right>" . window-jump-right))
-  :init
+  :config
   (progn
     ;; Wrap around
     (setq wj-wrap t)
@@ -403,7 +419,8 @@
 
 ;; Monokai
 (use-package monokai-theme
-  :idle
+  ;; :idle
+  :config
   (load-theme 'monokai t))
 
 ;;
@@ -413,7 +430,7 @@
   :diminish undo-tree-mode
   :bind (("C-z" . undo-tree-undo)
          ("C-r" . undo-tree-redo))
-  :init
+  :config
   (progn
     (global-undo-tree-mode)
     ;; Prevent accidental suspension on CUA undo
@@ -431,9 +448,9 @@
   (when mark-active
     (indent-rigidly (region-beginning) (region-end) (* tab-width -1))))
 
-(use-package gfm-mode
-  :mode "\\.md$"
-  :init
+(use-package markdown-mode
+  :mode ("\\.md$" . gfm-mode)
+  :config
   (progn
     ;; Use markdown-mode for *scratch*
     (setq initial-scratch-message nil
@@ -454,13 +471,13 @@
 ;; Single dired buffer
 (use-package dired-single
   :commands dired-single-buffer dired-single-buffer-mouse
-  :init
+  :defines dired-mode-map
+  :config
   (add-hook 'dired-mode-hook
             (lambda ()
               ;; Enable all commands
               (setq disabled-command-function nil)
 
-              (defvar dired-mode-map)
               (define-key dired-mode-map [return] 'dired-single-buffer)
               (define-key dired-mode-map [down-mouse-1] 'dired-single-buffer-mouse)
               (define-key dired-mode-map [^]
@@ -475,10 +492,10 @@
 ;; Hide dired file permissions
 (use-package dired-details
   :commands dired-details-install
-  :init
+  :defines dired-details-hidden-string
+  :config
   (progn
     (dired-details-install)
-    (defvar dired-details-hidden-string)
     (setq dired-details-hidden-string "")))
 
 (use-package ack-and-a-half
@@ -486,13 +503,13 @@
          ("s-F" . ack-and-a-half)))
 
 (use-package dired+
-  :idle
+  ;; :idle
+  :defines dired-omit-files
   :config
   (progn
     ;; Fix color theme
     (setq-default dired-omit-files-p t)
     (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
-    (defvar dired-omit-files)
     (setq dired-omit-files (concat dired-omit-files "\\."))))
 
 ;;
@@ -514,7 +531,7 @@
 
 (use-package sqlup-mode
   :diminish sqlup-mode
-  :init
+  :config
   (add-hook 'sql-mode-hook 'sqlup-mode))
 
 ;;
@@ -608,10 +625,11 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 (use-package mustache-mode
   :mode "\\.\\(mst|mustache\\)$")
 
-(use-package gitignore-mod
+(use-package gitignore-mode
   :mode "\\.\\(gitignore|jshintignore\\)$")
 
 (use-package ntcmd
+  :no-require t
   :mode ("\\.bat$" . ntcmd-mode))
 
 (use-package oz
@@ -627,9 +645,11 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   :mode ("\\.ma$" . wolfram-mode))
 
 (use-package vala-mode
+  :no-require t
   :mode ("\\.vala$" . vala-mode))
 
 (use-package powershell-mode
+  :no-require t
   :mode ("\\.ps1$" . powershell-mode))
 
 ;; R
@@ -640,11 +660,14 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
             (defvar ess-indent-level)
             (setq ess-indent-level tab-width)))
 
-(add-hook 'swift-mode-hook
-          (lambda ()
-            (setq-local tab-width 2)
-            (defvar swift-indent-offset)
-            (setq-local swift-indent-offset 2)))
+(use-package swift-mode
+  :mode "\\.swift$"
+  :defines swift-indent-offset
+  :init
+  (add-hook 'swift-mode-hook
+            (lambda ()
+              (setq-local tab-width 2)
+              (setq-local swift-indent-offset 2))))
 
 ;; More JavaScript files
 (add-to-list 'auto-mode-alist '("\\.pjs$" . js2-mode))
@@ -665,33 +688,35 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
            "Cheffile"))
   (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
 
-;; Fix Haskell indentation
-(add-hook 'haskell-mode-hook
-          (lambda ()
-            (turn-on-haskell-indentation)
-            (setq tab-width tab-width)
-            (inf-haskell-mode)))
+(use-package haskell-mode
+  :mode "\\.(l)?hs$"
+  :functions haskell-ident-at-point
+  :init
+  ;; Fix Haskell indentation
+  (add-hook 'haskell-mode-hook
+            (lambda ()
+              (turn-on-haskell-indentation)
+              (setq tab-width tab-width)
+              (inf-haskell-mode)))
 
-;; Show Haskell type information
-(add-hook 'inf-haskell-mode-hook
-          (lambda ()
-            (local-set-key (kbd "M-/")
-                           (lambda ()
-                             (interactive)
-                             (declare-function haskell-ident-at-point "haskell-mode" nil)
-                             (inferior-haskell-load-file nil)
-                             (inferior-haskell-type (haskell-ident-at-point))))))
+  ;; Show Haskell type information
+  (add-hook 'inf-haskell-mode-hook
+            (lambda ()
+              (local-set-key (kbd "M-/")
+                             (lambda ()
+                               (interactive)
+                               (inferior-haskell-load-file nil)
+                               (inferior-haskell-type (haskell-ident-at-point)))))))
 
 ;; (use-package erlang
 ;;   :mode
 ;;   ("\\(\\.hrl|\\.yrl|\\.app|\\.appSrc|\\.app.src|\\.rel|rebar.config\\)$" .
 ;;    erlang-mode)
-;;   :init
+;;   :defines erlang-indent-level erlang-electric-commands
+;;   :config
 ;;   (progn
 ;;     (add-hook 'erlang-mode-hook
 ;;               (lambda ()
-;;                 (defvar erlang-indent-level)
-;;                 (defvar erlang-electric-commands)
 ;;                 ;; Erlang indentation
 ;;                 ;; Disable autocomplete
 ;;                 (setq erlang-indent-level tab-width
@@ -699,28 +724,28 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 
 ;; More YAML files
 (use-package yaml-mode
-  :init
+  :config
   (add-to-list 'auto-mode-alist '("\\.reek$" . yaml-mode)))
 
 ;; Node shell scripts
 (use-package js2-mode
-  :init
+  :config
   (add-to-list 'interpreter-mode-alist '("node" . js2-mode)))
 
 ;; More JSON files
 (use-package json-mode
-  :init
+  :config
   (add-to-list 'auto-mode-alist '("\\.jshintrc$" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.bowerrc$" . json-mode)))
 
 ;; JSP
 (use-package crappy-jsp-mode
-  :init
+  :config
   (add-to-list 'auto-mode-alist '("\\.jsp$" . crappy-jsp-mode)))
 
 ;; Embedded HTML/CSS/JS
 (use-package mmm-mode
-  :init
+  :config
   (progn
     ;; ERB
     (defun sanityinc/ensure-mmm-erb-loaded ()
@@ -802,13 +827,15 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                   comment-end "")))
 
 ;; TODO: Fix ruby-mode closing parentheses/brackets nesting too deep
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            (defvar ruby-deep-indent-paren)
-            (setq ruby-deep-indent-paren nil)))
+(use-package ruby-mode
+  :defines ruby-deep-indent-paren
+  :init
+  (add-hook 'ruby-mode-hook
+            (lambda ()
+              (setq ruby-deep-indent-paren nil))))
 
 (use-package dart-mode
-  :defer t
+  ;; :idle
   :config
   (add-hook 'dart-mode-hook
             (lambda ()
@@ -832,7 +859,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 ;; ;;
 ;; (use-package ensime
 ;;   :commands ensime-scala-mode-hook
-;;   :init
+;;   :config
 ;;   (progn
 ;;     (add-hook 'scala-mode-hook
 ;;               (lambda ()
@@ -841,7 +868,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 
 (use-package rainbow-mode
   :diminish rainbow-mode
-  :init
+  :config
   (dolist (hook '(css-mode-hook
                   html-mode-hook
                   sass-mode-hook
@@ -856,6 +883,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   :diminish (global-whitespace-mode
              whitespace-mode
              whitespace-newline-mode)
+  :defines whitespace-face
   :config
   (progn
     (dolist (hook '(prog-mode-hook
@@ -864,25 +892,25 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                     text-mode-hook
                     html-erb-mode-hook
                     nxml-mode-hook))
-      (add-hook hook (lambda ()
-                       (defvar whitespace-face)
-                       (setq whitespace-style
-                             '(face
-                               trailing
-                               space-before-tab
-                               space-after-tab
-                               ;; work around https://github.com/jwiegley/use-package/issues/122
-                               ;; indentation
-                               empty)
-                             ;; Make inappropriate indentations more visible
-                             ;; in a dark theme like Monokai
-                             whitespace-face 'whitespace-trailing)
-                       (whitespace-mode))))))
+      (add-hook hook
+                (lambda ()
+                  (setq whitespace-style
+                        '(face
+                          trailing
+                          space-before-tab
+                          space-after-tab
+                          ;; work around https://github.com/jwiegley/use-package/issues/122
+                          ;; indentation
+                          empty)
+                        ;; Make inappropriate indentations more visible
+                        ;; in a dark theme like Monokai
+                        whitespace-face 'whitespace-trailing)
+                  (whitespace-mode))))))
 
 (use-package hideshow
   :diminish hs-minor-mode
   :bind ("M-]" . hs-toggle-hiding)
-  :init
+  :config
   (progn
     (dolist (hook '(prog-mode-hook
                     conf-mode-hook

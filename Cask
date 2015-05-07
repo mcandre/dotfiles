@@ -70,7 +70,7 @@
 (depends-on "vala-mode")
 (depends-on "vimrc-mode")
 (depends-on "window-jump")
-;; (depends-on "wolfram-mode")
+(depends-on "wolfram-mode")
 (depends-on "xahk-mode")
 (depends-on "xterm-frobs")
 (depends-on "xterm-title")
