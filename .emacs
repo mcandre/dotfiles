@@ -396,7 +396,7 @@
          ("C-x <down>" . window-jump-down)
          ("C-x <left>" . window-jump-left)
          ("C-x <right>" . window-jump-right))
-  :config
+  :init
   ;; Wrap around
   (setq wj-wrap t)
 
@@ -445,11 +445,11 @@
 
 (use-package markdown-mode
   :mode ("\\.md$" . gfm-mode)
-  :config
+  :init
   ;; Use markdown-mode for *scratch*
   (setq initial-scratch-message nil
         initial-major-mode 'gfm-mode)
-
+  :config
   ;; Block indent for Markdown
   (add-hook 'markdown-mode-hook
             (lambda ()
