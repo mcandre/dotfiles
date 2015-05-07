@@ -74,4 +74,5 @@
 (depends-on "xahk-mode")
 (depends-on "xterm-frobs")
 (depends-on "xterm-title")
+(depends-on "yafolding")
 (depends-on "yaml-mode")

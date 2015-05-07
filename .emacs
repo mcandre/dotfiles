@@ -895,9 +895,8 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                       whitespace-face 'whitespace-trailing)
                 (whitespace-mode)))))
 
-(use-package hideshow
-  :diminish hs-minor-mode
-  :bind ("M-]" . hs-toggle-hiding)
+(use-package yafolding
+  :bind ("M-]" . yafolding-toggle-element)
   :init
   (dolist (hook '(prog-mode-hook
                   conf-mode-hook
@@ -905,28 +904,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                   text-mode-hook
                   html-erb-mode-hook
                   nxml-mode-hook))
-    (add-hook hook 'hs-minor-mode))
-  :config
-  ;; Fix XML folding
-  (add-to-list 'hs-special-modes-alist
-               (list 'nxml-mode
-                     "<!--\\|<[^/>]*[^/]>"
-                     "-->\\|</[^/>]*[^/]>"
-                     "<!--"
-                     'nxml-forward-element
-                     nil))
-
-  ;; Fix HTML folding
-  (dolist (mode '(sgml-mode
-                  html-mode
-                  html-erb-mode))
-    (add-to-list 'hs-special-modes-alist
-                 (list mode
-                       "<!--\\|<[^/>]*[^/]>"
-                       "-->\\|</[^/>]*[^/]>"
-                       "<!--"
-                       'sgml-skip-tag-forward
-                       nil))))
+    (add-hook hook 'yafolding-mode)))
 
 (use-package editorconfig)
 
