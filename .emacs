@@ -114,7 +114,7 @@
 (eval-when-compile
   (require 'use-package))
 (require 'diminish)
-(require 'bind-key)  
+(require 'bind-key)
 
 (if window-system
     ;; CUA tools in GUI mode
@@ -191,24 +191,23 @@
 
       ;; Work around Ubuntu server 12.04 / SSH bug
       ;;
-      ;; ;; Show buffer name in terminal title in ncurses mode
+      ;; Show buffer name in terminal title in ncurses mode
       ;; (if (and (not window-system)
       ;;          (not noninteractive)
       ;;          (string-match "^xterm" (getenv "TERM")))
       ;;     (use-package xterm-frobs
       ;;       :functions xterm-title-mode
       ;;       :config
-      ;;       (progn
-      ;;         ;; Work around broken xterm-title in Mac OS X
-      ;;         (pcase system-type
-      ;;           (`darwin (progn
-      ;;                      (defun my-xterm-title-hook ()
+      ;;       ;; Work around broken xterm-title in Mac OS X
+      ;;       (pcase system-type
+      ;;         (`darwin (progn
+      ;;                    (defun my-xterm-title-hook ()
       ;;                      (xterm-set-window-title (buffer-name)))
-      ;;                      (add-hook 'post-command-hook  'my-xterm-title-hook)))
-      ;;           (`gnu/linux (progn
-      ;;                         (use-package xterm-title
-      ;;                           :config
-      ;;                           (xterm-title-mode))))))))
+      ;;                    (add-hook 'post-command-hook  'my-xterm-title-hook)))
+      ;;         (`gnu/linux (progn
+      ;;                       (use-package xterm-title
+      ;;                         :config
+      ;;                         (xterm-title-mode)))))))
 
       ))
 
@@ -231,10 +230,9 @@
 ;; Fast line numbers
 (use-package nlinum
   :config
-  (progn
-    ;; Line number gutter in ncurses mode
-    (unless window-system
-      (setq nlinum-format "%d ")))
+  ;; Line number gutter in ncurses mode
+  (unless window-system
+    (setq nlinum-format "%d "))
   ;; :idle
   (global-nlinum-mode))
 
@@ -354,44 +352,43 @@
   :bind ("C-p" . fiplr-find-file)
   :defines fipl-ignored-globs
   :config
-  (progn
-    (setq fiplr-ignored-globs
-          '((directories
-             ;; Version control
-             (".git"
-              ".svn"
-              ".hg"
-              ".bzr"
-              ;; NPM
-              "node_modules"
-              ;; Bower
-              "bower_components"
-              ;; Maven
-              "target"
-              ;; Python
-              "__pycache__"))
-            (files
-             ;; Emacs
-             (".#*"
-              ;; Vim
-              "*~"
-              ;; Objects
-              "*.so"
-              "*.o"
-              "*.obj"
-              ;; Media
-              "*.jpg"
-              "*.png"
-              "*.gif"
-              "*.pdf"
-              ;; Archives
-              "*.gz"
-              "*.zip"))))
+  (setq fiplr-ignored-globs
+        '((directories
+           ;; Version control
+           (".git"
+            ".svn"
+            ".hg"
+            ".bzr"
+            ;; NPM
+            "node_modules"
+            ;; Bower
+            "bower_components"
+            ;; Maven
+            "target"
+            ;; Python
+            "__pycache__"))
+          (files
+           ;; Emacs
+           (".#*"
+            ;; Vim
+            "*~"
+            ;; Objects
+            "*.so"
+            "*.o"
+            "*.obj"
+            ;; Media
+            "*.jpg"
+            "*.png"
+            "*.gif"
+            "*.pdf"
+            ;; Archives
+            "*.gz"
+            "*.zip"))))
 
-    ;; Better TAB handling
-    (define-key *fiplr-keymap* (kbd "TAB")
-      (lambda ()
-        (interactive)))))
+  ;; Better TAB handling
+  (define-key *fiplr-keymap* (kbd "TAB")
+    (lambda ()
+      (interactive))))
 
 ;; C-x <direction> to switch windows
 (use-package window-jump
@@ -400,22 +397,21 @@
          ("C-x <left>" . window-jump-left)
          ("C-x <right>" . window-jump-right))
   :config
-  (progn
-    ;; Wrap around
-    (setq wj-wrap t)
+  ;; Wrap around
+  (setq wj-wrap t)
 
-    ;; Keep window split size uniform
-    ;; Move focus to new window
-    (defadvice split-window-below (after restore-balanace-below activate)
-      (balance-windows)
-      (window-jump-down)
-      (switch-to-buffer "*scratch*"))
-    (defadvice split-window-right (after restore-balance-right activate)
-      (balance-windows)
-      (window-jump-right)
-      (switch-to-buffer "*scratch*"))
-    (defadvice delete-window (after restore-balance activate)
-      (balance-windows))))
+  ;; Keep window split size uniform
+  ;; Move focus to new window
+  (defadvice split-window-below (after restore-balanace-below activate)
+    (balance-windows)
+    (window-jump-down)
+    (switch-to-buffer "*scratch*"))
+  (defadvice split-window-right (after restore-balance-right activate)
+    (balance-windows)
+    (window-jump-right)
+    (switch-to-buffer "*scratch*"))
+  (defadvice delete-window (after restore-balance activate)
+    (balance-windows)))
 
 ;; Monokai
 (use-package monokai-theme
@@ -431,10 +427,9 @@
   :bind (("C-z" . undo-tree-undo)
          ("C-r" . undo-tree-redo))
   :config
-  (progn
-    (global-undo-tree-mode)
-    ;; Prevent accidental suspension on CUA undo
-    (global-unset-key (kbd "C-x C-z"))))
+  (global-undo-tree-mode)
+  ;; Prevent accidental suspension on CUA undo
+  (global-unset-key (kbd "C-x C-z")))
 
 ;; If mark exists, indent rigidly
 (defun traditional-indent ()
@@ -451,18 +446,17 @@
 (use-package markdown-mode
   :mode ("\\.md$" . gfm-mode)
   :config
-  (progn
-    ;; Use markdown-mode for *scratch*
-    (setq initial-scratch-message nil
-          initial-major-mode 'gfm-mode)
+  ;; Use markdown-mode for *scratch*
+  (setq initial-scratch-message nil
+        initial-major-mode 'gfm-mode)
 
-    ;; Block indent for Markdown
-    (add-hook 'markdown-mode-hook
-              (lambda ()
-                (setq indent-tabs-mode nil
-                      tab-width 4)
-                (define-key markdown-mode-map (kbd "TAB") 'traditional-indent)
-                (define-key markdown-mode-map (kbd "<backtab>") 'traditional-outdent)))))
+  ;; Block indent for Markdown
+  (add-hook 'markdown-mode-hook
+            (lambda ()
+              (setq indent-tabs-mode nil
+                    tab-width 4)
+              (define-key markdown-mode-map (kbd "TAB") 'traditional-indent)
+              (define-key markdown-mode-map (kbd "<backtab>") 'traditional-outdent))))
 
 ;; M-; toggles commenting for marked region or current line.
 (use-package evil-nerd-commenter
@@ -494,9 +488,8 @@
   :commands dired-details-install
   :defines dired-details-hidden-string
   :config
-  (progn
-    (dired-details-install)
-    (setq dired-details-hidden-string "")))
+  (dired-details-install)
+  (setq dired-details-hidden-string ""))
 
 (use-package ack-and-a-half
   :bind (("C-x C-a" . ack-and-a-half)
@@ -506,11 +499,10 @@
   ;; :idle
   :defines dired-omit-files
   :config
-  (progn
-    ;; Fix color theme
-    (setq-default dired-omit-files-p t)
-    (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
-    (setq dired-omit-files (concat dired-omit-files "\\."))))
+  ;; Fix color theme
+  (setq-default dired-omit-files-p t)
+  (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
+  (setq dired-omit-files (concat dired-omit-files "\\.")))
 
 ;;
 ;; Syntax highlighting
@@ -708,19 +700,18 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                                (inferior-haskell-load-file nil)
                                (inferior-haskell-type (haskell-ident-at-point)))))))
 
-;; (use-package erlang
-;;   :mode
-;;   ("\\(\\.hrl|\\.yrl|\\.app|\\.appSrc|\\.app.src|\\.rel|rebar.config\\)$" .
-;;    erlang-mode)
-;;   :defines erlang-indent-level erlang-electric-commands
-;;   :config
-;;   (progn
-;;     (add-hook 'erlang-mode-hook
-;;               (lambda ()
-;;                 ;; Erlang indentation
-;;                 ;; Disable autocomplete
-;;                 (setq erlang-indent-level tab-width
-;;                       erlang-electric-commands '())))))
+(use-package erlang
+  :mode
+  ("\\(\\.hrl|\\.yrl|\\.app|\\.appSrc|\\.app.src|\\.rel|rebar.config\\)$" .
+   erlang-mode)
+  :defines erlang-indent-level erlang-electric-commands
+  :config
+  (add-hook 'erlang-mode-hook
+            (lambda ()
+              ;; Erlang indentation
+              ;; Disable autocomplete
+              (setq erlang-indent-level tab-width
+                    erlang-electric-commands '()))))
 
 ;; More YAML files
 (use-package yaml-mode
@@ -746,59 +737,58 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 ;; Embedded HTML/CSS/JS
 (use-package mmm-mode
   :config
-  (progn
-    ;; ERB
-    (defun sanityinc/ensure-mmm-erb-loaded ()
-      (require 'mmm-erb))
+  ;; ERB
+  (defun sanityinc/ensure-mmm-erb-loaded ()
+    (require 'mmm-erb))
 
-    (require 'derived)
+  (require 'derived)
 
-    (defun sanityinc/set-up-mode-for-erb (mode)
-      (add-hook (derived-mode-hook-name mode) 'sanityinc/ensure-mmm-erb-loaded)
-      (mmm-add-mode-ext-class mode "\\.erb$" 'erb))
+  (defun sanityinc/set-up-mode-for-erb (mode)
+    (add-hook (derived-mode-hook-name mode) 'sanityinc/ensure-mmm-erb-loaded)
+    (mmm-add-mode-ext-class mode "\\.erb$" 'erb))
 
-    (let ((html-erb-modes '(html-mode html-erb-mode nxml-mode)))
-      (dolist (mode html-erb-modes)
-        (sanityinc/set-up-mode-for-erb mode)
-        (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-js)
-        (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css)))
+  (let ((html-erb-modes '(html-mode html-erb-mode nxml-mode)))
+    (dolist (mode html-erb-modes)
+      (sanityinc/set-up-mode-for-erb mode)
+      (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-js)
+      (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css)))
 
-    (mapc 'sanityinc/set-up-mode-for-erb
-          '(coffee-mode js-mode js2-mode js3-mode markdown-mode textile-mode))
+  (mapc 'sanityinc/set-up-mode-for-erb
+        '(coffee-mode js-mode js2-mode js3-mode markdown-mode textile-mode))
 
-    (mmm-add-mode-ext-class 'html-erb-mode "\\.jst\\.ejs$" 'ejs)
+  (mmm-add-mode-ext-class 'html-erb-mode "\\.jst\\.ejs$" 'ejs)
 
-    (add-to-list 'auto-mode-alist '("\\.\\(r\\)?html\\(erb\\)?$" . html-erb-mode))
-    (add-to-list 'auto-mode-alist '("\\.jst\\.ejs$"  . html-erb-mode))
-    (mmm-add-mode-ext-class 'yaml-mode "\\.yaml$" 'erb)
+  (add-to-list 'auto-mode-alist '("\\.\\(r\\)?html\\(erb\\)?$" . html-erb-mode))
+  (add-to-list 'auto-mode-alist '("\\.jst\\.ejs$"  . html-erb-mode))
+  (mmm-add-mode-ext-class 'yaml-mode "\\.yaml$" 'erb)
 
-    (dolist (mode (list 'js-mode 'js2-mode 'js3-mode))
-      (mmm-add-mode-ext-class mode "\\.js\\.erb$" 'erb))
+  (dolist (mode (list 'js-mode 'js2-mode 'js3-mode))
+    (mmm-add-mode-ext-class mode "\\.js\\.erb$" 'erb))
 
-    ;; CSS
-    (mmm-add-group
-     'html-css
-     '((css-cdata
-        :submode css-mode
-        :face mmm-code-submode-face
-        :front "<style[^>]*>[ \t\n]*\\(//\\)?<!\\[CDATA\\[[ \t]*\n?"
-        :back "[ \t]*\\(//\\)?]]>[ \t\n]*</style>"
-        :insert ((?j js-tag nil @ "<style type=\"text/css\">"
-                     @ "\n" _ "\n" @ "</script>" @)))
-       (css
-        :submode css-mode
-        :face mmm-code-submode-face
-        :front "<style[^>]*>[ \t]*\n?"
-        :back "[ \t]*</style>"
-        :insert ((?j js-tag nil @ "<style type=\"text/css\">"
-                     @ "\n" _ "\n" @ "</style>" @)))
-       (css-inline
-        :submode css-mode
-        :face mmm-code-submode-face
-        :front "style=\""
-        :back "\"")))
-    (dolist (mode (list 'html-mode 'nxml-mode))
-      (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css))))
+  ;; CSS
+  (mmm-add-group
+   'html-css
+   '((css-cdata
+      :submode css-mode
+      :face mmm-code-submode-face
+      :front "<style[^>]*>[ \t\n]*\\(//\\)?<!\\[CDATA\\[[ \t]*\n?"
+      :back "[ \t]*\\(//\\)?]]>[ \t\n]*</style>"
+      :insert ((?j js-tag nil @ "<style type=\"text/css\">"
+                   @ "\n" _ "\n" @ "</script>" @)))
+     (css
+      :submode css-mode
+      :face mmm-code-submode-face
+      :front "<style[^>]*>[ \t]*\n?"
+      :back "[ \t]*</style>"
+      :insert ((?j js-tag nil @ "<style type=\"text/css\">"
+                   @ "\n" _ "\n" @ "</style>" @)))
+     (css-inline
+      :submode css-mode
+      :face mmm-code-submode-face
+      :front "style=\""
+      :back "\"")))
+  (dolist (mode (list 'html-mode 'nxml-mode))
+    (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css)))
 
 ;;
 ;; Fix C family autoindent
@@ -860,11 +850,10 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 ;; (use-package ensime
 ;;   :commands ensime-scala-mode-hook
 ;;   :config
-;;   (progn
-;;     (add-hook 'scala-mode-hook
-;;               (lambda ()
-;;                 (ensime-scala-mode-hook)
-;;                 (local-set-key (kbd "M-/") 'ensime-inspect-type-at-point)))))
+;;   (add-hook 'scala-mode-hook
+;;             (lambda ()
+;;               (ensime-scala-mode-hook)
+;;               (local-set-key (kbd "M-/") 'ensime-inspect-type-at-point))))
 
 (use-package rainbow-mode
   :diminish rainbow-mode
@@ -885,61 +874,59 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
              whitespace-newline-mode)
   :defines whitespace-face
   :config
-  (progn
-    (dolist (hook '(prog-mode-hook
-                    conf-mode-hook
-                    groovy-mode-hook
-                    text-mode-hook
-                    html-erb-mode-hook
-                    nxml-mode-hook))
-      (add-hook hook
-                (lambda ()
-                  (setq whitespace-style
-                        '(face
-                          trailing
-                          space-before-tab
-                          space-after-tab
-                          ;; work around https://github.com/jwiegley/use-package/issues/122
-                          ;; indentation
-                          empty)
-                        ;; Make inappropriate indentations more visible
-                        ;; in a dark theme like Monokai
-                        whitespace-face 'whitespace-trailing)
-                  (whitespace-mode))))))
+  (dolist (hook '(prog-mode-hook
+                  conf-mode-hook
+                  groovy-mode-hook
+                  text-mode-hook
+                  html-erb-mode-hook
+                  nxml-mode-hook))
+    (add-hook hook
+              (lambda ()
+                (setq whitespace-style
+                      '(face
+                        trailing
+                        space-before-tab
+                        space-after-tab
+                        ;; work around https://github.com/jwiegley/use-package/issues/122
+                        ;; indentation
+                        empty)
+                      ;; Make inappropriate indentations more visible
+                      ;; in a dark theme like Monokai
+                      whitespace-face 'whitespace-trailing)
+                (whitespace-mode)))))
 
 (use-package hideshow
   :diminish hs-minor-mode
   :bind ("M-]" . hs-toggle-hiding)
+  :init
+  (dolist (hook '(prog-mode-hook
+                  conf-mode-hook
+                  groovy-mode-hook
+                  text-mode-hook
+                  html-erb-mode-hook
+                  nxml-mode-hook))
+    (add-hook hook 'hs-minor-mode))
   :config
-  (progn
-    (dolist (hook '(prog-mode-hook
-                    conf-mode-hook
-                    groovy-mode-hook
-                    text-mode-hook
-                    html-erb-mode-hook
-                    nxml-mode-hook))
-      (add-hook hook 'hs-minor-mode))
+  ;; Fix XML folding
+  (add-to-list 'hs-special-modes-alist
+               (list 'nxml-mode
+                     "<!--\\|<[^/>]*[^/]>"
+                     "-->\\|</[^/>]*[^/]>"
+                     "<!--"
+                     'nxml-forward-element
+                     nil))
 
-    ;; Fix XML folding
+  ;; Fix HTML folding
+  (dolist (mode '(sgml-mode
+                  html-mode
+                  html-erb-mode))
     (add-to-list 'hs-special-modes-alist
-                 (list 'nxml-mode
+                 (list mode
                        "<!--\\|<[^/>]*[^/]>"
                        "-->\\|</[^/>]*[^/]>"
                        "<!--"
-                       'nxml-forward-element
-                       nil))
-
-    ;; Fix HTML folding
-    (dolist (mode '(sgml-mode
-                    html-mode
-                    html-erb-mode))
-      (add-to-list 'hs-special-modes-alist
-                   (list mode
-                         "<!--\\|<[^/>]*[^/]>"
-                         "-->\\|</[^/>]*[^/]>"
-                         "<!--"
-                         'sgml-skip-tag-forward
-                         nil)))))
+                       'sgml-skip-tag-forward
+                       nil))))
 
 (use-package editorconfig)
 
