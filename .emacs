@@ -825,13 +825,14 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
               (setq ruby-deep-indent-paren nil))))
 
 (use-package dart-mode
+  :mode "\\.dart$"
   ;; :idle
-  :config
+  :init
   (add-hook 'dart-mode-hook
             (lambda ()
               (c-add-style "dart" gangnam-style t))))
 
-(global-unset-key (kbd "M-/"))
+;; (global-unset-key (kbd "M-/"))
 
 ;; ;;
 ;; ;; Autocomplete and type checking for Scala code
