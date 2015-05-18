@@ -1,2 +1,2 @@
-export EDITOR='emacs -nw'
-export SVN_EDITOR='emacs -nw'
+export EDITOR='emacs'
+export SVN_EDITOR='emacs'
