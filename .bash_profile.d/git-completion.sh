@@ -1,1 +1,0 @@
-. "$HOME/.git-completion.sh"
