@@ -282,14 +282,6 @@
               (setq css-indent-offset 2))))
 ;; Perl indentation
 (fset 'perl-mode 'cperl-mode)
-;; Python indentation
-(add-hook 'python-mode-hook
-          (lambda ()
-            (defvar python-indent)
-            (defvar python-indent-offset)
-            (setq tab-width 2
-                  python-indent 2
-                  python-indent-offset 2)))
 ;; Rust indentation
 (use-package rust-mode
   :mode "\\.rs$"
