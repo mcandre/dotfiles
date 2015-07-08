@@ -257,10 +257,16 @@
 (add-hook 'js2-mode-hook
           (lambda ()
             (setq js2-basic-offset 2)))
-;; JSON indentation
-(add-hook 'json-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode nil)))
+
+(use-package json-mode
+  :mode (("\\.jshintrc$" . json-mode)
+         ("\\.bowerrc$" . json-mode)
+         ("\\.schema$" . json-mode))
+  :config
+  (add-hook 'json-mode-hook
+            (lambda ()
+              (setq indent-tabs-mode nil))))
+
 ;; Lua indentation
 (use-package lua-mode
   :mode "\\.lua$"
@@ -714,12 +720,6 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 (use-package js2-mode
   :config
   (add-to-list 'interpreter-mode-alist '("node" . js2-mode)))
-
-;; More JSON files
-(use-package json-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.jshintrc$" . json-mode))
-  (add-to-list 'auto-mode-alist '("\\.bowerrc$" . json-mode)))
 
 ;; JSP
 (use-package crappy-jsp-mode
