@@ -248,16 +248,6 @@
   :config
   (define-key newlisp-mode-map (kbd "M-:") nil))
 
-;; JavaScript indentation
-(add-hook 'js-mode-hook
-          (lambda ()
-            (setq
-             js-indent-level 2
-             indent-tabs-mode nil)))
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (setq js2-basic-offset 2)))
-
 (use-package json-mode
   :mode (("\\.jshintrc$" . json-mode)
          ("\\.bowerrc$" . json-mode)
