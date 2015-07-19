@@ -248,19 +248,15 @@
   :config
   (define-key newlisp-mode-map (kbd "M-:") nil))
 
-;; JavaScript indentation
-(add-hook 'js-mode-hook
-          (lambda ()
-            (setq
-             js-indent-level 2
-             indent-tabs-mode nil)))
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (setq js2-basic-offset 2)))
-;; JSON indentation
-(add-hook 'json-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode nil)))
+(use-package json-mode
+  :mode (("\\.jshintrc$" . json-mode)
+         ("\\.bowerrc$" . json-mode)
+         ("\\.schema$" . json-mode))
+  :config
+  (add-hook 'json-mode-hook
+            (lambda ()
+              (setq indent-tabs-mode nil))))
+
 ;; Lua indentation
 (use-package lua-mode
   :mode "\\.lua$"
@@ -282,14 +278,6 @@
               (setq css-indent-offset 2))))
 ;; Perl indentation
 (fset 'perl-mode 'cperl-mode)
-;; Python indentation
-(add-hook 'python-mode-hook
-          (lambda ()
-            (defvar python-indent)
-            (defvar python-indent-offset)
-            (setq tab-width 2
-                  python-indent 2
-                  python-indent-offset 2)))
 ;; Rust indentation
 (use-package rust-mode
   :mode "\\.rs$"
@@ -722,12 +710,6 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 (use-package js2-mode
   :config
   (add-to-list 'interpreter-mode-alist '("node" . js2-mode)))
-
-;; More JSON files
-(use-package json-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.jshintrc$" . json-mode))
-  (add-to-list 'auto-mode-alist '("\\.bowerrc$" . json-mode)))
 
 ;; JSP
 (use-package crappy-jsp-mode
