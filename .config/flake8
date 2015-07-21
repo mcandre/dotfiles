@@ -3,3 +3,4 @@
 
 [flake8]
 jobs = 1
+max-line-length = 120
