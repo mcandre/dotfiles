@@ -13,7 +13,7 @@ import os
 # Persist history across sessions
 #
 
-history_path = os.path.expanduser("~/.pyhistory")
+history_path = os.path.expanduser('~/.pyhistory')
 
 
 def save_history(history_path=history_path):
@@ -25,7 +25,7 @@ if os.path.exists(history_path):
 
 atexit.register(save_history)
 
-readline.parse_and_bind("tab: complete")
+readline.parse_and_bind('tab: complete')
 
 # Clear variables from REPL
 del os, atexit, readline, rlcompleter, save_history, history_path
