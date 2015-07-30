@@ -18,7 +18,7 @@ def pyflakes():
 
 @task
 def flake8():
-    run("flake8")
+    run("flake8 .")
 
 
 @task(pre=[pep8, pylint, pyflakes, flake8])
