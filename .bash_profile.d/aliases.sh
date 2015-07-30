@@ -12,3 +12,6 @@ alias curl='curl -s'
 
 # Show progress bar
 alias rsync='rsync --info=progress2 -a'
+
+# Disable bashate warnings
+alias bashate='bashate -i E003'
