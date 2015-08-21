@@ -77,6 +77,7 @@ autocmd FileType make set ts=2
 autocmd FileType mkd set sw=4
 autocmd FileType mkd set sts=4
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.cql set filetype=cql
 " And Java
 autocmd FileType java set sw=2
 
@@ -144,6 +145,7 @@ Plugin 'mtth/scratch.vim'
 Plugin 'greplace.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'mcandre/Conque-Shell'
+Plugin 'elubow/cql-vim'
 
 call vundle#end()
 
