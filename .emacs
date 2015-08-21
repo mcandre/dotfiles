@@ -226,6 +226,7 @@
 (add-to-list 'auto-mode-alist '("\\.ackrc$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.editorconfig$" . conf-mode))
 (add-to-list 'auto-mode-alist '("Cask$" . lisp-mode))
+(add-to-list 'auto-mode-alist '("\\.cql" . sql-mode))
 
 ;; Fast line numbers
 (use-package nlinum
