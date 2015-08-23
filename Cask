@@ -37,6 +37,7 @@
 (depends-on "haskell-mode")
 (depends-on "io-mode")
 (depends-on "j-mode")
+(depends-on "jq-mode")
 (depends-on "js2-mode")
 (depends-on "json-mode")
 (depends-on "less-css-mode")
