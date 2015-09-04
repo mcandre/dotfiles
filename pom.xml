@@ -1,31 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>orion.core.data.commoncrawler</groupId>
-  <artifactId>commoncrawler</artifactId>
-  <version>0.0.12-SNAPSHOT</version>
+  <groupId>us.yellosoft.painbow</groupId>
+  <artifactId>painbow</artifactId>
+  <version>0.0.1</version>
   <packaging>jar</packaging>
 
-  <name>commoncrawler</name>
-  <url>http://git.lab76.org/data-team-42six/commoncrawler</url>
-
-  <distributionManagement>
-    <repository>
-      <id>central</id>
-      <name>libs-release</name>
-      <url>https://artifacts.lab76.org/artifactory/libs-release-local</url>
-    </repository>
-    <snapshotRepository>
-      <id>snapshots</id>
-      <name>libs-snapshots</name>
-      <url>https://artifacts.lab76.org/artifactory/libs-snapshot-local</url>
-    </snapshotRepository>
-  </distributionManagement>
+  <name>painbow</name>
+  <url>https://github.com/mcandre/painbow/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jetty.version>7.6.14.v20131031</jetty.version>
   </properties>
 
   <profiles>
@@ -56,6 +42,32 @@
 
   <build>
     <plugins>
+      <!-- Fat jar -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.5.5</version>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>us.yellosoft.painbow.Painbow</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <id>assemble-all</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -63,8 +75,6 @@
         <configuration>
           <!-- Fuller error traces for unit tests -->
           <useFile>false</useFile>
-          <!-- Memory management during unit tests -->
-          <argLine>-XX:+UseConcMarkSweepGC -Xmx1024m</argLine>
         </configuration>
       </plugin>
       <!-- Lint with Java's builtin Xlint flag -->
@@ -181,44 +191,19 @@
 
   <dependencies>
     <dependency>
-      <groupId>orion.core.data.commoncrawler</groupId>
-      <artifactId>commoncrawler-protocols</artifactId>
-      <version>0.0.2-SNAPSHOT</version>
+      <groupId>com.offbytwo</groupId>
+      <artifactId>docopt</artifactId>
+      <version>0.6.0.20150202</version>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
+      <groupId>org.lucee</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.10.0</version>
     </dependency>
     <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-all</artifactId>
-      <version>1.9.5</version>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>jtidy</groupId>
-          <artifactId>jtidy</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>net.sourceforge.htmlunit</groupId>
-      <artifactId>htmlunit</artifactId>
-      <version>2.13</version>
-    </dependency>
-    <!-- Fix htmlunit dependency error -->
-    <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpclient</artifactId>
-      <version>4.3.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.jetty.aggregate</groupId>
-      <artifactId>jetty-all</artifactId>
-      <version>${jetty.version}</version>
-      <scope>test</scope>
+      <groupId>com.datastax.cassandra</groupId>
+      <artifactId>cassandra-driver-core</artifactId>
+      <version>2.1.7.1</version>
     </dependency>
     <dependency>
       <groupId>net.sourceforge.cobertura</groupId>
@@ -235,12 +220,11 @@
       <groupId>org.codehaus.mojo</groupId>
       <artifactId>cobertura-maven-plugin</artifactId>
       <version>2.6</version>
-      <exclusions>
-        <exclusion>
-          <groupId>jtidy</groupId>
-          <artifactId>jtidy</artifactId>
-        </exclusion>
-      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.6.4</version>
     </dependency>
   </dependencies>
 </project>
