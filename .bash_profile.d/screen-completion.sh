@@ -1,0 +1,1 @@
+. "$HOME/screen-completion.sh"
