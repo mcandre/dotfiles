@@ -1,6 +1,7 @@
 [core]
 editor = emacs
 excludesfile = ~/.gitignore-global
+ignorecase = false
 
 [push]
 default = simple
