@@ -7,17 +7,13 @@
 
 Run:
 
-mvn checkstyle:checkstyle
-
-Or:
-
 checkstyle -c checkstyle.xml -r src/
 
 -->
 
 <module name="Checker">
   <module name="SuppressionFilter">
-    <property name="file" value="suppressions.xml"/>
+    <property name="file" value="${configDir}/checkstyle/suppressions.xml"/>
   </module>
 
   <module name="Translation"/>
@@ -103,7 +99,6 @@ checkstyle -c checkstyle.xml -r src/
     <module name="SimplifyBooleanExpression"/>
     <module name="SimplifyBooleanReturn"/>
 
-    <module name="DesignForExtension"/>
     <module name="FinalClass"/>
     <module name="HideUtilityClassConstructor"/>
     <module name="InterfaceIsType"/>

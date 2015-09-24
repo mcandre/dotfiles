@@ -12,6 +12,10 @@ compileJava {
   options.compilerArgs << '-Xlint:all'
 }
 
+checkstyle {
+  configProperties = [configDir: "${rootDir}/config"]
+}
+
 jar {
   manifest {
     attributes 'Main-Class': 'us.yellosoft.hello.Hello'
@@ -24,4 +28,5 @@ repositories {
 
 dependencies {
   testCompile 'junit:junit:4.12'
+  testCompile 'org.slf4j:slf4j-log4j12:1.7.12'
 }
