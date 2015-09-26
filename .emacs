@@ -243,7 +243,7 @@
   (setq uniquify-buffer-name-style 'post-forward
         uniquify-min-dir-content 7))
 
-(use-package gradle-mode
+(use-package groovy-mode
   :mode "build\\.gradle")
 
 ;; Don't bind M-: to some stupid newLISP evaluator

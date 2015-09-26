@@ -33,7 +33,6 @@
 ;; (depends-on "fuel")
 (depends-on "gitignore-mode")
 ;; (depends-on "go-mode")
-(depends-on "gradle-mode")
 (depends-on "groovy-mode")
 (depends-on "haskell-mode")
 (depends-on "io-mode")
