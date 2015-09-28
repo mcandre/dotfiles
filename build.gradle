@@ -16,6 +16,8 @@ checkstyle {
   configProperties = [configDir: "${rootDir}/config"]
 }
 
+pmd { consoleOutput = true }
+
 jar {
   manifest {
     attributes 'Main-Class': 'us.yellosoft.hello.Hello'
