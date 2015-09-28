@@ -357,6 +357,9 @@
             "bower_components"
             ;; Maven
             "target"
+            ;; Gradle
+             "build"
+             ".gradle"
             ;; Python
             "__pycache__"))
           (files
