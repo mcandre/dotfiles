@@ -1,12 +1,11 @@
 plugins {
-  id 'net.saliman.cobertura' version '2.2.8'
   id 'com.github.johnrengelman.shadow' version '1.2.2'
 }
 
 apply plugin: 'java'
 apply plugin: 'checkstyle'
 apply plugin: 'pmd'
-apply plugin: 'net.saliman.cobertura'
+apply plugin: 'jacoco'
 
 compileJava {
   options.compilerArgs << '-Xlint:all'
