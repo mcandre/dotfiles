@@ -3,6 +3,8 @@
 --sort-files
 --ignore-dir=is:node_modules
 --ignore-dir=is:target
+--ignore-dir=is:build
+--ignore-dir=is:.gradle
 --ignore-dir=is:vendor
 --ignore-dir=is:bower_components
 --ignore-file=match:min\.js
