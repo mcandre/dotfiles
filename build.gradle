@@ -7,19 +7,22 @@ apply plugin: 'checkstyle'
 apply plugin: 'pmd'
 apply plugin: 'jacoco'
 
+sourceCompatibility = '1.8'
+
 compileJava {
   options.compilerArgs << '-Xlint:all'
 }
 
 checkstyle {
-  configProperties = [configDir: "${rootDir}/config"]
+  configFile = "${rootProject.projectDir}/config/checkstyle/checkstyle.xml" as File
+  configProperties = [configDir: "${rootProject.projectDir}/config"]
 }
 
 pmd { consoleOutput = true }
 
 jar {
   manifest {
-    attributes 'Main-Class': 'us.yellosoft.hello.Hello'
+    attributes 'Main-Class': 'us.yellosoft.lambdatest.LambdaTest'
   }
 }
 
