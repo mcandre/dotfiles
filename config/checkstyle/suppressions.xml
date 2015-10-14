@@ -8,4 +8,5 @@
   <suppress checks="." files=".*\.thrift" />
   <suppress checks="." files=".*\.html" />
   <suppress checks="." files=".*Test.*" />
+  <suppress checks="." files=".*/cucumber/.*" />
 </suppressions>

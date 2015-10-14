@@ -95,7 +95,6 @@ checkstyle -c checkstyle.xml -r src/
     <module name="IllegalInstantiation"/>
     <module name="InnerAssignment"/>
     <module name="MissingSwitchDefault"/>
-    <module name="RedundantThrows"/>
     <module name="SimplifyBooleanExpression"/>
     <module name="SimplifyBooleanReturn"/>
 
