@@ -1,4 +1,4 @@
-[[ -s "/Users/andrew.pennebaker/.jenv/bin/jenv-init.sh" ]] && source "/Users/andrew.pennebaker/.jenv/bin/jenv-init.sh" && source "/Users/andrew.pennebaker/.jenv/commands/completion.sh"
+[[ -s "$HOME/.jenv/bin/jenv-init.sh" ]] && source "$HOME/.jenv/bin/jenv-init.sh" && source "$HOME/.jenv/commands/completion.sh"
 
 # Silence successful jenv messages
 function __jenvtool_utils_echo_green {
