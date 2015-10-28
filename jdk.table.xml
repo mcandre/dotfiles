@@ -1,0 +1,58 @@
+<application>
+  <component name="ProjectJdkTable">
+    <jdk version="2">
+      <name value="1.8" />
+      <type value="JavaSDK" />
+      <version value="java version &quot;1.8.0_51&quot;" />
+      <homePath value="$USER_HOME$/.jenv/candidates/java/1.8" />
+      <roots>
+        <annotationsPath>
+          <root type="composite">
+            <root type="simple" url="jar://$APPLICATION_HOME_DIR$/lib/jdkAnnotations.jar!/" />
+          </root>
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/lib/ant-javafx.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/lib/dt.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/lib/javafx-mx.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/lib/jconsole.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/lib/packager.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/lib/sa-jdi.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/lib/tools.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/charsets.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/deploy.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/javaws.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/jce.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/jfr.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/jfxswt.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/jsse.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/management-agent.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/plugin.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/resources.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/rt.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/ext/cldrdata.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/ext/dnsns.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/ext/jfxrt.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/ext/localedata.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/ext/nashorn.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/ext/sunec.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/ext/sunjce_provider.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/ext/sunpkcs11.jar!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/jre/lib/ext/zipfs.jar!/" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/src.zip!/" />
+            <root type="simple" url="jar://$USER_HOME$/.jenv/candidates/java/1.8/javafx-src.zip!/" />
+          </root>
+        </sourcePath>
+      </roots>
+      <additional />
+    </jdk>
+  </component>
+</application>
