@@ -1,0 +1,25 @@
+<keymap version="1" name="Mac OS X copy" parent="Mac OS X">
+  <action id="CloseActiveTab" />
+  <action id="CloseContent">
+    <keyboard-shortcut first-keystroke="meta w" />
+  </action>
+  <action id="EditorChooseLookupItemReplace" />
+  <action id="EditorIndentSelection" />
+  <action id="EditorLineEnd">
+    <keyboard-shortcut first-keystroke="ctrl e" />
+  </action>
+  <action id="EditorLineStart">
+    <keyboard-shortcut first-keystroke="ctrl a" />
+  </action>
+  <action id="EditorSelectWord" />
+  <action id="EditorTab" />
+  <action id="EmacsStyleIndent">
+    <keyboard-shortcut first-keystroke="tab" />
+  </action>
+  <action id="ExpandLiveTemplateByTab" />
+  <action id="NextParameter" />
+  <action id="NextTemplateParameter" />
+  <action id="NextTemplateVariable">
+    <keyboard-shortcut first-keystroke="enter" />
+  </action>
+</keymap>
