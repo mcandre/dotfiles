@@ -10,8 +10,11 @@ alias ls='gls --color=auto'
 # Hide progress bar
 alias curl='curl -s'
 
-# Show progress bar
+# Show overall progress bar
 alias rsync='rsync --info=progress2 -a'
 
 # Disable bashate warnings
 alias bashate='bashate -i E003'
+
+# IntelliJ CLI
+alias ij='open -a "$HOME/Applications/IntelliJ IDEA 14.app"'
