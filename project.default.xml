@@ -23,9 +23,7 @@
       <component name="GradleLocalSettings">
         <option name="modificationStamps">
           <map>
-            <entry key="$USER_HOME$/Desktop/src/sf-dataservices" value="50608597779000" />
-            <entry key="$USER_HOME$/Desktop/src/sf-social-profiles-models" value="1445958974000" />
-            <entry key="$USER_HOME$/Desktop/src/sf-social-profiles-pipeline" value="5784566810000" />
+            <entry key="$USER_HOME$/Desktop/src/mcandre/java/hello" value="1444433691000" />
           </map>
         </option>
         <option name="externalProjectsViewState">
@@ -51,7 +49,6 @@
       <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" default="true" assert-keyword="true" jdk-15="true" />
       <component name="PropertiesComponent">
         <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-        <property name="settings.editor.splitter.proportion" value="0.2" />
       </component>
       <component name="RunManager">
         <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -144,7 +141,7 @@
         <states>
           <state key="ProjectJDKs.UI">
             <settings>
-              <last-edited>1.8</last-edited>
+              <last-edited>1.8.0_60</last-edited>
               <splitter-proportions>
                 <option name="proportions">
                   <list>
