@@ -11,7 +11,9 @@ alias ls='gls --color=auto'
 alias curl='curl -s'
 
 # Show overall progress bar
-alias rsync='rsync --info=progress2 -a'
+# Maintain all attributes
+# Escape whitespace
+alias rsync='rsync --info=progress2 -a -s'
 
 # Disable bashate warnings
 alias bashate='bashate -i E003'
