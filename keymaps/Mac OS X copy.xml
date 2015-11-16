@@ -1,4 +1,8 @@
 <keymap version="1" name="Mac OS X copy" parent="Mac OS X">
+  <action id="CloseContent">
+    <keyboard-shortcut first-keystroke="meta f4" />
+    <keyboard-shortcut first-keystroke="meta w" />
+  </action>
   <action id="EditorCutLineEnd">
     <keyboard-shortcut first-keystroke="ctrl k" />
   </action>
@@ -8,6 +12,7 @@
   <action id="EditorLineStart">
     <keyboard-shortcut first-keystroke="ctrl a" />
   </action>
+  <action id="EditorSelectWord" />
   <action id="FindInPath">
     <keyboard-shortcut first-keystroke="shift meta f" />
   </action>
