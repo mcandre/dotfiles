@@ -2,4 +2,8 @@
   <component name="CodeFoldingSettings">
     <option name="COLLAPSE_IMPORTS" value="false" />
   </component>
+  <component name="JavaCodeFoldingSettings">
+    <option name="inlineParameterNamesForLiteralCallArguments" value="true" />
+    <option name="INLINE_PARAMETER_NAMES_FOR_LITERAL_CALL_ARGUMENTS" value="true" />
+  </component>
 </application>
