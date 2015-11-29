@@ -4,6 +4,9 @@ alias sudo='sudo '
 # Show details
 alias ll='ls -Ahl'
 
+# Workaround pyenv shims vs. brew doctor
+alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+
 # Colorize soft links
 alias ls='gls --color=auto'
 
@@ -11,7 +14,9 @@ alias ls='gls --color=auto'
 alias curl='curl -s'
 
 # Show overall progress bar
-alias rsync='rsync --info=progress2 -a'
+# Maintain all attributes
+# Escape whitespace
+alias rsync='rsync --info=progress2 -a -s'
 
 # Disable bashate warnings
 alias bashate='bashate -i E003'

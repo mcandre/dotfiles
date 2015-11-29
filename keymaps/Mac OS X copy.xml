@@ -1,16 +1,17 @@
 <keymap version="1" name="Mac OS X copy" parent="Mac OS X">
-  <action id="CloseActiveTab" />
   <action id="CloseContent">
+    <keyboard-shortcut first-keystroke="meta f4" />
     <keyboard-shortcut first-keystroke="meta w" />
   </action>
-  <action id="EditorChooseLookupItemReplace" />
   <action id="EditorCodeBlockEndWithSelection" />
   <action id="EditorCodeBlockStartWithSelection" />
+  <action id="EditorCutLineEnd">
+    <keyboard-shortcut first-keystroke="ctrl k" />
+  </action>
   <action id="EditorDelete">
     <keyboard-shortcut first-keystroke="delete" />
     <keyboard-shortcut first-keystroke="ctrl d" />
   </action>
-  <action id="EditorIndentSelection" />
   <action id="EditorLineEnd">
     <keyboard-shortcut first-keystroke="ctrl e" />
   </action>
@@ -18,21 +19,11 @@
     <keyboard-shortcut first-keystroke="ctrl a" />
   </action>
   <action id="EditorSelectWord" />
-  <action id="EditorTab" />
-  <action id="EmacsStyleIndent">
-    <keyboard-shortcut first-keystroke="tab" />
-  </action>
-  <action id="ExpandLiveTemplateByTab" />
   <action id="FindInPath">
     <keyboard-shortcut first-keystroke="shift meta f" />
   </action>
-  <action id="NextParameter" />
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="shift meta close_bracket" />
-  </action>
-  <action id="NextTemplateParameter" />
-  <action id="NextTemplateVariable">
-    <keyboard-shortcut first-keystroke="enter" />
   </action>
   <action id="PreviousTab">
     <keyboard-shortcut first-keystroke="shift meta open_bracket" />
