@@ -14,3 +14,4 @@
 --ignore-file=is:erl_crash.dump
 --ignore-file=is:.ensime
 --ignore-dir=is:.idea
+--ignore-file=match:.iml
