@@ -13,5 +13,6 @@
 --ignore-file=is:Gemfile.lock
 --ignore-file=is:erl_crash.dump
 --ignore-file=is:.ensime
+--ignore-dir=is:.arc
 --ignore-dir=is:.idea
 --ignore-file=match:.iml
