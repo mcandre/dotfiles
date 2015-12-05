@@ -22,4 +22,4 @@ alias rsync='rsync --info=progress2 -a -s'
 alias bashate='bashate -i E003'
 
 # IntelliJ CLI
-alias ij='open -a "$HOME/Applications/IntelliJ IDEA 14.app"'
+alias ij='open -a "$HOME/Applications/IntelliJ IDEA 15.app"'
