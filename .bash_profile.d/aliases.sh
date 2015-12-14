@@ -12,8 +12,3 @@ alias ls='gls --color=auto'
 
 # Hide progress bar
 alias curl='curl -s'
-
-# Show overall progress bar
-# Maintain all attributes
-# Escape whitespace
-alias rsync='rsync --info=progress2 -a -s'
