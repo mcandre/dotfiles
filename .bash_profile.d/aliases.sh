@@ -17,6 +17,3 @@ alias curl='curl -s'
 # Maintain all attributes
 # Escape whitespace
 alias rsync='rsync --info=progress2 -a -s'
-
-# Disable bashate warnings
-alias bashate='bashate -i E003'
