@@ -17,3 +17,6 @@ ff = true
 
 [pull]
 rebase = true
+
+[mergetool]
+keepBackup = false
