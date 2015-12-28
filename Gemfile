@@ -20,4 +20,5 @@ group :development do
   gem 'cowl', '~> 0.2'
   gem 'gtdlint', '~> 0.1'
   gem 'lili', '~> 0.2'
+  gem 'specs', '~> 0.21'
 end
