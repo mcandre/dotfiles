@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+ruby '2.3.0'
+
 gem 'contracts', '~> 0.4'
 
 group :development do
