@@ -89,7 +89,12 @@
               (lambda (arg)
                 (interactive "*p")
                 (goto-char (point-max))
-                (comint-next-input arg)))))
+                (comint-next-input arg)))
+            ;; Clear whole shell window
+            (define-key comint-mode-map (kbd "C-l")
+              (lambda ()
+                (interactive)
+                (recenter-top-bottom 0)))))
 
 ;; Handle large shell output more quickly
 (add-hook 'comint-output-filter-functions
