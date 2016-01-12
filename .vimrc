@@ -1,4 +1,4 @@
-" Store as ~/.vimrc (Unix) or ~/_vimrc (Windows)
+" Store as ~/.vimrc (Unix) or ~/_vimrc (Windows, non-cygwin)
 
 " Fix Delete (backspace) on Mac OS X
 set backspace=2
@@ -60,6 +60,9 @@ nnoremap <silent> p "+p
 set number
 " Show column numbers
 set ruler
+" Show encoding, line ending style, permissions, format, line, column, section
+set laststatus=2
+set statusline=%t[%{&fileencoding},%{&ff}]%{getfperm(expand('%:p'))}%y%=%c,%l/%L\ %P
 
 " Case-insensitive search
 set ignorecase
@@ -129,24 +132,21 @@ nnoremap <silent> <C-w><Right> :<C-u>call <SID>JumpWithWrap('l', 'h')<CR>
 "
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'gmarik/vundle'
-Plugin 'bruno-/vim-alt-mappings'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'benjaminwhite/Benokai'
-Plugin 'fsouza/go.vim'
-Plugin 'wting/rust.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'mtth/scratch.vim'
-Plugin 'greplace.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'mcandre/Conque-Shell'
-Plugin 'elubow/cql-vim'
-
+  Plugin 'gmarik/Vundle.vim'
+  Plugin 'gmarik/vundle'
+  Plugin 'bruno-/vim-alt-mappings'
+  Plugin 'kien/ctrlp.vim'
+  Plugin 'tomtom/tcomment_vim'
+  Plugin 'benjaminwhite/Benokai'
+  Plugin 'fsouza/go.vim'
+  Plugin 'wting/rust.vim'
+  Plugin 'godlygeek/tabular'
+  Plugin 'plasticboy/vim-markdown'
+  Plugin 'mtth/scratch.vim'
+  Plugin 'greplace.vim'
+  Plugin 'editorconfig/editorconfig-vim'
+  Plugin 'mcandre/Conque-Shell'
+  Plugin 'elubow/cql-vim'
 call vundle#end()
 
 colorscheme Benokai
