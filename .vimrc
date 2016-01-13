@@ -38,6 +38,11 @@ vnoremap <silent> <C-e> $
 inoremap <silent> <C-a> <esc>^i
 inoremap <silent> <C-e> <esc>$i
 
+" Emacs-style line cutting
+nnoremap <silent> <C-k> d$
+vnoremap <silent> <C-k> d$
+inoremap <silent> <C-k> <esc>d$i
+
 " Fix Alt key in MacVIM GUI
 " TODO - Fix in MacVIM terminal
 if has("gui_macvim")
