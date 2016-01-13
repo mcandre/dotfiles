@@ -53,6 +53,7 @@
 (depends-on "oz")
 (depends-on "perl6-mode")
 (depends-on "php-mode")
+(depends-on "powerline")
 (depends-on "powershell")
 (depends-on "puppet-mode")
 (depends-on "racket-mode")

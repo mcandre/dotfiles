@@ -245,6 +245,11 @@
   (setq uniquify-buffer-name-style 'post-forward
         uniquify-min-dir-content 7))
 
+(use-package powerline
+  :defines powerline-default-theme
+  :config
+  (powerline-default-theme))
+
 (use-package groovy-mode
   :mode "build\\.gradle")
 
