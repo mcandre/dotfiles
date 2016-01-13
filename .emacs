@@ -87,6 +87,7 @@
     (define-key comint-mode-map (kbd "C-l")
       (lambda ()
         (interactive)
+        (goto-char (point-max))
         (recenter-top-bottom 0)))
 
     ;; Show cwd in modeline
