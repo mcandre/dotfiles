@@ -7,57 +7,50 @@
 (delete-selection-mode 1)
 
 (setq
- ;; Ensure final end of line
- require-final-newline t
+  ;; Ensure final end of line
+  require-final-newline t
 
- ;; Always display error backtraces
- debug-on-error t
+  ;; Always display error backtraces
+  debug-on-error t
 
- ;; Disable prompt to saving abbreviations
- save-abbrevs nil
+  ;; Disable prompt to saving abbreviations
+  save-abbrevs nil
 
- ;; Disable start screen
- inhibit-startup-screen t
+  ;; Disable start screen
+  inhibit-startup-screen t
 
- ;; Disable backup files
- make-backup-files nil
- auto-save-default nil
- backup-inhibited t
+  ;; Disable backup files
+  make-backup-files nil
+  auto-save-default nil
+  backup-inhibited t
 
- ;; Disable lockfiles
- create-lockfiles nil
+  ;; Disable lockfiles
+  create-lockfiles nil
 
- ;; Always follow symbolic links to version controlled files
- vc-follow-symlinks t
+  ;; Always follow symbolic links to version controlled files
+  vc-follow-symlinks t
 
- ;; Mac ls does not implement --dired
- dired-use-ls-dired nil
+  ;; Mac ls does not implement --dired
+  dired-use-ls-dired nil
 
- ;; Minibuffer line and column
- line-number-mode t
- column-number-mode t
+  ;; Minibuffer line and column
+  line-number-mode t
+  column-number-mode t
 
- ;; Smoother mouse scrolling
- mouse-wheel-scroll-amount '(0.01)
+  ;; Smoother mouse scrolling
+  mouse-wheel-scroll-amount '(0.01)
 
- ;; Less jumpy arrow key scrolling
- scroll-conservatively 1
+  ;; Less jumpy arrow key scrolling
+  scroll-conservatively 1
 
- ;; Show buffer name in title bar
- frame-title-format '("%b")
+  ;; Show buffer name in title bar
+  frame-title-format '("%b")
 
- ;; Case-insensitive buffer name tab autocompletion
- read-buffer-completion-ignore-case t
+  ;; Case-insensitive buffer name tab autocompletion
+  read-buffer-completion-ignore-case t
 
- ;; Default to Unix LF line endings
- buffer-file-coding-system 'utf-8-unix
- ;; Soft tabs
- indent-tabs-mode nil
- ;; Width: 2 spaces
- sws-tab-width 2
- ;; And shell
- sh-basic-offset 2
- sh-indentation 2)
+  ;; Default to Unix LF line endings
+  buffer-file-coding-system 'utf-8-unix)
 
 ;; I say, soft tabs, width 2 spaces!
 (setq-default indent-tabs-mode nil
@@ -260,11 +253,7 @@
 (use-package json-mode
   :mode (("\\.jshintrc$" . json-mode)
          ("\\.bowerrc$" . json-mode)
-         ("\\.schema$" . json-mode))
-  :config
-  (add-hook 'json-mode-hook
-            (lambda ()
-              (setq indent-tabs-mode nil))))
+         ("\\.schema$" . json-mode)))
 
 ;; Lua indentation
 (use-package lua-mode
@@ -279,12 +268,6 @@
           (lambda ()
             (defvar tcl-indent-level)
             (setq tcl-indent-level tab-width)))
-(use-package css-mode
-  :mode "\\.css$"
-  :init
-  (add-hook 'css-mode-hook
-            (lambda ()
-              (setq css-indent-offset 2))))
 ;; Perl indentation
 (fset 'perl-mode 'cperl-mode)
 ;; Rust indentation
@@ -296,9 +279,6 @@
             (lambda ()
               (setq rust-indent-unit tab-width
                     rust-indent-offset tab-width))))
-;; Shell script indentation
-(add-hook 'shell-mode-hook
-          (lambda () (setq indent-tabs-mode nil)))
 ;; Go indentation
 (add-hook 'go-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
@@ -310,11 +290,6 @@
   (add-hook 'ps-mode-hook
             (lambda ()
               (setq ps-mode-tab tab-width))))
-;; Objective C indentation
-(add-hook 'objc-mode-hook
-          (lambda ()
-            (defvar indent-tabs-mode)
-            (setq indent-tabs-mode nil)))
 ;; Mozart/Oz indentation
 (use-package oz
   :mode ("\\.oz$" . oz-mode)
@@ -706,14 +681,12 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   :mode
   ("\\(\\.hrl|\\.yrl|\\.app|\\.appSrc|\\.app.src|\\.rel|rebar.config\\)$" .
    erlang-mode)
-  :defines erlang-indent-level erlang-electric-commands
+  :defines erlang-electric-commands
   :config
   (add-hook 'erlang-mode-hook
             (lambda ()
-              ;; Erlang indentation
               ;; Disable autocomplete
-              (setq erlang-indent-level tab-width
-                    erlang-electric-commands '()))))
+              (setq erlang-electric-commands '()))))
 
 ;; More YAML files
 (use-package yaml-mode
@@ -793,9 +766,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 ;; lining up parentheses as well.
 ;;
 (setq gangnam-style
-      '((tab-width . 2)
-        (c-basic-offset . 2)
-        (c-comment-only-line-offset . 0)
+      '((c-comment-only-line-offset . 0)
         (c-offsets-alist
          (arglist-close . c-lineup-close-paren)
          (statement-block-intro . +)
@@ -807,9 +778,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 (add-hook 'c-mode-common-hook
           (lambda ()
             (c-add-style "gangnam-style" gangnam-style t)
-
-            (setq indent-tabs-mode nil
-                  comment-start "// "
+            (setq comment-start "// "
                   comment-end "")))
 
 ;; TODO: Fix ruby-mode closing parentheses/brackets nesting too deep
