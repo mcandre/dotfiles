@@ -58,11 +58,8 @@ nnoremap <silent> p "+p
 
 " Show line numbers
 set number
-" Show column numbers
-set ruler
-" Show encoding, line ending style, permissions, format, line, column, section
+" Show statusline
 set laststatus=2
-set statusline=%t[%{&fileencoding},%{&ff}]%{getfperm(expand('%:p'))}%y%=%c,%l/%L\ %P
 
 " Case-insensitive search
 set ignorecase
@@ -136,7 +133,9 @@ call vundle#begin()
   Plugin 'gmarik/vundle'
   Plugin 'bruno-/vim-alt-mappings'
   Plugin 'kien/ctrlp.vim'
+  Plugin 'tpope/vim-fugitive'
   Plugin 'tomtom/tcomment_vim'
+  Plugin 'bling/vim-airline'
   Plugin 'benjaminwhite/Benokai'
   Plugin 'fsouza/go.vim'
   Plugin 'wting/rust.vim'
@@ -148,6 +147,9 @@ call vundle#begin()
   Plugin 'mcandre/Conque-Shell'
   Plugin 'elubow/cql-vim'
 call vundle#end()
+
+" Enable Powerline fonts for airline
+let g:airline_powerline_fonts = 1
 
 colorscheme Benokai
 
