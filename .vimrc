@@ -150,6 +150,7 @@ call vundle#end()
 
 " Enable Powerline fonts for airline
 let g:airline_powerline_fonts = 1
+let g:airline_theme='distinguished'
 
 colorscheme Benokai
 
