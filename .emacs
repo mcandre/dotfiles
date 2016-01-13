@@ -70,24 +70,28 @@
 ;; Shorter M-x sh command
 (defun sh () (interactive) (shell))
 
-;; Automatically move cursor to prompt on shell up/down
 (add-hook 'shell-mode-hook
-          (lambda ()
-            (define-key comint-mode-map (kbd "M-p")
-              (lambda (arg)
-                (interactive "*p")
-                (goto-char (point-max))
-                (comint-previous-input arg)))
-            (define-key comint-mode-map (kbd "M-n")
-              (lambda (arg)
-                (interactive "*p")
-                (goto-char (point-max))
-                (comint-next-input arg)))
-            ;; Clear whole shell window
-            (define-key comint-mode-map (kbd "C-l")
-              (lambda ()
-                (interactive)
-                (recenter-top-bottom 0)))))
+  (lambda ()
+    ;; Automatically move cursor to prompt on shell up/down
+    (define-key comint-mode-map (kbd "M-p")
+      (lambda (arg)
+        (interactive "*p")
+        (goto-char (point-max))
+        (comint-previous-input arg)))
+    (define-key comint-mode-map (kbd "M-n")
+      (lambda (arg)
+        (interactive "*p")
+        (goto-char (point-max))
+        (comint-next-input arg)))
+    ;; Clear whole shell window
+    (define-key comint-mode-map (kbd "C-l")
+      (lambda ()
+        (interactive)
+        (recenter-top-bottom 0)))
+
+    ;; Show cwd in modeline
+    (add-to-list 'mode-line-buffer-identification
+      '(:propertize (" " default-directory " ") face dired-directory))))
 
 ;; Handle large shell output more quickly
 (add-hook 'comint-output-filter-functions
