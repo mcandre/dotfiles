@@ -160,7 +160,7 @@ let g:airline_theme='distinguished'
 colorscheme Benokai
 
 " Column 80 marker
-highlight OverLength ctermbg=red ctermfg=white guibg=#660000
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#660000
 match OverLength /\%81v.\+/
 
 " " Currently broken due to Vim/Semicolon issues
