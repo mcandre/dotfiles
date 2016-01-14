@@ -265,6 +265,7 @@
          ("\\.bowerrc$" . json-mode)
          ("\\.schema$" . json-mode)))
 
+;; Waiting for editorconfig-emacs version bump
 ;; Lua indentation
 (use-package lua-mode
   :mode "\\.lua$"
