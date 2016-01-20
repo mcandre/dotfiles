@@ -265,15 +265,6 @@
          ("\\.bowerrc$" . json-mode)
          ("\\.schema$" . json-mode)))
 
-;; Waiting for editorconfig-emacs version bump
-;; Lua indentation
-(use-package lua-mode
-  :mode "\\.lua$"
-  :defines lua-indent-level
-  :init
-  (add-hook 'lua-mode-hook
-            (lambda ()
-              (setq lua-indent-level tab-width))))
 ;; Tcl indentation
 (add-hook 'tcl-mode-hook
           (lambda ()
@@ -314,10 +305,6 @@
   (setq-default indent-tabs-mode t)
   (setq indent-tabs-mode t
         tab-width 2))
-
-(add-hook 'makefile-mode-hook 'hard-tabs)
-(add-hook 'makefile-gmake-mode-hook 'hard-tabs)
-(add-hook 'makefile-bsdmake-mode-hook 'hard-tabs)
 
 (defun i-said-soft-tabs ()
   (untabify (point-min) (point-max))
@@ -883,7 +870,9 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                   nxml-mode-hook))
     (add-hook hook 'yafolding-mode)))
 
-(use-package editorconfig)
+(use-package editorconfig
+  :init
+  (editorconfig-mode 1))
 
 ;; Enable erase-buffer function
 (put 'erase-buffer 'disabled nil)
