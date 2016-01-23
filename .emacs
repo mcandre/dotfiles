@@ -281,9 +281,6 @@
             (lambda ()
               (setq rust-indent-unit tab-width
                     rust-indent-offset tab-width))))
-;; Go indentation
-(add-hook 'go-mode-hook
-          (lambda () (setq indent-tabs-mode nil)))
 ;; PostScript indentation
 (use-package ps-mode
   :mode "\\.ps$"
