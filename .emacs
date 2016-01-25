@@ -56,10 +56,6 @@
 (setq-default indent-tabs-mode nil
               tab-width 2)
 
-;; Disable version control integration
-(setq vc-handled-backends ())
-(remove-hook 'find-file-hooks 'vc-find-file-hook)
-
 ;; Automatically revert unmodified buffers on file change
 (global-auto-revert-mode 1)
 
