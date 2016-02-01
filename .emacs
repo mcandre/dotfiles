@@ -316,40 +316,44 @@
   :defines fipl-ignored-globs
   :config
   (setq fiplr-ignored-globs
-        '((directories
-           ;; Version control
-           (".git"
-            ".svn"
-            ".hg"
-            ".bzr"
-            ;; NPM
-            "node_modules"
-            ;; Bower
-            "bower_components"
-            ;; Maven
-            "target"
-            ;; Gradle
-             "build"
-             ".gradle"
-            ;; Python
-            "__pycache__"))
-          (files
-           ;; Emacs
-           (".#*"
-            ;; Vim
-            "*~"
-            ;; Objects
-            "*.so"
-            "*.o"
-            "*.obj"
-            ;; Media
-            "*.jpg"
-            "*.png"
-            "*.gif"
-            "*.pdf"
-            ;; Archives
-            "*.gz"
-            "*.zip"))))
+    '((directories
+        ;; Version control
+        (".git"
+          ".svn"
+          ".hg"
+          ".bzr"
+          ;; NPM
+          "node_modules"
+          ;; Bower
+          "bower_components"
+          ;; Maven
+          "target"
+          ;; Gradle
+          "build"
+          ".gradle"
+          ;; Python
+          "__pycache__"
+          ;; IntelliJ
+          ".idea"
+          ;; Infer
+          "infer-out"))
+       (files
+         ;; Emacs
+         (".#*"
+           ;; Vim
+           "*~"
+           ;; Objects
+           "*.so"
+           "*.o"
+           "*.obj"
+           ;; Media
+           "*.jpg"
+           "*.png"
+           "*.gif"
+           "*.pdf"
+           ;; Archives
+           "*.gz"
+           "*.zip"))))
 
   ;; Better TAB handling
   (define-key *fiplr-keymap* (kbd "TAB")
