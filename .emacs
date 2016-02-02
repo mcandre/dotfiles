@@ -625,11 +625,11 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 
 (use-package ess-site
   :mode ("\\.R$" . R-mode)
-  :defines ess-indent-level
+  :defines ess-indent-offset
   :init
   (add-hook 'R-mode-hook
             (lambda ()
-              (setq ess-indent-level tab-width))))
+              (setq ess-indent-offset tab-width))))
 
 (use-package swift-mode
   :mode "\\.swift$"
@@ -666,7 +666,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   ;; Fix Haskell indentation
   (add-hook 'haskell-mode-hook
             (lambda ()
-              (turn-on-haskell-indentation)
+              (haskell-indentation-mode)
               (setq tab-width tab-width)
               (inf-haskell-mode)))
 
@@ -795,6 +795,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   :mode "\\.dart$"
   ;; :idle
   :init
+  (use-package flycheck)
   (add-hook 'dart-mode-hook
             (lambda ()
               (c-add-style "dart" gangnam-style t))))
