@@ -170,6 +170,8 @@
           (unless (string= (car kill-ring) xsel-output)
             xsel-output )))
 
+      (defvar x-select-enable-clipboard)
+
       (pcase system-type
         (`darwin (setq interprogram-cut-function 'mac-cut
                        interprogram-paste-function 'mac-paste))
