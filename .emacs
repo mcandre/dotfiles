@@ -90,6 +90,13 @@
     (add-to-list 'mode-line-buffer-identification
       '(:propertize (" " default-directory " ") face dired-directory))))
 
+;; Don't warn of running shells on exit
+(add-hook 'comint-exec-hook
+  (lambda ()
+    (set-process-query-on-exit-flag
+      (get-buffer-process (current-buffer))
+      nil)))
+
 ;; Handle large shell output more quickly
 (add-hook 'comint-output-filter-functions
           'comint-truncate-buffer)
