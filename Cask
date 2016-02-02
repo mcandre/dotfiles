@@ -28,6 +28,7 @@
 (depends-on "findr")
 (depends-on "fiplr")
 (depends-on "fish-mode")
+;; (depends-on "flycheck")
 (depends-on "fold-dwim")
 (depends-on "fsharp-mode")
 ;; (depends-on "fuel")

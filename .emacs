@@ -633,15 +633,6 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
             (lambda ()
               (setq ess-indent-offset tab-width))))
 
-(use-package swift-mode
-  :mode "\\.swift$"
-  :defines swift-indent-offset
-  :init
-  (add-hook 'swift-mode-hook
-            (lambda ()
-              (setq-local tab-width 2)
-              (setq-local swift-indent-offset 2))))
-
 ;; More JavaScript files
 (add-to-list 'auto-mode-alist '("\\.pjs$" . js2-mode))
 
@@ -793,14 +784,23 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
             (lambda ()
               (setq ruby-deep-indent-paren nil))))
 
-(use-package dart-mode
-  :mode "\\.dart$"
-  ;; :idle
-  :init
-  (use-package flycheck)
-  (add-hook 'dart-mode-hook
-            (lambda ()
-              (c-add-style "dart" gangnam-style t))))
+;; Work around flycheck bytecode compilation error
+;; (use-package dart-mode
+;;   :mode "\\.dart$"
+;;   ;; :idle
+;;   :init
+;;   (add-hook 'dart-mode-hook
+;;             (lambda ()
+;;               (c-add-style "dart" gangnam-style t))))
+;;
+;; (use-package swift-mode
+;;   :mode "\\.swift$"
+;;   :defines swift-indent-offset
+;;   :init
+;;   (add-hook 'swift-mode-hook
+;;             (lambda ()
+;;               (setq-local tab-width 2)
+;;               (setq-local swift-indent-offset 2))))
 
 ;; (global-unset-key (kbd "M-/"))
 
