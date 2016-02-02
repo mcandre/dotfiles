@@ -436,7 +436,9 @@
                          (define-key markdown-mode-map (kbd "TAB") 'traditional-indent)
                          (define-key markdown-mode-map (kbd "<backtab>") 'traditional-outdent)
                          (define-key markdown-mode-map (kbd "M-<left>") nil)
-                         (define-key markdown-mode-map (kbd "M-<right>") nil))))
+                         (define-key markdown-mode-map (kbd "M-<right>") nil)
+                         ;; Remove triple backtick 'features'
+                         (define-key gfm-mode-map (kbd "`") nil))))
 
 ;; M-; toggles commenting for marked region or current line.
 (use-package evil-nerd-commenter
