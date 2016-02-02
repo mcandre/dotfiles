@@ -61,6 +61,9 @@ inoremap <silent> <M->> <esc>G$i
 " Normally we would just `set paste`, but this interferes with other aliases.
 nnoremap <silent> p "+p
 
+" Disable comment continuation on paste
+au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " Show line numbers
 set number
 " Show statusline
