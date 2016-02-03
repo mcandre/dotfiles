@@ -1,7 +1,7 @@
 <application>
-  <component name="FileTypeManager" version="14">
-    <ignoreFiles list="*.hprof;*.pyc;*.pyo;*.rbc;*~;.DS_Store;.bundle;.git;.hg;.svn;.tox;CVS;RCS;SCCS;__pycache__;_svn;rcs;vssver.scc;vssver2.scc;" />
+  <component name="FileTypeManager" version="16">
     <extensionMap>
+      <mapping pattern=".gitkeep" type="PLAIN_TEXT" />
       <mapping pattern="jenvrc" type="Properties" />
     </extensionMap>
   </component>
