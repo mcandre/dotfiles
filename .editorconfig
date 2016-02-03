@@ -43,7 +43,7 @@ quote_type = single
 indent_size = none
 
 # Pagragraph-oriented text
-[{*.txt,*.xml,*.xhtml,*.html,*.htm,*.erb,*.tex,*.md,*.markdown,*.textile,*.ps}]
+[{*.txt,*.xml,*.xhtml,*.html,*.htm,*.erb,*.tex,*.md,*.markdown,*.textile,*.ps,Makefile,*.mf}]
 max_line_length = 999
 
 # Windows files
