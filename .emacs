@@ -854,17 +854,19 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                              nxml-mode-hook))
                (add-hook hook
                          (lambda ()
-                           (setq whitespace-style
-                                 '(face
-                                   trailing
-                                   space-before-tab
-                                   space-after-tab
-                                   ;; work around https://github.com/jwiegley/use-package/issues/122
-                                   ;; indentation
-                                   empty)
-                                 ;; Make inappropriate indentations more visible
-                                 ;; in a dark theme like Monokai
-                                 whitespace-face 'whitespace-trailing)
+                           (setq
+                            whitespace-line-column 80
+                            whitespace-style '(face
+                                               trailing
+                                               space-before-tab
+                                               space-after-tab
+                                               lines-tail
+                                               ;; work around https://github.com/jwiegley/use-package/issues/122
+                                               ;; indentation
+                                               empty)
+                            ;; Make inappropriate indentations more visible
+                            ;; in a dark theme like Monokai
+                            whitespace-face 'whitespace-trailing)
                            (whitespace-mode)))))
 
 (use-package yafolding
