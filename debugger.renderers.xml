@@ -24,6 +24,7 @@
       <option name="SHOW_FQ_TYPE_NAMES" value="false" />
       <option name="SHOW_DECLARED_TYPE" value="false" />
       <option name="SHOW_OBJECT_ID" value="true" />
+      <option name="SHOW_STRINGS_TYPE" value="false" />
     </Renderer>
     <Renderer ID="PrimitiveRenderer">
       <option name="NAME" value="Primitive" />

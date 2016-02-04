@@ -1,6 +1,6 @@
 <application>
   <component name="ProjectManager">
-    <defaultProject version="4">
+    <defaultProject>
       <component name="CompilerConfiguration">
         <resourceExtensions />
         <wildcardResourcePatterns>
@@ -20,6 +20,9 @@
           </profile>
         </annotationProcessing>
       </component>
+      <component name="Encoding">
+        <file url="PROJECT" charset="UTF-8" />
+      </component>
       <component name="GradleLocalSettings">
         <option name="modificationStamps">
           <map>
@@ -28,14 +31,12 @@
             <entry key="$USER_HOME$/Desktop/src/sf-social-profiles-models" value="1445958974000" />
             <entry key="$USER_HOME$/Desktop/src/sf-social-profiles-pipeline" value="11582125969000" />
             <entry key="$USER_HOME$/Desktop/src/sf-social-profiles-service" value="2894021114000" />
+            <entry key="$USER_HOME$/src/sf-social-profiles-pipeline" value="15963931194000" />
           </map>
         </option>
         <option name="externalProjectsViewState">
           <projects_view />
         </option>
-      </component>
-      <component name="NamedScopeManager">
-        <order />
       </component>
       <component name="ProjectLevelVcsManager" settingsEditedManually="false">
         <OptionsSetting value="true" id="Add" />
@@ -46,9 +47,6 @@
         <OptionsSetting value="true" id="Edit" />
         <ConfirmationsSetting value="0" id="Add" />
         <ConfirmationsSetting value="0" id="Remove" />
-      </component>
-      <component name="ProjectModuleManager">
-        <modules />
       </component>
       <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" default="true" assert-keyword="true" jdk-15="true" />
       <component name="PropertiesComponent">
@@ -146,7 +144,7 @@
         <states>
           <state key="ProjectJDKs.UI">
             <settings>
-              <last-edited>1.8</last-edited>
+              <last-edited>1.7.0_79</last-edited>
               <splitter-proportions>
                 <option name="proportions">
                   <list>
