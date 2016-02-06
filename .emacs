@@ -235,6 +235,13 @@
 (add-to-list 'auto-mode-alist '("Cask$" . lisp-mode))
 (add-to-list 'auto-mode-alist '("\\.cql" . sql-mode))
 
+;; Disable function vs filename conflict prompt to allow scripts/modulinos
+(use-package octave
+             :defines octave-sync-function-file-names
+             :mode "\\.m$"
+             :config
+             (defun octave-sync-function-file-names nil))
+
 ;; Fast line numbers
 (use-package nlinum
              :config
