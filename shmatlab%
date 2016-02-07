@@ -1,0 +1,7 @@
+#!/bin/sh
+# For your shebangs
+#
+# mkdir -p ~/bin
+# ln -s .../shmatlab% ~/bin/shmatlab%
+#
+matlab -nojvm -nodisplay -nosplash -r "run('$@'); exit" | tail -n +16
