@@ -238,7 +238,6 @@
 ;; Disable function vs filename conflict prompt to allow scripts/modulinos
 (use-package octave
              :defines octave-sync-function-file-names
-             :mode "\\.m$"
              :config
              (defun octave-sync-function-file-names nil))
 
