@@ -241,6 +241,13 @@
              :config
              (defun octave-sync-function-file-names nil))
 
+(use-package matlab
+             :config
+             (setq matlab-functions-have-end t
+                   ;; Workaround for https://github.com/editorconfig/editorconfig-emacs/issues/66
+                   matlab-indent-level tab-width
+                   matlab-cont-level tab-width))
+
 ;; Fast line numbers
 (use-package nlinum
              :config
