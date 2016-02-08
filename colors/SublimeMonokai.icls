@@ -1,4 +1,4 @@
-<scheme name="SublimeMonokai" version="141" parent_scheme="Default">
+<scheme name="SublimeMonokai" version="142" parent_scheme="Default">
   <option name="LINE_SPACING" value="1.0" />
   <option name="EDITOR_FONT_SIZE" value="11" />
   <option name="EDITOR_FONT_NAME" value="Menlo" />
@@ -24,6 +24,7 @@
     <option name="WHITESPACES" value="" />
   </colors>
   <attributes>
+    <option name="ABSTRACT_METHOD_ATTRIBUTES" baseAttributes="METHOD_CALL_ATTRIBUTES" />
     <option name="ANNOTATION_NAME_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="62d9ef" />
@@ -141,7 +142,6 @@
     <option name="COFFEESCRIPT.LOCAL_VARIABLE">
       <value>
         <option name="FOREGROUND" value="bce9fd" />
-        <option name="EFFECT_TYPE" value="-1" />
       </value>
     </option>
     <option name="COFFEESCRIPT.NUMBER">
@@ -204,6 +204,7 @@
         <option name="FOREGROUND" value="48ff60" />
       </value>
     </option>
+    <option name="CONSOLE_RANGE_TO_EXECUTE" baseAttributes="INJECTED_LANGUAGE_FRAGMENT" />
     <option name="CONSOLE_RED_OUTPUT">
       <value>
         <option name="FOREGROUND" value="dd0000" />
@@ -316,6 +317,18 @@
         <option name="FOREGROUND" value="ff00" />
       </value>
     </option>
+    <option name="DEFAULT_ATTRIBUTE" baseAttributes="DEFAULT_IDENTIFIER" />
+    <option name="DEFAULT_CONSTANT" baseAttributes="DEFAULT_IDENTIFIER" />
+    <option name="DEFAULT_ENTITY" baseAttributes="DEFAULT_IDENTIFIER" />
+    <option name="DEFAULT_IDENTIFIER" baseAttributes="TEXT" />
+    <option name="DEFAULT_INSTANCE_FIELD" baseAttributes="DEFAULT_IDENTIFIER" />
+    <option name="DEFAULT_LABEL" baseAttributes="DEFAULT_IDENTIFIER" />
+    <option name="DEFAULT_METADATA" baseAttributes="TEXT" />
+    <option name="DEFAULT_PREDEFINED_SYMBOL" baseAttributes="DEFAULT_IDENTIFIER" />
+    <option name="DEFAULT_STATIC_FIELD" baseAttributes="DEFAULT_IDENTIFIER" />
+    <option name="DEFAULT_STATIC_METHOD" baseAttributes="DEFAULT_FUNCTION_DECLARATION" />
+    <option name="DEFAULT_TAG" baseAttributes="TEXT" />
+    <option name="DEFAULT_TEMPLATE_LANGUAGE_COLOR" baseAttributes="TEXT" />
     <option name="DELETED_TEXT_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="6c6c6c" />
@@ -358,12 +371,6 @@
     <option name="ECMAL4.AL4.LOCAL_VARIABLE">
       <value>
         <option name="FOREGROUND" value="458383" />
-        <option name="EFFECT_TYPE" value="-1" />
-      </value>
-    </option>
-    <option name="ECMAL4.ATTRIBUTE">
-      <value>
-        <option name="EFFECT_TYPE" value="-1" />
       </value>
     </option>
     <option name="ECMAL4.GLOBAL_VARIABLE">
@@ -375,7 +382,6 @@
     <option name="ECMAL4.INSTANCE_MEMBER_FUNCTION">
       <value>
         <option name="FOREGROUND" value="f8f858" />
-        <option name="EFFECT_TYPE" value="-1" />
       </value>
     </option>
     <option name="ECMAL4.INSTANCE_MEMBER_VARIABLE">
@@ -436,6 +442,7 @@
         <option name="FOREGROUND" value="48ff60" />
       </value>
     </option>
+    <option name="ENUM_NAME_ATTRIBUTES" baseAttributes="CLASS_NAME_ATTRIBUTES" />
     <option name="ERRORS_ATTRIBUTES">
       <value>
         <option name="EFFECT_COLOR" value="d13534" />
@@ -611,6 +618,7 @@
         <option name="FOREGROUND" value="d1dae7" />
       </value>
     </option>
+    <option name="INHERITED_METHOD_ATTRIBUTES" baseAttributes="METHOD_CALL_ATTRIBUTES" />
     <option name="INJECTED_LANGUAGE_FRAGMENT">
       <value />
     </option>
@@ -708,7 +716,6 @@
       <value>
         <option name="FOREGROUND" value="e6da74" />
         <option name="FONT_TYPE" value="2" />
-        <option name="EFFECT_TYPE" value="-1" />
       </value>
     </option>
     <option name="JS.INSTANCE_MEMBER_VARIABLE">
@@ -730,7 +737,6 @@
     <option name="JS.LOCAL_VARIABLE">
       <value>
         <option name="FOREGROUND" value="bce9fd" />
-        <option name="EFFECT_TYPE" value="-1" />
       </value>
     </option>
     <option name="JS.NUMBER">
@@ -753,7 +759,6 @@
     <option name="JS.REGEXP">
       <value>
         <option name="FOREGROUND" value="4761b0" />
-        <option name="EFFECT_TYPE" value="-1" />
       </value>
     </option>
     <option name="JS.STRING">
@@ -874,43 +879,36 @@
     <option name="MARKDOWN.AUTO_LINK">
       <value>
         <option name="FOREGROUND" value="bce9fd" />
-        <option name="EFFECT_TYPE" value="-1" />
       </value>
     </option>
     <option name="MARKDOWN.EXPLICIT_LINK">
       <value>
         <option name="FOREGROUND" value="9bff" />
-        <option name="EFFECT_TYPE" value="-1" />
       </value>
     </option>
     <option name="MARKDOWN.IMAGE">
       <value>
         <option name="FOREGROUND" value="48ff60" />
-        <option name="EFFECT_TYPE" value="-1" />
       </value>
     </option>
     <option name="MARKDOWN.MAIL_LINK">
       <value>
         <option name="FOREGROUND" value="bce9fd" />
-        <option name="EFFECT_TYPE" value="-1" />
       </value>
     </option>
     <option name="MARKDOWN.REFERENCE_IMAGE">
       <value>
         <option name="FOREGROUND" value="48ff60" />
-        <option name="EFFECT_TYPE" value="-1" />
       </value>
     </option>
     <option name="MARKDOWN.REFERENCE_LINK">
       <value>
         <option name="FOREGROUND" value="bce9fd" />
-        <option name="EFFECT_TYPE" value="-1" />
       </value>
     </option>
     <option name="MARKDOWN.WIKI_LINK">
       <value>
         <option name="FOREGROUND" value="bce9fd" />
-        <option name="EFFECT_TYPE" value="-1" />
       </value>
     </option>
     <option name="MATCHED_BRACE_ATTRIBUTES">
@@ -1155,6 +1153,7 @@
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
+    <option name="STATIC_FINAL_FIELD_ATTRIBUTES" baseAttributes="STATIC_FIELD_ATTRIBUTES" />
     <option name="Shebang (#!) comment">
       <value>
         <option name="FOREGROUND" value="71715e" />
@@ -1356,6 +1355,7 @@
         <option name="FOREGROUND" value="f92772" />
       </value>
     </option>
+    <option name="XML_PROLOGUE" baseAttributes="TEXT" />
     <option name="XML_TAG">
       <value />
     </option>
