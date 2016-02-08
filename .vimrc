@@ -144,6 +144,7 @@ call vundle#begin()
   Plugin 'tpope/vim-fugitive'
   Plugin 'tomtom/tcomment_vim'
   Plugin 'bling/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
   Plugin 'benjaminwhite/Benokai'
   Plugin 'fsouza/go.vim'
   Plugin 'wting/rust.vim'

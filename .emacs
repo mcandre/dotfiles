@@ -235,6 +235,19 @@
 (add-to-list 'auto-mode-alist '("Cask$" . lisp-mode))
 (add-to-list 'auto-mode-alist '("\\.cql" . sql-mode))
 
+;; Disable function vs filename conflict prompt to allow scripts/modulinos
+(use-package octave
+             :defines octave-sync-function-file-names
+             :config
+             (defun octave-sync-function-file-names nil))
+
+(use-package matlab
+             :config
+             (setq matlab-functions-have-end t
+                   ;; Workaround for https://github.com/editorconfig/editorconfig-emacs/issues/66
+                   matlab-indent-level tab-width
+                   matlab-cont-level tab-width))
+
 ;; Fast line numbers
 (use-package nlinum
              :config
@@ -854,17 +867,19 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                              nxml-mode-hook))
                (add-hook hook
                          (lambda ()
-                           (setq whitespace-style
-                                 '(face
-                                   trailing
-                                   space-before-tab
-                                   space-after-tab
-                                   ;; work around https://github.com/jwiegley/use-package/issues/122
-                                   ;; indentation
-                                   empty)
-                                 ;; Make inappropriate indentations more visible
-                                 ;; in a dark theme like Monokai
-                                 whitespace-face 'whitespace-trailing)
+                           (setq
+                            whitespace-line-column 80
+                            whitespace-style '(face
+                                               trailing
+                                               space-before-tab
+                                               space-after-tab
+                                               lines-tail
+                                               ;; work around https://github.com/jwiegley/use-package/issues/122
+                                               ;; indentation
+                                               empty)
+                            ;; Make inappropriate indentations more visible
+                            ;; in a dark theme like Monokai
+                            whitespace-face 'whitespace-trailing)
                            (whitespace-mode)))))
 
 (use-package yafolding

@@ -1,0 +1,12 @@
+#!/bin/sh
+# For your shebangs
+#
+# mkdir -p ~/bin
+# ln -s .../shmatlab% ~/bin/shmatlab%
+#
+matlab \
+  -nojvm \
+  -nodisplay \
+  -nosplash \
+  -r "varargin = regexp('${1+"$@"}', ' ', 'split'); nvarargin = length(varargin); run('$1'); exit" \
+  | tail -n +16
