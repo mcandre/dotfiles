@@ -1,1 +1,0 @@
-echo "%UserProfile%\My Dropbox"

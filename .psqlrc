@@ -1,3 +1,0 @@
--- ln -s .../.psqlrc ~/.psqlrc
-
-\pset pager off

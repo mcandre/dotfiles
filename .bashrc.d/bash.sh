@@ -1,2 +1,0 @@
-# Correct quotes.
-set +H

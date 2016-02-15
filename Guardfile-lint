@@ -1,9 +1,0 @@
-guard :shell do
-  watch(%r{^pom\.xml|src/(main|test)/.+\.(java|thrift)}) do ||
-    title = 'Lint'
-    eager 'mvn compile && mvn checkstyle:checkstyle && mvn pmd:check'
-    status = ($CHILD_STATUS.success? && :success) || :failed
-    n '', title, status
-    ''
-  end
-end

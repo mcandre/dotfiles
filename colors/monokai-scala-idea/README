@@ -1,6 +1,0 @@
-A Monokai-based color scheme for IntelliJ IDEA 11 CE and Scala.
-
-For OS X Lion,
-Place the .xml in ~/Library/Preferences/IdeaIC11/colors/ and restart IDEA.
-
-Based off of http://tumblr.teamon.eu/post/697864114/intellij-idea-monokai-color-theme and https://github.com/tomasr/molokai.

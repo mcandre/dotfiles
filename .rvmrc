@@ -1,3 +1,0 @@
-# ln .../.rvmrc ~/.rvmrc
-
-rvm_silence_path_mismatch_check_flag=1

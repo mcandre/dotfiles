@@ -1,2 +1,0 @@
-# ln -s .../.emacs_bash ~/.emacs_bash
-. "$HOME/.bash_profile"

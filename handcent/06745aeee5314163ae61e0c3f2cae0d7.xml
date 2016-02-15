@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-<map>
-<long name="timestamp" value="1362141725891" />
-<string name="config">{&quot;extra&quot;:{&quot;location_on&quot;:0,&quot;background_color_rgb&quot;:{&quot;red&quot;:0,&quot;green&quot;:0,&quot;blue&quot;:0,&quot;alpha&quot;:1},&quot;text_color_rgb&quot;:{&quot;red&quot;:255,&quot;green&quot;:255,&quot;blue&quot;:255,&quot;alpha&quot;:1},&quot;cycle_time&quot;:60,&quot;transition&quot;:8},&quot;rations&quot;:[{&quot;nid&quot;:&quot;17ad5b99f5144fc2875a6ade6d77b041&quot;,&quot;type&quot;:1,&quot;nname&quot;:&quot;admob&quot;,&quot;weight&quot;:10,&quot;priority&quot;:2,&quot;key&quot;:&quot;a14c6349c85f595&quot;},{&quot;nid&quot;:&quot;4c36ef82997542f9b8e7ef28c95ff488&quot;,&quot;type&quot;:8,&quot;nname&quot;:&quot;quattro&quot;,&quot;weight&quot;:90,&quot;priority&quot;:1,&quot;key&quot;:{&quot;siteID&quot;:&quot;HandcentSMS-gcr4j4p9&quot;,&quot;publisherID&quot;:&quot;e8e1d5b47ec546d5bbaa23d8d05d765c&quot;}}]}
-</string>
-</map>
