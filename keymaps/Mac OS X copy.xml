@@ -7,6 +7,12 @@
     <keyboard-shortcut first-keystroke="meta divide" />
     <keyboard-shortcut first-keystroke="alt semicolon" />
   </action>
+  <action id="Console.Execute" />
+  <action id="Console.TableResult.EditValue">
+    <keyboard-shortcut first-keystroke="f2" />
+    <keyboard-shortcut first-keystroke="alt enter" />
+  </action>
+  <action id="EditorChooseLookupItem" />
   <action id="EditorCodeBlockEndWithSelection" />
   <action id="EditorCodeBlockStartWithSelection" />
   <action id="EditorCutLineEnd">
@@ -16,6 +22,7 @@
     <keyboard-shortcut first-keystroke="delete" />
     <keyboard-shortcut first-keystroke="ctrl d" />
   </action>
+  <action id="EditorEnter" />
   <action id="EditorLineEnd">
     <keyboard-shortcut first-keystroke="ctrl e" />
   </action>
@@ -31,13 +38,22 @@
     <keyboard-shortcut first-keystroke="ctrl p" />
     <keyboard-shortcut first-keystroke="meta p" />
   </action>
+  <action id="GotoLine">
+    <keyboard-shortcut first-keystroke="meta g" />
+    <keyboard-shortcut first-keystroke="meta l" />
+  </action>
+  <action id="Images.Thumbnails.EnterAction" />
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="shift meta close_bracket" />
+  </action>
+  <action id="NextTemplateVariable">
+    <keyboard-shortcut first-keystroke="tab" />
   </action>
   <action id="ParameterInfo" />
   <action id="PreviousTab">
     <keyboard-shortcut first-keystroke="shift meta open_bracket" />
   </action>
+  <action id="PropertyInspectorActions.EditValue" />
   <action id="SwitchApply">
     <keyboard-shortcut first-keystroke="ctrl alt enter" />
   </action>
