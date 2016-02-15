@@ -367,6 +367,7 @@
                        "*.so"
                        "*.o"
                        "*.obj"
+                       "*.hi"
                        ;; Media
                        "*.jpg"
                        "*.png"
