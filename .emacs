@@ -246,7 +246,8 @@
              (setq matlab-functions-have-end t
                    ;; Workaround for https://github.com/editorconfig/editorconfig-emacs/issues/66
                    matlab-indent-level tab-width
-                   matlab-cont-level tab-width))
+                   matlab-cont-level tab-width)
+             (defun matlab-mode-vf-functionname (&optional fast) nil))
 
 ;; Fast line numbers
 (use-package nlinum
