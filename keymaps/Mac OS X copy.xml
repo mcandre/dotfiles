@@ -22,7 +22,6 @@
     <keyboard-shortcut first-keystroke="delete" />
     <keyboard-shortcut first-keystroke="ctrl d" />
   </action>
-  <action id="EditorEnter" />
   <action id="EditorLineEnd">
     <keyboard-shortcut first-keystroke="ctrl e" />
   </action>
