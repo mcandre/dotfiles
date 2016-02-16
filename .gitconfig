@@ -1,0 +1,22 @@
+[core]
+editor = emacs
+excludesfile = ~/.gitignore-global
+ignorecase = false
+
+[push]
+default = simple
+
+[branch]
+autosetuprebase = always
+
+[color]
+status = auto
+
+[merge]
+ff = true
+
+[pull]
+rebase = true
+
+[mergetool]
+keepBackup = false

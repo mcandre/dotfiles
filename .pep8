@@ -1,0 +1,3 @@
+# ln -s .../.pep8 $HOME/.pep8
+
+[pep8]

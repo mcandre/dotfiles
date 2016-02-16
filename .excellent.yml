@@ -1,0 +1,16 @@
+MethodLineCountCheck:
+  threshold: 60
+FlogMethodCheck:
+  threshold: 100
+FlogBlockCheck:
+  threshold: 60
+CyclomaticComplexityMethodCheck:
+  threshold: 20
+CyclomaticComplexityBlockCheck:
+  threshold: 20
+ParameterNumberCheck:
+  false
+AbcMetricMethodCheck:
+  false
+ClassVariableCheck:
+  false

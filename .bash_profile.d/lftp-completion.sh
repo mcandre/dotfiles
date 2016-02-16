@@ -1,0 +1,1 @@
+. "$HOME/lftp-completion.sh"

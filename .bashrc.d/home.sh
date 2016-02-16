@@ -1,0 +1,3 @@
+PATH="$PATH:$HOME"
+PATH="$PATH:$HOME/bin"
+export PATH

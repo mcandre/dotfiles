@@ -1,0 +1,37 @@
+# ln -s ...path/path/path/.nanorc ~/.nanorc
+
+# Syntax Highlighters
+# https://github.com/serialhex/nano-highlight
+
+# Show line and column numbers
+set const
+
+## Soft tabs
+#set tabstospaces
+## Width 2
+#set tabsize 2
+
+# Disable for better BusyBox/Android support
+# # Autoindent
+# set autoindent
+
+# Syntax highlighting
+include "~/.nano/asm.nanorc"
+include "~/.nano/c.nanorc"
+include "~/.nano/css.nanorc"
+include "~/.nano/haskell.nanorc"
+include "~/.nano/html.nanorc"
+include "~/.nano/java.nanorc"
+include "~/.nano/js.nanorc"
+include "~/.nano/lua.nanorc"
+include "~/.nano/markdown.nanorc"
+include "~/.nano/perl.nanorc"
+include "~/.nano/php.nanorc"
+include "~/.nano/python.nanorc"
+include "~/.nano/ruby.nanorc"
+
+# Disable for better BusyBox/Android support
+# include "~/.nano/sh.nanorc"
+
+include "~/.nano/tex.nanorc"
+include "~/.nano/xml.nanorc"

@@ -1,0 +1,9 @@
+guard :shell do
+  watch %r{^pom\.xml|src/(main|test)/java/.+\.java$} do ||
+    title = 'Coverage'
+    eager 'mvn cobertura:cobertura'
+    status = ($CHILD_STATUS.success? && :success) || :failed
+    n '', title, status
+    ''
+  end
+end

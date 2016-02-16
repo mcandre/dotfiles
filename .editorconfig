@@ -1,0 +1,51 @@
+# ln -s .../.editorconfig ~/.editorconfig
+
+root = true
+
+# Default to Google Style
+# https://code.google.com/p/google-styleguide/
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+max_line_length = 120
+spaces_around_operators = true
+spaces_around_brackets = false
+indent_style = space
+indent_size = 2
+indent_brace_style = K&R
+curly_bracket_next_line = false
+continuation_indent_size = 4
+
+# Make, Go
+[{Makefile*,*.mf,*.go}]
+indent_style = tab
+
+# F#
+[{*.fs,*.fsx}]
+indent_style = space
+
+# Markdown
+[{*.md,*.markdown}]
+indent_size = none
+
+# PEP8
+[*.py]
+indent_size = 4
+
+# JavaScript
+[*.js]
+quote_type = single
+
+# Lisp
+[{*.lisp,*.scm,*.rkt,*.lsp,*.clj,*.el,*.emacs}]
+indent_size = none
+
+# Pagragraph-oriented text
+[{*.txt,*.xml,*.xhtml,*.html,*.htm,*.erb,*.tex,*.md,*.markdown,*.textile,*.ps,Makefile,*.mf}]
+max_line_length = 999
+
+# Windows files
+[{*.bat,*reg,*.ps1,*.vbs,*.cs,*.csproj,*.fs,*.sln,*.xaml*,*.ahk}]
+end_of_line = crlf

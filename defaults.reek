@@ -1,0 +1,21 @@
+---
+NestedIterators:
+  enabled: false
+UncommunicativeVariableName:
+  enabled: false
+FeatureEnvy:
+  enabled: false
+BooleanParameter:
+  enabled: false
+TooManyStatements:
+  max_statements: 30
+LongParameterList:
+  max_params: 5
+UncommunicativeParameterName:
+  enabled: false
+UncommunicativeMethodName:
+  enabled: false
+UncommunicativeModuleName:
+  enabled: false
+ControlParameter:
+  enabled: false
