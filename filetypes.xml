@@ -1,9 +1,0 @@
-<application>
-  <component name="FileTypeManager" version="16">
-    <extensionMap>
-      <mapping pattern=".gitkeep" type="PLAIN_TEXT" />
-      <mapping ext="csv" type="PLAIN_TEXT" />
-      <mapping pattern="jenvrc" type="Properties" />
-    </extensionMap>
-  </component>
-</application>
