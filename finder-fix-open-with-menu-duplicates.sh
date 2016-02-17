@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 #
 # From IT Pixie
 # http://itpixie.com/2011/05/fix-duplicate-old-items-open-with-list/
