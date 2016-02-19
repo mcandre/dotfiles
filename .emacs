@@ -247,7 +247,11 @@
                    ;; Workaround for https://github.com/editorconfig/editorconfig-emacs/issues/66
                    matlab-indent-level tab-width
                    matlab-cont-level tab-width)
-             (defun matlab-mode-vf-functionname (&optional fast) nil))
+             (defun matlab-mode-vf-functionname (&optional fast) nil)
+
+             (add-hook 'matlab-mode-hook
+                       (lambda ()
+                         (local-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines))))
 
 ;; Fast line numbers
 (use-package nlinum
