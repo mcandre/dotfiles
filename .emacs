@@ -903,5 +903,13 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
              :init
              (editorconfig-mode 1))
 
+;; Open split shell on launch
+(add-hook 'emacs-startup-hook
+  (lambda ()
+    (let ((w (split-window-below 2)))
+      (select-window w)
+      (sh))
+      (switch-to-buffer "*shell*")))
+
 ;; Enable erase-buffer function
 (put 'erase-buffer 'disabled nil)
