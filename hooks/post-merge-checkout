@@ -50,4 +50,6 @@ if git_modified .vimrc; then
   vim +BundleUpdate +BundleInstall +qall
 fi
 
+reset
+
 exit 0
