@@ -62,7 +62,7 @@ inoremap <silent> <M->> <esc>G$i
 nnoremap <silent> p "+p
 
 " Disable comment continuation on paste
-au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Show line numbers
 set number
@@ -84,8 +84,8 @@ autocmd FileType make set ts=2
 " And Markdown
 autocmd FileType mkd set sw=4
 autocmd FileType mkd set sts=4
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.cql set filetype=cql
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+autocmd BufRead,BufNewFile *.cql set filetype=cql
 " And Java
 autocmd FileType java set sw=2
 
