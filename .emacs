@@ -909,7 +909,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
     (let ((w (split-window-below 2)))
       (select-window w)
       (sh))
-      (switch-to-buffer "*shell*")))
+      (other-window 1)))
 
 ;; Enable erase-buffer function
 (put 'erase-buffer 'disabled nil)
