@@ -52,6 +52,7 @@
 (depends-on "nlinum")
 (depends-on "ntcmd")
 (depends-on "oz")
+(depends-on "pcmpl-git")
 (depends-on "perl6-mode")
 (depends-on "php-mode")
 (depends-on "powerline")
