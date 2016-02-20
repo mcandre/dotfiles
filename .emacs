@@ -50,7 +50,13 @@
  read-buffer-completion-ignore-case t
 
  ;; Default to Unix LF line endings
- buffer-file-coding-system 'utf-8-unix)
+ buffer-file-coding-system 'utf-8-unix
+
+ ;; Autoscroll shell input/output
+ comint-scroll-to-bottom-on-input  t
+ comint-scroll-to-bottom-on-output t
+ comint-scroll-show-maximum-output t
+ comint-scroll-to-bottom-on-output t)
 
 ;; I say, soft tabs, width 2 spaces!
 (setq-default indent-tabs-mode nil
@@ -58,10 +64,6 @@
 
 ;; Automatically revert unmodified buffers on file change
 (global-auto-revert-mode 1)
-
-;; Fix shell-mode autoscrolling
-(remove-hook 'comint-output-filter-functions
-             'comint-postoutput-scroll-to-bottom)
 
 ;; Shorter M-x sh command
 (defun sh () (interactive) (shell))
