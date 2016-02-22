@@ -1,2 +1,2 @@
 # IntelliJ CLI
-alias ij='open -a "$HOME/Applications/IntelliJ IDEA 15 CE.app"'
+alias ij='open -a "/Applications/IntelliJ IDEA 15 CE.app"'
