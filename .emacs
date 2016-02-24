@@ -81,6 +81,10 @@
                 (interactive "*p")
                 (goto-char (point-max))
                 (comint-next-input arg)))
+
+            ;; Fix shell indentation
+            (setq tab-width 8)
+
             ;; Clear whole shell window
             (define-key comint-mode-map (kbd "C-l")
               (lambda ()
