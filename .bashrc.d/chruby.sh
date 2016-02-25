@@ -8,4 +8,6 @@ if [ -e /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
   fi
 
   . /usr/local/opt/chruby/share/chruby/auto.sh
+
+  export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 fi
