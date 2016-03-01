@@ -43,6 +43,7 @@
 (depends-on "json-mode")
 (depends-on "jsx-mode")
 (depends-on "less-css-mode")
+(depends-on "llvm-mode")
 (depends-on "lua-mode")
 (depends-on "markdown-mode") ;; includes gfm-mode
 (depends-on "matlab-mode")
