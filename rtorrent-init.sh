@@ -72,28 +72,35 @@ checkcnfg() {
         fi
     done
     if [ $exists -eq 0 ] ; then
-        echo "cannot find rtorrent binary in PATH $PATH" | tee -a "$logfile" >&2
+        echo "cannot find rtorrent binary in PATH $PATH" \
+        | tee -a "$logfile" >&2
         exit 3
     fi
     if ! [ -r "${config}" ] ; then
-        echo "cannot find readable config ${config}. check that it is there and permissions are appropriate" | tee -a "$logfile" >&2
+        echo "cannot find readable config ${config}. check that it is there and permissions are appropriate" \
+            | tee -a "$logfile" >&2
         exit 3
     fi
     session=`getsession "$config"`
     if ! [ -d "${session}" ] ; then
-        echo "cannot find readable session directory ${session} from config ${config}. check permissions" | tee -a "$logfile" >&2
+        echo "cannot find readable session directory ${session} from config ${config}. check permissions" \
+            | tee -a "$logfile" >&2
         exit 3
     fi
 }
 
 d_start() {
-  [ -d "${base}" ] && cd "${base}"
-  stty stop undef && stty start undef
-  su -c "screen -ls | grep -sq "\.${srnname}[[:space:]]" " ${user} || su -c "screen -dm -S ${srnname} 2>&1 1>/dev/null" ${user} | tee -a "$logfile" >&2
-  # this works for the screen command, but starting rtorrent below adopts screen session gid
-  # even if it is not the screen session we started (e.g. running under an undesirable gid
-  #su -c "screen -ls | grep -sq "\.${srnname}[[:space:]]" " ${user} || su -c "sg \"$group\" -c \"screen -fn -dm -S ${srnname} 2>&1 1>/dev/null\"" ${user} | tee -a "$logfile" >&2
-  su -c "screen -S "${srnname}" -X screen rtorrent ${options} 2>&1 1>/dev/null" ${user} | tee -a "$logfile" >&2
+    [ -d "${base}" ] && cd "${base}"
+    stty stop undef && stty start undef
+    su -c "screen -ls \
+        | grep -sq "\.${srnname}[[:space:]]" " ${user} \
+        || su -c "screen -dm -S ${srnname} 2>&1 1>/dev/null" ${user} \
+        | tee -a "$logfile" >&2
+    # this works for the screen command, but starting rtorrent below adopts screen session gid
+    # even if it is not the screen session we started (e.g. running under an undesirable gid
+    #su -c "screen -ls | grep -sq "\.${srnname}[[:space:]]" " ${user} || su -c "sg \"$group\" -c \"screen -fn -dm -S ${srnname} 2>&1 1>/dev/null\"" ${user} | tee -a "$logfile" >&2
+    su -c "screen -S "${srnname}" -X screen rtorrent ${options} 2>&1 1>/dev/null" ${user} \
+        | tee -a "$logfile" >&2
 }
 
 d_stop() {
@@ -115,24 +122,24 @@ getsession() {
 checkcnfg
 
 case "$1" in
-  start)
+    start)
     echo -n "Starting $DESC: $NAME"
     d_start
     echo "."
     ;;
-  stop)
+    stop)
     echo -n "Stopping $DESC: $NAME"
     d_stop
     echo "."
     ;;
-  restart|force-reload)
+    restart|force-reload)
     echo -n "Restarting $DESC: $NAME"
     d_stop
     sleep 1
     d_start
     echo "."
     ;;
-  *)
+    *)
     echo "Usage: $SCRIPTNAME {start|stop|restart|force-reload}" >&2
     exit 1
     ;;
