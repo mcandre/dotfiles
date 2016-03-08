@@ -1,10 +1,12 @@
+#!/bin/sh
+
 export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
 rlwrap \
-  -b $BREAK_CHARS \
-  --remember \
-  -c \
-  -f ~/.ccl_completions \
-  -H ~/.ccl_history \
-  -s 1000000 \
-  lx86cl \
-  ${1+"$@"}
+    -b $BREAK_CHARS \
+    --remember \
+    -c \
+    -f ~/.ccl_completions \
+    -H ~/.ccl_history \
+    -s 1000000 \
+    lx86cl \
+    ${1+"$@"}

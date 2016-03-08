@@ -74,6 +74,10 @@ task :infernu => [] do
   sh 'find . -type d -name node_modules -prune -o -type d -name bower_components -prune -o -type d -name target -prune -o -type f -name "*.js" -exec infernu {} \\;'
 end
 
+task :bashate => [] do
+  sh 'bashate hooks/* .envrc .bashrc.d/* .bash_profile.d/* *.sh *.bash .bash* .profile* ccl clean-windows emacs-android finder-show-hidden-files get-dropbox-foldercat hadoop-env set-wallpaper-mac shmatlab% upgrade-puppet vera'
+end
+
 task :lint => [
   :ruby,
   :reek,
@@ -89,7 +93,8 @@ task :lint => [
   :editorconfig,
   :astyle,
   :xmllint,
-  :infernu
+  :infernu,
+  :bashate
 ] do
 end
 

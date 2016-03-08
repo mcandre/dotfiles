@@ -4,9 +4,17 @@
 # mkdir -p ~/bin
 # ln -s .../shmatlab% ~/bin/shmatlab%
 #
+
+code=<<END
+varargin = regexp('${1+"$@"}', ' ', 'split');
+nvarargin = length(varargin);
+run('$1');
+exit
+END
+
 matlab \
-  -nojvm \
-  -nodisplay \
-  -nosplash \
-  -r "varargin = regexp('${1+"$@"}', ' ', 'split'); nvarargin = length(varargin); run('$1'); exit" \
-  | tail -n +16
+    -nojvm \
+    -nodisplay \
+    -nosplash \
+    -r "$code" \
+    | tail -n +16
