@@ -26,6 +26,8 @@ checkstyle -c checkstyle.xml -r src/
     <property name="message" value="Line has trailing spaces."/>
   </module>
 
+  <module name="JavadocPackage"/>
+
   <module name="TreeWalker">
     <property name="fileExtensions" value="java,ejb,jpf" />
 
