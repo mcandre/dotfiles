@@ -92,6 +92,8 @@
                 (goto-char (point-max))
                 (recenter-top-bottom 0)))
 
+            (show-paren-mode 0)
+
             ;; Show cwd in modeline
             (add-to-list 'mode-line-buffer-identification
                          '(:propertize (" " default-directory " ") face dired-directory))))
