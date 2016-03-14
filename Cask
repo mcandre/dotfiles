@@ -10,6 +10,7 @@
 (depends-on "apache-mode")
 (depends-on "clojure-mode")
 (depends-on "coffee-mode")
+(depends-on "csharp-mode")
 (depends-on "crappy-jsp-mode")
 (depends-on "crontab-mode")
 (depends-on "d-mode")
