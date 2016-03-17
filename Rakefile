@@ -75,7 +75,7 @@ task :infernu => [] do
 end
 
 task :bashate => [] do
-  sh 'bashate hooks/* .envrc .bashrc.d/* .bash_profile.d/* *.sh *.bash .bash* .profile* ccl clean-windows emacs-android finder-show-hidden-files get-dropbox-foldercat hadoop-env set-wallpaper-mac shmatlab% upgrade-puppet vera'
+  sh 'bashate hooks/* .envrc .bashrc.d/*.sh .bash_profile.d/*.sh *.sh .bash* .profile* ccl clean-windows emacs-android finder-show-hidden-files get-dropbox-foldercat hadoop-env set-wallpaper-mac shmatlab% upgrade-puppet vera'
 end
 
 task :lint => [
