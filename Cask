@@ -37,6 +37,7 @@
 (depends-on "go-mode")
 (depends-on "groovy-mode")
 (depends-on "haskell-mode")
+(depends-on "highlight-parentheses")
 (depends-on "io-mode")
 (depends-on "j-mode")
 (depends-on "jq-mode")

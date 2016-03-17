@@ -1,8 +1,5 @@
 ;; ln -s .../.emacs ~/.emacs
 
-;; Highlight matching parentheses
-(show-paren-mode 1)
-
 ;; Typing text replaces marked regions
 (delete-selection-mode 1)
 
@@ -95,8 +92,6 @@
                 (interactive)
                 (goto-char (point-max))
                 (recenter-top-bottom 0)))
-
-            ;; (show-paren-mode 0)
 
             ;; Show cwd in modeline
             (add-to-list 'mode-line-buffer-identification
@@ -284,6 +279,12 @@
              :defines powerline-default-theme
              :config
              (powerline-default-theme))
+
+(use-package highlight-parentheses
+  :config
+  (dolist (hook '(prog-mode-hook
+                  conf-mode-hook))
+    (add-hook hook 'highlight-parentheses-mode)))
 
 (use-package groovy-mode
              :mode "build\\.gradle")
