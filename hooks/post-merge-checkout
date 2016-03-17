@@ -22,9 +22,8 @@
 # fi
 #
 git_modified() {
-    difference=$(git rev-parse --verify HEAD@{1} &> /dev/null && \
-                        git diff --quiet HEAD@{1} HEAD -- "$1")
-    return !difference
+    !(git rev-parse --verify HEAD@{1} &> /dev/null && \
+             git diff --quiet HEAD@{1} HEAD -- "$1")
 }
 
 #
