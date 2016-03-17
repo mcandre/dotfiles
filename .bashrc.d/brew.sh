@@ -2,7 +2,7 @@ PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="$HOME/.cask/bin:$PATH"
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+    . $(brew --prefix)/etc/bash_completion
 fi
 
 # Workaround pyenv shims vs. brew doctor

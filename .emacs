@@ -56,7 +56,11 @@
  comint-scroll-to-bottom-on-input  t
  comint-scroll-to-bottom-on-output t
  comint-scroll-show-maximum-output t
- comint-scroll-to-bottom-on-output t)
+ comint-scroll-to-bottom-on-output t
+
+ ;; bashate
+ sh-basic-offset 4
+ sh-indentation 4)
 
 ;; I say, soft tabs, width 2 spaces!
 (setq-default indent-tabs-mode nil
@@ -92,7 +96,7 @@
                 (goto-char (point-max))
                 (recenter-top-bottom 0)))
 
-            (show-paren-mode 0)
+            ;; (show-paren-mode 0)
 
             ;; Show cwd in modeline
             (add-to-list 'mode-line-buffer-identification
@@ -910,8 +914,11 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                (add-hook hook 'yafolding-mode)))
 
 (use-package editorconfig
-             :init
-             (editorconfig-mode 1))
+  :init
+  (add-hook 'sh-mode-hook
+            (lambda ()
+              (editorconfig-mode 0)))
+  (editorconfig-mode 1))
 
 ;; Open split shell on launch
 (add-hook 'emacs-startup-hook
