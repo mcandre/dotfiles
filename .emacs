@@ -69,6 +69,13 @@
 ;; Shorter M-x sh command
 (defun sh () (interactive) (shell))
 
+;; Highlight matching parens, but only for programming and configuration modes
+(make-variable-buffer-local 'show-paren-mode)
+(dolist (hook '(prog-mode-hook
+                conf-mode-hook))
+  (add-hook hook (lambda ()
+                   (show-paren-mode 1))))
+
 (add-hook 'shell-mode-hook
           (lambda ()
             ;; Automatically move cursor to prompt on shell up/down
@@ -279,12 +286,6 @@
              :defines powerline-default-theme
              :config
              (powerline-default-theme))
-
-(use-package highlight-parentheses
-  :config
-  (dolist (hook '(prog-mode-hook
-                  conf-mode-hook))
-    (add-hook hook 'highlight-parentheses-mode)))
 
 (use-package groovy-mode
              :mode "build\\.gradle")
