@@ -251,55 +251,55 @@
 
 ;; Disable function vs filename conflict prompt to allow scripts/modulinos
 (use-package octave
-             :defines octave-sync-function-file-names
-             :config
-             (defun octave-sync-function-file-names nil))
+  :defines octave-sync-function-file-names
+  :config
+  (defun octave-sync-function-file-names nil))
 
 (use-package matlab
-             :config
-             (setq matlab-functions-have-end t
-                   ;; Workaround for https://github.com/editorconfig/editorconfig-emacs/issues/66
-                   matlab-indent-level tab-width
-                   matlab-cont-level tab-width)
-             (defun matlab-mode-vf-functionname (&optional fast) nil)
+  :config
+  (setq matlab-functions-have-end t
+        ;; Workaround for https://github.com/editorconfig/editorconfig-emacs/issues/66
+        matlab-indent-level tab-width
+        matlab-cont-level tab-width)
+  (defun matlab-mode-vf-functionname (&optional fast) nil)
 
-             (add-hook 'matlab-mode-hook
-                       (lambda ()
-                         (local-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines))))
+  (add-hook 'matlab-mode-hook
+            (lambda ()
+              (local-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines))))
 
 ;; Fast line numbers
 (use-package nlinum
-             :config
-             ;; Line number gutter in ncurses mode
-             (unless window-system
-               (setq nlinum-format "%d "))
-             ;; :idle
-             (global-nlinum-mode))
+  :config
+  ;; Line number gutter in ncurses mode
+  (unless window-system
+    (setq nlinum-format "%d "))
+  ;; :idle
+  (global-nlinum-mode))
 
 ;; Show path information in buffer names and mode-lines
 (use-package uniquify
-             :config
-             (setq uniquify-buffer-name-style 'post-forward
-                   uniquify-min-dir-content 7))
+  :config
+  (setq uniquify-buffer-name-style 'post-forward
+        uniquify-min-dir-content 7))
 
 (use-package powerline
-             :defines powerline-default-theme
-             :config
-             (powerline-default-theme))
+  :defines powerline-default-theme
+  :config
+  (powerline-default-theme))
 
 (use-package groovy-mode
-             :mode "build\\.gradle")
+  :mode "build\\.gradle")
 
 ;; Don't bind M-: to some stupid newLISP evaluator
 (use-package newlisp-mode
-             :mode "\\.lsp$"
-             :config
-             (define-key newlisp-mode-map (kbd "M-:") nil))
+  :mode "\\.lsp$"
+  :config
+  (define-key newlisp-mode-map (kbd "M-:") nil))
 
 (use-package json-mode
-             :mode (("\\.jshintrc$" . json-mode)
-                    ("\\.bowerrc$" . json-mode)
-                    ("\\.schema$" . json-mode)))
+  :mode (("\\.jshintrc$" . json-mode)
+         ("\\.bowerrc$" . json-mode)
+         ("\\.schema$" . json-mode)))
 
 ;; Tcl indentation
 (add-hook 'tcl-mode-hook
@@ -310,29 +310,29 @@
 (fset 'perl-mode 'cperl-mode)
 ;; Rust indentation
 (use-package rust-mode
-             :mode "\\.rs$"
-             :defines rust-indent-unit rust-indent-offset
-             :init
-             (add-hook 'rust-mode-hook
-                       (lambda ()
-                         (setq rust-indent-unit tab-width
-                               rust-indent-offset tab-width))))
+  :mode "\\.rs$"
+  :defines rust-indent-unit rust-indent-offset
+  :init
+  (add-hook 'rust-mode-hook
+            (lambda ()
+              (setq rust-indent-unit tab-width
+                    rust-indent-offset tab-width))))
 ;; PostScript indentation
 (use-package ps-mode
-             :mode "\\.ps$"
-             :defines ps-mode-tab
-             :init
-             (add-hook 'ps-mode-hook
-                       (lambda ()
-                         (setq ps-mode-tab tab-width))))
+  :mode "\\.ps$"
+  :defines ps-mode-tab
+  :init
+  (add-hook 'ps-mode-hook
+            (lambda ()
+              (setq ps-mode-tab tab-width))))
 ;; Mozart/Oz indentation
 (use-package oz
-             :mode ("\\.oz$" . oz-mode)
-             :defines oz-indent-chars
-             :init
-             (add-hook 'oz-mode-hook
-                       (lambda ()
-                         (setq oz-indent-chars tab-width))))
+  :mode ("\\.oz$" . oz-mode)
+  :defines oz-indent-chars
+  :init
+  (add-hook 'oz-mode-hook
+            (lambda ()
+              (setq oz-indent-chars tab-width))))
 
 (defun hard-tabs ()
   (setq-default indent-tabs-mode t)
@@ -348,99 +348,99 @@
 
 ;; Find and Replace
 (use-package findr
-             :commands findr-query-replace)
+  :commands findr-query-replace)
 
 ;; Open project file by fuzzy name
 (use-package fiplr
-             :bind ("C-p" . fiplr-find-file)
-             :defines fipl-ignored-globs
-             :config
-             (setq fiplr-ignored-globs
-                   '((directories
-                      ;; Version control
-                      (".git"
-                       ".svn"
-                       ".hg"
-                       ".bzr"
-                       ;; NPM
-                       "node_modules"
-                       ;; Bower
-                       "bower_components"
-                       ;; Maven
-                       "target"
-                       ;; Gradle
-                       "build"
-                       ".gradle"
-                       ;; Python
-                       "__pycache__"
-                       ;; IntelliJ
-                       ".idea"
-                       ;; Infer
-                       "infer-out"))
-                     (files
-                      ;; Emacs
-                      (".#*"
-                       ;; Vim
-                       "*~"
-                       ;; Objects
-                       "*.so"
-                       "*.o"
-                       "*.obj"
-                       "*.hi"
-                       ;; Media
-                       "*.jpg"
-                       "*.png"
-                       "*.gif"
-                       "*.pdf"
-                       ;; Archives
-                       "*.gz"
-                       "*.zip"))))
+  :bind ("C-p" . fiplr-find-file)
+  :defines fipl-ignored-globs
+  :config
+  (setq fiplr-ignored-globs
+        '((directories
+           ;; Version control
+           (".git"
+            ".svn"
+            ".hg"
+            ".bzr"
+            ;; NPM
+            "node_modules"
+            ;; Bower
+            "bower_components"
+            ;; Maven
+            "target"
+            ;; Gradle
+            "build"
+            ".gradle"
+            ;; Python
+            "__pycache__"
+            ;; IntelliJ
+            ".idea"
+            ;; Infer
+            "infer-out"))
+          (files
+           ;; Emacs
+           (".#*"
+            ;; Vim
+            "*~"
+            ;; Objects
+            "*.so"
+            "*.o"
+            "*.obj"
+            "*.hi"
+            ;; Media
+            "*.jpg"
+            "*.png"
+            "*.gif"
+            "*.pdf"
+            ;; Archives
+            "*.gz"
+            "*.zip"))))
 
-             ;; Better TAB handling
-             (define-key *fiplr-keymap* (kbd "TAB")
-               (lambda ()
-                 (interactive))))
+  ;; Better TAB handling
+  (define-key *fiplr-keymap* (kbd "TAB")
+    (lambda ()
+      (interactive))))
 
 ;; C-x <direction> to switch windows
 (use-package window-jump
-             :bind (("C-x <up>" . window-jump-up)
-                    ("C-x <down>" . window-jump-down)
-                    ("C-x <left>" . window-jump-left)
-                    ("C-x <right>" . window-jump-right))
-             :init
-             ;; Wrap around
-             (setq wj-wrap t)
+  :bind (("C-x <up>" . window-jump-up)
+         ("C-x <down>" . window-jump-down)
+         ("C-x <left>" . window-jump-left)
+         ("C-x <right>" . window-jump-right))
+  :init
+  ;; Wrap around
+  (setq wj-wrap t)
 
-             ;; Keep window split size uniform
-             ;; Move focus to new window
-             (defadvice split-window-below (after restore-balanace-below activate)
-               (balance-windows)
-               (window-jump-down)
-               (switch-to-buffer "*scratch*"))
-             (defadvice split-window-right (after restore-balance-right activate)
-               (balance-windows)
-               (window-jump-right)
-               (switch-to-buffer "*scratch*"))
-             (defadvice delete-window (after restore-balance activate)
-               (balance-windows)))
+  ;; Keep window split size uniform
+  ;; Move focus to new window
+  (defadvice split-window-below (after restore-balanace-below activate)
+    (balance-windows)
+    (window-jump-down)
+    (switch-to-buffer "*scratch*"))
+  (defadvice split-window-right (after restore-balance-right activate)
+    (balance-windows)
+    (window-jump-right)
+    (switch-to-buffer "*scratch*"))
+  (defadvice delete-window (after restore-balance activate)
+    (balance-windows)))
 
 ;; Monokai
 (use-package monokai-theme
-             ;; :idle
-             :config
-             (load-theme 'monokai t))
+  ;; :idle
+  :config
+  (load-theme 'monokai t))
 
 ;;
 ;; CUA-like Undo (Control+Z, Control+R)
 ;;
 (use-package undo-tree
-             :diminish undo-tree-mode
-             :bind (("C-z" . undo-tree-undo)
-                    ("C-r" . undo-tree-redo))
-             :config
-             (global-undo-tree-mode)
-             ;; Prevent accidental suspension on CUA undo
-             (global-unset-key (kbd "C-x C-z")))
+  :diminish undo-tree-mode
+  :bind (("C-z" . undo-tree-undo)
+         ("C-r" . undo-tree-redo))
+  :config
+  (global-undo-tree-mode)
+  ;; Prevent accidental suspension on CUA undo
+  (global-unset-key (kbd "C-x C-z")))
 
 ;; If mark exists, indent rigidly
 (defun traditional-indent ()
@@ -455,69 +455,69 @@
     (indent-rigidly (region-beginning) (region-end) (* tab-width -1))))
 
 (use-package markdown-mode
-             :mode ("\\.md$" . gfm-mode)
-             :init
-             ;; Use markdown-mode for *scratch*
-             (setq initial-scratch-message nil
-                   initial-major-mode 'gfm-mode)
-             :config
-             ;; Block indent for Markdown
-             (add-hook 'markdown-mode-hook
-                       (lambda ()
-                         (setq indent-tabs-mode nil
-                               tab-width 4)
-                         (define-key markdown-mode-map (kbd "TAB") 'traditional-indent)
-                         (define-key markdown-mode-map (kbd "<backtab>") 'traditional-outdent)
-                         (define-key markdown-mode-map (kbd "M-<left>") nil)
-                         (define-key markdown-mode-map (kbd "M-<right>") nil)
-                         ;; Remove triple backtick 'features'
-                         (define-key gfm-mode-map (kbd "`") nil))))
+  :mode ("\\.md$" . gfm-mode)
+  :init
+  ;; Use markdown-mode for *scratch*
+  (setq initial-scratch-message nil
+        initial-major-mode 'gfm-mode)
+  :config
+  ;; Block indent for Markdown
+  (add-hook 'markdown-mode-hook
+            (lambda ()
+              (setq indent-tabs-mode nil
+                    tab-width 4)
+              (define-key markdown-mode-map (kbd "TAB") 'traditional-indent)
+              (define-key markdown-mode-map (kbd "<backtab>") 'traditional-outdent)
+              (define-key markdown-mode-map (kbd "M-<left>") nil)
+              (define-key markdown-mode-map (kbd "M-<right>") nil)
+              ;; Remove triple backtick 'features'
+              (define-key gfm-mode-map (kbd "`") nil))))
 
 ;; M-; toggles commenting for marked region or current line.
 (use-package evil-nerd-commenter
-             :bind ("M-;" . evilnc-comment-or-uncomment-lines))
+  :bind ("M-;" . evilnc-comment-or-uncomment-lines))
 
 ;; Single dired buffer
 (use-package dired-single
-             :commands dired-single-buffer dired-single-buffer-mouse
-             :defines dired-mode-map
-             :init
-             (add-hook 'dired-mode-hook
-                       (lambda ()
-                         ;; Enable all commands
-                         (setq disabled-command-function nil)
+  :commands dired-single-buffer dired-single-buffer-mouse
+  :defines dired-mode-map
+  :init
+  (add-hook 'dired-mode-hook
+            (lambda ()
+              ;; Enable all commands
+              (setq disabled-command-function nil)
 
-                         (define-key dired-mode-map [return] 'dired-single-buffer)
-                         (define-key dired-mode-map [down-mouse-1] 'dired-single-buffer-mouse)
-                         (define-key dired-mode-map [^]
-                           (lambda ()
-                             (interactive)
-                             (dired-single-buffer "..")))
+              (define-key dired-mode-map [return] 'dired-single-buffer)
+              (define-key dired-mode-map [down-mouse-1] 'dired-single-buffer-mouse)
+              (define-key dired-mode-map [^]
+                (lambda ()
+                  (interactive)
+                  (dired-single-buffer "..")))
 
-                         ;; Auto-refresh dired on file change
-                         (auto-revert-mode)
-                         (setq-default auto-revert-interval 1))))
+              ;; Auto-refresh dired on file change
+              (auto-revert-mode)
+              (setq-default auto-revert-interval 1))))
 
 ;; Hide dired file permissions
 (use-package dired-details
-             :commands dired-details-install
-             :defines dired-details-hidden-string
-             :config
-             (dired-details-install)
-             (setq dired-details-hidden-string ""))
+  :commands dired-details-install
+  :defines dired-details-hidden-string
+  :config
+  (dired-details-install)
+  (setq dired-details-hidden-string ""))
 
 (use-package ack-and-a-half
-             :bind (("C-x C-a" . ack-and-a-half)
-                    ("s-F" . ack-and-a-half)))
+  :bind (("C-x C-a" . ack-and-a-half)
+         ("s-F" . ack-and-a-half)))
 
 (use-package dired+
-             ;; :idle
-             :defines dired-omit-files
-             :config
-             ;; Fix color theme
-             (setq-default dired-omit-files-p t)
-             (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
-             (setq dired-omit-files (concat dired-omit-files "\\.")))
+  ;; :idle
+  :defines dired-omit-files
+  :config
+  ;; Fix color theme
+  (setq-default dired-omit-files-p t)
+  (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
+  (setq dired-omit-files (concat dired-omit-files "\\.")))
 
 ;;
 ;; Syntax highlighting
@@ -539,9 +539,9 @@
                  (sql-highlight-postgres-keywords))))
 
 (use-package sqlup-mode
-             :diminish sqlup-mode
-             :config
-             (add-hook 'sql-mode-hook 'sqlup-mode))
+  :diminish sqlup-mode
+  :config
+  (add-hook 'sql-mode-hook 'sqlup-mode))
 
 ;;
 ;; Fix SQL indentation
@@ -632,42 +632,42 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
             (setq indent-line-function 'ig-indent-sql)))
 
 (use-package mustache-mode
-             :mode "\\.\\(mst|mustache\\)$")
+  :mode "\\.\\(mst|mustache\\)$")
 
 (use-package gitignore-mode
-             :mode "\\.\\(gitignore|jshintignore\\)$")
+  :mode "\\.\\(gitignore|jshintignore\\)$")
 
 (use-package ntcmd
-             :no-require t
-             :mode ("\\.bat$" . ntcmd-mode))
+  :no-require t
+  :mode ("\\.bat$" . ntcmd-mode))
 
 (use-package oz
-             :mode ("\\.oz$" . oz-mode))
+  :mode ("\\.oz$" . oz-mode))
 
 (use-package xahk-mode
-             :mode "\\.ahk$")
+  :mode "\\.ahk$")
 
 (use-package tbemail
-             :mode ("\\.eml$" . tbemail-mode))
+  :mode ("\\.eml$" . tbemail-mode))
 
 (use-package wolfram-mode
-             :mode ("\\.ma$" . wolfram-mode))
+  :mode ("\\.ma$" . wolfram-mode))
 
 (use-package vala-mode
-             :no-require t
-             :mode ("\\.vala$" . vala-mode))
+  :no-require t
+  :mode ("\\.vala$" . vala-mode))
 
 (use-package powershell-mode
-             :no-require t
-             :mode ("\\.ps1$" . powershell-mode))
+  :no-require t
+  :mode ("\\.ps1$" . powershell-mode))
 
 (use-package ess-site
-             :mode ("\\.R$" . R-mode)
-             :defines ess-indent-offset
-             :init
-             (add-hook 'R-mode-hook
-                       (lambda ()
-                         (setq ess-indent-offset tab-width))))
+  :mode ("\\.R$" . R-mode)
+  :defines ess-indent-offset
+  :init
+  (add-hook 'R-mode-hook
+            (lambda ()
+              (setq ess-indent-offset tab-width))))
 
 ;; More JavaScript files
 (add-to-list 'auto-mode-alist '("\\.pjs$" . js2-mode))
@@ -689,106 +689,106 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   (add-to-list 'auto-mode-alist (cons extension 'ruby-mode)))
 
 (use-package haskell-mode
-             :mode "\\.(l)?hs$"
-             :functions haskell-ident-at-point
-             :init
-             ;; Fix Haskell indentation
-             (add-hook 'haskell-mode-hook
-                       (lambda ()
-                         (haskell-indentation-mode)
-                         (setq tab-width tab-width)
-                         (inf-haskell-mode)))
+  :mode "\\.(l)?hs$"
+  :functions haskell-ident-at-point
+  :init
+  ;; Fix Haskell indentation
+  (add-hook 'haskell-mode-hook
+            (lambda ()
+              (haskell-indentation-mode)
+              (setq tab-width tab-width)
+              (inf-haskell-mode)))
 
-             ;; Show Haskell type information
-             (add-hook 'inf-haskell-mode-hook
-                       (lambda ()
-                         (local-set-key (kbd "M-/")
-                                        (lambda ()
-                                          (interactive)
-                                          (inferior-haskell-load-file nil)
-                                          (inferior-haskell-type (haskell-ident-at-point)))))))
+  ;; Show Haskell type information
+  (add-hook 'inf-haskell-mode-hook
+            (lambda ()
+              (local-set-key (kbd "M-/")
+                             (lambda ()
+                               (interactive)
+                               (inferior-haskell-load-file nil)
+                               (inferior-haskell-type (haskell-ident-at-point)))))))
 
 (use-package erlang
-             :mode
-             ("\\(\\.hrl|\\.yrl|\\.app|\\.appSrc|\\.app.src|\\.rel|rebar.config\\)$" .
-              erlang-mode)
-             :defines erlang-electric-commands
-             :config
-             (add-hook 'erlang-mode-hook
-                       (lambda ()
-                         ;; Disable autocomplete
-                         (setq erlang-electric-commands '()))))
+  :mode
+  ("\\(\\.hrl|\\.yrl|\\.app|\\.appSrc|\\.app.src|\\.rel|rebar.config\\)$" .
+   erlang-mode)
+  :defines erlang-electric-commands
+  :config
+  (add-hook 'erlang-mode-hook
+            (lambda ()
+              ;; Disable autocomplete
+              (setq erlang-electric-commands '()))))
 
 ;; More YAML files
 (use-package yaml-mode
-             :config
-             (add-to-list 'auto-mode-alist '("\\.reek$" . yaml-mode)))
+  :config
+  (add-to-list 'auto-mode-alist '("\\.reek$" . yaml-mode)))
 
 ;; Node shell scripts
 (use-package js2-mode
-             :config
-             (add-to-list 'interpreter-mode-alist '("node" . js2-mode)))
+  :config
+  (add-to-list 'interpreter-mode-alist '("node" . js2-mode)))
 
 ;; JSP
 (use-package crappy-jsp-mode
-             :config
-             (add-to-list 'auto-mode-alist '("\\.jsp$" . crappy-jsp-mode)))
+  :config
+  (add-to-list 'auto-mode-alist '("\\.jsp$" . crappy-jsp-mode)))
 
 ;; Embedded HTML/CSS/JS
 (use-package mmm-mode
-             :config
-             ;; ERB
-             (defun sanityinc/ensure-mmm-erb-loaded ()
-               (require 'mmm-erb))
+  :config
+  ;; ERB
+  (defun sanityinc/ensure-mmm-erb-loaded ()
+    (require 'mmm-erb))
 
-             (require 'derived)
+  (require 'derived)
 
-             (defun sanityinc/set-up-mode-for-erb (mode)
-               (add-hook (derived-mode-hook-name mode) 'sanityinc/ensure-mmm-erb-loaded)
-               (mmm-add-mode-ext-class mode "\\.erb$" 'erb))
+  (defun sanityinc/set-up-mode-for-erb (mode)
+    (add-hook (derived-mode-hook-name mode) 'sanityinc/ensure-mmm-erb-loaded)
+    (mmm-add-mode-ext-class mode "\\.erb$" 'erb))
 
-             (let ((html-erb-modes '(html-mode html-erb-mode nxml-mode)))
-               (dolist (mode html-erb-modes)
-                 (sanityinc/set-up-mode-for-erb mode)
-                 (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-js)
-                 (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css)))
+  (let ((html-erb-modes '(html-mode html-erb-mode nxml-mode)))
+    (dolist (mode html-erb-modes)
+      (sanityinc/set-up-mode-for-erb mode)
+      (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-js)
+      (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css)))
 
-             (mapc 'sanityinc/set-up-mode-for-erb
-                   '(coffee-mode js-mode js2-mode js3-mode markdown-mode textile-mode))
+  (mapc 'sanityinc/set-up-mode-for-erb
+        '(coffee-mode js-mode js2-mode js3-mode markdown-mode textile-mode))
 
-             (mmm-add-mode-ext-class 'html-erb-mode "\\.jst\\.ejs$" 'ejs)
+  (mmm-add-mode-ext-class 'html-erb-mode "\\.jst\\.ejs$" 'ejs)
 
-             (add-to-list 'auto-mode-alist '("\\.\\(r\\)?html\\(erb\\)?$" . html-erb-mode))
-             (add-to-list 'auto-mode-alist '("\\.jst\\.ejs$"  . html-erb-mode))
-             (mmm-add-mode-ext-class 'yaml-mode "\\.yaml$" 'erb)
+  (add-to-list 'auto-mode-alist '("\\.\\(r\\)?html\\(erb\\)?$" . html-erb-mode))
+  (add-to-list 'auto-mode-alist '("\\.jst\\.ejs$"  . html-erb-mode))
+  (mmm-add-mode-ext-class 'yaml-mode "\\.yaml$" 'erb)
 
-             (dolist (mode (list 'js-mode 'js2-mode 'js3-mode))
-               (mmm-add-mode-ext-class mode "\\.js\\.erb$" 'erb))
+  (dolist (mode (list 'js-mode 'js2-mode 'js3-mode))
+    (mmm-add-mode-ext-class mode "\\.js\\.erb$" 'erb))
 
-             ;; CSS
-             (mmm-add-group
-              'html-css
-              '((css-cdata
-                 :submode css-mode
-                 :face mmm-code-submode-face
-                 :front "<style[^>]*>[ \t\n]*\\(//\\)?<!\\[CDATA\\[[ \t]*\n?"
-                 :back "[ \t]*\\(//\\)?]]>[ \t\n]*</style>"
-                 :insert ((?j js-tag nil @ "<style type=\"text/css\">"
-                              @ "\n" _ "\n" @ "</script>" @)))
-                (css
-                 :submode css-mode
-                 :face mmm-code-submode-face
-                 :front "<style[^>]*>[ \t]*\n?"
-                 :back "[ \t]*</style>"
-                 :insert ((?j js-tag nil @ "<style type=\"text/css\">"
-                              @ "\n" _ "\n" @ "</style>" @)))
-                (css-inline
-                 :submode css-mode
-                 :face mmm-code-submode-face
-                 :front "style=\""
-                 :back "\"")))
-             (dolist (mode (list 'html-mode 'nxml-mode))
-               (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css)))
+  ;; CSS
+  (mmm-add-group
+   'html-css
+   '((css-cdata
+      :submode css-mode
+      :face mmm-code-submode-face
+      :front "<style[^>]*>[ \t\n]*\\(//\\)?<!\\[CDATA\\[[ \t]*\n?"
+      :back "[ \t]*\\(//\\)?]]>[ \t\n]*</style>"
+      :insert ((?j js-tag nil @ "<style type=\"text/css\">"
+                   @ "\n" _ "\n" @ "</script>" @)))
+     (css
+      :submode css-mode
+      :face mmm-code-submode-face
+      :front "<style[^>]*>[ \t]*\n?"
+      :back "[ \t]*</style>"
+      :insert ((?j js-tag nil @ "<style type=\"text/css\">"
+                   @ "\n" _ "\n" @ "</style>" @)))
+     (css-inline
+      :submode css-mode
+      :face mmm-code-submode-face
+      :front "style=\""
+      :back "\"")))
+  (dolist (mode (list 'html-mode 'nxml-mode))
+    (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css)))
 
 ;;
 ;; Fix C family autoindent
@@ -814,11 +814,11 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 
 ;; TODO: Fix ruby-mode closing parentheses/brackets nesting too deep
 (use-package ruby-mode
-             :defines ruby-deep-indent-paren
-             :init
-             (add-hook 'ruby-mode-hook
-                       (lambda ()
-                         (setq ruby-deep-indent-paren nil))))
+  :defines ruby-deep-indent-paren
+  :init
+  (add-hook 'ruby-mode-hook
+            (lambda ()
+              (setq ruby-deep-indent-paren nil))))
 
 ;; Work around flycheck bytecode compilation error
 ;; (use-package dart-mode
@@ -863,57 +863,57 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 ;;                          (local-set-key (kbd "M-/") 'ensime-inspect-type-at-point))))
 
 (use-package rainbow-mode
-             :diminish rainbow-mode
-             :config
-             (dolist (hook '(css-mode-hook
-                             html-mode-hook
-                             sass-mode-hook
-                             less-css-mode-hook))
-               (add-hook hook 'rainbow-mode)))
+  :diminish rainbow-mode
+  :config
+  (dolist (hook '(css-mode-hook
+                  html-mode-hook
+                  sass-mode-hook
+                  less-css-mode-hook))
+    (add-hook hook 'rainbow-mode)))
 
 ;;
 ;; Highlight strange characters
 ;;
 
 (use-package whitespace
-             :diminish (global-whitespace-mode
-                        whitespace-mode
-                        whitespace-newline-mode)
-             :defines whitespace-face
-             :config
-             (dolist (hook '(prog-mode-hook
-                             conf-mode-hook
-                             groovy-mode-hook
-                             text-mode-hook
-                             html-erb-mode-hook
-                             nxml-mode-hook))
-               (add-hook hook
-                         (lambda ()
-                           (setq
-                            whitespace-line-column 80
-                            whitespace-style '(face
-                                               trailing
-                                               space-before-tab
-                                               space-after-tab
-                                               lines-tail
-                                               ;; work around https://github.com/jwiegley/use-package/issues/122
-                                               ;; indentation
-                                               empty)
-                            ;; Make inappropriate indentations more visible
-                            ;; in a dark theme like Monokai
-                            whitespace-face 'whitespace-trailing)
-                           (whitespace-mode)))))
+  :diminish (global-whitespace-mode
+             whitespace-mode
+             whitespace-newline-mode)
+  :defines whitespace-face
+  :config
+  (dolist (hook '(prog-mode-hook
+                  conf-mode-hook
+                  groovy-mode-hook
+                  text-mode-hook
+                  html-erb-mode-hook
+                  nxml-mode-hook))
+    (add-hook hook
+              (lambda ()
+                (setq
+                 whitespace-line-column 80
+                 whitespace-style '(face
+                                    trailing
+                                    space-before-tab
+                                    space-after-tab
+                                    lines-tail
+                                    ;; work around https://github.com/jwiegley/use-package/issues/122
+                                    ;; indentation
+                                    empty)
+                 ;; Make inappropriate indentations more visible
+                 ;; in a dark theme like Monokai
+                 whitespace-face 'whitespace-trailing)
+                (whitespace-mode)))))
 
 (use-package yafolding
-             :bind ("M-]" . yafolding-toggle-element)
-             :init
-             (dolist (hook '(prog-mode-hook
-                             conf-mode-hook
-                             groovy-mode-hook
-                             text-mode-hook
-                             html-erb-mode-hook
-                             nxml-mode-hook))
-               (add-hook hook 'yafolding-mode)))
+  :bind ("M-]" . yafolding-toggle-element)
+  :init
+  (dolist (hook '(prog-mode-hook
+                  conf-mode-hook
+                  groovy-mode-hook
+                  text-mode-hook
+                  html-erb-mode-hook
+                  nxml-mode-hook))
+    (add-hook hook 'yafolding-mode)))
 
 (use-package editorconfig
   :init
@@ -924,11 +924,11 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 
 ;; Open split shell on launch
 (add-hook 'emacs-startup-hook
-  (lambda ()
-    (let ((w (split-window-below 2)))
-      (select-window w)
-      (sh))
-      (other-window 1)))
+          (lambda ()
+            (let ((w (split-window-below 2)))
+              (select-window w)
+              (sh))
+            (other-window 1)))
 
 ;; Enable erase-buffer function
 (put 'erase-buffer 'disabled nil)
