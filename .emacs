@@ -496,7 +496,8 @@
 
               ;; Auto-refresh dired on file change
               (auto-revert-mode)
-              (setq-default auto-revert-interval 1))))
+              (setq-default auto-revert-interval 1)
+              (auto-revert-set-timer))))
 
 ;; Hide dired file permissions
 (use-package dired-details
