@@ -155,6 +155,7 @@ call vundle#begin()
   Plugin 'editorconfig/editorconfig-vim'
   Plugin 'mcandre/Conque-Shell'
   Plugin 'elubow/cql-vim'
+  Plugin 'scrooloose/nerdtree'
 call vundle#end()
 
 " Enable Powerline fonts for airline
@@ -184,3 +185,5 @@ let g:ConqueTerm_CWInsert = 1
 " Replace shell with Conque-Shell
 set nocp
 cabbrev sh sh<C-\>esubstitute(getcmdline(), '^sh', 'ConqueTerm bash', '')<cr>
+
+autocmd vimenter * NERDTree
