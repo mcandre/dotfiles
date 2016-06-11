@@ -19,8 +19,3 @@
 ^!s::
   run steam.exe
   return
-
-; Control+Alt+W launches Wunderlist
-^!w::
-  run wunderlist.exe
-  return
