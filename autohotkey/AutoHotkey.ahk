@@ -2,7 +2,7 @@
 
 ; Control+Alt+T launches Console2
 ^!t::
-  run console.exe
+  run powershell.exe
   return
 
 ; Control+Alt+E launches Emacs
