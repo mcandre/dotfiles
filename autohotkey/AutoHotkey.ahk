@@ -20,10 +20,10 @@
   run steam.exe
   return
 
-; Invert mouse scroll
-WheelUp::
-  send {WheelDown}
-  return
-WheelDown::
-  send {WheelUp}
-  return
+; ; Invert mouse scroll
+; WheelUp::
+;   send {WheelDown}
+;   return
+; WheelDown::
+;   send {WheelUp}
+;   return
