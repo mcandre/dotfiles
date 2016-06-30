@@ -132,31 +132,30 @@ nnoremap <silent> <C-w><Up> :<C-u>call <SID>JumpWithWrap('k', 'j')<CR>
 nnoremap <silent> <C-w><Right> :<C-u>call <SID>JumpWithWrap('l', 'h')<CR>
 
 "
-" Vundle
-" https://github.com/gmarik/vundle
-"
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-  Plugin 'gmarik/Vundle.vim'
-  Plugin 'gmarik/vundle'
-  Plugin 'bruno-/vim-alt-mappings'
-  Plugin 'kien/ctrlp.vim'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'tomtom/tcomment_vim'
-  Plugin 'bling/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
-  Plugin 'benjaminwhite/Benokai'
-  Plugin 'fsouza/go.vim'
-  Plugin 'wting/rust.vim'
-  Plugin 'godlygeek/tabular'
-  Plugin 'plasticboy/vim-markdown'
-  Plugin 'mtth/scratch.vim'
-  Plugin 'greplace.vim'
-  Plugin 'editorconfig/editorconfig-vim'
-  Plugin 'mcandre/Conque-Shell'
-  Plugin 'elubow/cql-vim'
-  Plugin 'scrooloose/nerdtree'
-call vundle#end()
+" vim-plug dependency manager
+" https://github.com/junegunn/vim-plug
+
+call plug#begin('~/.vim/plugged')
+  Plug 'gmarik/Vundle.vim'
+  Plug 'gmarik/vundle'
+  Plug 'bruno-/vim-alt-mappings'
+  Plug 'kien/ctrlp.vim'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tomtom/tcomment_vim'
+  Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'benjaminwhite/Benokai'
+  Plug 'fsouza/go.vim'
+  Plug 'wting/rust.vim'
+  Plug 'godlygeek/tabular'
+  Plug 'plasticboy/vim-markdown'
+  Plug 'mtth/scratch.vim'
+  Plug 'greplace.vim'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'mcandre/Conque-Shell'
+  Plug 'elubow/cql-vim'
+  Plug 'scrooloose/nerdtree'
+call plug#end()
 
 " Enable Powerline fonts for airline
 let g:airline_powerline_fonts = 1
