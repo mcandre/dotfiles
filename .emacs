@@ -128,13 +128,66 @@
 ;; CUA key: Alt+F4 quits
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
-(require 'cask "$HOME/.cask/cask.el")
-(cask-initialize)
+(require 'package)
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+        ("marmalade" . "https://marmalade-repo.org/packages/")
+        ("gnu" . "https://elpa.gnu.org/packages/")))
+(package-initialize)
+
+;; (require 'cask "$HOME/.cask/cask.el")
+;; (cask-initialize)
 
 (eval-when-compile
   (require 'use-package))
 (require 'diminish)
 (require 'bind-key)
+(setq use-package-always-ensure t)
+
+;;
+;; Syntax-highlighting packages installed via use-package
+;; with no further configuration applied
+;;
+
+(use-package apache-mode)
+(use-package clojure-mode)
+(use-package coffee-mode)
+(use-package cmake-mode)
+(use-package csharp-mode)
+(use-package d-mode)
+(use-package dockerfile-mode)
+(use-package feature-mode)
+(use-package fish-mode)
+
+;; buggy
+;; (use-package flycheck)
+
+(use-package fold-dwim)
+(use-package fsharp-mode)
+(use-package go-mode)
+(use-package io-mode)
+(use-package j-mode)
+(use-package jq-mode)
+(use-package jsx-mode)
+(use-package llvm-mode)
+(use-package lua-mode)
+(use-package pcmpl-git)
+(use-package perl6-mode)
+
+;; probably bundled with Emacs
+;; (use-package php-mode)
+
+(use-package puppet-mode)
+(use-package racket-mode)
+
+;; now missing from MELPA
+;; (use-package scala-mode2)
+
+(use-package stylus-mode)
+(use-package thrift-mode
+  :ensure thrift)
+(use-package tuareg)
+(use-package vimrc-mode)
 
 (if window-system
     ;; CUA tools in GUI mode
@@ -239,7 +292,9 @@
               (if (string= (buffer-file-name) (file-chase-links dotemacs))
                   (byte-compile-file dotemacs)))))
 
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(use-package js2-mode
+  :mode "\\.js$")
+
 (add-to-list 'auto-mode-alist '("\\.mf$" . makefile-mode))
 (add-to-list 'auto-mode-alist '("\\.gitconfig$" . conf-mode))
 (add-to-list 'auto-mode-alist '("pylintrc" . conf-mode))
@@ -256,6 +311,7 @@
   (defun octave-sync-function-file-names nil))
 
 (use-package matlab
+  :ensure matlab-mode
   :config
   (setq matlab-functions-have-end t
         ;; Workaround for https://github.com/editorconfig/editorconfig-emacs/issues/66
@@ -276,11 +332,11 @@
   ;; :idle
   (global-nlinum-mode))
 
-;; Show path information in buffer names and mode-lines
-(use-package uniquify
-  :config
-  (setq uniquify-buffer-name-style 'post-forward
-        uniquify-min-dir-content 7))
+;; ;; Show path information in buffer names and mode-lines
+;; (use-package uniquify
+;;   :config
+;;   (setq uniquify-buffer-name-style 'post-forward
+;;         uniquify-min-dir-content 7))
 
 (use-package powerline
   :defines powerline-default-theme
@@ -507,9 +563,9 @@
   (dired-details-install)
   (setq dired-details-hidden-string ""))
 
-(use-package ack-and-a-half
-  :bind (("C-x C-a" . ack-and-a-half)
-         ("s-F" . ack-and-a-half)))
+;; (use-package ack-and-a-half
+;;   :bind (("C-x C-a" . ack-and-a-half)
+;;          ("s-F" . ack-and-a-half)))
 
 (use-package dired+
   ;; :idle
@@ -642,8 +698,8 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   :no-require t
   :mode ("\\.bat$" . ntcmd-mode))
 
-(use-package oz
-  :mode ("\\.oz$" . oz-mode))
+;; (use-package oz
+;;   :mode ("\\.oz$" . oz-mode))
 
 (use-package xahk-mode
   :mode "\\.ahk$")
@@ -659,10 +715,12 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   :mode ("\\.vala$" . vala-mode))
 
 (use-package powershell-mode
+  :ensure powershell
   :no-require t
   :mode ("\\.ps1$" . powershell-mode))
 
 (use-package ess-site
+  :ensure ess
   :mode ("\\.R$" . R-mode)
   :defines ess-indent-offset
   :init
@@ -674,6 +732,7 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 (add-to-list 'auto-mode-alist '("\\.pjs$" . js2-mode))
 
 ;; crontab
+(use-package crontab-mode)
 (add-to-list 'auto-mode-alist '("\\.crontab$" . crontab-mode))
 
 ;; More Ruby files
@@ -830,14 +889,14 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 ;;                        (lambda ()
 ;;                          (c-add-style "dart" gangnam-style t))))
 
-;; (use-package swift-mode
-;;              :mode "\\.swift$"
-;;              :defines swift-indent-offset
-;;              :init
-;;              (add-hook 'swift-mode-hook
-;;                        (lambda ()
-;;                          (setq-local tab-width 2)
-;;                          (setq-local swift-indent-offset 2))))
+(use-package swift-mode
+             :mode "\\.swift$"
+             :defines swift-indent-offset
+             :init
+             (add-hook 'swift-mode-hook
+                       (lambda ()
+                         (setq-local tab-width 2)
+                         (setq-local swift-indent-offset 2))))
 
 ;; (global-unset-key (kbd "M-/"))
 
@@ -862,6 +921,9 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 ;;                        (lambda ()
 ;;                          (ensime-scala-mode-hook)
 ;;                          (local-set-key (kbd "M-/") 'ensime-inspect-type-at-point))))
+
+(use-package less-css-mode)
+(use-package sass-mode)
 
 (use-package rainbow-mode
   :diminish rainbow-mode
@@ -908,13 +970,14 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 (use-package yafolding
   :bind ("M-]" . yafolding-toggle-element)
   :init
-  (dolist (hook '(prog-mode-hook
-                  conf-mode-hook
-                  groovy-mode-hook
-                  text-mode-hook
-                  html-erb-mode-hook
-                  nxml-mode-hook))
-    (add-hook hook 'yafolding-mode)))
+  (if (fboundp 'yafolding-mode)
+      (dolist (hook '(prog-mode-hook
+                      conf-mode-hook
+                      groovy-mode-hook
+                      text-mode-hook
+                      html-erb-mode-hook
+                      nxml-mode-hook))
+        (add-hook hook 'yafolding-mode))))
 
 (use-package editorconfig
   :init
