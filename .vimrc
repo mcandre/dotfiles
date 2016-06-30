@@ -6,9 +6,9 @@ set backspace=2
 " Enable syntax highlighting
 syntax on
 
-" Indentation
-set autoindent
-filetype plugin indent on
+" " Indentation
+" set autoindent
+" filetype plugin indent on
 
 " Use OS clipboard for copypasta
 set clipboard=unnamed
