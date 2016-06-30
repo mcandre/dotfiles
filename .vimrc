@@ -186,4 +186,13 @@ let g:ConqueTerm_CWInsert = 1
 set nocp
 cabbrev sh sh<C-\>esubstitute(getcmdline(), '^sh', 'ConqueTerm bash', '')<cr>
 
-" autocmd vimenter * NERDTree
+" Autolaunch NERDTree
+autocmd vimenter * NERDTree
+" Focus main window, not NERDTree
+augroup NERD
+  autocmd!
+  autocmd VimEnter * NERDTree
+  autocmd VimEnter * wincmd p
+augroup END
+" Exit Vim when the only window left is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
