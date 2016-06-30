@@ -332,11 +332,10 @@
   ;; :idle
   (global-nlinum-mode))
 
-;; ;; Show path information in buffer names and mode-lines
-;; (use-package uniquify
-;;   :config
-;;   (setq uniquify-buffer-name-style 'post-forward
-;;         uniquify-min-dir-content 7))
+;; Show path information in buffer names and mode-lines
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward
+      uniquify-min-dir-content 7)
 
 (use-package powerline
   :defines powerline-default-theme
