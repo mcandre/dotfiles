@@ -134,6 +134,7 @@ nnoremap <silent> <C-w><Right> :<C-u>call <SID>JumpWithWrap('l', 'h')<CR>
 "
 " vim-plug dependency manager
 " https://github.com/junegunn/vim-plug
+"
 
 call plug#begin('~/.vim/plugged')
   Plug 'gmarik/Vundle.vim'
