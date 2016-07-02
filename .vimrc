@@ -162,7 +162,10 @@ call plug#end()
 let g:airline_powerline_fonts = 1
 let g:airline_theme='distinguished'
 
-colorscheme Benokai
+" Work around PowerShell color limitations
+if !has("win32") && !has("win16")
+  colorscheme Benokai
+endif
 
 " Column 80 marker
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#660000
