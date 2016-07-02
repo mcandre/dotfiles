@@ -159,8 +159,10 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Enable Powerline fonts for airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme='distinguished'
+if !has("win32") && !has("win16")
+  let g:airline_powerline_fonts = 1
+  let g:airline_theme='distinguished'
+endif
 
 " Work around PowerShell color limitations
 if !has("win32") && !has("win16")
