@@ -150,7 +150,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'plasticboy/vim-markdown'
   Plug 'mtth/scratch.vim'
   Plug 'greplace.vim'
-  " Work around editorconfig/editorconfig-vim installation issue
+  " Work around silent editorconfig/editorconfig-vim load issue in vim.exe
   " Plug 'editorconfig/editorconfig-vim'
   Plug 'mcandre/Conque-Shell'
   Plug 'elubow/cql-vim'
