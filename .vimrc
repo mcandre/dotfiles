@@ -137,8 +137,6 @@ nnoremap <silent> <C-w><Right> :<C-u>call <SID>JumpWithWrap('l', 'h')<CR>
 "
 
 call plug#begin('~/.vim/plugged')
-  Plug 'gmarik/Vundle.vim'
-  Plug 'gmarik/vundle'
   Plug 'bruno-/vim-alt-mappings'
   Plug 'kien/ctrlp.vim'
   Plug 'tpope/vim-fugitive'
@@ -152,7 +150,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'plasticboy/vim-markdown'
   Plug 'mtth/scratch.vim'
   Plug 'greplace.vim'
-  Plug 'editorconfig/editorconfig-vim'
+  " Work around editorconfig/editorconfig-vim installation issue
+  " Plug 'editorconfig/editorconfig-vim'
   Plug 'mcandre/Conque-Shell'
   Plug 'elubow/cql-vim'
   Plug 'scrooloose/nerdtree'
