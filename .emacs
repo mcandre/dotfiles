@@ -130,9 +130,13 @@
 
 (require 'package)
 (setq package-archives
-      '(("melpa" . "https://melpa.org/packages/")
-        ("marmalade" . "https://marmalade-repo.org/packages/")
-        ("gnu" . "https://elpa.gnu.org/packages/")))
+      ;; Workaround for emacs.exe's lack of HTTPS/SSL
+      (if (string= system-type "windows-nt")
+          '(("melpa" . "http://melpa.org/packages/")
+            ("gnu" . "http://elpa.gnu.org/packages/"))
+          '(("melpa" . "https://melpa.org/packages/")
+            ("marmalade" . "https://marmalade-repo.org/packages/")
+            ("gnu" . "https://elpa.gnu.org/packages/"))))
 (package-initialize)
 
 ;; (require 'cask "$HOME/.cask/cask.el")
@@ -153,7 +157,11 @@
 (use-package clojure-mode)
 (use-package coffee-mode)
 (use-package cmake-mode)
-(use-package csharp-mode)
+
+;; Work around emacs.exe's lack of (set-difference)
+(if (not (string= system-type "windows-nt"))
+    (use-package csharp-mode))
+
 (use-package d-mode)
 (use-package dockerfile-mode)
 (use-package feature-mode)
@@ -184,7 +192,7 @@
 ;; (use-package scala-mode2)
 
 (use-package stylus-mode)
-(use-package thrift-mode
+(use-package thrift
   :ensure thrift)
 (use-package tuareg)
 (use-package vimrc-mode)
@@ -381,13 +389,15 @@
             (lambda ()
               (setq ps-mode-tab tab-width))))
 ;; Mozart/Oz indentation
-(use-package oz
-  :mode ("\\.oz$" . oz-mode)
-  :defines oz-indent-chars
-  :init
-  (add-hook 'oz-mode-hook
-            (lambda ()
-              (setq oz-indent-chars tab-width))))
+;; Work around emacs.exe's lack of HTTP/SSL support
+(if (not (string= system-type "windows-nt"))
+    (use-package oz
+     :mode ("\\.oz$" . oz-mode)
+     :defines oz-indent-chars
+     :init
+     (add-hook 'oz-mode-hook
+      (lambda ()
+      (setq oz-indent-chars tab-width)))))
 
 (defun hard-tabs ()
   (setq-default indent-tabs-mode t)
@@ -693,9 +703,11 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 (use-package gitignore-mode
   :mode "\\.\\(gitignore|jshintignore\\)$")
 
-(use-package ntcmd
-  :no-require t
-  :mode ("\\.bat$" . ntcmd-mode))
+;; Ironically, working around emacs.exe's lack of HTTPS/SSL support
+(if (not (string= system-type "windows-nt"))
+    (use-package ntcmd
+      :no-require t
+      :mode ("\\.bat$" . ntcmd-mode)))
 
 ;; (use-package oz
 ;;   :mode ("\\.oz$" . oz-mode))
@@ -703,8 +715,10 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 (use-package xahk-mode
   :mode "\\.ahk$")
 
-(use-package tbemail
-  :mode ("\\.eml$" . tbemail-mode))
+;; Work around emacs.exe's lack of HTTP/SSL support
+(if (not (string= system-type "windows-nt"))
+    (use-package tbemail
+      :mode ("\\.eml$" . tbemail-mode)))
 
 (use-package wolfram-mode
   :mode ("\\.ma$" . wolfram-mode))
