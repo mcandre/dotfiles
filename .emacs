@@ -158,6 +158,8 @@
 (use-package coffee-mode)
 (use-package cmake-mode)
 
+;; csharp-mode forgets to import cl
+(require 'cl)
 ;; Work around emacs.exe's lack of (set-difference)
 (if (not (string= system-type "windows-nt"))
     (use-package csharp-mode))
