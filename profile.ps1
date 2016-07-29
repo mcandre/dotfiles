@@ -6,3 +6,5 @@
 
 New-Alias vi vim
 New-Alias emacs emacs -nw
+
+& "C:\Program Files\Docker Toolbox\docker-machine.exe" env default | Invoke-Expression
