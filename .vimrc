@@ -150,15 +150,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'plasticboy/vim-markdown'
   Plug 'mtth/scratch.vim'
   Plug 'greplace.vim'
+  Plug 'mcandre/Conque-Shell'
+  Plug 'elubow/cql-vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'moll/vim-bbye'
 
   " Work around silent editorconfig/editorconfig-vim load issue in vim.exe
   if !has("win32") && !has("win16")
     Plug 'editorconfig/editorconfig-vim'
   endif
-
-  Plug 'mcandre/Conque-Shell'
-  Plug 'elubow/cql-vim'
-  Plug 'scrooloose/nerdtree'
 call plug#end()
 
 " Enable Powerline fonts for airline
