@@ -16,3 +16,4 @@
 --ignore-dir=is:.arc
 --ignore-dir=is:.idea
 --ignore-file=match:.iml
+--ignore-dir=is:infer-out
