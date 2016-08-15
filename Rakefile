@@ -78,6 +78,10 @@ task :bashate => [] do
   sh 'bashate hooks/* .envrc .bashrc.d/*.sh .bash_profile.d/*.sh *.sh .bash* .profile* ccl clean-windows emacs-android finder-show-hidden-files get-dropbox-foldercat hadoop-env set-wallpaper-mac shmatlab% upgrade-puppet vera'
 end
 
+task :bandit => [] do
+  sh 'find . -name \'*.py\' | xargs bandit'
+end
+
 task :lint => [
   :ruby,
   :reek,
@@ -94,7 +98,8 @@ task :lint => [
   :astyle,
   :xmllint,
   :infernu,
-  :bashate
+  :bashate,
+  :bandit
 ] do
 end
 
