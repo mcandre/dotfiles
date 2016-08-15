@@ -8,6 +8,11 @@
 #
 # ln -s ../../hooks/post-merge-checkout .git/hooks/post-merge
 # ln -s ../../hooks/post-merge-checkout .git/hooks/post-checkout
+#
+# Uninstall:
+#
+# rm .git/hooks/post-merge
+# rm .git/hooks/post-checkout
 
 #
 # git_modified $1
