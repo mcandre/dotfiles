@@ -30,7 +30,7 @@ indent_style = space
 [{*.md,*.markdown}]
 indent_size = none
 
-`# PEP8, Docker
+# PEP8, Docker
 [{*.py,Dockerfile*}]
 indent_size = 4
 
