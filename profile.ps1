@@ -7,7 +7,7 @@
 function vi { vim.exe $args }
 function view { vim.exe -R $args }
 function emacs { emacs.exe -nw $args }
-function ll { cmd /c dir }
+function ll { cmd /c dir $args }
 function gitignore { curl.exe -k https://www.gitignore.io/api/$args }
 
 & "C:\Program Files\Docker Toolbox\docker-machine.exe" env default | Invoke-Expression
