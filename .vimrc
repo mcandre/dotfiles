@@ -30,6 +30,9 @@ set wildmenu
 " No swap files, use version control instead
 set noswapfile
 
+" Keep selection on visual yank
+vnoremap <silent> y ygv
+
 " Emacs-style start of line / end of line navigation
 nnoremap <silent> <C-a> ^
 nnoremap <silent> <C-e> $
