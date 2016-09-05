@@ -1,0 +1,1 @@
+alias igrep='grep -i'
