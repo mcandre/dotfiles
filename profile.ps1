@@ -7,7 +7,7 @@
 function vi { vim.exe $args }
 function view { vim.exe -R $args }
 function emacs { emacs.exe -nw $args }
-function ll { cmd /c dir $args }
+function ll { cmd /c dir /a $args }
 function gitignore { curl.exe -k https://www.gitignore.io/api/$args }
 function lsdu {
   $folders = Get-ChildItem $args | select Name,@{n="Length"; e={[long](ls $_ -file -rec | measure Length -sum | % Sum)}} | sort Length -d
