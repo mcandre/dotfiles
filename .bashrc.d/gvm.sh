@@ -1,1 +1,1 @@
-[[ -s "/Users/andrew/.gvm/scripts/gvm" ]] && source "/Users/andrew/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
