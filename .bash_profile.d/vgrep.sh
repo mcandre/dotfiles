@@ -1,0 +1,1 @@
+alias vgrep='grep -v'

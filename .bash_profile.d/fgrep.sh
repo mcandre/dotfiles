@@ -1,0 +1,1 @@
+alias fgrep='grep -f'
