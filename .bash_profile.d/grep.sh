@@ -1,2 +1,2 @@
 export GREP_OPTIONS='--color=auto'
-alias grep='grep -n'
+alias grep='grep --exclude-dir .git -n'
