@@ -141,7 +141,7 @@ nnoremap <silent> <C-w><Right> :<C-u>call <SID>JumpWithWrap('l', 'h')<CR>
 
 call plug#begin('~/.vim/plugged')
   Plug 'bruno-/vim-alt-mappings'
-  Plug 'kien/ctrlp.vim'
+  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'tomtom/tcomment_vim'
   Plug 'bling/vim-airline'
@@ -185,6 +185,9 @@ match OverLength /\%81v.\+/
 let g:scratch_height = 0.50
 " Scratch opens in Markdown format
 let g:scratch_filetype = 'markdown'
+
+" ctrlp: Apply patterns from .gitignore
+set wildignore+=node_modules
 
 " Conque Allow C-w window navigation while in insert mode
 let g:ConqueTerm_CWInsert = 1
