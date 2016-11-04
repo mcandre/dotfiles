@@ -6,5 +6,8 @@ PATH='/usr/bin:/bin:/usr/sbin:/sbin'
     fi
 done
 
-eval "$(direnv hook bash)"
-export DIRENV_LOG_FORMAT=''
+type direnv > /dev/null
+if [ "$?" -eq 0 ]; then
+    eval "$(direnv hook bash)"
+    export DIRENV_LOG_FORMAT=''
+fi
