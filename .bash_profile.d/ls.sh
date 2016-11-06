@@ -1,2 +1,8 @@
 # Colorize soft links
-alias ls='gls --color=auto'
+LS='ls'
+
+if [[ "$(uname -s)" =~ 'Darwin' ]]; then
+    LS='gls'
+fi
+
+alias ls="$LS --color=auto"
