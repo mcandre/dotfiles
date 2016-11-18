@@ -431,6 +431,8 @@
             ".bzr"
             ;; NPM
             "node_modules"
+            ;; Go
+            "vendor"
             ;; Bower
             "bower_components"
             ;; Maven

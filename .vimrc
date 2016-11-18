@@ -188,8 +188,8 @@ let g:scratch_height = 0.50
 " Scratch opens in Markdown format
 let g:scratch_filetype = 'markdown'
 
-" ctrlp: Apply patterns from .gitignore
-set wildignore+=node_modules
+" ctrlp: Ignore golang vendors
+set wildignore+=vendor
 
 " Conque Allow C-w window navigation while in insert mode
 let g:ConqueTerm_CWInsert = 1
