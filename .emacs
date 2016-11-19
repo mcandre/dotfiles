@@ -10,7 +10,7 @@
  ;; Always display error backtraces
  debug-on-error t
 
- ;; Disable prompt to saving abbreviations
+ ;; Disable prompt for saving abbreviations
  save-abbrevs nil
 
  ;; Disable start screen
