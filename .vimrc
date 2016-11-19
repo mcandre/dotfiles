@@ -146,8 +146,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'tomtom/tcomment_vim'
-  Plug 'bling/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+"   Workaround https://github.com/vim-airline/vim-airline/issues/1325
+"   Plug 'bling/vim-airline'
+"   Plug 'vim-airline/vim-airline-themes'
   Plug 'benjaminwhite/Benokai'
   Plug 'fsouza/go.vim'
   Plug 'wting/rust.vim'
@@ -162,11 +163,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
-" Enable Powerline fonts for airline
-if !has("win32") && !has("win16")
-  let g:airline_powerline_fonts = 1
-  let g:airline_theme='distinguished'
-endif
+" " Enable Powerline fonts for airline
+" if !has("win32") && !has("win16")
+"   let g:airline_powerline_fonts = 1
+"   let g:airline_theme='distinguished'
+" endif
 
 " Work around PowerShell color limitations
 if !has("win32") && !has("win16")
