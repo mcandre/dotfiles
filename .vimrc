@@ -84,15 +84,9 @@ set hlsearch
 set expandtab
 set sw=2
 set sts=2
-" Except for Makefiles: Hard tabs of width 2
-autocmd FileType make set ts=2
-" And Markdown
+" Except Markdown
 autocmd FileType mkd set sw=4
 autocmd FileType mkd set sts=4
-autocmd BufRead,BufNewFile *.md set filetype=markdown
-autocmd BufRead,BufNewFile *.cql set filetype=cql
-" And Java
-autocmd FileType java set sw=2
 
 " Default to Unix LF line endings
 set ffs=unix
@@ -111,6 +105,8 @@ let ruby_fold=1                       " Ruby
 let sh_fold_enabled=1                 " sh
 let vimsyn_folding='af'               " Vim script
 let xml_syntax_folding=1              " XML
+
+autocmd BufRead,BufNewFile *.cql set filetype=cql
 
 "
 " Wrap window-move-cursor
