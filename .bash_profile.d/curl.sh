@@ -1,1 +1,1 @@
-alias curl='curl -s -C'
+alias curl='curl -s'
