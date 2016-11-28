@@ -2,7 +2,7 @@
 
 ; Control+Alt+T launches Console2
 ^!t::
-  run C:\Windows\System32\bash.exe -li
+  run C:\Windows\System32\bash.exe -li -c "cd $HOME && exec bash -li -c"
   return
 
 ; Control+Alt+E launches Emacs
