@@ -157,6 +157,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'moll/vim-bbye'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'robbles/logstash.vim'
 call plug#end()
 
 " " Enable Powerline fonts for airline
