@@ -1003,6 +1003,9 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
               (editorconfig-mode 0)))
   (editorconfig-mode 1))
 
+(use-package logstash-conf
+  :mode ("\\.logstash.conf$" . logstash-conf-mode))
+
 ;; Open split shell on launch
 (add-hook 'emacs-startup-hook
           (lambda ()
