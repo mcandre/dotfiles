@@ -82,6 +82,10 @@ task :bandit => [] do
   sh 'find . -name \'*.py\' | xargs bandit'
 end
 
+task :shlint => [] do
+  sh 'find . -name \'*.sh\' -o -name \'*.bashrc*\' -o -name \'.*profile*\' -o -name \'*.envrc*\' | xargs shlint'
+end
+
 task :lint => [
   :ruby,
   :reek,
@@ -99,7 +103,8 @@ task :lint => [
   :xmllint,
   :infernu,
   :bashate,
-  :bandit
+  :bandit,
+  :shlint
 ] do
 end
 

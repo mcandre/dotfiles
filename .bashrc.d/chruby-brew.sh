@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ -e /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
     . /usr/local/opt/chruby/share/chruby/chruby.sh
 

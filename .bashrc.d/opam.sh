@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # OCaml show error traces
 export OCAMLRUNPARAM='b'
 

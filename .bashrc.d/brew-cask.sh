@@ -1,1 +1,2 @@
-eval `/usr/libexec/path_helper -s`
+#!/bin/sh
+eval "$(/usr/libexec/path_helper -s)"

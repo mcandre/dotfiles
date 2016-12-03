@@ -1,3 +1,5 @@
+#!/bin/bash
+
 [[ -s "$HOME/.jenv/bin/jenv-init.sh" ]] && \
     source "$HOME/.jenv/bin/jenv-init.sh" && \
     source "$HOME/.jenv/commands/completion.sh"

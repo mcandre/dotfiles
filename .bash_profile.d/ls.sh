@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Colorize soft links
 LS='ls'
 

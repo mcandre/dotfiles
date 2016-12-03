@@ -1,3 +1,5 @@
+#!/bin/bash
+
 options=(
     '-Djava.security.krb5.realm='
     '-Djava.security.krb5.kdc='

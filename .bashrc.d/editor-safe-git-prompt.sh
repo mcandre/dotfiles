@@ -1,3 +1,5 @@
+#!/bin/sh
+
 if [ "$INSIDE_EMACS" -o "$VIMRUNTIME" ]; then
     PROMPT_COMMAND='' && export PS1='$ '
 else
