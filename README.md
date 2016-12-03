@@ -11,6 +11,7 @@ https://github.com/mcandre/dotfiles
 ## Optional
 
 * [shlint](https://rubygems.org/gems/shlint)
+* [shellcheck](http://hackage.haskell.org/package/ShellCheck)
 
 # TERMINAL COLORS
 

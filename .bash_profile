@@ -2,8 +2,11 @@
 
 [ -e "$HOME/.bashrc" ] && . "$HOME/.bashrc"
 
-[ -e "$HOME/.bash_profile.d" ] && for f in $(find "$HOME/.bash_profile.d/enabled" -type f -o -type l); do
-    if [[ -x "$f" ]]; then
-        . "$f"
-    fi
-done
+if [ -e "$HOME/.bash_profile.d" ]; then
+    SCRIPTS=$(find "$HOME/.bash_profile.d/enabled" -type f -o -type l)
+    for f in $SCRIPTS; do
+        if [[ -x "$f" ]]; then
+            . "$f"
+        fi
+    done
+fi

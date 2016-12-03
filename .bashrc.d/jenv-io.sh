@@ -15,8 +15,8 @@ cd () {
         echo "==============jenv load ======================" >/dev/null
         while read entry; do
             if ! __jenvtool_utils_string_contains "$entry", "#" ; then
-                candidate1=`echo ${entry} | sed 's/=.*//g'`
-                version1=`echo ${entry} | sed 's/.*=//g'`
+                candidate1="$(echo ${entry} | sed 's/=.*//g')"
+                version1="$(echo ${entry} | sed 's/.*=//g')"
 
                 v="${JENV_DIR}/candidates/${candidate1}/${version1}"
 
