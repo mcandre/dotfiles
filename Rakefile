@@ -86,6 +86,10 @@ task :shlint => [] do
   sh 'find . -name \'*.sh\' -o -name \'*.bashrc*\' -o -name \'.*profile*\' -o -name \'*.envrc*\' | xargs shlint'
 end
 
+task :checkbashisms => [] do
+  sh 'find . -name \'*.sh\' -o -name \'*.bashrc*\' -o -name \'.*profile*\' -o -name \'*.envrc*\' | xargs checkbashisms -n -p'
+end
+
 task :lint => [
   :ruby,
   :reek,
@@ -104,7 +108,8 @@ task :lint => [
   :infernu,
   :bashate,
   :bandit,
-  :shlint
+  :shlint,
+  :checkbashisms
 ] do
 end
 
