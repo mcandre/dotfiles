@@ -33,7 +33,7 @@ indent_style = space
 [{*.md,*.markdown}]
 indent_size = none
 
-[{*.rb,*.js,*.json,*.java,*.gradle,*.xml,*.yml,*.yaml,*.ahk,Rakefile,Gemfile*,Guardfile*,Vagrantfile*,*.pp,*.ps1,.bowerrc,.eslintrc,.jshintrc,.jslintrc,.vimrc,*.reek}]
+[{*.c,*.h,*.cpp,*.d,*.rb,*.js,*.json,*.java,*.groovy,*.scala,*.gradle,*.xml,*.yml,*.yaml,*.awk,*.ahk,Rakefile,Gemfile*,Guardfile*,Vagrantfile*,*.pp,*.ps1,.bowerrc,.eslintrc,.jshintrc,.jslintrc,.vimrc,*.reek,CMakeLists.txt,*.lua,*.m,*.mm,*.rs,*.vala,*.erl,*.escript}]
 indent_size = 2
 
 # JavaScript
@@ -45,7 +45,7 @@ quote_type = single
 indent_size = none
 
 # Pagragraph-oriented text
-[{*.txt,*.text,*.xml,*.*htm*,*.erb,*.tex,*.md,*.markdown,*.textile,*.ps,Makefile*,Rakefile*,*.mf,*.plist,*.bat,*.*sh,.*profile*,.editorconfig,.gitignore*,.*rc*,*.profile,*.epf,*.cfg,Dockerfile*,*.ps1}]
+[{*.txt,*.text,*.xml,*.*htm*,*.erb,*.tex,*.md,*.markdown,*.textile,*.ps,Makefile*,Rakefile*,Gruntfile.js,*.mf,*.plist,*.bat,*.*sh,.*profile*,.editorconfig,.gitignore*,.*rc*,*.profile,*.epf,*.cfg,Dockerfile*,*.ps1}]
 max_line_length = none
 
 # Windows files

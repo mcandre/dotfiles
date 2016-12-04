@@ -45,7 +45,7 @@ task :lili => [] do
 end
 
 task :editorconfig=> [] do
-  sh 'find . \\( -wholename \'*/bin/*\' -o -name \'*.clj\' -o -wholename \'*/.git/*\' -o -wholename \'*/node_modules/*\' -o -wholename \'*/.cabal/*\' -o -name \'*.ttf\' -o -name \'*.plist\' \\) -prune -o -type f -print | xargs node_modules/.bin/editorconfig-tools check'
+  sh 'find . \\( -wholename \'*/bin/*\' -o -name \'*.clj\' -o -wholename \'*/perl/Makefile\' -o -wholename \'*/CMakeFiles/*\' -o -name \'*.cmake\' -o -name \'*.lock\' -o -name \'*.cm[io]\' -o -name \'*.hi\' -o -name \'*.o\' -o -name \'*.beam\' -o -name \'*.dump\' -o -name \'*.pyc\' -o -name \'*.jar\' -o -name \'*.class\' -o -name \'*.bin\' -o -wholename \'*/tmp/*\' -o -wholename \'*/.git/*\' -o -wholename \'*/node_modules/*\' -o -wholename \'*/.cabal/*\' -o -name \'*.ttf\' -o -name \'*.plist\' -o -name \'.DS_Store\' -o -name \'Thumbs.db\' \\) -prune -o -type f -print | xargs node_modules/.bin/editorconfig-tools check'
 end
 
 task :astyle_apply => [] do
