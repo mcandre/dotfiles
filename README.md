@@ -10,6 +10,7 @@ https://github.com/mcandre/dotfiles
 
 ## Optional
 
+* [editorconfig-tools](https://www.npmjs.com/package/editorconfig-tools)
 * [bashate](https://github.com/openstack-dev/bashate)
 * [shlint](https://rubygems.org/gems/shlint)
 * [shellcheck](http://hackage.haskell.org/package/ShellCheck)
