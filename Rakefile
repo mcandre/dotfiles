@@ -45,7 +45,7 @@ task :lili => [] do
 end
 
 task :editorconfig=> [] do
-  sh 'find . \\( -name \'*.clj\' -o -wholename \'*/.git/*\' -o -wholename \'*/node_modules/*\' -o -wholename \'*/.cabal/*\' -o -name \'*.ttf\' -o -name \'*.plist\' \\) -prune -o -type f -print | xargs node_modules/.bin/editorconfig-tools check'
+  sh 'find . \\( -wholename \'*/bin/*\' -o -name \'*.clj\' -o -wholename \'*/.git/*\' -o -wholename \'*/node_modules/*\' -o -wholename \'*/.cabal/*\' -o -name \'*.ttf\' -o -name \'*.plist\' \\) -prune -o -type f -print | xargs node_modules/.bin/editorconfig-tools check'
 end
 
 task :astyle_apply => [] do
