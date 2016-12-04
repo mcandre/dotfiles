@@ -23,7 +23,7 @@ if has("mouse")
    set mouse=a
 endif
 
-set shell="bash --login"
+set shell=bash\ --login
 
 " Bash-style tab completion
 set wildmode=longest,list
