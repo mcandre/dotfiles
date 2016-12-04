@@ -12,8 +12,11 @@ trim_trailing_whitespace = true
 max_line_length = 120
 spaces_around_operators = true
 spaces_around_brackets = false
+
+# Workaround shebanged, extension-less files
 indent_style = space
-indent_size = 2
+indent_size = 4
+
 indent_brace_style = K&R
 curly_bracket_next_line = false
 continuation_indent_size = 4
@@ -30,20 +33,19 @@ indent_style = space
 [{*.md,*.markdown}]
 indent_size = none
 
-# PEP8, Docker, aashate
-[{*.py,Dockerfile*,*.sh,.bashrc,.bash_profile,.profile}]
-indent_size = 4
+[{*.rb,*.js,*.json,*.java,*.gradle,*.xml,*.yml,*.yaml,*.ahk,Rakefile,Gemfile*,Guardfile*,Vagrantfile*,*.pp,*.ps1,.bowerrc,.eslintrc,.jshintrc,.jslintrc,.vimrc,*.reek}]
+indent_size = 2
 
 # JavaScript
-[*.js]
+[{*.js}]
 quote_type = single
 
 # Lisp
-[{*.lisp,*.scm,*.rkt,*.lsp,*.clj,*.el,*.emacs}]
+[{*.lisp,*.scm,*.rkt,*.lsp,*.clj,*.el,*.emacs,*.clisp,*.abcl,*.sbcl,*.ccl,*.ecl,,.eclrc,.sbclrc}]
 indent_size = none
 
 # Pagragraph-oriented text
-[{*.txt,*.text,*.xml,*.*htm*,*.erb,*.tex,*.md,*.markdown,*.textile,*.ps,Makefile*,Rakefile*,*.mf,*.plist,*.bat,*.*sh,.*profile*,.editorconfig,.gitignore*,.*rc*,*.profile,*.epf,*.cfg,Dockerfile*}]
+[{*.txt,*.text,*.xml,*.*htm*,*.erb,*.tex,*.md,*.markdown,*.textile,*.ps,Makefile*,Rakefile*,*.mf,*.plist,*.bat,*.*sh,.*profile*,.editorconfig,.gitignore*,.*rc*,*.profile,*.epf,*.cfg,Dockerfile*,*.ps1}]
 max_line_length = none
 
 # Windows files
