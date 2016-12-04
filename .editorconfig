@@ -30,8 +30,8 @@ indent_style = space
 [{*.md,*.markdown}]
 indent_size = none
 
-# PEP8, Docker
-[{*.py,Dockerfile*}]
+# PEP8, Docker, aashate
+[{*.py,Dockerfile*,*.sh,.bashrc,.bash_profile,.profile}]
 indent_size = 4
 
 # JavaScript
@@ -45,10 +45,6 @@ indent_size = none
 # Pagragraph-oriented text
 [{*.txt,*.text,*.xml,*.*htm*,*.erb,*.tex,*.md,*.markdown,*.textile,*.ps,Makefile*,Rakefile*,*.mf,*.plist,*.bat,*.*sh,.*profile*,.editorconfig,.gitignore*,.*rc*,*.profile,*.epf,*.cfg,Dockerfile*}]
 max_line_length = none
-
-# Bashate
-[{*.sh,*.profile*,*.bash*}]
-indent_size = 4
 
 # Windows files
 [{*.cmd,*.bat,*reg,*.ps1,*.vbs,*.cs,*.csproj,*.fs,*.sln,*.xaml*,*.ahk}]
