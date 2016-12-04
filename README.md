@@ -10,6 +10,7 @@ https://github.com/mcandre/dotfiles
 
 ## Optional
 
+* [bashate](https://github.com/openstack-dev/bashate)
 * [shlint](https://rubygems.org/gems/shlint)
 * [shellcheck](http://hackage.haskell.org/package/ShellCheck)
 
