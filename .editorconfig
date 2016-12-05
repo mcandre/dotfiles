@@ -2,53 +2,34 @@
 
 root = true
 
-# Default to Google Style
-# https://code.google.com/p/google-styleguide/
+# bash8
 [*]
+charset = utf-8
 end_of_line = lf
 insert_final_newline = true
-charset = utf-8
 trim_trailing_whitespace = true
-max_line_length = 120
-spaces_around_operators = true
-spaces_around_brackets = false
-
-# Workaround shebanged, extension-less files
+max_line_length = none
 indent_style = space
 indent_size = 4
 
-indent_brace_style = K&R
-curly_bracket_next_line = false
-continuation_indent_size = 4
-
-# Make, Go
+# Lexer restrictions
 [{Makefile*,*.mf,*.go}]
 indent_style = tab
-indent_size = 2
-
-# F#
 [{*.fs,*.fsx}]
 indent_style = space
 
-# Reflowable text
-[{*.txt,*.md,*.markdown}]
-indent_size = none
-
-[{*.c,*.h,*.cpp,*.d,*.rb,*.js,*.json,*.java,*.groovy,*.scala,*.gradle,*.xml,*.yml,*.yaml,*.awk,*.ahk,Rakefile,Gemfile*,Guardfile*,Vagrantfile*,*.pp,*.ps1,.bowerrc,.eslintrc,.jshintrc,.jslintrc,.vimrc,*.reek,CMakeLists.txt,*.lua,*.m,*.mm,*.rs,*.vala,*.erl,*.escript}]
-indent_size = 2
-
-# JavaScript
+# Natural HTML nesting
 [{*.js}]
 quote_type = single
 
-# Lisp
-[{*.lisp,*.scm,*.rkt,*.lsp,*.clj,*.el,*.emacs,*.clisp,*.abcl,*.sbcl,*.ccl,*.ecl,,.eclrc,.sbclrc}]
+# Poetry
+[{*.txt,*.md,*.lisp,*.scm,*.el,*.clj,*.rkt,*.sbcl,.sbclrc,*.abcl,.abclrc,*.ccl,.cclrc,*.ecl,.eclrc,*.clisp,.clisprc}]
 indent_size = none
 
-# Pagragraph-oriented text
-[{*.txt,*.text,*.xml,*.*htm*,*.erb,*.tex,*.md,*.markdown,*.textile,*.ps,Makefile*,Rakefile*,Gruntfile.js,*.mf,*.plist,*.bat,*.*sh,.*profile*,.editorconfig,.gitignore*,.*rc*,*.profile,*.epf,*.cfg,Dockerfile*,*.ps1}]
-max_line_length = none
-
-# Windows files
-[{*.cmd,*.bat,*reg,*.ps1,*.vbs,*.cs,*.csproj,*.fs,*.sln,*.xaml*,*.ahk}]
+# Windows junk
+[{*.cmd,*.bat,*.reg,*.ps1,*.vbs,*.cs,*.fs,*.fsx,*.ahk}]
 end_of_line = crlf
+
+# legacy
+[{Gemfile,*.rb,Rakefile,Vagrantfile,*.js,*.json,*.yml,*.xml,*.ps1,*.pp,*.reek,*.java,*.groovy,*.scala,*.gradle,*.ahk,.eslintrc,.jshintrc,.jslintrc,.bowerrc,.emacs,.vimrc,Guardfile*}]
+indent_size = 2
