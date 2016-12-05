@@ -35,7 +35,7 @@ end_of_line = crlf
 #
 # legacy
 #
-[{*.rb,Gemfile,Rakefile,Vagrantfile,Guardfile*,*.reek,*.pp,*.feature}]
+[{*.rb,Gemfile,*.gemspec,Rakefile,Vagrantfile,Guardfile*,*.reek,*.pp,*.feature}]
 indent_size = 2
 [{*.js,*.json,*.coffee,*.ts,*.dart,*.pjs,.eslintrc,.jshintrc,.jslintrc,.bowerrc}]
 indent_size = 2

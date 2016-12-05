@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git://github.com/mcandre/dotfiles.git"
   },
-  "author": "Andrew Pennebaker <andrew.pennebaker@gmail.com> (http://www.yellosoft.us/)",
+  "author": "Andrew Pennebaker <andrew.pennebaker@gmail.com>",
   "directories": {
     "lib": "."
   },
