@@ -23,13 +23,37 @@ indent_style = space
 quote_type = single
 
 # Poetry
-[{*.txt,*.md,*.lisp,*.scm,*.el,*.clj,*.rkt,*.sbcl,.sbclrc,*.abcl,.abclrc,*.ccl,.cclrc,*.ecl,.eclrc,*.clisp,.clisprc}]
+[{*.txt,*.md}]
+indent_size = none
+[{*.lisp,*.lsp,*.scm,*.el,*.rkt,*.abcl,*.ccl,*.clisp,*.ecl,*.sbcl,.eclrc,.sbclrc,*.m,*.mm}]
 indent_size = none
 
 # Windows junk
 [{*.cmd,*.bat,*.reg,*.ps1,*.vbs,*.cs,*.fs,*.fsx,*.ahk}]
 end_of_line = crlf
 
+#
 # legacy
-[{Gemfile,*.rb,Rakefile,Vagrantfile,*.js,*.json,*.yml,*.xml,*.ps1,*.pp,*.reek,*.java,*.groovy,*.scala,*.gradle,*.ahk,.eslintrc,.jshintrc,.jslintrc,.bowerrc,.emacs,.vimrc,Guardfile*}]
+#
+[{*.rb,Gemfile,Rakefile,Vagrantfile,Guardfile*,*.reek,*.pp,*.feature}]
+indent_size = 2
+[{*.js,*.json,*.coffee,*.ts,*.dart,*.pjs,.eslintrc,.jshintrc,.jslintrc,.bowerrc}]
+indent_size = 2
+[{*.html,*.css,*.less,*.scss,*.styl,*.php,*.tex}]
+indent_size = 2
+[{*.yml,*.yaml,*.xml}]
+indent_size = 2
+[{*.ps1,*.ahk,.emacs,.vimrc}]
+indent_size = 2
+[{*.java,*.groovy,*.scala,*.gradle}]
+indent_size = 2
+[{*.c,*.h,*.cpp,*.rs,*.d,*.swift,*.vala,*.sac}]
+indent_size = 2
+[{*.asm,*.s,*.ll}]
+indent_size = 2
+[{*.pl,*.f08,*.j,*.lua,*.st,*.io,*.pas,*.oz}]
+indent_size = 2
+[{*.hs,*.v,*.sml,*.fs,*.fsx,*.ma,*.psql}]
+indent_size = 2
+[{*.awk,*.erl,*.escript,*.yaws,*.bf,*.bs,*.cob,*.factor,*.tcl,*.rl}]
 indent_size = 2
