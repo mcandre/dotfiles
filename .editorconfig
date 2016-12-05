@@ -51,9 +51,9 @@ indent_size = 2
 indent_size = 2
 [{*.asm,*.s,*.ll}]
 indent_size = 2
-[{*.pl,*.f08,*.j,*.lua,*.st,*.io,*.pas,*.oz}]
+[{*.pl,*.pm,*.f08,*.j,*.lua,*.st,*.io,*.pas,*.oz}]
 indent_size = 2
-[{*.hs,*.v,*.sml,*.fs,*.fsx,*.ma,*.psql}]
+[{*.hs,*.ml,*.v,*.sml,*.fs,*.fsx,*.ma,*.psql,*.R}]
 indent_size = 2
 [{*.awk,*.erl,*.escript,*.yaws,*.bf,*.bs,*.cob,*.factor,*.tcl,*.rl}]
 indent_size = 2
