@@ -10,7 +10,7 @@ https://github.com/mcandre/dotfiles
 
 ## Optional
 
-* [pargs](https://github.com/mcandre/pargs)
+* [coreutils](https://www.gnu.org/software/coreutils/coreutils.html)
 * [editorconfig-tools](https://www.npmjs.com/package/editorconfig-tools)
 * [bashate](https://github.com/openstack-dev/bashate)
 * [shlint](https://rubygems.org/gems/shlint)

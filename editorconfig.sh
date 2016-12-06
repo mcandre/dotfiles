@@ -11,6 +11,7 @@ exec find . \
         -wholename '*/*.xcodeproj/*' -o \
         -wholename '*/*.dSYM/*' -o \
         -wholename '*/build/*' -o \
+        -wholename '*/dist/*' -o \
         -wholename '*/*.app/*' -o \
         -wholename '*/perl/Makefile' -o \
         -wholename '*/CMakeFiles/*' -o \
@@ -70,4 +71,4 @@ exec find . \
     -prune -o \
     -type f \
     -print | \
-        pargs -n 100 node_modules/.bin/editorconfig-tools check
+        xargs -n 100 node_modules/.bin/editorconfig-tools check
