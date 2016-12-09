@@ -57,11 +57,17 @@
 
  ;; bashate
  sh-basic-offset 4
- sh-indentation 4)
+ sh-indentation 4
 
-;; I say, soft tabs, width 2 spaces!
+ ;; Ignore case when finding files
+ read-file-name-completion-ignore-case t)
+
+;; Enable Ido for case-aware fuzzy finding
+(ido-mode)
+
+;; I say, soft tabs, width 4 spaces!
 (setq-default indent-tabs-mode nil
-              tab-width 2)
+              tab-width 4)
 
 ;; Automatically revert unmodified buffers on file change
 (global-auto-revert-mode 1)
@@ -418,57 +424,8 @@
   :commands findr-query-replace)
 
 ;; Open project file by fuzzy name
-(use-package fiplr
-  :bind ("C-p" . fiplr-find-file)
-  :defines fipl-ignored-globs
-  :config
-  (setq fiplr-ignored-globs
-        '((directories
-           ;; Version control
-           (".git"
-            ".svn"
-            ".hg"
-            ".bzr"
-            ;; NPM
-            "node_modules"
-            ;; Go
-            "vendor"
-            ;; Bower
-            "bower_components"
-            ;; Maven
-            "target"
-            ;; Gradle
-            "build"
-            ".gradle"
-            ;; Python
-            "__pycache__"
-            ;; IntelliJ
-            ".idea"
-            ;; Infer
-            "infer-out"))
-          (files
-           ;; Emacs
-           (".#*"
-            ;; Vim
-            "*~"
-            ;; Objects
-            "*.so"
-            "*.o"
-            "*.obj"
-            "*.hi"
-            ;; Media
-            "*.jpg"
-            "*.png"
-            "*.gif"
-            "*.pdf"
-            ;; Archives
-            "*.gz"
-            "*.zip"))))
-
-  ;; Better TAB handling
-  (define-key *fiplr-keymap* (kbd "TAB")
-    (lambda ()
-      (interactive))))
+(use-package find-file-in-repository
+  :bind ("C-p" . find-file-in-repository))
 
 ;; C-x <direction> to switch windows
 (use-package window-jump
