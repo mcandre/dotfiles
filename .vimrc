@@ -131,6 +131,14 @@ nnoremap <silent> <C-w><Left> :<C-u>call <SID>JumpWithWrap('h', 'l')<CR>
 nnoremap <silent> <C-w><Down> :<C-u>call <SID>JumpWithWrap('j', 'k')<CR>
 nnoremap <silent> <C-w><Up> :<C-u>call <SID>JumpWithWrap('k', 'j')<CR>
 nnoremap <silent> <C-w><Right> :<C-u>call <SID>JumpWithWrap('l', 'h')<CR>
+inoremap <silent> <C-w>h <esc>:<C-u>call <SID>JumpWithWrap('h', 'l')<CR>i
+inoremap <silent> <C-w>j <esc>:<C-u>call <SID>JumpWithWrap('j', 'k')<CR>i
+inoremap <silent> <C-w>k <esc>:<C-u>call <SID>JumpWithWrap('k', 'j')<CR>i
+inoremap <silent> <C-w>l <esc>:<C-u>call <SID>JumpWithWrap('l', 'h')<CR>i
+inoremap <silent> <C-w><Left> <esc>:<C-u>call <SID>JumpWithWrap('h', 'l')<CR>i
+inoremap <silent> <C-w><Down> <esc>:<C-u>call <SID>JumpWithWrap('j', 'k')<CR>i
+inoremap <silent> <C-w><Up> <esc>:<C-u>call <SID>JumpWithWrap('k', 'j')<CR>i
+inoremap <silent> <C-w><Right> <esc>:<C-u>call <SID>JumpWithWrap('l', 'h')<CR>i
 
 "
 " vim-plug dependency manager
