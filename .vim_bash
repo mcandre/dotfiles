@@ -1,0 +1,5 @@
+#!/bin/sh
+# ln -s .../.vim_bash ~/.vim_bash
+
+# workaround for https://github.com/direnv/direnv/issues/204
+direnv reload 2>&1 | grep -v 'error .envrc not found'

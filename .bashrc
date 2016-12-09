@@ -16,3 +16,8 @@ if [ "$?" -eq 0 ]; then
     eval "$(direnv hook bash)"
     export DIRENV_LOG_FORMAT=''
 fi
+
+if [ -n "$VIMRUNTIME" ]; then
+    direnv reload
+    . "$HOME/.vim_bash"
+fi

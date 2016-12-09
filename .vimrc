@@ -194,7 +194,7 @@ let g:ConqueTerm_CWInsert = 1
 
 " Replace shell with Conque-Shell
 set nocp
-cabbrev sh sh<C-\>esubstitute(getcmdline(), '^sh', 'ConqueTerm bash --login', '')<cr>
+cabbrev sh sh<C-\>esubstitute(getcmdline(), '^sh', 'ConqueTerm bash\ --login', '')<cr>
 
 " Autolaunch NERDTree
 autocmd StdinReadPre * let s:std_in=1
