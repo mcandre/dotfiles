@@ -23,7 +23,7 @@ if has("mouse")
    set mouse=a
 endif
 
-set shell=bash\ --login
+set shell=bash\ -i
 
 " Bash-style tab completion
 set wildmode=longest,list
@@ -202,7 +202,7 @@ let g:ConqueTerm_CWInsert = 1
 
 " Replace shell with Conque-Shell
 set nocp
-cabbrev sh sh<C-\>esubstitute(getcmdline(), '^sh', 'ConqueTerm bash\ --login', '')<cr>
+cabbrev sh sh<C-\>esubstitute(getcmdline(), '^sh', 'ConqueTerm bash\ -i', '')<cr>
 
 " Autolaunch NERDTree
 autocmd StdinReadPre * let s:std_in=1

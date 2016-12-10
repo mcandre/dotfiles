@@ -1,5 +1,0 @@
-# ln -s .../.emacs_bash ~/.emacs_bash
-. "$HOME/.bash_profile"
-
-# workaround for https://github.com/direnv/direnv/issues/204
-direnv reload 2>&1 | grep -v 'error .envrc not found'
