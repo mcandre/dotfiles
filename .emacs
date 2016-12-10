@@ -180,7 +180,11 @@
 
 (use-package fold-dwim)
 (use-package fsharp-mode)
-(use-package go-mode)
+(use-package go-mode
+  :defines gofmt-before-save
+  :config
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook #'gofmt-before-save))
 (use-package io-mode)
 (use-package j-mode)
 (use-package jq-mode)

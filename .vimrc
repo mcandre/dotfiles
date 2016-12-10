@@ -165,6 +165,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'moll/vim-bbye'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'fatih/vim-go'
   Plug 'robbles/logstash.vim'
 call plug#end()
 
@@ -216,6 +217,9 @@ augroup NERD
   autocmd VimEnter * NERDTree
   autocmd VimEnter * wincmd p
 augroup END
+
+" vim-go: Enable goimports on save
+let g:go_fmt_command = "goimports"
 
 " Exit Vim when the only window left is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
