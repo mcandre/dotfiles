@@ -194,6 +194,8 @@ let g:scratch_height = 0.50
 " Scratch opens in Markdown format
 let g:scratch_filetype = 'markdown'
 
+" ctrlp: Apply .gitignore's
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " ctrlp: Ignore golang vendors
 set wildignore+=vendor
 
