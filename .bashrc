@@ -3,7 +3,7 @@
 PATH='/usr/bin:/bin:/usr/sbin:/sbin'
 
 if [ -e "$HOME/.bashrc.d" ]; then
-    SCRIPTS=$(find "$HOME/.bashrc.d/enabled" -name '*.sh' )
+    SCRIPTS=$(find "$HOME/.bashrc.d/enabled" -name '*.sh' -print)
     for f in $SCRIPTS; do
         if [[ -r "$f" ]]; then
             . "$f"
@@ -12,7 +12,7 @@ if [ -e "$HOME/.bashrc.d" ]; then
 fi
 
 if [ -e "$HOME/.bash_profile.d" ]; then
-    SCRIPTS=$(find "$HOME/.bash_profile.d/enabled" -name '*.sh' )
+    SCRIPTS=$(find "$HOME/.bash_profile.d/enabled" -name '*.sh' -print)
     for f in $SCRIPTS; do
         if [[ -r "$f" ]]; then
             . "$f"
