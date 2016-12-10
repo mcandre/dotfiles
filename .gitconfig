@@ -20,3 +20,6 @@ rebase = true
 
 [mergetool]
 keepBackup = false
+[user]
+	name = Andrew Pennebaker
+	email = andrew.pennebaker@gmail.com
