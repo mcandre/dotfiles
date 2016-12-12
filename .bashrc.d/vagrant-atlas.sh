@@ -1,2 +1,6 @@
 #!/bin/sh
-export ATLAS_TOKEN="$(cat "$HOME/.vagrant.d/data/vagrant_login_token")"
+# cp ~/.bashrc.d/enbabled/vagrant-atlas.sh
+# vi ~/.bashrc.d/enabled/vagrant-atlas.sh
+# ...
+
+export ATLAS_TOKEN="PASTE-YOUR-ATLAS-TOKEN-HERE"
