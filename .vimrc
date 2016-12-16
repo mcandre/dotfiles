@@ -14,6 +14,11 @@ syntax on
 " Requires Vim's +clipboard feature to be available
 "
 " Homebrew fix:
+"
+" brew install vim --with-override-system-vi
+"
+" Or:
+"
 " ln -s vim /usr/local/bin/vi
 "
 set clipboard=unnamed
