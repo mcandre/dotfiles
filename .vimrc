@@ -11,6 +11,11 @@ syntax on
 " filetype plugin indent on
 
 " Use OS clipboard for copypasta
+" Requires Vim's +clipboard feature to be available
+"
+" Homebrew fix:
+" ln -s vim /usr/local/bin/vi
+"
 set clipboard=unnamed
 
 " Enable OS mouse clicking and scrolling
@@ -63,8 +68,9 @@ inoremap <silent> <M-<> <esc>ggi
 inoremap <silent> <M->> <esc>G$i
 
 " Do not attempt to fix style on paste
-" Normally we would just `set paste`, but this interferes with other aliases.
-nnoremap <silent> p "+p
+" set paste
+" " Normally we would just `set paste`, but this interferes with other aliases.
+" nnoremap <silent> p "+p
 
 " Disable comment continuation on paste
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
