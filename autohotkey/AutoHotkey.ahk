@@ -2,6 +2,7 @@
 
 ; Control+Alt+T launches Console2
 ^!t::
+  SetWorkingDir %userprofile%
   run C:\Windows\System32\bash.exe -i
   return
 
