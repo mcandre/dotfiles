@@ -72,6 +72,11 @@
 ;; Automatically revert unmodified buffers on file change
 (global-auto-revert-mode 1)
 
+;; Preserve marks
+(defadvice kill-ring-save (after keep-transient-mark-active ())
+ (setq deactivate-mark nil))
+(ad-activate 'kill-ring-save)
+
 ;; Shorter M-x sh command
 (defun sh () (interactive) (shell))
 
