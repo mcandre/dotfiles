@@ -185,6 +185,7 @@
   :config
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook #'gofmt-before-save))
+(use-package govet)
 (use-package io-mode)
 (use-package j-mode)
 (use-package jq-mode)
