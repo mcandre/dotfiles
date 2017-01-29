@@ -17,3 +17,6 @@ if [ "$?" -eq 0 ]; then
     export DIRENV_LOG_FORMAT=''
     direnv reload
 fi
+
+# pupsay
+export PATH="$PATH:$HOME/go/src/github.com/mcandre/toys/sh/lib"

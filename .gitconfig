@@ -1,5 +1,5 @@
 [core]
-editor = emacs
+	editor = vi
 excludesfile = ~/.gitignore-global
 ignorecase = false
 
