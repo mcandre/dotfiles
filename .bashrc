@@ -1,9 +1,9 @@
 #!/bin/bash
 
-export PATH='/usr/bin:/bin:/usr/sbin:/sbin'
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 
 if [ -e "$HOME/.bashrc.d" ]; then
-    SCRIPTS=$(find "$HOME/.bashrc.d/enabled" -name '*.sh' -print)
+    SCRIPTS=$(find "$HOME/.bashrc.d/enabled" -name "*.sh" -print)
     for f in $SCRIPTS; do
         if [[ -r "$f" ]]; then
             . "$f"
@@ -17,6 +17,3 @@ if [ "$?" -eq 0 ]; then
     export DIRENV_LOG_FORMAT=''
     direnv reload
 fi
-
-# pupsay
-export PATH="$PATH:$HOME/go/src/github.com/mcandre/toys/sh/lib"
