@@ -16,11 +16,6 @@
  ;; Disable start screen
  inhibit-startup-screen t
 
- ;; Disable backup files
- make-backup-files nil
- auto-save-default nil
- backup-inhibited t
-
  ;; Disable lockfiles
  create-lockfiles nil
 

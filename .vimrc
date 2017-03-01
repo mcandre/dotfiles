@@ -39,9 +39,6 @@ set shell=bash\ -i
 set wildmode=longest,list
 set wildmenu
 
-" No swap files, use version control instead
-set noswapfile
-
 " Keep selection on visual yank
 vnoremap <silent> y ygv
 
