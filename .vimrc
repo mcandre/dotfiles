@@ -232,8 +232,5 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " For serious
 let NERDTreeShowHidden=1
 
-" Fa Sho Fo Real
-autocmd CursorHold,CursorHoldI * call NERDTreeFocus() | call g:NERDTree.ForCurrentTab().getRoot().refresh() | call g:NERDTree.ForCurrentTab().render() | wincmd w
-
 " vim-go: Enable goimports on save
 let g:go_fmt_command = "goimports"
