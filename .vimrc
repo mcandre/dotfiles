@@ -226,11 +226,14 @@ augroup NERD
   autocmd VimEnter * wincmd p
 augroup END
 
-" vim-go: Enable goimports on save
-let g:go_fmt_command = "goimports"
-
 " Exit Vim when the only window left is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " For serious
 let NERDTreeShowHidden=1
+
+" Fa Sho Fo Real
+autocmd CursorHold,CursorHoldI * call NERDTreeFocus() | call g:NERDTree.ForCurrentTab().getRoot().refresh() | call g:NERDTree.ForCurrentTab().render() | wincmd w
+
+" vim-go: Enable goimports on save
+let g:go_fmt_command = "goimports"
