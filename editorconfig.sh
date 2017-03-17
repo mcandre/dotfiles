@@ -66,6 +66,7 @@ exec find . \
         -name .gitmodules -o \
         -name .DS_Store -o \
         -name Thumbs.db -o \
+        -name '*.swp' -o \
         -name .yaws \
     \) \
     -prune -o \
