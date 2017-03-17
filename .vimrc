@@ -39,6 +39,9 @@ set shell=bash\ -i
 set wildmode=longest,list
 set wildmenu
 
+" Fix trailing selection on visual copy/cut
+set selection=exclusive
+
 " Keep selection on visual yank
 vnoremap <silent> y ygv
 
