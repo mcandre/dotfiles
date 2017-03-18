@@ -15,5 +15,7 @@ type direnv &> /dev/null
 if [ "$?" -eq 0 ]; then
     eval "$(direnv hook bash)"
     export DIRENV_LOG_FORMAT=''
-    direnv reload
+
+    # Wipes out path
+    # direnv reload
 fi
