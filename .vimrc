@@ -178,6 +178,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'editorconfig/editorconfig-vim'
   Plug 'fatih/vim-go'
   Plug 'robbles/logstash.vim'
+  Plug 'vim-scripts/groovy.vim'
 call plug#end()
 
 " " Enable Powerline fonts for airline
@@ -227,6 +228,10 @@ augroup NERD
   autocmd!
   autocmd VimEnter * NERDTree
   autocmd VimEnter * wincmd p
+augroup END
+
+augroup filetypedetect
+  au BufRead,BufNewFile Jenkinsfile set filetype=groovy
 augroup END
 
 " Exit Vim when the only window left is NERDTree

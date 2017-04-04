@@ -164,11 +164,13 @@
 (use-package coffee-mode)
 (use-package cmake-mode)
 
-;; csharp-mode forgets to import cl
-(require 'cl)
+
 ;; Work around emacs.exe's lack of (set-difference)
 (if (not (string= system-type "windows-nt"))
-    (use-package csharp-mode))
+  (progn
+    ;; csharp-mode forgets to import cl
+    (require 'cl)
+    (use-package csharp-mode)))
 
 (use-package d-mode)
 (use-package dockerfile-mode)
@@ -258,12 +260,12 @@
         (unless (string= (car kill-ring) xsel-output)
           xsel-output )))
 
-    (defvar x-select-enable-clipboard)
+    (defvar select-enable-clipboard)
 
     (pcase system-type
       (`darwin (setq interprogram-cut-function 'mac-cut
                      interprogram-paste-function 'mac-paste))
-      (`gnu/linux (setq x-select-enable-clipboard t
+      (`gnu/linux (setq select-enable-clipboard t
                         interprogram-cut-function 'linux-cut-function
                         interprogram-paste-function 'linux-paste-function)))
 
@@ -364,7 +366,8 @@
   (powerline-default-theme))
 
 (use-package groovy-mode
-  :mode "build\\.gradle")
+  :mode (("build\\.gradle" . groovy-mode)
+         ("Jenkinsfile" . groovy-mode)))
 
 ;; Don't bind M-: to some stupid newLISP evaluator
 (use-package newlisp-mode
