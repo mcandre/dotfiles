@@ -13,7 +13,7 @@
 
 ; Control+Alt+G launches Google Chrome
 ^!g::
-  run chrome.exe
+  run explorer shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge
   return
 
 ; Control+Alt+S launches Steam
