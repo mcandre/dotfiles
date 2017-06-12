@@ -1,3 +1,3 @@
 #!/bin/sh
-export PATH="$HOME/.ndenv/bin:$PATH"
+export PATH="$PATH:$HOME/.ndenv/bin"
 eval "$(ndenv init -)"
