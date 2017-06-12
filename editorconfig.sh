@@ -1,4 +1,6 @@
 #!/bin/sh
+set -euo pipefail
+
 exec find . \
     \( \
         -wholename '*/bin/*' -o \
