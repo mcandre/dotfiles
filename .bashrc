@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH='/usr/bin:/bin:/usr/sbin:/sbin'
 
 if [ -e "$HOME/.bashrc.d" ]; then
     SCRIPTS=$(find "$HOME/.bashrc.d/enabled" -name "*.sh" -print)

@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/bin/sh
 
-function gitignore {
+gitignore() {
     curl -L -s "https://www.gitignore.io/api/$1"
 }

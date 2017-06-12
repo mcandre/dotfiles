@@ -1,8 +1,8 @@
 #!/bin/bash
 
 [[ -s "$HOME/.jenv/bin/jenv-init.sh" ]] && \
-    source "$HOME/.jenv/bin/jenv-init.sh" && \
-    source "$HOME/.jenv/commands/completion.sh"
+    . "$HOME/.jenv/bin/jenv-init.sh" && \
+    . "$HOME/.jenv/commands/completion.sh"
 
 # Silence successful jenv messages
 function __jenvtool_utils_echo_green {

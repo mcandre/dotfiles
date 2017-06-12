@@ -1,11 +1,13 @@
 #!/bin/bash
 
-# Colorize soft links
-LS='ls'
-
-if [[ "$(uname -s)" =~ Darwin ]]; then
-    LS='gls'
-fi
+case "$(uname -s)" in
+    Darwin )
+        LS='gls'
+        ;;
+    * )
+        LS='ls'
+        ;;
+esac
 
 export LS
 

@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/bin/sh
 
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && . "$HOME/.gvm/scripts/gvm"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
