@@ -1,4 +1,4 @@
-;; ln -s .../emacsen-ispell-dicts.el /var/cache/dictionaries-common/emacsen-ispell-dicts.el
+;; cp .../emacsen-ispell-dicts.el /var/cache/dictionaries-common/emacsen-ispell-dicts.el
 
 ;; Prevent error during Emacs launch
 ;; by commenting out all dictionary code

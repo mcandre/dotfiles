@@ -1,2 +1,2 @@
 #!/bin/sh
-alias rgrep='grep -r'
+alias rgrep='rg'

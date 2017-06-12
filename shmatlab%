@@ -2,7 +2,7 @@
 # For your shebangs
 #
 # mkdir -p ~/bin
-# ln -s .../shmatlab% ~/bin/shmatlab%
+# cp .../shmatlab% ~/bin/shmatlab%
 #
 
 code=<<END

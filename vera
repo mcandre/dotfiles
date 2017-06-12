@@ -5,7 +5,7 @@
 #
 # cp -r /usr/local/lib/vera++ ~/.vera++
 # mv ~/.vera++/profiles/default ~/.vera++/profiles/default.bak
-# ln -s vera ~/.vera++/profiles/default
+# cp vera ~/.vera++/profiles/default
 #
 
 set rules {

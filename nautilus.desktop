@@ -4,7 +4,7 @@
 #
 # Note: Command line `nautilus` will still open ~ by default.
 #
-# ln -s .../nautilus.desktop ~/.local/share/applications/nautilus.desktop
+# cp .../nautilus.desktop ~/.local/share/applications/nautilus.desktop
 #
 # Then log out, and log back in.
 

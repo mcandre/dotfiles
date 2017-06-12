@@ -6,8 +6,8 @@
 #
 # Install:
 #
-# ln -s ../../hooks/post-merge-checkout .git/hooks/post-merge
-# ln -s ../../hooks/post-merge-checkout .git/hooks/post-checkout
+# cp ../../hooks/post-merge-checkout .git/hooks/post-merge
+# cp ../../hooks/post-merge-checkout .git/hooks/post-checkout
 #
 # Uninstall:
 #
