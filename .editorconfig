@@ -45,7 +45,7 @@ indent_size = 2
 indent_size = 2
 [{*.c,*.h,*.cpp,*.rs,*.d,*.swift,*.vala,*.sac}]
 indent_size = 2
-[{*.asm,*.s,*.ll}]
+[{*.asm,*.ll}]
 indent_size = 2
 [{*.pl,*.pm,*.f08,*.j,*.lua,*.st,*.io,*.pas,*.oz}]
 indent_size = 2
