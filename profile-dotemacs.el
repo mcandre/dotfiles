@@ -110,18 +110,18 @@ grayed out.")
     (goto-char (point-min))
     (let (start end results)
       (while
-	  (< (point)
-	     (setq end (progn
-			 (forward-sexp 1)
-			 (point))))
-	(forward-sexp -1)
-	(setq start (point))
-	(add-to-list
-	 'results
-	 `(,start ,end
-		  ,(benchmark-run
-		    (eval (sexp-at-point)))))
-	(goto-char end))
+          (< (point)
+             (setq end (progn
+                         (forward-sexp 1)
+                         (point))))
+        (forward-sexp -1)
+        (setq start (point))
+        (add-to-list
+         'results
+         `(,start ,end
+                  ,(benchmark-run
+                       (eval (sexp-at-point)))))
+        (goto-char end))
       (profile-dotemacs-show-results results)
       (switch-to-buffer (current-buffer)))))
 
@@ -130,60 +130,60 @@ grayed out.")
 (defun profile-dotemacs-show-results (results)
   "Show timings from RESULTS in current buffer."
   (let ((totaltime (profile-dotemacs-totaltime results))
-	current percentage ov)
+        current percentage ov)
     (while results
       (let* ((current (pop results))
-	     (ov (make-overlay (car current) (cadr current)))
-	     (current (car (last current)))
-	     (percentage (/ (+ (car current) (nth 2 current))
-			    totaltime))
-	     col benchstr lowface)
-	(setq col
-	      (profile-dotemacs-percentage-color
-	       percentage
-	       (face-background 'default)
-	       (face-background 'profile-dotemacs-time-face)))
-	(setq percentage (round (* 100 percentage)))
-	(setq benchstr (profile-dotemacs-make-benchstr current))
-	(overlay-put ov 'help-echo benchstr)
-	(if (and (numberp profile-dotemacs-low-percentage)
-		 (< percentage profile-dotemacs-low-percentage))
-	    (overlay-put ov 'face 'profile-dotemacs-low-percentage-face)
-	  (overlay-put ov 'before-string
-		       (propertize benchstr
-				   'face 'profile-dotemacs-highlight-face))
-	  (overlay-put ov 'face
-		       `(:background ,col)))))
+             (ov (make-overlay (car current) (cadr current)))
+             (current (car (last current)))
+             (percentage (/ (+ (car current) (nth 2 current))
+                            totaltime))
+             col benchstr lowface)
+        (setq col
+              (profile-dotemacs-percentage-color
+               percentage
+               (face-background 'default)
+               (face-background 'profile-dotemacs-time-face)))
+        (setq percentage (round (* 100 percentage)))
+        (setq benchstr (profile-dotemacs-make-benchstr current))
+        (overlay-put ov 'help-echo benchstr)
+        (if (and (numberp profile-dotemacs-low-percentage)
+                 (< percentage profile-dotemacs-low-percentage))
+            (overlay-put ov 'face 'profile-dotemacs-low-percentage-face)
+          (overlay-put ov 'before-string
+                       (propertize benchstr
+                                   'face 'profile-dotemacs-highlight-face))
+          (overlay-put ov 'face
+                       `(:background ,col)))))
     (setq ov (make-overlay (1- (point-max)) (point-max)))
     (overlay-put ov 'after-string
-		 (propertize
-		  (format "\n-----------------\nTotal time: %.2fs\n"
-			  totaltime)
-		  'face 'profile-dotemacs-highlight-face))))
+                 (propertize
+                  (format "\n-----------------\nTotal time: %.2fs\n"
+                          totaltime)
+                  'face 'profile-dotemacs-highlight-face))))
 
 (defun profile-dotemacs-totaltime (results)
   "Calculate total time of RESULTS."
   (let ((totaltime 0))
     (mapc (lambda (x)
-	    (let ((cur (car (last x))))
-	      (setq totaltime (+ totaltime (car cur) (nth 2 cur)))))
-	  results)
+            (let ((cur (car (last x))))
+              (setq totaltime (+ totaltime (car cur) (nth 2 cur)))))
+          results)
     totaltime))
 
 (defun profile-dotemacs-percentage-color (percent col-begin col-end)
   "Calculate color according to PERCENT between COL-BEGIN and COL-END."
   (let* ((col1 (color-values col-begin))
-	 (col2 (color-values col-end))
-	 (col
-	  (mapcar (lambda (c)
-		    (round
-		     (+ (* (- 1 percent) (nth c col1))
-			(* percent (nth c col2)))))
-		  '(0 1 2))))
+         (col2 (color-values col-end))
+         (col
+          (mapcar (lambda (c)
+                    (round
+                     (+ (* (- 1 percent) (nth c col1))
+                        (* percent (nth c col2)))))
+                  '(0 1 2))))
     (format "RGB:%04x/%04x/%04x"
-	    (car col)
-	    (nth 1 col)
-	    (nth 2 col))))
+            (car col)
+            (nth 1 col)
+            (nth 2 col))))
 
 (defun profile-dotemacs-make-benchstr (timings)
   "Create descriptive benchmark string from TIMINGS."
