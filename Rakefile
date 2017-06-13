@@ -45,7 +45,7 @@ task :lili => [] do
 end
 
 task :editorconfig=> [] do
-  sh 'sh editorconfig.sh'
+  sh 'flcl . | xargs -n 100 editorconfig-cli check'
 end
 
 task :astyle_apply => [] do
