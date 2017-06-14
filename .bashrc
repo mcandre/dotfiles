@@ -16,6 +16,6 @@ if [ "$?" -eq 0 ]; then
     eval "$(direnv hook bash)"
     export DIRENV_LOG_FORMAT=''
 
-    # Wipes out path
-    # direnv reload
+    # Warning: Wipes out path
+    direnv reload
 fi
