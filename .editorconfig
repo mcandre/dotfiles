@@ -2,7 +2,7 @@
 
 root = true
 
-# bash8
+# Most text files
 [*]
 charset = utf-8
 insert_final_newline = true
@@ -10,6 +10,7 @@ trim_trailing_whitespace = true
 max_line_length = none
 indent_style = space
 
+# bash8
 [{*.py,*.sh,*.bash,*.ksh,*.zsh,*.csh,*.tcsh,*.dash,*.fish}]
 end_of_line = lf
 indent_size = 4
@@ -21,8 +22,11 @@ indent_style = tab
 indent_style = space
 
 # Natural HTML nesting
-[{*.js}]
+[*.js]
 quote_type = single
+
+[*.min.js]
+insert_final_newline = false
 
 # Windows junk
 [{*.cmd,*.bat,*.reg,*.ps1,*.vbs,*.cs,*.fs,*.fsx,*.ahk}]
