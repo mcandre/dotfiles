@@ -170,7 +170,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'godlygeek/tabular'
   Plug 'plasticboy/vim-markdown'
   Plug 'mtth/scratch.vim'
-  Plug 'greplace.vim'
+  Plug 'vim-scripts/greplace.vim'
   Plug 'mcandre/Conque-Shell'
   Plug 'elubow/cql-vim'
   Plug 'scrooloose/nerdtree'
