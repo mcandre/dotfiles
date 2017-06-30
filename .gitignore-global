@@ -1,3 +1,7 @@
+# Install:
+# cp .gitignore-global ~/.gitignore-global
+# git config --global core.excludesfile ~/.gitignore-global
+
 .envrc
 # Created by https://www.gitignore.io/api/intellij,visualstudio,eclipse,emacs,linux,osx,sublimetext,textmate,vim,windows,ensime
 
