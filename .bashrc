@@ -4,6 +4,8 @@
 case "$(uname -s)" in
     MINGW*)
         ;;
+    MSYS*)
+        ;;
     *)
         export PATH='/usr/bin:/bin:/usr/sbin:/sbin'
         ;;
