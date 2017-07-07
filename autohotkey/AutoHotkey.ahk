@@ -3,7 +3,7 @@
 ; Control+Alt+T launches Console2
 ^!t::
   SetWorkingDir %userprofile%
-  run C:\Windows\System32\bash.exe -i
+  run "C:\Program Files\ConEmu\ConEmu64.exe"
   return
 
 ; Control+Alt+E launches Emacs
@@ -11,7 +11,7 @@
   run runemacs.exe
   return
 
-; Control+Alt+G launches Google Chrome
+; Control+Alt+G launches a Web Browser
 ^!g::
   run explorer shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge
   return
