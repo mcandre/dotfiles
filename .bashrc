@@ -2,13 +2,13 @@
 
 # Preserve Windows PATH, if any
 case "$(uname -s)" in
-    MINGW*)
-        ;;
-    MSYS*)
-        ;;
-    *)
-        export PATH='/usr/bin:/bin:/usr/sbin:/sbin'
-        ;;
+MINGW*) ;;
+
+MSYS*) ;;
+
+*)
+    export PATH='/usr/bin:/bin:/usr/sbin:/sbin'
+    ;;
 esac
 
 if [ -e "$HOME/.bashrc.d" ]; then
@@ -20,7 +20,7 @@ if [ -e "$HOME/.bashrc.d" ]; then
     done
 fi
 
-type direnv &> /dev/null
+type direnv &>/dev/null
 if [ "$?" -eq 0 ]; then
     eval "$(direnv hook bash)"
     export DIRENV_LOG_FORMAT=''

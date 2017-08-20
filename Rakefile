@@ -78,6 +78,10 @@ task :bandit => [] do
   sh 'find . -name \'*.py\' | xargs bandit'
 end
 
+task :shfmt => [] do
+  sh 'find . \( -wholename \'*/.git/*\' -o -wholename \'*/node_modules*\' -o -name \'*.bat\' \) -prune -o -type f \( -wholename \'*/hooks/*\' -o -name \'*.sh\' -o -name \'*.bashrc*\' -o -name \'.*profile*\' -o -name \'*.envrc*\' \) -print | xargs shfmt -w -i 4'
+end
+
 task :bashate => [] do
   sh 'find . \( -wholename \'*/.git/*\' -o -wholename \'*/node_modules*\' -o -name \'*.bat\' \) -prune -o -type f \( -wholename \'*/hooks/*\' -o -name \'*.sh\' -o -name \'*.bashrc*\' -o -name \'.*profile*\' -o -name \'*.envrc*\' \) -print | xargs bashate'
 end
@@ -110,6 +114,7 @@ task :lint => [
   :astyle,
   :xmllint,
   :infernu,
+  :shfmt,
   :bashate,
   :bandit,
   :shlint,

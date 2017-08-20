@@ -1,20 +1,20 @@
 #!/bin/bash
 
-[[ -s "$HOME/.jenv/bin/jenv-init.sh" ]] && \
-    . "$HOME/.jenv/bin/jenv-init.sh" && \
+[[ -s "$HOME/.jenv/bin/jenv-init.sh" ]] &&
+    . "$HOME/.jenv/bin/jenv-init.sh" &&
     . "$HOME/.jenv/commands/completion.sh"
 
 # Silence successful jenv messages
-function __jenvtool_utils_echo_green {
+function __jenvtool_utils_echo_green() {
     echo $'\e[32m'"$1"$'\e[00m' >/dev/null
 }
 
-cd () {
+cd() {
     builtin cd "$@"
     if [[ -f "${PWD}/jenvrc" ]]; then
         echo "==============jenv load ======================" >/dev/null
         while read entry; do
-            if ! __jenvtool_utils_string_contains "$entry", "#" ; then
+            if ! __jenvtool_utils_string_contains "$entry", "#"; then
                 candidate1="${entry//=*/}"
                 version1="${entry//*=/}"
 
@@ -29,6 +29,6 @@ cd () {
                 unset candidate1
                 unset version1
             fi
-        done < "${PWD}/jenvrc"
+        done <"${PWD}/jenvrc"
     fi
 }

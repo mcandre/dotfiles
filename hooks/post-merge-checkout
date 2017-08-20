@@ -27,7 +27,7 @@
 # fi
 #
 git_modified() {
-    ! (git rev-parse --verify 'HEAD@{1}' &> /dev/null && \
+    ! (git rev-parse --verify 'HEAD@{1}' &>/dev/null &&
         git diff --quiet 'HEAD@{1}' HEAD -- "$1")
 }
 
@@ -40,7 +40,7 @@ git_modified() {
 # Example: git_branched master && echo "Remember, you're on master!"
 #
 git_branched() {
-    [[ $(git rev-parse --symbolic-full-name HEAD) = */"$1" ]]
+    [[ $(git rev-parse --symbolic-full-name HEAD) == */"$1" ]]
 }
 
 if git_modified Cask; then

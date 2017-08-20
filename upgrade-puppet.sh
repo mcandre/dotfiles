@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install --yes lsb-release > /dev/null
+apt-get install --yes lsb-release >/dev/null
 DISTRIB_CODENAME=$(lsb_release --codename --short)
 DEB="puppetlabs-release-${DISTRIB_CODENAME}.deb"
 
@@ -15,8 +15,8 @@ if [ ! -e $DEB_PROVIDES ]; then
     sudo dpkg -i $DEB
 fi
 
-sudo apt-get update > /dev/null
-sudo apt-get install --yes puppet > /dev/null
+sudo apt-get update >/dev/null
+sudo apt-get install --yes puppet >/dev/null
 
 mkdir -p /etc/puppet
 touch /etc/puppet/hiera.yaml
