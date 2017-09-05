@@ -17,6 +17,7 @@ https://github.com/mcandre/dotfiles
 * [shellcheck](http://hackage.haskell.org/package/ShellCheck)
 * [editorconfig-cli](https://github.com/amyboyd/editorconfig-cli) (e.g. `go get github.com/amyboyd/editorconfig-cli`)
 * [flcl](https://github.com/mcandre/flcl) (e.g. `go get github.com/mcandre/flcl/...`)
+* [stank](https://github.com/mcandre/stank) (e.g. `go get github.com/mcandre/stank/...`)
 
 # TERMINAL COLORS
 

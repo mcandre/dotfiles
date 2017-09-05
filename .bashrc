@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Preserve Windows PATH, if any
 case "$(uname -s)" in
 MINGW*) ;;
