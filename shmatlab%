@@ -16,5 +16,5 @@ matlab \
     -nojvm \
     -nodisplay \
     -nosplash \
-    -r "$code" \
-    | tail -n +16
+    -r "$code" |
+    tail -n +16
