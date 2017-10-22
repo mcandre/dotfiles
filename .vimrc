@@ -117,6 +117,9 @@ let sh_fold_enabled=1                 " sh
 let vimsyn_folding='af'               " Vim script
 let xml_syntax_folding=1              " XML
 
+" Pending https://github.com/moby/moby/pull/35267
+autocmd BufRead,BufNewFile *.Dockerfile set filetype=dockerfile
+
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 autocmd BufRead,BufNewFile *.Vagrantfile set filetype=ruby
 
@@ -182,6 +185,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'fatih/vim-go'
   Plug 'robbles/logstash.vim'
   Plug 'vim-scripts/groovy.vim'
+  Plug 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 call plug#end()
 
 " " Enable Powerline fonts for airline
