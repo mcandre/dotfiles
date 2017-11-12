@@ -8,7 +8,7 @@ if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
 fi
 
 # Workaround pyenv shims vs. brew doctor
-type pyenv &> /dev/null
+type pyenv &>/dev/null
 if [ "$?" -eq 0 ]; then
     alias brew='env PATH=${PATH//$(pyenv root)\/shims:/} brew'
 fi

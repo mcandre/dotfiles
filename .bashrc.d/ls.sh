@@ -1,12 +1,12 @@
 #!/bin/bash
 
 case "$(uname -s)" in
-    Darwin )
-        LS='gls'
-        ;;
-    * )
-        LS='ls'
-        ;;
+Darwin)
+    LS='gls'
+    ;;
+*)
+    LS='ls'
+    ;;
 esac
 
 export LS
