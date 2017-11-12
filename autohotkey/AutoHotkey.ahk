@@ -13,7 +13,7 @@
 
 ; Control+Alt+G launches a Web Browser
 ^!g::
-  run explorer shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge
+  run "C:\Program Files\Mozilla Firefox\firefox.exe"
   return
 
 ; Control+Alt+S launches Steam
