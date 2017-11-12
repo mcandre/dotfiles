@@ -11,7 +11,7 @@
     "lib": "."
   },
   "engines": {
-    "node": ">=4.5.0"
+    "node": ">=6.9.1"
   },
   "scripts": {},
   "dependencies": {},
