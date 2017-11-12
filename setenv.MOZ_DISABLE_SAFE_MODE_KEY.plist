@@ -5,7 +5,7 @@
 
      Uninstall:
 
-     rm /Library/LaunchDaemons/setenv.MOZ_DISABLE_SAFE_MODE_KEY.plist
+     sudo rm /Library/LaunchDaemons/setenv.MOZ_DISABLE_SAFE_MODE_KEY.plist
      launchctl unsetenv MOZ_DISABLE_SAFE_MODE_KEY
 -->
 <?xml version="1.0" encoding="UTF-8" ?>
