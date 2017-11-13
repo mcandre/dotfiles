@@ -1,6 +1,6 @@
 [core]
 	editor = vi
-excludesfile = ~/.gitignore-global
+	excludesfile = /Users/andrew/.gitignore-global
 ignorecase = false
 
 [push]

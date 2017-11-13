@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 #
 # Install:
 # sudo defaults write com.apple.loginwindow LogoutHook clean-windows.sh

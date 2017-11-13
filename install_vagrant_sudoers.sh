@@ -1,10 +1,11 @@
-#!/bin/bash
+#!/bin/sh
+
 # Script for placing sudoers.d files with syntax-checking
 
 if [ -z "$1" ]; then
-  # Making a temporary file to contain the sudoers-changes to be pre-checked
-  TMP=$(mktemp)
-  cat > $TMP <<EOF
+    # Making a temporary file to contain the sudoers-changes to be pre-checked
+    TMP=$(mktemp)
+    cat >$TMP <<EOF
 Cmnd_Alias VAGRANT_EXPORTS_ADD = /bin/su root -c echo '*' >> /etc/exports
 Cmnd_Alias VAGRANT_NFSD = /etc/init.d/nfs-kernel-server restart
 Cmnd_Alias VAGRANT_EXPORTS_REMOVE = /bin/sed -e /*/ d -ibak /etc/exports

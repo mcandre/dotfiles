@@ -12,13 +12,13 @@ esac
 if [ -e "$HOME/.bashrc.d" ]; then
     SCRIPTS=$(find "$HOME/.bashrc.d/enabled" -name "*.sh" -print)
     for f in $SCRIPTS; do
-        if [[ -r "$f" ]]; then
+        if [ -r "$f" ]; then
             . "$f"
         fi
     done
 fi
 
-type direnv &>/dev/null
+command -V direnv >/dev/null
 if [ "$?" -eq 0 ]; then
     eval "$(direnv hook bash)"
     export DIRENV_LOG_FORMAT=''

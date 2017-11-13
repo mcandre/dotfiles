@@ -5,7 +5,7 @@
     . "$HOME/.jenv/commands/completion.sh"
 
 # Silence successful jenv messages
-function __jenvtool_utils_echo_green() {
+function __jenvtool_utils_echo_green {
     echo $'\e[32m'"$1"$'\e[00m' >/dev/null
 }
 

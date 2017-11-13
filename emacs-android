@@ -1,2 +1,2 @@
-#!/usr/bin/env bash
+#!/bin/sh
 /data/data/com.zielm.emacs/src/bootstrap-emacs $@

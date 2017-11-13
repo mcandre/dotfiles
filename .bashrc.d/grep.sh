@@ -1,2 +1,3 @@
 #!/bin/sh
-alias grep='rg' # https://github.com/BurntSushi/ripgrep
+# https://github.com/BurntSushi/ripgrep
+alias grep='rg'

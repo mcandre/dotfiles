@@ -57,3 +57,7 @@ indent_size = 2
 indent_size = 2
 [{*.awk,*.erl,*.escript,*.yaws,*.bf,*.bs,*.cob,*.factor,*.tcl,*.rl}]
 indent_size = 2
+
+# Generated files
+[ConEmu.xml]
+indent_style = tab
