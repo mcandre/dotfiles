@@ -1,0 +1,11 @@
+! Install:
+!
+! cp .xmodmaprc "$HOME/"
+! xmodmap "$HOME/.xmodmaprc"
+!
+! Uninstall:
+!
+! rm "$HOME/.xmodmaprc"
+
+! Workaround for Apple keyboards
+keycode 94 = grave asciitilde
