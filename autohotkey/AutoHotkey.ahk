@@ -21,6 +21,11 @@
   run steam.exe
   return
 
+; Control+Alt+W launches Wunderlist
+^!w::
+  run cmd /c "start wunderlist:"
+  return
+
 ; ; Invert mouse scroll
 ; WheelUp::
 ;   send {WheelDown}

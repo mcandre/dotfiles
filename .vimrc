@@ -1,4 +1,6 @@
-" Store as ~/.vimrc (Unix) or ~/_vimrc (Windows, non-cygwin)
+" Install:
+" 1. Copy .vimrc to "$HOME/".
+" 2. (Command Prompt / PowerShell users) Copy .vimrc to your home directory as "_vimrc".
 
 " Fix Delete (backspace) on Mac OS X
 set backspace=2
