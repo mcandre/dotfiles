@@ -10,6 +10,10 @@ trim_trailing_whitespace = true
 max_line_length = none
 indent_style = space
 
+# patchfiles
+[*.patch]
+trim_trailing_whitespace = false
+
 # bash8
 [{*.py,*.sh,*.bash,*.ksh,*.zsh,*.csh,*.tcsh,*.dash,*.fish}]
 end_of_line = lf
