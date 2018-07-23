@@ -176,6 +176,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'fsouza/go.vim'
   Plug 'wting/rust.vim'
   Plug 'godlygeek/tabular'
+  Plug 'hashivim/vim-terraform'
   Plug 'plasticboy/vim-markdown'
   Plug 'mtth/scratch.vim'
   Plug 'vim-scripts/greplace.vim'
