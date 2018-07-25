@@ -1,3 +1,13 @@
+# Install:
+#
+# cp .gitignore-global "$HOME/.gitignore-global"
+# git config --global core.excludesfile "$HOME/.gitignore-global"
+#
+# Uninstall:
+#
+# git config --global --unset core.excludesfile "$HOME/.gitignore-global"
+# rm "$HOME/.gitignore-global"
+
 .envrc
 # Created by https://www.gitignore.io/api/intellij,emacs,linux,osx,sublimetext,textmate,vim,windows,ensime
 
