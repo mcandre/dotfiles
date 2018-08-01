@@ -21,9 +21,9 @@
   run steam.exe
   return
 
-; Control+Alt+W launches Wunderlist
+; Control+Alt+W launches Todoist
 ^!w::
-  run cmd /c "start wunderlist:"
+  run cmd /c "start todoist:"
   return
 
 ; ; Invert mouse scroll
