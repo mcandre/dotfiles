@@ -1,9 +1,10 @@
 #!/bin/bash
 
-PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+PATH="/usr/local/bin:/usr/local/sbin:$HOME/local/bin:$HOME/local/sbin:$PATH"
 PATH="$HOME/.cask/bin:$PATH"
 
-if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+# E.g., brew install git
+if [ -r "$(brew --prefix)/etc/bash_completion" ]; then
     . "$(brew --prefix)/etc/bash_completion"
 fi
 
