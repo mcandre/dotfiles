@@ -1,3 +1,4 @@
+---
 MethodLineCountCheck:
   threshold: 60
 FlogMethodCheck:

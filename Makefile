@@ -1,6 +1,10 @@
 all: lint
 
-lint: funk
+lint: funk yamllint
 
 funk:
 	funk .
+
+yamllint:
+	yamllint .yamllint
+	yamllint .
