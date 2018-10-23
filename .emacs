@@ -192,7 +192,7 @@
 (use-package j-mode)
 (use-package jq-mode)
 (use-package jsx-mode)
-(use-package llvm-mode)
+;; (use-package llvm-mode)
 (use-package lua-mode)
 (use-package pcmpl-git)
 (use-package perl6-mode)
@@ -545,14 +545,14 @@
 ;;   :bind (("C-x C-a" . ack-and-a-half)
 ;;          ("s-F" . ack-and-a-half)))
 
-(use-package dired+
-  ;; :idle
-  :defines dired-omit-files
-  :config
-  ;; Fix color theme
-  (setq-default dired-omit-files-p t)
-  (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
-  (setq dired-omit-files (concat dired-omit-files "\\.")))
+;; (use-package dired+
+;;   ;; :idle
+;;   :defines dired-omit-files
+;;   :config
+;;   ;; Fix color theme
+;;   (setq-default dired-omit-files-p t)
+;;   (setq font-lock-maximum-decoration (quote ((dired-mode) (t . t))))
+;;   (setq dired-omit-files (concat dired-omit-files "\\.")))
 
 ;;
 ;; Syntax highlighting
