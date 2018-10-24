@@ -1,2 +1,2 @@
 #!/bin/sh
-alias rsync='rsync --info=progress2 -a'
+alias rsync='rsync -a --info progress2'
