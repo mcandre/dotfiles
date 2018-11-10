@@ -33,5 +33,5 @@ insert_final_newline = false
 trim_trailing_whitespace = false
 
 # Machine-controlled files
-[ConEmu.xml]
+[{*.gitmodules,ConEmu.xml}]
 indent_style = tab
