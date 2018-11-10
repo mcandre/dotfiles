@@ -1,23 +1,33 @@
 # Most text files
 [*]
 charset = utf-8
-insert_final_newline = true
-trim_trailing_whitespace = true
 max_line_length = none
+trim_trailing_whitespace = true
 end_of_line = lf
+insert_final_newline = true
 indent_style = space
 indent_size = 4 # bash8
 
-# Freestyle
-[{*.txt,*.xml,*.md,*.markdown,*.plist,*.emacs,*.el,*.abcl,*.lisp,*.lsp,*.scm,*.clj,*.eclrc,*.sbclrc,*.lock}]
+# Freeform text
+[{*.txt,*.md,*.emacs,*.el,*.lisp,*.lsp,*.scm,*.clj,*.rkt,*.ecl,*.sbcl,*.abcl,*.eclrc,*.sbclrc,*.snusp}]
 indent_size = none
+
+# Machine-generated files
+[{*.scpt,*.plist,*.dot}]
+trim_trailing_whitespace = false
+insert_final_newline = none
+indent_size = none
+
+# Placeholder files
+[{*.gitkeep,__init__.py}]
+insert_final_newline = none
 
 # Windows junk
 [{*.cmd,*.bat,*.reg,*.ps1,*.vbs,*.cs,*.fs,*.fsx,*.ahk}]
 end_of_line = crlf
 
 # Lexer restrictions
-[{Makefile*,GNUMakefile*,*.mf,*.makefile,*.go}]
+[{Makefile*,GNUMakefile*,*.mf,*.makefile,*.go,*.gitmodules}]
 indent_style = tab
 
 # Natural HTML nesting
@@ -31,7 +41,3 @@ insert_final_newline = false
 # Patch files
 [*.patch]
 trim_trailing_whitespace = false
-
-# Machine-controlled files
-[{*.gitmodules,ConEmu.xml}]
-indent_style = tab
