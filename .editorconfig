@@ -8,14 +8,14 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4 # bash8
 
-# Freeform text
-[{*.txt,*.md,*.emacs,*.el,*.lisp,*.lsp,*.scm,*.clj,*.rkt,*.ecl,*.sbcl,*.abcl,*.eclrc,*.sbclrc,*.snusp}]
-indent_size = none
-
 # Machine-generated files
-[{*.scpt,*.plist,*.dot}]
+[{*.scpt,*.plist,*.dot,*.db}]
 trim_trailing_whitespace = false
 insert_final_newline = none
+indent_size = none
+
+# Freeform text
+[{*.txt,*.md,*.emacs,*.el,*.lisp,*.lsp,*.scm,*.clj,*.rkt,*.ecl,*.sbcl,*.abcl,*.eclrc,*.sbclrc,*.cob,*.snusp}]
 indent_size = none
 
 # Placeholder files
