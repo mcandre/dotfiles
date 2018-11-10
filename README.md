@@ -10,6 +10,8 @@ https://github.com/mcandre/dotfiles
 
 * [make](https://www.gnu.org/software/make/)
 * [stank](https://github.com/mcandre/stank) (e.g. `go get github.com/mcandre/stank/...`)
+* [Python](https://www.python.org) 3+ (for yamllint)
+* [Node.js](https://nodejs.org/en/) (for eclint)
 
 # TERMINAL COLORS
 

@@ -64,25 +64,25 @@ remote-build-reporting: anonymous
 -- password:
 
 install-dirs user
-  -- prefix: /Users/andrew/.cabal
-  -- bindir: $prefix/bin
-  -- libdir: $prefix/lib
-  -- libsubdir: $pkgid/$compiler
-  -- libexecdir: $prefix/libexec
-  -- datadir: $prefix/share
-  -- datasubdir: $pkgid
-  -- docdir: $datadir/doc/$pkgid
-  -- htmldir: $docdir/html
-  -- haddockdir: $htmldir
+    -- prefix: /Users/andrew/.cabal
+    -- bindir: $prefix/bin
+    -- libdir: $prefix/lib
+    -- libsubdir: $pkgid/$compiler
+    -- libexecdir: $prefix/libexec
+    -- datadir: $prefix/share
+    -- datasubdir: $pkgid
+    -- docdir: $datadir/doc/$pkgid
+    -- htmldir: $docdir/html
+    -- haddockdir: $htmldir
 
 install-dirs global
-  -- prefix: /usr/local
-  -- bindir: $prefix/bin
-  -- libdir: $prefix/lib
-  -- libsubdir: $pkgid/$compiler
-  -- libexecdir: $prefix/libexec
-  -- datadir: $prefix/share
-  -- datasubdir: $pkgid
-  -- docdir: $datadir/doc/$pkgid
-  -- htmldir: $docdir/html
-  -- haddockdir: $htmldir
+    -- prefix: /usr/local
+    -- bindir: $prefix/bin
+    -- libdir: $prefix/lib
+    -- libsubdir: $pkgid/$compiler
+    -- libexecdir: $prefix/libexec
+    -- datadir: $prefix/share
+    -- datasubdir: $pkgid
+    -- docdir: $datadir/doc/$pkgid
+    -- htmldir: $docdir/html
+    -- haddockdir: $htmldir

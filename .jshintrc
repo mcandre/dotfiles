@@ -1,18 +1,18 @@
 {
-  "expr": true,
-  "maxerr": 10000,
-  "indent": 2,
-  "eqeqeq": true,
-  "quotmark": true,
-  "curly": true,
-  "camelcase": true,
-  "globalstrict": true,
-  "node": true,
-  "browser": true,
-  "globals": {
-    "alert": false,
-    "$": false,
-    "describe": false,
-    "it": false
-  }
+    "expr": true,
+    "maxerr": 10000,
+    "indent": 2,
+    "eqeqeq": true,
+    "quotmark": true,
+    "curly": true,
+    "camelcase": true,
+    "globalstrict": true,
+    "node": true,
+    "browser": true,
+    "globals": {
+        "alert": false,
+        "$": false,
+        "describe": false,
+        "it": false
+    }
 }

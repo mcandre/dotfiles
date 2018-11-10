@@ -1,14 +1,14 @@
 {
-  "env": {
-    "node": true,
-    "browser": true,
-    "mocha": true,
-    "jquery": true
-  },
-  "rules": {
-    "global-strict": true,
-    "no-mixed-requires": true,
-    "no-unused-vars": true,
-    "quotes": "single"
-  }
+    "env": {
+        "node": true,
+        "browser": true,
+        "mocha": true,
+        "jquery": true
+    },
+    "rules": {
+        "global-strict": true,
+        "no-mixed-requires": true,
+        "no-unused-vars": true,
+        "quotes": "single"
+    }
 }

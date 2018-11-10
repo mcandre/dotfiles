@@ -76,4 +76,3 @@
 ;; ;; We need to get it here, after debian-hunspell-equivs-alist is loaded
 
 ;; (setq debian-hunspell-dictionary (debian-ispell-get-hunspell-default))
-

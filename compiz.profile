@@ -101,4 +101,3 @@ s0_outputs = 1280x1024+0+0;900x1440+1280+0;
 s0_autoraise = false
 s0_autoraise_delay = 500
 s0_show_desktop_key = <Control><Super>d
-

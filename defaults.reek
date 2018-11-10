@@ -1,21 +1,21 @@
 ---
 NestedIterators:
-  enabled: false
+    enabled: false
 UncommunicativeVariableName:
-  enabled: false
+    enabled: false
 FeatureEnvy:
-  enabled: false
+    enabled: false
 BooleanParameter:
-  enabled: false
+    enabled: false
 TooManyStatements:
-  max_statements: 30
+    max_statements: 30
 LongParameterList:
-  max_params: 5
+    max_params: 5
 UncommunicativeParameterName:
-  enabled: false
+    enabled: false
 UncommunicativeMethodName:
-  enabled: false
+    enabled: false
 UncommunicativeModuleName:
-  enabled: false
+    enabled: false
 ControlParameter:
-  enabled: false
+    enabled: false

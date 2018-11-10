@@ -32,7 +32,7 @@ set clipboard=unnamed
 " http://www.culater.net/software/SIMBL/SIMBL.php
 " https://bitheap.org/mouseterm/
 if has("mouse")
-   set mouse=a
+    set mouse=a
 endif
 
 set shell=bash\ -i
@@ -63,7 +63,7 @@ inoremap <silent> <C-k> <esc>d$i
 " Fix Alt key in MacVIM GUI
 " TODO - Fix in MacVIM terminal
 if has("gui_macvim")
-  set macmeta
+    set macmeta
 endif
 
 " Emacs-style start of file / end of file navigation
@@ -131,15 +131,15 @@ autocmd BufRead,BufNewFile *.cql set filetype=cql
 " Wrap window-move-cursor
 "
 function! s:GotoNextWindow( direction, count )
-  let l:prevWinNr = winnr()
-  execute a:count . 'wincmd' a:direction
-  return winnr() != l:prevWinNr
+    let l:prevWinNr = winnr()
+    execute a:count . 'wincmd' a:direction
+    return winnr() != l:prevWinNr
 endfunction
 
 function! s:JumpWithWrap( direction, opposite )
-  if ! s:GotoNextWindow(a:direction, v:count1)
-    call s:GotoNextWindow(a:opposite, 999)
-  endif
+    if ! s:GotoNextWindow(a:direction, v:count1)
+        call s:GotoNextWindow(a:opposite, 999)
+    endif
 endfunction
 
 nnoremap <silent> <C-w>h :<C-u>call <SID>JumpWithWrap('h', 'l')<CR>
@@ -165,30 +165,30 @@ inoremap <silent> <C-w><Right> <esc>:<C-u>call <SID>JumpWithWrap('l', 'h')<CR>
 "
 
 call plug#begin('~/.vim/plugged')
-  Plug 'bruno-/vim-alt-mappings'
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tomtom/tcomment_vim'
+    Plug 'bruno-/vim-alt-mappings'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tomtom/tcomment_vim'
 "   Workaround https://github.com/vim-airline/vim-airline/issues/1325
-"   Plug 'bling/vim-airline'
-"   Plug 'vim-airline/vim-airline-themes'
-  Plug 'benjaminwhite/Benokai'
-  Plug 'fsouza/go.vim'
-  Plug 'wting/rust.vim'
-  Plug 'godlygeek/tabular'
-  Plug 'hashivim/vim-terraform'
-  Plug 'plasticboy/vim-markdown'
-  Plug 'mtth/scratch.vim'
-  Plug 'vim-scripts/greplace.vim'
-  Plug 'mcandre/Conque-Shell'
-  Plug 'elubow/cql-vim'
-  Plug 'scrooloose/nerdtree'
-  Plug 'moll/vim-bbye'
-  Plug 'editorconfig/editorconfig-vim'
-  Plug 'fatih/vim-go'
-  Plug 'robbles/logstash.vim'
-  Plug 'vim-scripts/groovy.vim'
-  Plug 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
+    " Plug 'bling/vim-airline'
+    " Plug 'vim-airline/vim-airline-themes'
+    Plug 'benjaminwhite/Benokai'
+    Plug 'fsouza/go.vim'
+    Plug 'wting/rust.vim'
+    Plug 'godlygeek/tabular'
+    Plug 'hashivim/vim-terraform'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'mtth/scratch.vim'
+    Plug 'vim-scripts/greplace.vim'
+    Plug 'mcandre/Conque-Shell'
+    Plug 'elubow/cql-vim'
+    Plug 'scrooloose/nerdtree'
+    Plug 'moll/vim-bbye'
+    Plug 'editorconfig/editorconfig-vim'
+    Plug 'fatih/vim-go'
+    Plug 'robbles/logstash.vim'
+    Plug 'vim-scripts/groovy.vim'
+    Plug 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 call plug#end()
 
 " " Enable Powerline fonts for airline
@@ -199,7 +199,7 @@ call plug#end()
 
 " Work around PowerShell color limitations
 if !has("win32") && !has("win16")
-  colorscheme Benokai
+    colorscheme Benokai
 endif
 
 " Column 80 marker
@@ -235,13 +235,13 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 " Focus main window, not NERDTree
 augroup NERD
-  autocmd!
-  autocmd VimEnter * NERDTree
-  autocmd VimEnter * wincmd p
+    autocmd!
+    autocmd VimEnter * NERDTree
+    autocmd VimEnter * wincmd p
 augroup END
 
 augroup filetypedetect
-  au BufRead,BufNewFile Jenkinsfile set filetype=groovy
+    au BufRead,BufNewFile Jenkinsfile set filetype=groovy
 augroup END
 
 " Exit Vim when the only window left is NERDTree
