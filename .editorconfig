@@ -8,8 +8,8 @@ end_of_line = lf
 indent_style = space
 indent_size = 4 # bash8
 
-# Freestyle text
-[{*.txt,*.plist,*.emacs,*.el,*.abcl,*.lisp,*.lsp,*.scm,*.clj,*.eclrc,*.sbclrc}]
+# Freestyle
+[{*.txt,*.xml,*.md,*.markdown,*.plist,*.emacs,*.el,*.abcl,*.lisp,*.lsp,*.scm,*.clj,*.eclrc,*.sbclrc,*.lock}]
 indent_size = none
 
 # Windows junk
