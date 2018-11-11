@@ -4,8 +4,8 @@ funk:
 	@funk .
 
 yamllint:
-	@yamllint .yamllint
-	@yamllint .
+	@yamllint -s .yamllint
+	@yamllint -s .
 
 editorconfig:
 	@git ls-files -z | xargs -0 -r -n 100 $(shell npm bin)/eclint check
