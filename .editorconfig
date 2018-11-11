@@ -25,6 +25,7 @@ insert_final_newline = none
 # Windows junk
 [{*.cmd,*.bat,*.reg,*.ps1,*.vbs,*.cs,*.fs,*.fsx,*.ahk}]
 end_of_line = crlf
+insert_final_newline = false
 
 # Lexer restrictions
 [{Makefile*,GNUMakefile*,*.mf,*.makefile,*.go,*.gitmodules}]
