@@ -35,9 +35,11 @@ indent_style = tab
 quote_type = single
 
 # Compressed artifacts
-[*.min.*,*-min.*]
+[{*.min.*,*-min.*}]
 insert_final_newline = false
 
 # Patch files
 [*.patch]
 trim_trailing_whitespace = false
+indent_style = none
+indent_size = none
