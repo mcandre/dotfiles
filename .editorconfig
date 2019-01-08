@@ -18,6 +18,10 @@ indent_size = none
 [{*.txt,*.md,*.yaml,*.yml,*.cob,*.emacs,*.el,*.lisp,*.lsp,*.scm,*.setup,*.meta,*.clj,*.rkt,*.ecl,*.sbcl,*.abcl,*.eclrc,*.sbclrc,*.asd,*.snusp}]
 indent_size = none
 
+# Fix cmake
+[CMakeLists.txt]
+indent_size = 4 # bash8
+
 # Placeholder files
 [{*.gitkeep,__init__.py}]
 insert_final_newline = none
