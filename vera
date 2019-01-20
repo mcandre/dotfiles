@@ -3,9 +3,8 @@
 #
 # Install:
 #
-# cp -r /usr/local/lib/vera++ ~/.vera++
-# mv ~/.vera++/profiles/default ~/.vera++/profiles/default.bak
-# cp vera ~/.vera++/profiles/default
+# cp -r /usr/lib/vera++ "$HOME/.vera++"
+# ln -sf vera "$HOME/.vera++/profiles/default"
 #
 
 set rules {
@@ -14,12 +13,10 @@ set rules {
     L001
     L002
     L003
-    L004
     L005
     L006
 
     T001
-    T002
     T004
     T005
     T006
