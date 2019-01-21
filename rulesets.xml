@@ -9,15 +9,20 @@
         <exclude name="SystemPrintln" />
     </rule>
     <rule ref="category/java/codestyle.xml">
+        <exclude name="AtLeastOneConstructor" />
+        <exclude name="AvoidFinalLocalVariable" />
         <exclude name="OnlyOneReturn" />
         <exclude name="ShortClassName" />
         <exclude name="ShortVariable" />
     </rule>
     <rule ref="category/java/design.xml">
+        <exclude name="DataClass" />
         <exclude name="LawOfDemeter" />
         <exclude name="LoosePackageCoupling" />
+        <exclude name="TooManyMethods" />
     </rule>
     <rule ref="category/java/documentation.xml">
+        <exclude name="CommentRequired" />
         <exclude name="CommentSize" />
     </rule>
     <rule ref="category/java/multithreading.xml" />
