@@ -1,0 +1,14 @@
+<FindBugsFilter>
+    <Match>
+        <Source name="~.*[a-z].*" />
+        <Bug pattern="CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" />
+    </Match>
+    <Match>
+        <Source name="~.*[a-z].*" />
+        <Bug pattern="EC_UNRELATED_TYPES_USING_POINTER_EQUALITY" />
+    </Match>
+    <Match>
+        <Source name="~.*[a-z].*" />
+        <Bug pattern="NM_CLASS_NAMING_CONVENTION" />
+    </Match>
+</FindBugsFilter>
