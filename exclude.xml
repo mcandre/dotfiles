@@ -8,6 +8,10 @@
         <Bug pattern="EC_UNRELATED_TYPES_USING_POINTER_EQUALITY" />
     </Match>
     <Match>
+        <Source name="~.*\.scala" />
+        <Bug pattern="MS_PKGPROTECT" />
+    </Match>
+    <Match>
         <Source name="~.*[a-z].*" />
         <Bug pattern="NM_CLASS_NAMING_CONVENTION" />
     </Match>
