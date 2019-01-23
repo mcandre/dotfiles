@@ -7,6 +7,7 @@
 
     <rule ref="category/java/bestpractices.xml">
         <exclude name="SystemPrintln" />
+        <exclude name="UseVarargs" />
     </rule>
     <rule ref="category/java/codestyle.xml">
         <exclude name="AtLeastOneConstructor" />
@@ -17,6 +18,7 @@
     </rule>
     <rule ref="category/java/design.xml">
         <exclude name="DataClass" />
+        <exclude name="ExcessiveImports" />
         <exclude name="LawOfDemeter" />
         <exclude name="LoosePackageCoupling" />
         <exclude name="TooManyMethods" />
