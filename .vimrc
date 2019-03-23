@@ -165,13 +165,17 @@ inoremap <silent> <C-w><Right> <esc>:<C-u>call <SID>JumpWithWrap('l', 'h')<CR>
 "
 
 call plug#begin('~/.vim/plugged')
-    Plug 'bruno-/vim-alt-mappings'
+    " Work around Vim corruption
+    " Plug 'bruno-/vim-alt-mappings'
+
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'tpope/vim-fugitive'
     Plug 'tomtom/tcomment_vim'
-"   Workaround https://github.com/vim-airline/vim-airline/issues/1325
+
+    " Workaround https://github.com/vim-airline/vim-airline/issues/1325
     " Plug 'bling/vim-airline'
     " Plug 'vim-airline/vim-airline-themes'
+
     Plug 'benjaminwhite/Benokai'
     Plug 'fsouza/go.vim'
     Plug 'wting/rust.vim'
@@ -188,7 +192,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'fatih/vim-go'
     Plug 'robbles/logstash.vim'
     Plug 'vim-scripts/groovy.vim'
-    Plug 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
+    Plug 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
 call plug#end()
 
 " " Enable Powerline fonts for airline
