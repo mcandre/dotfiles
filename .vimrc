@@ -206,9 +206,9 @@ if !has("win32") && !has("win16")
     colorscheme Benokai
 endif
 
-" Column 80 marker
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#660000
-match OverLength /\%81v.\+/
+" " Column 80 marker
+" highlight OverLength ctermbg=darkred ctermfg=white guibg=#660000
+" match OverLength /\%81v.\+/
 
 " " Currently broken due to Vim/Semicolon issues
 " " Alt+; to toggle comments
