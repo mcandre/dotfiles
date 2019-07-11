@@ -22,6 +22,10 @@ indent_size = none
 [CMakeLists.txt]
 indent_size = 4 # bash8
 
+# Align keys
+[{*.yaml,*.yml,*.reek,.yamllint}]
+indent_size = 2
+
 # Placeholder files
 [{*.gitkeep,__init__.py}]
 insert_final_newline = none
