@@ -17,7 +17,10 @@
             "error"
         ],
         "no-unused-vars": [
-            "error"
+            "error",
+            {
+                "argsIgnorePattern": "^_"
+            }
         ],
         "quotes": [
             "error",
