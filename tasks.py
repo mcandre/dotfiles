@@ -25,18 +25,7 @@ def flake8():
 
 @task
 def yamllint():
-    run('yamllint .yamllint')
-
-    matches = []
-    for root, dirname, filenames in os.walk("."):
-        for filename in fnmatch.filter(filenames, "*.yml"):
-            matches.append(os.path.join(root, filename))
-
-        for filename in fnmatch.filter(filenames, "*.yaml"):
-            matches.append(os.path.join(root, filename))
-
-    for m in matches:
-        run('yamllint %s' % m)
+    run('yamllint -s .yamllint .')
 
 
 @task(pre=[pep8, pylint, pyflakes, flake8, yamllint])
