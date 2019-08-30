@@ -127,6 +127,8 @@ autocmd BufRead,BufNewFile *.Vagrantfile set filetype=ruby
 
 autocmd BufRead,BufNewFile *.cql set filetype=cql
 
+autocmd BufRead,BufNewFile *.yamllint set filetype=yaml
+
 "
 " Wrap window-move-cursor
 "
