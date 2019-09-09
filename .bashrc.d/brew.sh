@@ -14,5 +14,8 @@ if [ "$?" -eq 0 ]; then
     alias brew='env PATH=${PATH//$(pyenv root)\/shims:/} brew'
 fi
 
+# Prefer GNU findutils
+PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:${PATH}"
+
 # Workaround brew updated cabal vs cabal updated cabal
 export PATH="$HOME/.cabal/bin:$PATH"
