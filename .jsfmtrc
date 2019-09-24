@@ -1,0 +1,24 @@
+{
+    "plugins": [
+        "esformatter-quotes"
+    ],
+    "indent": {
+        "value": "    "
+    },
+    "lineBreak": {
+        "before": {
+            "IfStatementClosingBrace": ">=0",
+            "ObjectExpressionClosingBrace": ">=0",
+            "Property": ">=0"
+        },
+        "after": {
+            "IfStatementOpeningBrace": ">=0",
+            "IfStatementClosingBrace": ">=0",
+            "ObjectExpressionOpeningBrace": ">=0"
+        }
+    },
+    "quotes": {
+        "type": "single",
+        "avoidEscape": false
+    }
+}
