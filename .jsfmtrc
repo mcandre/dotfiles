@@ -1,5 +1,6 @@
 {
     "plugins": [
+        "esformatter-braces",
         "esformatter-quotes"
     ],
     "indent": {
@@ -12,13 +13,23 @@
             "FunctionDeclarationClosingBrace": ">=0",
             "IfStatementClosingBrace": ">=0",
             "ObjectExpressionClosingBrace": ">=0",
-            "Property": ">=0"
+            "Property": ">=0",
+            "WhileStatementClosingBrace": ">=0"
         },
         "after": {
             "FunctionDeclarationOpeningBrace": ">=0",
             "IfStatementOpeningBrace": ">=0",
             "IfStatementClosingBrace": ">=0",
-            "ObjectExpressionOpeningBrace": ">=0"
+            "ObjectExpressionOpeningBrace": ">=0",
+            "WhileStatementOpeningBrace": ">=0"
+        }
+    },
+    "whitespace": {
+        "before": {
+            "WhileStatementClosingBrace": ">=0"
+        },
+        "after": {
+            "WhileStatementOpeningBrace": ">=0"
         }
     },
     "quotes": {
