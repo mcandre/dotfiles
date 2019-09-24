@@ -3,7 +3,9 @@
         "esformatter-quotes"
     ],
     "indent": {
-        "value": "    "
+        "value": "    ",
+        "MemberExpression": 2,
+        "alignComments": false
     },
     "lineBreak": {
         "before": {
