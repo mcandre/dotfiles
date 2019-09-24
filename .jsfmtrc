@@ -5,12 +5,12 @@
     ],
     "indent": {
         "value": "    ",
-        "MemberExpression": 2,
         "alignComments": false
     },
     "lineBreak": {
         "before": {
             "FunctionDeclarationClosingBrace": ">=0",
+            "FunctionExpressionClosingBrace": ">=0",
             "IfStatementClosingBrace": ">=0",
             "ObjectExpressionClosingBrace": ">=0",
             "Property": ">=0",
@@ -18,6 +18,7 @@
         },
         "after": {
             "FunctionDeclarationOpeningBrace": ">=0",
+            "FunctionExpressionOpeningBrace": ">=0",
             "IfStatementOpeningBrace": ">=0",
             "IfStatementClosingBrace": ">=0",
             "ObjectExpressionOpeningBrace": ">=0",
