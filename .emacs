@@ -181,7 +181,7 @@
 ;; (use-package flycheck)
 
 (use-package fold-dwim)
-(use-package fsharp-mode)
+;; (use-package fsharp-mode)
 (use-package go-mode
   :defines gofmt-before-save
   :config
@@ -191,7 +191,7 @@
 (use-package io-mode)
 (use-package j-mode)
 (use-package jq-mode)
-(use-package jsx-mode)
+;; (use-package jsx-mode)
 ;; (use-package llvm-mode)
 (use-package lua-mode)
 (use-package pcmpl-git)
