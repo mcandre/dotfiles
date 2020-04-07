@@ -1,11 +1,11 @@
 # Install:
 #
 # cp .gitignore-global "$HOME/.gitignore-global"
-# git config --global core.excludesfile "$HOME/.gitignore-global"
+# git config --global core.excludesfile <...>/.gitignore-global"
 #
 # Uninstall:
 #
-# git config --global --unset core.excludesfile "$HOME/.gitignore-global"
+# git config --global --unset core.excludesfile
 # rm "$HOME/.gitignore-global"
 
 .envrc
