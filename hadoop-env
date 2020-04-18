@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Set Hadoop-specific environment variables here.
 
 # The only required environment variable is JAVA_HOME.  All others are
