@@ -195,13 +195,13 @@
 ;; (use-package llvm-mode)
 (use-package lua-mode)
 (use-package pcmpl-git)
-(use-package perl6-mode)
+;; (use-package perl6-mode)
 
 ;; probably bundled with Emacs
 ;; (use-package php-mode)
 
 (use-package puppet-mode)
-(use-package racket-mode)
+;; (use-package racket-mode)
 
 ;; now missing from MELPA
 ;; (use-package scala-mode2)
@@ -776,61 +776,61 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
   :config
   (add-to-list 'auto-mode-alist '("\\.jsp$" . crappy-jsp-mode)))
 
-;; Embedded HTML/CSS/JS
-(use-package mmm-mode
-  :config
-  ;; ERB
-  (defun sanityinc/ensure-mmm-erb-loaded ()
-    (require 'mmm-erb))
+;; ;; Embedded HTML/CSS/JS
+;; (use-package mmm-mode
+;;   :config
+;;   ;; ERB
+;;   (defun sanityinc/ensure-mmm-erb-loaded ()
+;;     (require 'mmm-erb))
 
-  (require 'derived)
+;;   (require 'derived)
 
-  (defun sanityinc/set-up-mode-for-erb (mode)
-    (add-hook (derived-mode-hook-name mode) 'sanityinc/ensure-mmm-erb-loaded)
-    (mmm-add-mode-ext-class mode "\\.erb$" 'erb))
+;;   (defun sanityinc/set-up-mode-for-erb (mode)
+;;     (add-hook (derived-mode-hook-name mode) 'sanityinc/ensure-mmm-erb-loaded)
+;;     (mmm-add-mode-ext-class mode "\\.erb$" 'erb))
 
-  (let ((html-erb-modes '(html-mode html-erb-mode nxml-mode)))
-    (dolist (mode html-erb-modes)
-      (sanityinc/set-up-mode-for-erb mode)
-      (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-js)
-      (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css)))
+;;   (let ((html-erb-modes '(html-mode html-erb-mode nxml-mode)))
+;;     (dolist (mode html-erb-modes)
+;;       (sanityinc/set-up-mode-for-erb mode)
+;;       (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-js)
+;;       (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css)))
 
-  (mapc 'sanityinc/set-up-mode-for-erb
-        '(coffee-mode js-mode js2-mode js3-mode markdown-mode textile-mode))
+;;   (mapc 'sanityinc/set-up-mode-for-erb
+;;         '(coffee-mode js-mode js2-mode js3-mode markdown-mode textile-mode))
 
-  (mmm-add-mode-ext-class 'html-erb-mode "\\.jst\\.ejs$" 'ejs)
+;;   (mmm-add-mode-ext-class 'html-erb-mode "\\.jst\\.ejs$" 'ejs)
 
-  (add-to-list 'auto-mode-alist '("\\.\\(r\\)?html\\(erb\\)?$" . html-erb-mode))
-  (add-to-list 'auto-mode-alist '("\\.jst\\.ejs$"  . html-erb-mode))
-  (mmm-add-mode-ext-class 'yaml-mode "\\.yaml$" 'erb)
+;;   (add-to-list 'auto-mode-alist '("\\.\\(r\\)?html\\(erb\\)?$" . html-erb-mode))
+;;   (add-to-list 'auto-mode-alist '("\\.jst\\.ejs$"  . html-erb-mode))
+;;   (mmm-add-mode-ext-class 'yaml-mode "\\.yaml$" 'erb)
 
-  (dolist (mode (list 'js-mode 'js2-mode 'js3-mode))
-    (mmm-add-mode-ext-class mode "\\.js\\.erb$" 'erb))
+;;   (dolist (mode (list 'js-mode 'js2-mode 'js3-mode))
+;;     (mmm-add-mode-ext-class mode "\\.js\\.erb$" 'erb))
 
-  ;; CSS
-  (mmm-add-group
-   'html-css
-   '((css-cdata
-      :submode css-mode
-      :face mmm-code-submode-face
-      :front "<style[^>]*>[ \t\n]*\\(//\\)?<!\\[CDATA\\[[ \t]*\n?"
-      :back "[ \t]*\\(//\\)?]]>[ \t\n]*</style>"
-      :insert ((?j js-tag nil @ "<style type=\"text/css\">"
-                   @ "\n" _ "\n" @ "</script>" @)))
-     (css
-      :submode css-mode
-      :face mmm-code-submode-face
-      :front "<style[^>]*>[ \t]*\n?"
-      :back "[ \t]*</style>"
-      :insert ((?j js-tag nil @ "<style type=\"text/css\">"
-                   @ "\n" _ "\n" @ "</style>" @)))
-     (css-inline
-      :submode css-mode
-      :face mmm-code-submode-face
-      :front "style=\""
-      :back "\"")))
-  (dolist (mode (list 'html-mode 'nxml-mode))
-    (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css)))
+;;   ;; CSS
+;;   (mmm-add-group
+;;    'html-css
+;;    '((css-cdata
+;;       :submode css-mode
+;;       :face mmm-code-submode-face
+;;       :front "<style[^>]*>[ \t\n]*\\(//\\)?<!\\[CDATA\\[[ \t]*\n?"
+;;       :back "[ \t]*\\(//\\)?]]>[ \t\n]*</style>"
+;;       :insert ((?j js-tag nil @ "<style type=\"text/css\">"
+;;                    @ "\n" _ "\n" @ "</script>" @)))
+;;      (css
+;;       :submode css-mode
+;;       :face mmm-code-submode-face
+;;       :front "<style[^>]*>[ \t]*\n?"
+;;       :back "[ \t]*</style>"
+;;       :insert ((?j js-tag nil @ "<style type=\"text/css\">"
+;;                    @ "\n" _ "\n" @ "</style>" @)))
+;;      (css-inline
+;;       :submode css-mode
+;;       :face mmm-code-submode-face
+;;       :front "style=\""
+;;       :back "\"")))
+;;   (dolist (mode (list 'html-mode 'nxml-mode))
+;;     (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-css)))
 
 ;;
 ;; Fix C family autoindent
@@ -871,14 +871,14 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 ;;                        (lambda ()
 ;;                          (c-add-style "dart" gangnam-style t))))
 
-(use-package swift-mode
-             :mode "\\.swift$"
-             :defines swift-indent-offset
-             :init
-             (add-hook 'swift-mode-hook
-                       (lambda ()
-                         (setq-local tab-width 2)
-                         (setq-local swift-indent-offset 2))))
+;; (use-package swift-mode
+;;              :mode "\\.swift$"
+;;              :defines swift-indent-offset
+;;              :init
+;;              (add-hook 'swift-mode-hook
+;;                        (lambda ()
+;;                          (setq-local tab-width 2)
+;;                          (setq-local swift-indent-offset 2))))
 
 ;; (global-unset-key (kbd "M-/"))
 
@@ -916,38 +916,38 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
                   less-css-mode-hook))
     (add-hook hook 'rainbow-mode)))
 
-;;
-;; Highlight strange characters
-;;
+;; ;;
+;; ;; Highlight strange characters
+;; ;;
 
-(use-package whitespace
-  :diminish (global-whitespace-mode
-             whitespace-mode
-             whitespace-newline-mode)
-  :defines whitespace-face
-  :config
-  (dolist (hook '(prog-mode-hook
-                  conf-mode-hook
-                  groovy-mode-hook
-                  text-mode-hook
-                  html-erb-mode-hook
-                  nxml-mode-hook))
-    (add-hook hook
-              (lambda ()
-                (setq
-                 whitespace-line-column 80
-                 whitespace-style '(face
-                                    trailing
-                                    space-before-tab
-                                    space-after-tab
-                                    lines-tail
-                                    ;; work around https://github.com/jwiegley/use-package/issues/122
-                                    ;; indentation
-                                    empty)
-                 ;; Make inappropriate indentations more visible
-                 ;; in a dark theme like Monokai
-                 whitespace-face 'whitespace-trailing)
-                (whitespace-mode)))))
+;; (use-package whitespace
+;;   :diminish (global-whitespace-mode
+;;              whitespace-mode
+;;              whitespace-newline-mode)
+;;   :defines whitespace-face
+;;   :config
+;;   (dolist (hook '(prog-mode-hook
+;;                   conf-mode-hook
+;;                   groovy-mode-hook
+;;                   text-mode-hook
+;;                   html-erb-mode-hook
+;;                   nxml-mode-hook))
+;;     (add-hook hook
+;;               (lambda ()
+;;                 (setq
+;;                  whitespace-line-column 80
+;;                  whitespace-style '(face
+;;                                     trailing
+;;                                     space-before-tab
+;;                                     space-after-tab
+;;                                     lines-tail
+;;                                     ;; work around https://github.com/jwiegley/use-package/issues/122
+;;                                     ;; indentation
+;;                                     empty)
+;;                  ;; Make inappropriate indentations more visible
+;;                  ;; in a dark theme like Monokai
+;;                  whitespace-face 'whitespace-trailing)
+;;                 (whitespace-mode)))))
 
 (use-package yafolding
   :bind ("M-]" . yafolding-toggle-element)
