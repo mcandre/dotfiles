@@ -1,7 +1,9 @@
 #!/bin/sh
+set -eu
+IFS="$(printf '%b_' '\n\t ')"
+IFS="${IFS%_}"
 
-export BREAK_CHARS="\"#'(),;\`\\|!?[]{}"
-rlwrap \
+BREAK_CHARS="\"#'(),;\`\\|!?[]{}" rlwrap \
     -b $BREAK_CHARS \
     --remember \
     -c \
