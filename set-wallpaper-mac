@@ -1,7 +1,6 @@
 #!/bin/sh
+unset IFS
 set -eu
-IFS="$(printf '%b_' '\n\t ')"
-IFS="${IFS%_}"
 
 defaults write com.apple.desktop Background "{default = {ImageFilePath = \"$1\"; };}"
 killall Dock

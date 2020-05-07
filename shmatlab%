@@ -4,9 +4,8 @@
 # mkdir -p ~/bin
 # cp .../shmatlab% ~/bin/shmatlab%
 #
+unset IFS
 set -eu
-IFS="$(printf '%b_' '\n\t ')"
-IFS="${IFS%_}"
 
 code=<<END
 varargin = regexp('${1+"$@"}', ' ', 'split');

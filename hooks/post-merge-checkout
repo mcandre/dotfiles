@@ -26,8 +26,8 @@
 #   npm install
 # fi
 #
+unset IFS
 set -eEuo pipefail
-IFS=$'\n\t '
 
 git_modified() {
     ! (git rev-parse --verify 'HEAD@{1}' &>/dev/null &&
