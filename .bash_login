@@ -1,4 +1,3 @@
-. ~/.profile
 . ~/.bashrc
 
 for f in ~/.bash_login.d/enabled/*.sh; do
