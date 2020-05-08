@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # This loader depends on
 # https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh

@@ -4,4 +4,4 @@
 export OCAMLRUNPARAM='b'
 
 # OPAM
-. "$HOME/.opam/opam-init/init.sh" >/dev/null 2>/dev/null || true
+. "$HOME/.opam/opam-init/init.sh" 2>&1 >/dev/null || true

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ssh_mode() {
     BASH_CONFIG="$1" &&

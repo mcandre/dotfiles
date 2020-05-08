@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 IN_EDITOR=0
 
