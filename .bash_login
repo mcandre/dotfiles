@@ -1,5 +1,2 @@
 . ~/.bashrc
-
-for f in ~/.bash_login.d/enabled/*.sh; do
-    . "$f"
-done
+shopt -s expand_aliases

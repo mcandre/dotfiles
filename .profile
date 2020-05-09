@@ -1,3 +1,5 @@
+# Note: non-interactive configuration can be done in $ENV file path.
+
 # Preserve Windows PATH, if any
 case "$(uname -s)" in
 MINGW*) ;;

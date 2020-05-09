@@ -1,3 +1,5 @@
+# Note: non-interactive configuration can be done in $BASH_ENV file path.
+
 . ~/.profile
 
 for f in ~/.bashrc.d/enabled/*.sh; do
