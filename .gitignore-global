@@ -1,20 +1,30 @@
 # Install:
 #
 # cp .gitignore-global "$HOME/.gitignore-global"
-# git config --global core.excludesfile <...>/.gitignore-global"
+# git config --global core.excludesfile "$HOME/.gitignore-global"
 #
 # Uninstall:
 #
 # git config --global --unset core.excludesfile
 # rm "$HOME/.gitignore-global"
+#
+# Created by https://www.gitignore.io/api/direnv,intellij,emacs,linux,osx,sublimetext,textmate,vim,code,windows,ensime,eclipse
+# Edit at https://www.gitignore.io/?templates=direnv,intellij,emacs,linux,osx,sublimetext,textmate,vim,code,windows,ensime,eclipse
 
+### Code ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### direnv ###
+.direnv
 .envrc
-# Created by https://www.gitignore.io/api/intellij,emacs,linux,osx,sublimetext,textmate,vim,windows,ensime,eclipse
-# Edit at https://www.gitignore.io/?templates=intellij,emacs,linux,osx,sublimetext,textmate,vim,windows,ensime,eclipse
 
 ### Eclipse ###
 .metadata
-# bin/
+bin/
 tmp/
 *.tmp
 *.bak
@@ -355,4 +365,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/intellij,emacs,linux,osx,sublimetext,textmate,vim,windows,ensime,eclipse
+# End of https://www.gitignore.io/api/direnv,intellij,emacs,linux,osx,sublimetext,textmate,vim,code,windows,ensime,eclipse
