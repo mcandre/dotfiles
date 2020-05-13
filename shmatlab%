@@ -5,7 +5,7 @@
 # cp .../shmatlab% ~/bin/shmatlab%
 #
 unset IFS
-set -eu
+set -euf
 
 code=<<END
 varargin = regexp('${1+"$@"}', ' ', 'split');

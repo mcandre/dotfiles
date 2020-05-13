@@ -1,5 +1,4 @@
 #!/bin/sh
 unset IFS
-set -eu
-
+set -euf
 /data/data/com.zielm.emacs/src/bootstrap-emacs $@

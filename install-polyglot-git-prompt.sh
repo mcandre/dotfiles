@@ -1,5 +1,5 @@
 #!/bin/sh
 unset IFS
-set -eu
+set -euf
 
 curl -o "$HOME/polyglot-git-prompt.sh" https://raw.githubusercontent.com/agkozak/polyglot/master/polyglot.sh

@@ -1,6 +1,6 @@
 #!/bin/sh
 unset IFS
-set -eu
+set -euf
 
 BREAK_CHARS="\"#'(),;\`\\|!?[]{}" rlwrap \
     -b $BREAK_CHARS \

@@ -1,5 +1,4 @@
 #!/bin/sh
 unset IFS
-set -eu
-
-ksh "$@"
+set -euf
+exec ksh "$@"
