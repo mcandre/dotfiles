@@ -9,7 +9,6 @@ setopt noautomenu
 autoload -U select-word-style
 select-word-style bash
 
-
 if [ -d "$HOME/.oh-my-zsh" ]; then
     #
     # Fix Terminal.app cwd
