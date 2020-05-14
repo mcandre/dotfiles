@@ -1,2 +1,2 @@
-[ -r "$HOME/.bash_login" ]
-    && . "$HOME/.bash_login"
+[ -r "$HOME/.bash_login" ] &&
+    . "$HOME/.bash_login"

@@ -3,9 +3,8 @@
 [ -r "$HOME/.profile" ] &&
     . "$HOME/.profile"
 
-[ -r "$HOME/.bashrc.d/enabled" ] &&
-    [ -z "$(find "$HOME/.bashrc.d/enabled" -prune -empty)" ] &&
-    for f in $HOME/.bashrc.d/enabled/*.sh; do
+[ -z "$(find "$HOME/.bashrc.d/enabled" -prune -empty 2>/dev/null || echo 'missing')" ] &&
+    for f in $HOME/.bashrc.d/enabled/*; do
         . "$f"
     done
 

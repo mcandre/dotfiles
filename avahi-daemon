@@ -1,0 +1,4 @@
+# sudo cp avahi-daemon /etc/default/avahi-daemon
+
+# Fix Ubuntu banner
+AVAHI_DAEMON_DETECT_LOCAL=0
