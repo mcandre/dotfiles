@@ -11,6 +11,8 @@ MSYS*) ;;
     ;;
 esac
 
-for f in $HOME/.profile.d/enabled/*.sh; do
-    . "$f"
-done
+[ -r "$HOME/.profile.d/enabled" ] &&
+    [ -z "$(find "$HOME/.profile.d/enabled" -prune -empty)" ] &&
+    for f in $HOME/.profile.d/enabled/*.sh; do
+        . "$f"
+    done

@@ -1,11 +1,15 @@
 # Note: non-interactive configuration can be done in $BASH_ENV file path.
 
-. ~/.profile
+[ -r "$HOME/.profile" ] &&
+    . "$HOME/.profile"
 
-for f in ~/.bashrc.d/enabled/*.sh; do
-    . "$f"
-done
+[ -r "$HOME/.bashrc.d/enabled" ] &&
+    [ -z "$(find "$HOME/.bashrc.d/enabled" -prune -empty)" ] &&
+    for f in $HOME/.bashrc.d/enabled/*.sh; do
+        . "$f"
+    done
 
-eval "$(direnv hook bash)"
-export DIRENV_LOG_FORMAT=
-direnv reload
+command -v direnv 2>&1 >/dev/null &&
+    eval "$(direnv hook bash)" &&
+    export DIRENV_LOG_FORMAT= &&
+    direnv reload

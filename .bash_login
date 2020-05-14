@@ -1,2 +1,4 @@
-. ~/.bashrc
+[ -r "$HOME/.bashrc" ]
+    && . "$HOME/.bashrc"
+
 shopt -s expand_aliases
