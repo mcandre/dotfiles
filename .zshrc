@@ -27,7 +27,17 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
 
     plugins=(git)
 
+    #
+    # Unbork aliases
+    #
+
+    AA="$(alias -L)"
+
     . "$ZSH/oh-my-zsh.sh"
+
+    unalias -m '*'
+
+    eval "$AA"
 
     # https://github.com/romkatv/powerlevel10k
     [ -r "$HOME/.p10k.zsh" ] &&
