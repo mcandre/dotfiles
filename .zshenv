@@ -1,4 +1,4 @@
-# shellcheck shell=bash
+#!/bin/zsh
 
 # shellcheck source=/dev/null
 [ -r "$HOME/.profile" ] &&

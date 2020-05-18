@@ -1,5 +1,4 @@
-# shellcheck shell=sh
-
+#!/bin/sh
 #
 # Configuration suitable for any POSIX sh derivative.
 #

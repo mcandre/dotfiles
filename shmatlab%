@@ -7,7 +7,8 @@
 unset IFS
 set -euf
 
-code="$(cat <<END
+code="$(
+    cat <<END
 varargin = regexp('${1+"$@"}', ' ', 'split');
 nvarargin = length(varargin);
 run('$1');

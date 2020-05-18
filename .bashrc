@@ -1,3 +1,4 @@
+#!/bin/bash
 # Note: non-interactive configuration can be done in $BASH_ENV file path.
 
 # shellcheck source=/dev/null
