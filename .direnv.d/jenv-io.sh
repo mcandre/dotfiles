@@ -1,19 +1,22 @@
 #!/bin/bash
 
+# shellcheck source=/dev/null
 [[ -s "$HOME/.jenv/bin/jenv-init.sh" ]] &&
     . "$HOME/.jenv/bin/jenv-init.sh" &&
     . "$HOME/.jenv/commands/completion.sh"
 
 # Silence successful jenv messages
-function __jenvtool_utils_echo_green {
+__jenvtool_utils_echo_green() {
     echo $'\e[32m'"$1"$'\e[00m' >/dev/null
 }
 
 cd() {
-    builtin cd "$@"
+    builtin cd "$@" ||
+        return 1
+
     if [[ -f "${PWD}/jenvrc" ]]; then
         echo "==============jenv load ======================" >/dev/null
-        while read entry; do
+        while read -r entry; do
             if ! __jenvtool_utils_string_contains "$entry", "#"; then
                 candidate1="${entry//=*/}"
                 version1="${entry//*=/}"

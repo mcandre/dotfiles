@@ -8,7 +8,8 @@
 # remote nodes.
 
 # The java implementation to use.  Required.
-export JAVA_HOME="$(/usr/libexec/java_home)"
+JAVA_HOME="$(/usr/libexec/java_home)"
+export JAVA_HOME
 
 # Extra Java CLASSPATH elements.  Optional.
 # export HADOOP_CLASSPATH=

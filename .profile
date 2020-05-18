@@ -1,3 +1,5 @@
+# shellcheck shell=sh
+
 #
 # Configuration suitable for any POSIX sh derivative.
 #
@@ -28,6 +30,7 @@ MSYS*) ;;
 esac
 
 [ -z "$(find "$HOME/.profile.d/enabled" -prune -empty 2>/dev/null || echo 'missing')" ] &&
-    for f in $HOME/.profile.d/enabled/*; do
+    for f in "$HOME/.profile.d/enabled/"*; do
+        # shellcheck source=/dev/null
         . "$f"
     done

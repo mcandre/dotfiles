@@ -1,3 +1,7 @@
-#!/bin/bash
-[ -e "$HOME/.rvm/scripts/rvm" ] && . "$HOME/.rvm/scripts/rvm"
+#!/bin/sh
+
+# shellcheck source=/dev/null
+[ -r "$HOME/.rvm/scripts/rvm" ] &&
+    . "$HOME/.rvm/scripts/rvm"
+
 export PATH="$PATH:$HOME/.rvm/bin"

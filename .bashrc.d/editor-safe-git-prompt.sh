@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 IN_EDITOR=0
 
@@ -11,7 +11,10 @@ if [ -n "$VIMRUNTIME" ]; then
 fi
 
 if [ $IN_EDITOR -eq 1 ]; then
-    PROMPT_COMMAND='' && export PS1='$ '
+    PROMPT_COMMAND=''
+    export PS1='$ '
 else
-    . "$HOME/git-prompt.sh" && export PS1='\W$(__git_ps1 " (%s)")$ '
+    # shellcheck source=/dev/null
+    . "$HOME/git-prompt.sh"
+    export PS1='\W$(__git_ps1 " (%s)")$ '
 fi

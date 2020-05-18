@@ -9,6 +9,7 @@ if command -v pyenv >/dev/null; then
 fi
 
 # Prefer GNU findutils
+# shellcheck source=/dev/null
 PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
 
 # Workaround brew updated cabal vs cabal updated cabal

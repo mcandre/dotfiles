@@ -1,3 +1,7 @@
-#!/bin/bash
+#!/bin/sh
+
 export PATH="$PATH:$HOME/.jenv/bin"
-if which jenv >/dev/null; then eval "$(jenv init - bash)"; fi
+
+if command -v jenv >/dev/null 2>&1; then
+    eval "$(jenv init - bash)"
+fi
