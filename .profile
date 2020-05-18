@@ -1,4 +1,13 @@
-# Note: non-interactive configuration can be done in $ENV file path.
+#
+# Configuration suitable for any POSIX sh derivative.
+#
+# Note: POSIX sh will generally ignore this file unless launched with:
+#
+# ENV="$HOME/.profile" sh -i[c] <command>
+#
+# That pattern follows pre-POSIX sh behavior and
+# can be more reliable than various online documentation.
+#
 
 #
 # Preserve Windows PATH, if any
