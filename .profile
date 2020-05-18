@@ -1,6 +1,13 @@
 # Note: non-interactive configuration can be done in $ENV file path.
 
+#
 # Preserve Windows PATH, if any
+#
+
+[ -r /proc/version ] &&
+    grep 'Microsoft' /proc/version &&
+    return
+
 case "$(uname -s)" in
 MINGW*) ;;
 
