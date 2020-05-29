@@ -20,6 +20,8 @@ setopt noautomenu
 autoload -U select-word-style
 select-word-style bash
 
+export PROMPT_EOL_MARK=
+
 if [ -d "$HOME/.oh-my-zsh" ]; then
     #
     # Fix Terminal.app cwd
