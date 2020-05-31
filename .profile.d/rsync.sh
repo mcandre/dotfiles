@@ -1,2 +1,4 @@
 #!/bin/sh
-alias rsync='rsync -a --info progress2'
+#
+# Recursive, 1MB/sec throttle, aggregate progress
+alias rsync='rsync -a --bwlimit 1000 --info progress2'
