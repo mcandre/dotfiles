@@ -10,23 +10,20 @@
 # can be more reliable than various online documentation.
 #
 
-#
-# Preserve Windows PATH, if any
-#
+# Preserve WSL PATH, if any
+if [ -r /proc/version ] && ! grep 'Microsoft' /proc/version >/dev/null; then
+    # Skip for most Cygwin-like environments
+    case "$(uname -s)" in
+    MINGW*) ;;
 
-[ -r /proc/version ] &&
-    grep 'Microsoft' /proc/version &&
-    return
+    MSYS*) ;;
 
-case "$(uname -s)" in
-MINGW*) ;;
-
-MSYS*) ;;
-
-*)
-    export PATH='/usr/bin:/bin:/usr/sbin:/sbin'
-    ;;
-esac
+    *)
+        # Reset PATH to a clean state
+        export PATH='/usr/bin:/bin:/usr/sbin:/sbin'
+        ;;
+    esac
+fi
 
 [ -z "$(find "$HOME/.profile.d/enabled" -prune -empty 2>/dev/null || echo 'missing')" ] &&
     for f in "$HOME/.profile.d/enabled/"*; do
