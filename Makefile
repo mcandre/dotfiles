@@ -16,7 +16,7 @@ funk:
 	@funk .
 
 shellcheck:
-	@stank . | grep -v node_modules | xargs shellcheck
+	@stank -exInterp zsh . | grep -v node_modules | xargs shellcheck
 
 yamllint:
 	@yamllint -s .yamllint .
