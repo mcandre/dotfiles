@@ -1,9 +1,8 @@
 ; Create shortcut in %APPDATA%\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
-; Control+Alt+T launches Console2
+; Control+Alt+T launches terminal
 ^!t::
-    SetWorkingDir %userprofile%
-    run "C:\Program Files\ConEmu\ConEmu64.exe"
+    run wsl.exe
     return
 
 ; Control+Alt+E launches Emacs
