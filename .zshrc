@@ -1,5 +1,10 @@
 #!/bin/zsh
 
+# Fix cwd in WSL from non-Metro entrypoints
+if [ "$(pwd)" = '/mnt/c/Windows/System32' ]; then
+    cd "$HOME"
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -51,3 +56,5 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     [ -r "$HOME/.p10k.zsh" ] &&
         . "$HOME/.p10k.zsh"
 fi
+
+
