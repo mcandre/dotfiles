@@ -5,9 +5,9 @@
     run wsl.exe
     return
 
-; Control+Alt+E launches Emacs
+; Control+Alt+E launches text editor
 ^!e::
-    run runemacs.exe
+    run "%userprofile%\AppData\Local\Programs\Microsoft VS Code\code.exe"
     return
 
 ; Control+Alt+G launches a Web Browser
