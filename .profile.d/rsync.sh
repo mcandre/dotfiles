@@ -7,5 +7,5 @@ if [ -r /proc/version ] && grep 'Microsoft' /proc/version >/dev/null; then
     DISABLE_IPV6='-4'
 fi
 
-# Recursive, 1MB/sec throttle, aggregate progress
-alias rsync='rsync ${DISABLE_IPV6} -a --bwlimit 1000 --info progress2'
+# Recursive, aggregate progress
+alias rsync='rsync ${DISABLE_IPV6} -a --info progress2'
