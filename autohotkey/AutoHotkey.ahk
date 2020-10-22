@@ -2,7 +2,7 @@
 
 ; Control+Alt+T launches terminal
 ^!t::
-    run wsl.exe
+    run wt.exe
     return
 
 ; Control+Alt+E launches text editor
