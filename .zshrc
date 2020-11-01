@@ -56,5 +56,3 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     [ -r "$HOME/.p10k.zsh" ] &&
         . "$HOME/.p10k.zsh"
 fi
-
-
