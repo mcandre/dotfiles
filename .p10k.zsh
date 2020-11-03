@@ -798,9 +798,9 @@
 
     ##################################[ context: user@hostname ]##################################
     # Context color when running with privileges.
-    typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=1
+    typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=184
     # Context color in SSH without privileges.
-    typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND=7
+    typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND=184
     # Default context color (no privileges, no SSH).
     typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=184
 
