@@ -12,7 +12,7 @@
 
 ; Control+Alt+G launches a Web Browser
 ^!g::
-    run "C:\Program Files\Mozilla Firefox\firefox.exe"
+    run "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
     return
 
 ; Control+Alt+S launches Steam
