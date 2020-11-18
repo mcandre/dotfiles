@@ -1,11 +1,4 @@
 # cp ssh-config ~/.ssh/config
 
-# Workaround Vagrant SSH conflicts
-HostkeyAlgorithms +ssh-dss
-
-# # Suppress banners
-# LogLevel QUIET
-
-# # Enable X11 forwarding for mouse events
-# Host *
-# ForwardX11 yes
+# Fix tab completion
+HashKnownHosts no
