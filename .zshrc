@@ -37,6 +37,8 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     ZSH_THEME='powerlevel10k/powerlevel10k'
 
     plugins=(git zsh-completions)
+
+    # Fix ssh completions
     autoload -Uz compinit && compinit -i
 
     #
