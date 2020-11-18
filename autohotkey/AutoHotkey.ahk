@@ -25,10 +25,7 @@
     run cmd /c "start todoist:"
     return
 
-; ; Invert mouse scroll
-; WheelUp::
-;     send {WheelDown}
-;     return
-; WheelDown::
-;     send {WheelUp}
-;     return
+; Disable mouse scroll
+^WheelDown::return
+^WheelUp::return
+#MaxHotkeysPerInterval 1000
