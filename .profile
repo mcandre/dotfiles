@@ -11,7 +11,7 @@
 #
 
 # Preserve WSL PATH, if any
-if [ -r /proc/version ] && ! grep 'Microsoft' /proc/version >/dev/null; then
+if [ -r /proc/version ] && ! grep -i 'microsoft' /proc/version >/dev/null; then
     # Skip for most Cygwin-like environments
     case "$(uname -s)" in
     MINGW*) ;;
