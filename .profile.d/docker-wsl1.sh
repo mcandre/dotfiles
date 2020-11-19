@@ -1,2 +1,4 @@
 #!/bin/sh
-export DOCKER_HOST='localhost:2375'
+[ -r /proc/version ] &&
+    grep 'Microsoft' /proc/version &&
+    export DOCKER_HOST='localhost:2375'
