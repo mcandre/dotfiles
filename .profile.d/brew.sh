@@ -1,6 +1,9 @@
 #!/bin/sh
 
+# Add Homebrew
 PATH="/usr/local/bin:/usr/local/sbin:$HOME/local/bin:$HOME/local/sbin:$PATH"
+
+# Workaround brew updated cabal vs cabal updated cabal
 PATH="$HOME/.cask/bin:$PATH"
 
 # Workaround pyenv shims vs. brew doctor
@@ -12,5 +15,4 @@ fi
 # shellcheck source=/dev/null
 PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
 
-# Workaround brew updated cabal vs cabal updated cabal
-export PATH="$HOME/.cabal/bin:$PATH"
+export PATH
