@@ -1,4 +1,5 @@
 {
+    "esversion": 6,
     "expr": true,
     "maxerr": 10000,
     "indent": 2,
