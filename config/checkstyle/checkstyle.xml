@@ -51,10 +51,6 @@ checkstyle -c checkstyle.xml -r src/
     <module name="RedundantImport"/>
     <module name="UnusedImports"/>
 
-    <module name="LineLength">
-      <property name="max" value="180" />
-    </module>
-
     <module name="MethodLength">
       <property name="max" value="350" />
     </module>
