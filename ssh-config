@@ -2,3 +2,9 @@
 
 # Fix tab completion
 HashKnownHosts no
+
+# Fix VSCode remote authentication
+# Host foo
+#   HostName foo
+#   User bar
+#   IdentityFile ~/.ssh/id_rsa
