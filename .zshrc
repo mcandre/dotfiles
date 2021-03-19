@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+# Fix brew PATH glitch
+[ -r "$HOME/.zshenv" ] &&
+    . "$HOME/.zshenv"
+
 # Fix cwd in WSL from non-Metro entrypoints
 if [ "$(pwd)" = '/mnt/c/Windows/System32' ]; then
     cd "$HOME"
