@@ -4,6 +4,9 @@ extends: "default"
 rules:
   comments: "disable"
   comments-indentation: "disable"
+  indentation:
+    spaces: 2
+    indent-sequences: false
   line-length: "disable"
   quoted-strings:
     quote-type: "double"
