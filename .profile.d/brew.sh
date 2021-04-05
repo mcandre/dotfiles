@@ -15,4 +15,11 @@ fi
 # shellcheck source=/dev/null
 PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
 
+# Prefer newer LLVM with fuzzing enabled
+# shellcheck source=/dev/null
+export CC='clang'
+export CXX='clang++'
+export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+PATH="$(brew --prefix)/opt/llvm/bin:$PATH"
+
 export PATH
