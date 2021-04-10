@@ -71,12 +71,22 @@ disable-services()
         echo "Disabled service $servicename"
     done
 
+    chmod -x /usr/libexec/evolution-addressbook-factory
+    chmod -x /usr/libexec/evolution-calendar-factory
+    chmod -x /usr/libexec/evolution-data-server/evolution-alarm-notify
+    chmod -x /usr/libexec/evolution-source-registry
+
     echo "All evolution services have been disabled."
     echo "Please restart for changes to take effect."
 }
 
 enable-services()
 {
+    chmod a+x /usr/libexec/evolution-addressbook-factory
+    chmod a+x /usr/libexec/evolution-calendar-factory
+    chmod a+x /usr/libexec/evolution-data-server/evolution-alarm-notify
+    chmod a+x /usr/libexec/evolution-source-registry
+
     local servicename servicefile
     for servicename in AddressBook Calendar Sources UserPrompter
     do
