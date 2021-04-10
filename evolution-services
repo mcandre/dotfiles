@@ -1,0 +1,94 @@
+#!/bin/bash
+
+## Improved version of the script at https://askubuntu.com/a/1068932
+##
+## Disables the Evolution mail program's services by moving the services files
+## to another directory.
+##
+## This must be run as root.
+##
+
+myname=$(basename "$0")
+
+promp_usage()
+{
+    echo "Usage: $myname ( --enable | --disable )"
+    exit 1
+}
+
+if [ $# -ne 1 ]
+then
+    promp_usage
+fi
+
+SERVICES_HOME="/usr/share/dbus-1/services"
+DISABLED_DIR="$SERVICES_HOME/disabled"
+
+
+die()
+{
+    local errorCode=$1
+    local errorMessage="$2"
+
+    echo "$errorMessage"
+    exit $errorCode
+}
+
+check_assumptions()
+{
+    # Make sure that we are running as root and that the
+    # services directory didn't change!
+    if ! [ $(id -u) = 0 ]; then
+        die -1 "Script must be run as root or sudo.  Exiting..."
+    fi
+
+    if [ ! -d "$SERVICES_HOME" ]; then
+        die -2 "Services directory $SERVICES_HOME does not exist.  Exiting..."
+    fi
+}
+
+find_evolution_services()
+{
+    find "$SERVICES_HOME" -maxdepth 1 \
+                          -type f \
+                          -name "org.gnome.evolution.dataserver.*" \
+                          ! -name "*.bak" \
+                          -printf "%f\0"
+}
+
+disable-services()
+{
+    mkdir -p "$DISABLED_DIR"
+
+    find_evolution_services | while IFS= read -r -d $'\0' servicename
+    do
+        # Tell dpkg/apt to update the file in DISABLED_DIR instead
+        # of the one in SERVICES_HOME
+        dpkg-divert --quiet --divert "$DISABLED_DIR/$servicename" --rename --add "$SERVICES_HOME/$servicename" \
+            || die -3 "Unable to divert service $servicename."
+
+        ln -snf /dev/null  "$SERVICES_HOME/$servicename"
+        echo "Disabled service $servicename"
+    done
+
+    echo "All evolution services have been disabled."
+    echo "Please restart for changes to take effect."
+}
+
+enable-services()
+{
+    local servicename servicefile
+    for servicename in AddressBook Calendar Sources UserPrompter
+    do
+        local servicefile=org.gnome.evolution.dataserver."$servicename".service
+        rm "$SERVICES_HOME/$servicefile"
+        dpkg-divert --rename --remove "$SERVICES_HOME/$servicefile"
+    done
+}
+
+check_assumptions
+case "$1" in
+    --enable) enable-services ;;
+    --disable) disable-services ;;
+    *) promp_usage ;;
+esac
