@@ -1,3 +1,4 @@
+.vscode
 # Install:
 #
 # cp .gitignore-global "$HOME/.gitignore-global"
@@ -8,14 +9,8 @@
 # git config --global --unset core.excludesfile
 # rm "$HOME/.gitignore-global"
 #
-# Created by https://www.toptal.com/developers/gitignore/api/direnv,intellij,emacs,linux,osx,sublimetext,textmate,vim,code,windows,ensime,VisualStudioCode
-# Edit at https://www.toptal.com/developers/gitignore?templates=direnv,intellij,emacs,linux,osx,sublimetext,textmate,vim,code,windows,ensime,VisualStudioCode
-
-### Code ###
-.vscode/*
-# !.vscode/tasks.json
-# !.vscode/launch.json
-*.code-workspace
+# Created by https://www.toptal.com/developers/gitignore/api/direnv,intellij,emacs,linux,osx,sublimetext,textmate,vim,vscode,windows,ensime
+# Edit at https://www.toptal.com/developers/gitignore?templates=direnv,intellij,emacs,linux,osx,sublimetext,textmate,vim,vscode,windows,ensime
 
 ### direnv ###
 .direnv
@@ -35,6 +30,7 @@ tramp
 # Org-mode
 .org-id-locations
 *_archive
+ltximg/**
 
 # flymake-mode
 *_flymake.*
@@ -281,12 +277,13 @@ tags
 # Persistent undo
 [._]*.un~
 
-### VisualStudioCode ###
-
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
-.ionide
+### vscode ###
+.vscode/*
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+*.code-workspace
 
 ### Windows ###
 # Windows thumbnail cache files
@@ -314,4 +311,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/direnv,intellij,emacs,linux,osx,sublimetext,textmate,vim,code,windows,ensime,VisualStudioCode
+# End of https://www.toptal.com/developers/gitignore/api/direnv,intellij,emacs,linux,osx,sublimetext,textmate,vim,vscode,windows,ensime
