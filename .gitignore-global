@@ -1,13 +1,13 @@
 .vscode
 # Install:
 #
-# cp .gitignore-global "$HOME/.gitignore-global"
-# git config --global core.excludesfile "$HOME/.gitignore-global"
+# cp .gitignore-global ~/.gitignore-global
+# git config --global core.excludesfile ~/.gitignore-global
 #
 # Uninstall:
 #
 # git config --global --unset core.excludesfile
-# rm "$HOME/.gitignore-global"
+# rm ~/.gitignore-global
 #
 # Created by https://www.toptal.com/developers/gitignore/api/direnv,intellij,emacs,linux,osx,sublimetext,textmate,vim,vscode,windows,ensime
 # Edit at https://www.toptal.com/developers/gitignore?templates=direnv,intellij,emacs,linux,osx,sublimetext,textmate,vim,vscode,windows,ensime
