@@ -22,7 +22,7 @@
 
 ; Control+Alt+W launches Todoist
 ^!w::
-    run cmd /c "start todoist:"
+    run "%userprofile%\AppData\Local\Programs\todoist\Todoist.exe"
     return
 
 ; Disable mouse scroll
