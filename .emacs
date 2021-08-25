@@ -1,4 +1,7 @@
-;; ln -s .../.emacs ~/.emacs
+;; cp .emacs ~/.emacs
+
+;; Save energy.
+(setq visible-cursor nil)
 
 ;; Typing text replaces marked regions
 (delete-selection-mode 1)
@@ -139,10 +142,9 @@
       ;; Workaround for emacs.exe's lack of HTTPS/SSL
       (if (string= system-type "windows-nt")
           '(("melpa" . "http://melpa.org/packages/")
-            ("gnu" . "http://elpa.gnu.org/packages/"))
+            ("elpa" . "http://elpa.gnu.org/packages/"))
           '(("melpa" . "https://melpa.org/packages/")
-            ("marmalade" . "https://marmalade-repo.org/packages/")
-            ("gnu" . "https://elpa.gnu.org/packages/"))))
+            ("elpa" . "https://elpa.gnu.org/packages/"))))
 (package-initialize)
 
 ;; (require 'cask "$HOME/.cask/cask.el")
@@ -404,16 +406,20 @@
   (add-hook 'ps-mode-hook
             (lambda ()
               (setq ps-mode-tab tab-width))))
-;; Mozart/Oz indentation
-;; Work around emacs.exe's lack of HTTP/SSL support
-(if (not (string= system-type "windows-nt"))
-    (use-package oz
-     :mode ("\\.oz$" . oz-mode)
-     :defines oz-indent-chars
-     :init
-     (add-hook 'oz-mode-hook
-      (lambda ()
-      (setq oz-indent-chars tab-width)))))
+
+;; Missing from MELPA
+;; (use-package oz
+;;   :mode ("\\.oz$" . oz-mode))
+;; ;; Mozart/Oz indentation
+;; ;; Work around emacs.exe's lack of HTTP/SSL support
+;; (if (not (string= system-type "windows-nt"))
+;;     (use-package oz
+;;      :mode ("\\.oz$" . oz-mode)
+;;      :defines oz-indent-chars
+;;      :init
+;;      (add-hook 'oz-mode-hook
+;;       (lambda ()
+;;       (setq oz-indent-chars tab-width)))))
 
 (defun hard-tabs ()
   (setq-default indent-tabs-mode t)
@@ -533,13 +539,14 @@
               (setq-default auto-revert-interval 1)
               (auto-revert-set-timer))))
 
-;; Hide dired file permissions
-(use-package dired-details
-  :commands dired-details-install
-  :defines dired-details-hidden-string
-  :config
-  (dired-details-install)
-  (setq dired-details-hidden-string ""))
+;; Missing from MELPA
+;; ;; Hide dired file permissions
+;; (use-package dired-details
+;;   :commands dired-details-install
+;;   :defines dired-details-hidden-string
+;;   :config
+;;   (dired-details-install)
+;;   (setq dired-details-hidden-string ""))
 
 ;; (use-package ack-and-a-half
 ;;   :bind (("C-x C-a" . ack-and-a-half)
@@ -672,22 +679,21 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 (use-package gitignore-mode
   :mode "\\.\\(gitignore|jshintignore\\)$")
 
-;; Ironically, working around emacs.exe's lack of HTTPS/SSL support
-(if (not (string= system-type "windows-nt"))
-    (use-package ntcmd
-      :no-require t
-      :mode ("\\.bat$" . ntcmd-mode)))
-
-;; (use-package oz
-;;   :mode ("\\.oz$" . oz-mode))
+;; Missing from MELPA
+;; ;; Ironically, working around emacs.exe's lack of HTTPS/SSL support
+;; (if (not (string= system-type "windows-nt"))
+;;     (use-package ntcmd
+;;       :no-require t
+;;       :mode ("\\.bat$" . ntcmd-mode)))
 
 (use-package xahk-mode
   :mode "\\.ahk$")
 
-;; Work around emacs.exe's lack of HTTP/SSL support
-(if (not (string= system-type "windows-nt"))
-    (use-package tbemail
-      :mode ("\\.eml$" . tbemail-mode)))
+;; Missing from MELPA
+;; ;; Work around emacs.exe's lack of HTTP/SSL support
+;; (if (not (string= system-type "windows-nt"))
+;;     (use-package tbemail
+;;       :mode ("\\.eml$" . tbemail-mode)))
 
 (use-package wolfram-mode
   :mode ("\\.ma$" . wolfram-mode))
@@ -970,14 +976,6 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 
 (use-package logstash-conf
   :mode ("\\.logstash.conf$" . logstash-conf-mode))
-
-;; Open split shell on launch
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (let ((w (split-window-below 2)))
-              (select-window w)
-              (sh))
-            (other-window 1)))
 
 ;; Enable erase-buffer function
 (put 'erase-buffer 'disabled nil)
