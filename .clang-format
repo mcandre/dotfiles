@@ -2,4 +2,6 @@
 IndentWidth: 4
 SpaceAfterCStyleCast: true
 FixNamespaceComments: false
-NamespaceIndentation: "All"
+NamespaceIndentation: "None"
+ColumnLimit: 0
+Cpp11BracedListStyle: false
