@@ -1,0 +1,5 @@
+---
+IndentWidth: 4
+SpaceAfterCStyleCast: true
+FixNamespaceComments: false
+NamespaceIndentation: "All"
