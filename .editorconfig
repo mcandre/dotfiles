@@ -30,8 +30,10 @@ indent_size = 2
 [{*.gitkeep,__init__.py}]
 insert_final_newline = none
 
+#
 # Windows junk
-[{*.cmd,*.bat,*.reg,*.ps1,*.vbs,*.cs,*.fs,*.fsx,*.ini,*.ahk}]
+#
+[{*.cmd,*.bat,*.reg,*.ps1,*.vbs,*.cs,*.fs,*.fsx,*.ini,*.ahk,*.psenvrc}]
 end_of_line = crlf
 insert_final_newline = false
 

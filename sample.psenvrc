@@ -1,0 +1,24 @@
+#
+# Install:
+#
+# PS> cp sample.psenvrc .psenvrc
+# PS> Edit-DirEnvRc
+# Ctrl+S
+#
+# Uninstall:
+#
+# PS> rm .psenvrc
+#
+
+#
+# Load MSVC
+#
+cmd.exe /c "`"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat`" x64 & set" |
+foreach {
+    if ($_ -match "=") {
+        $v = $_.split("=")
+        [Environment]::SetEnvironmentVariable($v[0], $v[1])
+    }
+}
+
+$Env:CXXFLAGS = "/std:c++17 /EHsc"
