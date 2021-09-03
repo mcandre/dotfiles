@@ -21,4 +21,4 @@ foreach {
     }
 }
 
-$Env:CXXFLAGS = "/std:c++17 /EHsc"
+$Env:CXXFLAGS = "/std:c++17 /EHsc /Ox /Wv:18"
