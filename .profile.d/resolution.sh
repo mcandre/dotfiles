@@ -1,5 +1,5 @@
 #!/bin/sh
-rez() {
+resolution() {
     ffprobe -v quiet \
         -print_format json \
         -show_format \
