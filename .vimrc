@@ -170,31 +170,31 @@ call plug#begin('~/.vim/plugged')
     " Work around Vim corruption
     " Plug 'bruno-/vim-alt-mappings'
 
+    Plug 'benjaminwhite/Benokai'
     Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'tpope/vim-fugitive'
+    Plug 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
+    Plug 'editorconfig/editorconfig-vim'
+    Plug 'elubow/cql-vim'
+    Plug 'fatih/vim-go'
+    Plug 'fsouza/go.vim'
+    Plug 'godlygeek/tabular'
+    Plug 'hashivim/vim-terraform'
+    Plug 'kylelaker/riscv.vim'
+    Plug 'mcandre/Conque-Shell'
+    Plug 'moll/vim-bbye'
+    Plug 'mtth/scratch.vim'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'robbles/logstash.vim'
+    Plug 'scrooloose/nerdtree'
     Plug 'tomtom/tcomment_vim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'vim-scripts/greplace.vim'
+    Plug 'vim-scripts/groovy.vim'
+    Plug 'wting/rust.vim'
 
     " Workaround https://github.com/vim-airline/vim-airline/issues/1325
     " Plug 'bling/vim-airline'
     " Plug 'vim-airline/vim-airline-themes'
-
-    Plug 'benjaminwhite/Benokai'
-    Plug 'fsouza/go.vim'
-    Plug 'wting/rust.vim'
-    Plug 'godlygeek/tabular'
-    Plug 'hashivim/vim-terraform'
-    Plug 'plasticboy/vim-markdown'
-    Plug 'mtth/scratch.vim'
-    Plug 'vim-scripts/greplace.vim'
-    Plug 'mcandre/Conque-Shell'
-    Plug 'elubow/cql-vim'
-    Plug 'scrooloose/nerdtree'
-    Plug 'moll/vim-bbye'
-    Plug 'editorconfig/editorconfig-vim'
-    Plug 'fatih/vim-go'
-    Plug 'robbles/logstash.vim'
-    Plug 'vim-scripts/groovy.vim'
-    Plug 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
 call plug#end()
 
 " " Enable Powerline fonts for airline
