@@ -20,7 +20,7 @@ if [ -r /proc/version ] && ! grep -i 'microsoft' /proc/version >/dev/null; then
 
     *)
         # Reset PATH to a clean state
-        export PATH='/usr/bin:/bin:/usr/sbin:/sbin'
+        export PATH='/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin'
         ;;
     esac
 fi
