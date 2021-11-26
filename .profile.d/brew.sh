@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Add Homebrew
-PATH="/usr/local/bin:/usr/local/sbin:$HOME/local/bin:$HOME/local/sbin:$PATH"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Workaround brew updated cabal vs cabal updated cabal
 PATH="$HOME/.cask/bin:$PATH"
