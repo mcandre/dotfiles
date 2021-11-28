@@ -8,7 +8,7 @@ PATH="$HOME/.cask/bin:$PATH"
 
 # Workaround pyenv shims vs. brew doctor
 if command -v pyenv >/dev/null; then
-    alias brew='env PATH=${PATH//$(pyenv root)\/shims:/} brew'
+    alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 fi
 
 # Prefer GNU findutils
@@ -21,5 +21,4 @@ export CC='clang'
 export CXX='clang++'
 export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
 PATH="$(brew --prefix)/opt/llvm/bin:$PATH"
-
 export PATH

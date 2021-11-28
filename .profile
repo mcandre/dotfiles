@@ -11,7 +11,7 @@
 #
 
 # Preserve WSL PATH, if any
-if [ -r /proc/version ] && ! grep -i 'microsoft' /proc/version >/dev/null; then
+if [ ! -r /proc/version ] || ! grep -i 'microsoft' /proc/version >/dev/null; then
     # Skip for most Cygwin-like environments
     case "$(uname -s)" in
     MINGW*) ;;
@@ -20,11 +20,14 @@ if [ -r /proc/version ] && ! grep -i 'microsoft' /proc/version >/dev/null; then
 
     *)
         # Reset PATH to a clean state
-        export PATH='/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin'
+        export PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
         ;;
     esac
 fi
 
+#
+# Load extras
+#
 [ -z "$(find "$HOME/.profile.d/enabled" -prune -empty 2>/dev/null || echo 'missing')" ] &&
     for f in "$HOME/.profile.d/enabled/"*; do
         # shellcheck source=/dev/null
