@@ -1,2 +1,2 @@
 #!/bin/sh
-export PATH="$PATH:$HOME/bin"
+export PATH="$HOME/bin:$PATH"
