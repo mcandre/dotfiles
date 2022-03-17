@@ -1,4 +1,4 @@
-# Copy or Soft Link to ...\Documents\WindowsPowerShell\profile.ps1
+# Copy or Soft Link to ~\Documents\WindowsPowerShell\profile.ps1
 #
 # Requires elevated permissions to be loaded:
 #

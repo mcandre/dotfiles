@@ -36,6 +36,9 @@ insert_final_newline = none
 [*.{cmd,bat,reg,ps1,vbs,cs,fs,fsx,ini,ahk,psenvrc}]
 end_of_line = crlf
 insert_final_newline = false
+[settings.json]
+end_of_line = crlf
+insert_final_newline = false
 
 # Lexer restrictions
 [{makefile,Makefile,GNUmakefile,BSDmakefile}]
