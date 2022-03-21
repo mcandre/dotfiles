@@ -17,6 +17,6 @@ https://github.com/mcandre/dotfiles
 
 [Monokai](http://www.reddit.com/r/commandline/comments/1q4b90/is_there_a_monokai_port_for_nano/)
 
-# Git Hooks
-
-See `hooks/`.
+```text
+./
+```
