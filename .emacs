@@ -687,8 +687,9 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 ;;       :no-require t
 ;;       :mode ("\\.bat$" . ntcmd-mode)))
 
-(use-package xahk-mode
-  :mode "\\.ahk$")
+;; Missing from MELPA
+;; (use-package xahk-mode
+;;   :mode "\\.ahk$")
 
 ;; Missing from MELPA
 ;; ;; Work around emacs.exe's lack of HTTP/SSL support
