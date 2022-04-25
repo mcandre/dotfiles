@@ -676,8 +676,9 @@ line otherwise go to the beginning of the line indent forward by `tab-width`"
 (use-package mustache-mode
   :mode "\\.\\(mst|mustache\\)$")
 
-(use-package gitignore-mode
-  :mode "\\.\\(gitignore|jshintignore\\)$")
+;; Missing from MELPA
+;; (use-package gitignore-mode
+;;   :mode "\\.\\(gitignore|jshintignore\\)$")
 
 ;; Missing from MELPA
 ;; ;; Ironically, working around emacs.exe's lack of HTTPS/SSL support
