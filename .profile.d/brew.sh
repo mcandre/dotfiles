@@ -1,6 +1,8 @@
 #!/bin/sh
 
 # Add Homebrew
+unset INFOPATH
+unset MANPATH
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Workaround brew updated cabal vs cabal updated cabal

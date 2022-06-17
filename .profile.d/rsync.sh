@@ -8,4 +8,4 @@ if [ -r /proc/version ] && grep 'Microsoft' /proc/version >/dev/null; then
 fi
 
 # Recursive, aggregate progress
-alias rsync='rsync ${DISABLE_IPV6} -a --info progress2'
+alias rsync='rsync ${DISABLE_IPV6} --old-args -a --info progress2'
