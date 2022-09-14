@@ -9,9 +9,6 @@ shfmt:
 bashate:
 	stank . | grep -v node_modules | xargs bashate
 
-checkbashisms:
-	@stank . | grep -v node_modules | xargs checkbashisms
-
 funk:
 	@funk .
 
