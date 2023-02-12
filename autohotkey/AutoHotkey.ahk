@@ -20,9 +20,9 @@
     run steam.exe
     return
 
-; Control+Alt+W launches Todoist
+; Control+Alt+W launches Microsoft To Do
 ^!w::
-    run "%userprofile%\AppData\Local\Programs\todoist\Todoist.exe"
+    run powershell.exe -Command Start-Process -WindowStyle Hidden "ms-to-do:"
     return
 
 ; Disable mouse scroll
