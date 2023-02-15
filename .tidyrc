@@ -1,4 +1,10 @@
-# ln -s .../.tidyrc ~/.tidyrc
+# Install:
+#
+# cp .tidyrc ~
+#
+# Uninstall:
+#
+# rm ~/.tidyrc
 
 # HTML 5
 
