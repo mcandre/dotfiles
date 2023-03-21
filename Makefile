@@ -23,7 +23,12 @@ yamllint:
 checkmake:
 	@find . \
 		-type f \
-		\( -iname '*makefile*' -o -iname '*.mk' -o -iname '*.make' \) \
+		\( \
+			-iname Makefile -o \
+			-iname GNUmakefile -o \
+			-iname '*.mk' -o \
+			-iname '*.make' \
+		\) \
 		-print0 | \
 		xargs -0 -n 1 checkmake
 
