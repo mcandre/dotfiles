@@ -33,7 +33,7 @@ insert_final_newline = none
 #
 # Windows junk
 #
-[*.{cmd,bat,reg,ps1,vbs,cs,fs,fsx,ini,ahk,psenvrc}]
+[*.{cmd,bat,reg,ps1,vbs,cs,fs,fsx,ahk,psenvrc}]
 end_of_line = crlf
 insert_final_newline = false
 [settings.json]

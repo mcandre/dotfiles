@@ -1,3 +1,5 @@
+.PHONY: all lint test clean
+
 all: lint
 
 safety:
@@ -18,4 +20,17 @@ shellcheck:
 yamllint:
 	@yamllint -s .yamllint .
 
-lint: safety shfmt funk shellcheck yamllint
+checkmake:
+	@find . \
+		-type f \
+		\( -iname '*makefile*' -o -iname '*.mk' -o -iname '*.make' \) \
+		-print0 | \
+		xargs -0 -n 1 checkmake
+
+lint: safety shfmt funk shellcheck yamllint checkmake
+
+test:
+	@echo "nothing to do"
+
+clean:
+	@echo "nothing to do"
