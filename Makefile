@@ -6,7 +6,7 @@ safety:
 	safety check
 
 shfmt:
-	stank . | grep -v node_modules | xargs shfmt -w -i 4
+	@stank -exInterp zsh . | grep -v node_modules | xargs shfmt -w -i 4
 
 bashate:
 	stank . | grep -v node_modules | xargs bashate

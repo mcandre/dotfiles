@@ -5,4 +5,5 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
 # Fix Ansible
-export ANSIBLE_PYTHON_INTERPRETER="$(which python)"
+ANSIBLE_PYTHON_INTERPRETER="$(which python)"
+export ANSIBLE_PYTHON_INTERPRETER

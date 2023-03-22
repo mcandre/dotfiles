@@ -5,5 +5,8 @@
 #
 
 gitignore() {
-    curl -L -s "https://www.toptal.com/developers/gitignore/api/$@"
+    IFS=','
+    TERMS=$*
+    unset IFS
+    curl -L -s "https://www.toptal.com/developers/gitignore/api/$TERMS"
 }

@@ -12,11 +12,10 @@ DISABLE_NEW_ARGS=''
 DISTRO="$(uname -a)"
 
 case "$DISTRO" in
-    Darwin*)
-        DISABLE_NEW_ARGS='--old-args'
-        ;;
-    *)
-        ;;
+Darwin*)
+    DISABLE_NEW_ARGS='--old-args'
+    ;;
+*) ;;
 esac
 
 # Recursive, aggregate progress

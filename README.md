@@ -6,7 +6,7 @@ https://github.com/mcandre/dotfiles
 
 # REQUIREMENTS
 
-* [Go](https://golang.org/) 1.19+ with `go install github.com/mcandre/accio/cmd/accio@v0.0.3`, `accio -install`, and `modvendor -copy='**/*.h **/*.c **/*.hpp **/*.cpp'` re-run after every `go mod vendor` execution
+* [Go](https://golang.org/) 1.20.2+ with `go install github.com/mcandre/accio/cmd/accio@v0.0.4` and `accio -install`execution
 * [Node.js](https://nodejs.org/en) 16.14.2+ with `npm install -g snyk@1.996.0`
 * [Python](https://www.python.org/) 3.11.2+ with `pip[3] install --upgrade pip setuptools` and `pip[3] install -r requirements-dev.txt`
 * [GNU findutils](https://www.gnu.org/software/findutils/)
