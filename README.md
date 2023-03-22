@@ -6,18 +6,12 @@ https://github.com/mcandre/dotfiles
 
 # REQUIREMENTS
 
-## Optional
-
-* [checkmake](https://github.com/mrtazz/checkmake)
+* [Go](https://golang.org/) 1.19+ with `go install github.com/mcandre/accio/cmd/accio@v0.0.3`, `accio -install`, and `modvendor -copy='**/*.h **/*.c **/*.hpp **/*.cpp'` re-run after every `go mod vendor` execution
+* [Node.js](https://nodejs.org/en) 16.14.2+ with `npm install -g snyk@1.996.0`
+* [Python](https://www.python.org/) 3.11.2+ with `pip[3] install --upgrade pip setuptools` and `pip[3] install -r requirements-dev.txt`
 * [GNU findutils](https://www.gnu.org/software/findutils/)
 * [GNU make](https://www.gnu.org/software/make/)
-* [stank](https://github.com/mcandre/stank) (e.g. `go get github.com/mcandre/stank/...`)
-* [Python](https://www.python.org) 3+ (for yamllint)
 
 # TERMINAL COLORS
 
 [Monokai](http://www.reddit.com/r/commandline/comments/1q4b90/is_there_a_monokai_port_for_nano/)
-
-```text
-./
-```
