@@ -3,19 +3,25 @@
 all: lint
 
 safety:
-	safety check
+	@safety check
 
 shfmt:
-	@stank -exInterp zsh . | grep -v node_modules | xargs shfmt -w -i 4
+	@stank -exInterp zsh . | \
+		grep -v node_modules | \
+		xargs shfmt -w -i 4
 
 bashate:
-	stank . | grep -v node_modules | xargs bashate
+	@stank . | \
+		grep -v node_modules | \
+		xargs bashate
 
 funk:
 	@funk .
 
 shellcheck:
-	@stank -exInterp zsh . | grep -v node_modules | xargs shellcheck
+	@stank -exInterp zsh . | \
+		grep -v node_modules | \
+		xargs shellcheck
 
 yamllint:
 	@yamllint -s .yamllint .

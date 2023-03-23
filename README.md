@@ -6,11 +6,12 @@ https://github.com/mcandre/dotfiles
 
 # REQUIREMENTS
 
-* [Go](https://golang.org/) 1.20.2+ with `go install github.com/mcandre/accio/cmd/accio@v0.0.4` and `accio -install`execution
+* [GNU make](https://www.gnu.org/software/make/) 3+
+* a [sh](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/sh.html) implementation
+* [GNU findutils](https://www.gnu.org/software/findutils/)
+* [Go](https://golang.org/) 1.20.2+ with `go install github.com/mcandre/accio/cmd/accio@v0.0.4` and `accio -install`
 * [Node.js](https://nodejs.org/en) 16.14.2+ with `npm install -g snyk@1.996.0`
 * [Python](https://www.python.org/) 3.11.2+ with `pip[3] install --upgrade pip setuptools` and `pip[3] install -r requirements-dev.txt`
-* [GNU findutils](https://www.gnu.org/software/findutils/)
-* [GNU make](https://www.gnu.org/software/make/)
 
 # TERMINAL COLORS
 
