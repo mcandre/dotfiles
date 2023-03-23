@@ -1,26 +1,29 @@
-.PHONY: all lint test clean
+.PHONY: all audit lint test clean
 
 all: lint
+
+audit: safety
 
 safety:
 	@safety check
 
 shfmt:
 	@stank -exInterp zsh . | \
-		grep -v node_modules | \
 		xargs -n 1 shfmt -w -i 4
 
 bashate:
 	@stank . | \
-		grep -v node_modules | \
 		xargs -n 1 bashate -i E006
 
 funk:
 	@funk .
 
+slick:
+	@stank -sh . | \
+		xargs -n 1 slick
+
 shellcheck:
 	@stank -exInterp zsh . | \
-		grep -v node_modules | \
 		xargs -n 1 shellcheck
 
 yamllint:
@@ -38,7 +41,7 @@ checkmake:
 		-print0 | \
 			xargs -0 -n 1 checkmake
 
-lint: safety shfmt funk shellcheck yamllint checkmake
+lint: shfmt funk slick shellcheck yamllint checkmake
 
 test:
 	@echo "nothing to do"
