@@ -1,0 +1,14 @@
+#!/bin/sh
+unset IFS
+set -euf
+
+cargo install --force unmake@0.0.3
+
+go install github.com/mcandre/stank/...@v0.0.24
+go install github.com/mrtazz/checkmake/...@0.2.1
+go install mvdan.cc/sh/v3/cmd/shfmt@latest
+
+npm install -g snyk@1.1140.0
+
+pip3 install --upgrade pip setuptools
+pip3 install -r requirements-dev.txt

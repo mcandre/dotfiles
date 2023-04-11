@@ -41,7 +41,10 @@ checkmake:
 		-print0 | \
 			xargs -0 -n 1 checkmake
 
-lint: shfmt funk slick shellcheck yamllint checkmake
+unmake:
+	@unmake makefile
+
+lint: shfmt funk slick shellcheck yamllint checkmake unmake
 
 test:
 	@echo "nothing to do"
