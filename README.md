@@ -13,7 +13,7 @@ https://github.com/mcandre/dotfiles
 * [Node.js](https://nodejs.org/en) 16.14.2+
 * [Python](https://www.python.org/) 3.11.2+
 * [Rust](https://www.rust-lang.org/en-US/) 1.68.2+
-* a POSIX compatible [sh](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/sh.html) implementation
+* a POSIX compatible [sh](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/sh.html) implementation (e.g., bash, ksh, zsh)
 * Provision additional dev tools with `./install`
 
 ## Recommended
