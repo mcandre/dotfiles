@@ -12,5 +12,6 @@ rules:
     quote-type: "double"
 
 ignore: |
+  CMakeFiles
   node_modules
   vendor
