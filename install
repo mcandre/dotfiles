@@ -2,7 +2,7 @@
 unset IFS
 set -euf
 
-cargo install --force unmake@0.0.3
+cargo install --force unmake@0.0.6
 
 go install github.com/mcandre/stank/...@v0.0.24
 go install github.com/mrtazz/checkmake/...@0.2.1
