@@ -1,7 +1,7 @@
 [core]
-    editor = vi
-    excludesfile = /Users/andrew/.gitignore-global
-    ignorecase = false
+editor = vi
+excludesfile = /Users/andrew/.gitignore-global
+ignorecase = false
 
 [push]
 default = simple
@@ -20,6 +20,7 @@ rebase = true
 
 [mergetool]
 keepBackup = false
+
 [user]
-    name = Andrew Pennebaker
-    email = andrew.pennebaker@gmail.com
+name = Andrew Pennebaker
+email = andrew.pennebaker@gmail.com
