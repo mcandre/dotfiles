@@ -29,22 +29,11 @@ shellcheck:
 yamllint:
 	@yamllint -s .yamllint .
 
-checkmake:
-	@find . \
-		-type f \
-		\( \
-			-iname Makefile -o \
-			-iname GNUmakefile -o \
-			-iname '*.mk' -o \
-			-iname '*.make' \
-		\) \
-		-print0 | \
-			xargs -0 -n 1 checkmake
-
 unmake:
 	@unmake makefile
+	@unmake install.mk
 
-lint: shfmt funk slick shellcheck yamllint checkmake unmake
+lint: shfmt funk slick shellcheck yamllint unmake
 
 test:
 	@echo "nothing to do"
