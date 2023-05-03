@@ -1,42 +1,37 @@
-.PHONY: all audit lint test clean
+.POSIX:
+.SILENT:
+.PHONY: all audit lint safety shfmt bashate funk slick shellcheck yamllint unmake
 
 all: lint
 
 audit: safety
 
 safety:
-	@safety check
+	safety check
 
 shfmt:
-	@stank -exInterp zsh . | \
+	stank -exInterp zsh . | \
 		xargs -n 1 shfmt -w -i 4
 
 bashate:
-	@stank . | \
+	stank . | \
 		xargs -n 1 bashate -i E006
 
 funk:
-	@funk .
+	funk .
 
 slick:
-	@stank -sh . | \
+	stank -sh . | \
 		xargs -n 1 slick
 
 shellcheck:
-	@stank -exInterp zsh . | \
+	stank -exInterp zsh . | \
 		xargs -n 1 shellcheck
 
 yamllint:
-	@yamllint -s .yamllint .
+	yamllint -s .yamllint .
 
 unmake:
-	@unmake makefile
-	@unmake install.mk
+	unmake .
 
 lint: shfmt funk slick shellcheck yamllint unmake
-
-test:
-	@echo "nothing to do"
-
-clean:
-	@echo "nothing to do"
