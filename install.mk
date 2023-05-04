@@ -3,7 +3,7 @@
 .PHONY: all
 
 all:
-	cargo install --force unmake@0.0.10
+	cargo install --force unmake@0.0.11
 
 	go install github.com/mcandre/slick/cmd/slick@v0.0.6
 	go install github.com/mcandre/stank/...@v0.0.24

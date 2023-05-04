@@ -1,6 +1,16 @@
 .POSIX:
 .SILENT:
-.PHONY: all audit lint safety shfmt bashate funk slick shellcheck yamllint unmake
+.PHONY: all \
+	audit \
+	lint \
+	safety \
+	shfmt \
+	bashate \
+	funk \
+	slick \
+	shellcheck \
+	unmake \
+	yamllint
 
 all: lint
 
@@ -28,10 +38,10 @@ shellcheck:
 	stank -exInterp zsh . | \
 		xargs -n 1 shellcheck
 
-yamllint:
-	yamllint -s .yamllint .
-
 unmake:
 	unmake .
 
-lint: shfmt funk slick shellcheck yamllint unmake
+yamllint:
+	yamllint -s .yamllint .
+
+lint: shfmt funk slick shellcheck unmake yamllint
