@@ -9,15 +9,19 @@
 	funk \
 	slick \
 	shellcheck \
+	snyk \
 	unmake \
 	yamllint
 
 all: lint
 
-audit: safety
+audit: safety snyk
 
 safety:
 	safety check
+
+snyk:
+	snyk test
 
 shfmt:
 	stank -exInterp zsh . | \
