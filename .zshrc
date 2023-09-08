@@ -46,6 +46,8 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
         zsh-completions
     )
 
+    zstyle ':completion:*:*:-command-:*:*' ignored-patterns 'Magick*-config|magick-script'
+
     #
     # Fix host completion
     # https://git.geekify.de/sqozz/prezto_config/src/branch/sqozz_config/modules/completion/init.zsh
