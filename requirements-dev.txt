@@ -1,2 +1,2 @@
-safety>=2.3.5,<3.0
+safety
 yamllint>=1.11.1,<2.0
