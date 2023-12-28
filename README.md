@@ -11,7 +11,7 @@ https://github.com/mcandre/dotfiles
 * [GNU grep](https://www.gnu.org/software/grep/)
 * [Go](https://golang.org/) 1.20.2+
 * [Node.js](https://nodejs.org/en) 16.14.2+
-* [Python](https://www.python.org/) 3.11.2+
+* [Python](https://www.python.org/) 3.12.1+
 * [Rust](https://www.rust-lang.org/en-US/) 1.68.2+
 * Provision additional dev tools with `make -f install.mk`
 
