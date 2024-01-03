@@ -22,10 +22,10 @@ jobs:
     # Debian-based Ubuntu GitHub Actions base OS is
     # expected to present unresolvable CVE's.
     #
-    # Snyk requires authentication setup.
-    #
-    # Disabling (GitHub Actions Hosted) `make audit` runner step for now.
+    # Disabling (GitHub Actions Hosted) safety runner step for now.
     # Care when merging pull requests.
     # In any case, all CI/CD jobs can be peformed locally.
     #
-    # - run: "make audit"
+    - run: "make snyk"
+      env:
+        SNYK_TOKEN: "${{ secrets.SNYK_TOKEN }}"
