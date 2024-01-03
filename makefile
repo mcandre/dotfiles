@@ -2,13 +2,13 @@
 .SILENT:
 .PHONY: all \
 	audit \
-	lint \
-	safety \
-	shfmt \
 	bashate \
 	funk \
-	slick \
+	lint \
+	safety \
 	shellcheck \
+	shfmt \
+	slick \
 	snyk \
 	unmake \
 	yamllint
@@ -17,39 +17,46 @@ all: lint
 
 audit: safety snyk
 
-safety:
-	safety check
-
-snyk:
-	snyk test
-
-shfmt:
-	stank -exInterp zsh . | \
-		grep -v .sample | \
-		xargs -n 1 shfmt -w -i 4
-
 bashate:
-	stank . | \
+	stank -exInterp zsh . | \
 		grep -v .sample | \
 		xargs -n 1 bashate -i E006
 
 funk:
 	funk .
 
-slick:
-	stank -sh . | \
-		grep -v .sample | \
-		xargs -n 1 slick
+lint: \
+	bashate \
+	funk \
+	shellcheck \
+	shfmt \
+	slick \
+	unmake \
+	yamllint
+
+safety:
+	safety check
 
 shellcheck:
 	stank -exInterp zsh . | \
 		grep -v .sample | \
 		xargs -n 1 shellcheck
 
+shfmt:
+	stank -exInterp zsh . | \
+		grep -v .sample | \
+		xargs -n 1 shfmt -w -i 4
+
+slick:
+	stank -sh . | \
+		grep -v .sample | \
+		xargs -n 1 slick
+
+snyk:
+	snyk test
+
 unmake:
 	unmake .
 
 yamllint:
 	yamllint -s .yamllint .
-
-lint: shfmt funk slick shellcheck unmake yamllint
