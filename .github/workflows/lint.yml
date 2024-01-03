@@ -9,10 +9,11 @@ jobs:
     env:
       GOPATH: "/home/runner/go"
     steps:
-    - run: "echo \"${PATH}:${GOPATH}/bin\" >> $GITHUB_PATH"
+    - run: "echo \"/usr/local/go/bin\" >> $GITHUB_PATH"
+    - run: "echo \"${GOPATH}/bin\" >> $GITHUB_PATH"
     - uses: "actions/checkout@v4"
-    - run: "sudo apt-add-repository ppa:longsleep/golang-backports"
-    - run: "sudo apt-get update"
-    - run: "sudo apt-get install -y cargo golang-1.21 make npm"
+    - run: "sudo apt-get install -y cargo make npm wget"
+    - run: "wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz"
+    - run: "sudo tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz"
     - run: "make -f install.mk"
     - run: "make lint"

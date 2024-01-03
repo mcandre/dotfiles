@@ -25,10 +25,12 @@ snyk:
 
 shfmt:
 	stank -exInterp zsh . | \
+		grep -v .sample | \
 		xargs -n 1 shfmt -w -i 4
 
 bashate:
 	stank . | \
+		grep -v .sample | \
 		xargs -n 1 bashate -i E006
 
 funk:
@@ -36,10 +38,12 @@ funk:
 
 slick:
 	stank -sh . | \
+		grep -v .sample | \
 		xargs -n 1 slick
 
 shellcheck:
 	stank -exInterp zsh . | \
+		grep -v .sample | \
 		xargs -n 1 shellcheck
 
 unmake:
