@@ -12,7 +12,7 @@ https://github.com/mcandre/dotfiles
 * [Go](https://golang.org/) 1.21.5+
 * [Node.js](https://nodejs.org/en) 20.10.0+
 * [Python](https://www.python.org/) 3.12.1+
-* [Rust](https://www.rust-lang.org/en-US/) 1.68.2+
+* [Rust](https://www.rust-lang.org/en-US/) 1.75.0+
 * Provision additional dev tools with `make -f install.mk`
 
 ## Recommended
