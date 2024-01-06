@@ -1,2 +1,2 @@
 #!/bin/sh
-export PATH="${PATH}:${HOME}/.local/bin"
+export PATH="${PATH}:${HOME}/.cabal/bin:${HOME}/.local/bin"
