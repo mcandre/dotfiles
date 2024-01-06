@@ -6,14 +6,12 @@ https://github.com/mcandre/dotfiles
 
 # REQUIREMENTS
 
-* a POSIX compliant [make](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/make.html) implementation (e.g. GNU make, BSD make, etc.)
-* GNU compatible [findutils](https://www.gnu.org/software/findutils/)
-* [GNU grep](https://www.gnu.org/software/grep/)
+* POSIX compatible [findutils](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/find.html)
+* POSIX compatible [grep](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/grep.html)
+* POSIX compatible [sh](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/sh.html)
 * [Go](https://golang.org/) 1.21.5+
-* [Node.js](https://nodejs.org/en) 20.10.0+
 * [Python](https://www.python.org/) 3.12.1+
-* [Rust](https://www.rust-lang.org/en-US/) 1.75.0+
-* Provision additional dev tools with `make -f install.mk`
+* Provision additional dev tools with `./install`
 
 ## Recommended
 
@@ -27,11 +25,11 @@ https://github.com/mcandre/dotfiles
 # AUDIT
 
 ```console
-$ make audit
+$ ./build audit
 ```
 
 # LINT
 
 ```console
-$ make lint
+$ ./build [lint]
 ```

@@ -1,0 +1,63 @@
+#!/bin/sh
+unset IFS
+set -euf
+
+DEFAULT_TASK='lint'
+
+audit() {
+    safety
+}
+
+lint() {
+    bashate
+    funk
+    shellcheck
+    shfmt
+    slick
+    yamllint
+}
+
+bashate() {
+    stank -exInterp zsh . |
+        grep -v .sample |
+        xargs -n 1 bashate -i E006
+}
+
+funk() {
+    command funk .
+}
+
+safety() {
+    command safety check
+}
+
+shellcheck() {
+    stank -exInterp zsh . |
+        grep -v .sample |
+        xargs -n 1 shellcheck
+}
+
+shfmt() {
+    stank -exInterp zsh . |
+        grep -v .sample |
+        xargs -n 1 shfmt -w -i 4
+}
+
+slick() {
+    stank -sh . |
+        grep -v .sample |
+        xargs -n 1 slick
+}
+
+yamllint() {
+    command yamllint -s .yamllint .
+}
+
+if [ "$#" -eq 0 ]; then
+    "$DEFAULT_TASK"
+    exit
+fi
+
+for ARG in "$@"; do
+    "$ARG"
+done
