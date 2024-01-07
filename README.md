@@ -6,7 +6,7 @@ https://github.com/mcandre/dotfiles
 
 # REQUIREMENTS
 
-* POSIX compatible [findutils](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/find.html)
+* GNU or BSD [findutils](https://en.wikipedia.org/wiki/Find_(Unix))html)
 * POSIX compatible [grep](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/grep.html)
 * POSIX compatible [sh](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/sh.html)
 * [ShellCheck](https://www.shellcheck.net/) 0.8.0+

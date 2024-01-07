@@ -18,9 +18,8 @@ lint() {
 }
 
 bashate() {
-    stank -exInterp zsh . |
-        grep -v .sample |
-        xargs -n 1 bashate -i E006
+    stank -print0 -exInterp zsh . |
+        xargs -0 -n 1 bashate -i E006
 }
 
 funk() {
@@ -32,21 +31,18 @@ safety() {
 }
 
 shellcheck() {
-    stank -exInterp zsh . |
-        grep -v .sample |
-        xargs -n 1 shellcheck
+    stank -print0 -exInterp zsh . |
+        xargs -0 -n 1 shellcheck
 }
 
 shfmt() {
-    stank -exInterp zsh . |
-        grep -v .sample |
-        xargs -n 1 shfmt -w -i 4
+    stank -print0 -exInterp zsh . |
+        xargs -0 -n 1 shfmt -w -i 4
 }
 
 slick() {
-    stank -sh . |
-        grep -v .sample |
-        xargs -n 1 slick
+    stank -print0 -sh . |
+        xargs -0 -n 1 slick
 }
 
 yamllint() {

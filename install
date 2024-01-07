@@ -3,7 +3,7 @@ unset IFS
 set -euf
 
 go install github.com/mcandre/slick/cmd/slick@v0.0.6
-go install github.com/mcandre/stank/...@v0.0.24
+go install github.com/mcandre/stank/...@v0.0.26
 go install mvdan.cc/sh/v3/cmd/shfmt@v3.6.0
 go mod tidy
 
