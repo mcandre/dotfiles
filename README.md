@@ -4,6 +4,43 @@
 
 https://github.com/mcandre/dotfiles
 
+# NOTABLE CONFIGURATIONS
+
+## ASDF
+
+[ASDF](https://asdf-vm.com/) isolates programming environments on a per-project, per-directory basis. This enables engineers to work on multiple projects with less friction about conflicting programming language versions.
+
+Examples:
+
+* [.tool-versions](.tool-versions) configuration for developing this dotfiles project
+* Home directory default: Copy [global.tool-versions]](global.tool-versions) as `~/.tool-versions`
+
+## EditorConfig
+
+The [EditorConfig](https://editorconfig.org/) system provides a standard way to configure basic text file settings. It is cross-programming-language, cross-text-editor, and cross-platform. If needed, per-directory or per-project configurations can be applied, in order to support conflicting indentation styles or whathaveyou.
+
+An thorough example [.editorconfig](.editorconfig) file sets up many projects for success.
+
+## gitignore
+
+[.profile.d/gitignore.sh](.profile.d/gitignore.sh) implements a CLI for the popular [gitignore.io](https://www.toptal.com/developers/gitignore) pattern database.
+
+## ll
+
+A common UNIX alias for rapidly listing information about files in the current directory, *in detail*.
+
+Setup via [.profile.d/ll.sh]([.profile.d/ll.sh]).
+
+## open
+
+The convenient macOS [open](https://ss64.com/mac/open.html) command line tool accepts a directory or file path argument, launching the file graphically with the default application. This is helpful for quickly exploring large directory trees and project artifacts.
+
+It is provided with the base macOS operating system. Equivalent aliases for `open` are provided in example shell configuration snippets:
+
+* [UNIX (XDG)](.profile.d/open.x11.sh)
+* [Windows (cmd.exe)](open.cmd)
+* [Windows (PowerShell)](profile.ps1)
+
 # REQUIREMENTS
 
 * GNU or BSD [findutils](https://en.wikipedia.org/wiki/Find_(Unix))html)
