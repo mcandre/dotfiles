@@ -4,6 +4,7 @@
 #
 # PS admin> Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 
+function open { start $args }
 function vi { vim.exe $args }
 function view { vim.exe -R $args }
 function emacs { emacs.exe -nw $args }
@@ -16,5 +17,3 @@ function lsdu {
 
     return $list
 }
-
-& "C:\Program Files\Docker Toolbox\docker-machine.exe" env default | Invoke-Expression
