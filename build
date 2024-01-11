@@ -11,6 +11,7 @@ audit() {
 lint() {
     bashate
     funk
+    kirill
     shellcheck
     shfmt
     slick
@@ -24,6 +25,11 @@ bashate() {
 
 funk() {
     command funk .
+}
+
+kirill() {
+    command kirill -print0 . |
+        xargs -0 -n 1 -t jq -r input_filename
 }
 
 safety() {
