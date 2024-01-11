@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+# Update via ji
+# https://github.com/mcandre/ji
+DISABLE_AUTO_UPDATE='true'
+
 # Fix brew PATH glitch
 [ -r "$HOME/.zshenv" ] &&
     . "$HOME/.zshenv"
