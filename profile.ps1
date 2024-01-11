@@ -4,7 +4,7 @@
 #
 # PS admin> Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 
-function open { start $args }
+function open { cmd.exe /c "start $args" }
 function vi { vim.exe $args }
 function view { vim.exe -R $args }
 function emacs { emacs.exe -nw $args }
