@@ -223,10 +223,11 @@ let g:scratch_height = 0.50
 " Scratch opens in Markdown format
 let g:scratch_filetype = 'markdown'
 
-" ctrlp: Apply .gitignore's
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-" ctrlp: Ignore golang vendors
-set wildignore+=vendor
+" ctrlp: Exclude junk files, mainly .gitignore'd patterns
+let g:ctrlp_user_command = [
+    \ '.git',
+    \ 'cd %s && git ls-files -co --exclude-standard | grep -vE "vendor|\\.gif|\\.jpeg|\\.jpg|\\.mp3|\\.png|\\.wav|\\.webm|\\.webp"'
+\ ]
 
 " Conque Allow C-w window navigation while in insert mode
 let g:ConqueTerm_CWInsert = 1
