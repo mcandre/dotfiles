@@ -1,5 +1,0 @@
-+warning-stream-stdout
-+skip-sys-headers
-+posixlib
--preproc
--exportlocal

@@ -1,4 +1,0 @@
-#!/bin/sh
-unset IFS
-set -euf
-/data/data/com.zielm.emacs/src/bootstrap-emacs "$@"

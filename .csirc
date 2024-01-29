@@ -1,2 +1,0 @@
-(use readline regex)
-(current-input-port (make-gnu-readline-port))

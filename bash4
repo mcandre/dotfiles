@@ -1,4 +1,0 @@
-#!/bin/sh
-unset IFS
-set -euf
-exec bash "$@"
