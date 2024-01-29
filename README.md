@@ -13,7 +13,7 @@ https://github.com/mcandre/dotfiles
 Examples:
 
 * [.tool-versions](.tool-versions) configuration for developing this dotfiles project
-* Home directory default: Copy [global.tool-versions]](global.tool-versions) as `~/.tool-versions`
+* Home directory default: Copy [src/global.tool-versions]](src/global.tool-versions) to `~/.tool-versions`
 
 ## EditorConfig
 
@@ -23,13 +23,13 @@ An thorough example [.editorconfig](.editorconfig) file sets up many projects fo
 
 ## gitignore
 
-[.profile.d/gitignore.sh](.profile.d/gitignore.sh) implements a CLI for the popular [gitignore.io](https://www.toptal.com/developers/gitignore) pattern database.
+[src/.profile.d/gitignore.sh](src/.profile.d/gitignore.sh) implements a CLI for the popular [gitignore.io](https://www.toptal.com/developers/gitignore) pattern database.
 
 ## ll
 
 A common UNIX alias for rapidly listing information about files in the current directory, *in detail*.
 
-Setup via [.profile.d/ll.sh]([.profile.d/ll.sh]).
+Setup via [src/.profile.d/ll.sh](src/.profile.d/ll.sh).
 
 ## open
 
@@ -37,9 +37,9 @@ The convenient macOS [open](https://ss64.com/mac/open.html) command line tool ac
 
 It is provided with the base macOS operating system. Equivalent aliases for `open` are provided in example shell configuration snippets:
 
-* [UNIX (XDG)](.profile.d/open.x11.sh)
-* [Windows (cmd.exe)](open.cmd)
-* [Windows (PowerShell)](profile.ps1)
+* [UNIX (XDG)](src/.profile.d/open.x11.sh)
+* [Windows (cmd.exe)](src/open.cmd)
+* [Windows (PowerShell)](src/profile.ps1)
 
 # REQUIREMENTS
 
