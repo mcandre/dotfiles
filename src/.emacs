@@ -175,7 +175,10 @@
     (use-package csharp-mode)))
 
 (use-package d-mode)
-(use-package dockerfile-mode)
+
+;; broken
+;; (use-package dockerfile-mode)
+
 (use-package feature-mode)
 (use-package fish-mode)
 
@@ -208,7 +211,9 @@
 ;; now missing from MELPA
 ;; (use-package scala-mode2)
 
-(use-package stylus-mode)
+;; broken
+;; (use-package stylus-mode)
+
 (use-package thrift
   :ensure thrift)
 (use-package tuareg)
