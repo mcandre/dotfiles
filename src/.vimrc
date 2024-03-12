@@ -180,7 +180,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'godlygeek/tabular'
     Plug 'hashivim/vim-terraform'
     Plug 'kylelaker/riscv.vim'
-    Plug 'mcandre/Conque-Shell'
     Plug 'moll/vim-bbye'
     Plug 'mtth/scratch.vim'
     Plug 'plasticboy/vim-markdown'
@@ -228,13 +227,6 @@ let g:ctrlp_user_command = [
     \ '.git',
     \ 'cd %s && git ls-files -co --exclude-standard | grep -vE "vendor|\\.gif|\\.jpeg|\\.jpg|\\.mp3|\\.png|\\.wav|\\.webm|\\.webp"'
 \ ]
-
-" Conque Allow C-w window navigation while in insert mode
-let g:ConqueTerm_CWInsert = 1
-
-" Replace shell with Conque-Shell
-set nocp
-cabbrev sh sh<C-\>esubstitute(getcmdline(), '^sh', 'ConqueTerm bash\ -i', '')<cr>
 
 " Autolaunch NERDTree
 autocmd StdinReadPre * let s:std_in=1
