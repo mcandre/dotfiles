@@ -1,0 +1,22 @@
+# Install:
+#
+# sudo cp comfyui.service /etc/systemd/system
+# sudo systemctl enable comfyui
+# sudo systemctl start comfyui
+#
+# Uninstall:
+#
+# sudo systemctl stop comftyui
+# sudo systemctl disable comfyui
+# sudo rm /etc/systemd/system/comfyui.service
+
+[Unit]
+Description=Launch ComfyUI on boot
+
+[Service]
+User=andrew
+Group=andrew
+ExecStart=python3 /home/andrew/sambashare/ComfyUI/main.py --listen
+
+[Install]
+WantedBy=multi-user.target
