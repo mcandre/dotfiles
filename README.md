@@ -13,7 +13,7 @@ https://github.com/mcandre/dotfiles
 Examples:
 
 * [.tool-versions](.tool-versions) configuration for developing this dotfiles project
-* Home directory default: Copy [src/global.tool-versions]](src/global.tool-versions) to `~/.tool-versions`
+* Home directory default: Copy [src/global.tool-versions](src/global.tool-versions) to `~/.tool-versions`
 
 ## EditorConfig
 
