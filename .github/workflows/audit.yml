@@ -20,3 +20,5 @@ jobs:
     - run: "sudo tar -C /usr/local -xzf go1.23.0.linux-amd64.tar.gz"
     - run: "./install"
     - run: "./build audit"
+      env:
+        SNYK_TOKEN: "${{ secrets.SNYK_TOKEN }}"
