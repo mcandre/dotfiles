@@ -30,6 +30,7 @@ fi
 setopt completealiases
 setopt noautomenu
 setopt nolistbeep
+setopt BANG_HIST
 
 autoload -U select-word-style
 select-word-style bash
