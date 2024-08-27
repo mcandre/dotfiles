@@ -265,7 +265,7 @@
 
     # Enable special styling for non-writable directories. See POWERLEVEL9K_LOCK_ICON and
     # POWERLEVEL9K_DIR_CLASSES below.
-    typeset -g POWERLEVEL9K_DIR_SHOW_WRITABLE=v2
+    typeset -g POWERLEVEL9K_DIR_SHOW_WRITABLE=false
 
     # The default icon shown next to non-writable directories when POWERLEVEL9K_DIR_SHOW_WRITABLE is
     # set to v2.
