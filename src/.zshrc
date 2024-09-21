@@ -36,6 +36,7 @@ autoload -U select-word-style
 select-word-style bash
 
 export PROMPT_EOL_MARK=
+export ZLE_REMOVE_SUFFIX_CHARS=''
 
 if [ -d "$HOME/.oh-my-zsh" ]; then
     #
