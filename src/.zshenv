@@ -16,4 +16,4 @@ command -v direnv >/dev/null 2>&1 &&
     [ "$(pwd)" != '/mnt/c/Windows/System32' ] &&
     direnv reload
 
-SHELL_SESSIONS_DISABLE=1
+export SHELL_SESSIONS_DISABLE=1
