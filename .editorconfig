@@ -47,7 +47,7 @@ indent_style = tab
 indent_style = tab
 
 # Natural HTML nesting
-[*.js]
+[*.{js,mjs}]
 quote_type = single
 
 # Compressed artifacts

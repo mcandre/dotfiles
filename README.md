@@ -49,7 +49,7 @@ It is provided with the base macOS operating system. Equivalent aliases for `ope
 * [ShellCheck](https://www.shellcheck.net/) 0.8.0+
 * [Go](https://go.dev/) 1.23.0+
 * [kirill](https://github.com/mcandre/kirill) 0.0.1
-* [Node.js](https://nodejs.org/en/) 20.10.0+
+* [Node.js](https://nodejs.org/en/) 20.17.0+
 * [Python](https://www.python.org/) 3.12.1+
 * Provision additional dev tools with `./install`
 
