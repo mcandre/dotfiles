@@ -1,0 +1,12 @@
+#!/bin/sh
+unset IFS
+set -euf
+
+while true; do
+    natpmp-client.py \
+        -g 10.2.0.1 \
+        0 \
+        0
+
+    sleep 45
+done
