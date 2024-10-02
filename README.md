@@ -47,7 +47,7 @@ It is provided with the base macOS operating system. Equivalent aliases for `ope
 * POSIX compatible [grep](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/grep.html)
 * POSIX compatible [sh](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/sh.html)
 * [ShellCheck](https://www.shellcheck.net/) 0.8.0+
-* [Go](https://go.dev/) 1.23.0+
+* [Go](https://go.dev/) 1.23.2+
 * [kirill](https://github.com/mcandre/kirill) 0.0.1
 * [Node.js](https://nodejs.org/en/) 20.17.0+
 * [Python](https://www.python.org/) 3.12.1+
