@@ -48,7 +48,8 @@ slick() {
 }
 
 snyk() {
-    command snyk test
+    command snyk test --all-projects --exclude=requirements.txt
+    command snyk test --command=.venv/bin/python3
 }
 
 yamllint() {
