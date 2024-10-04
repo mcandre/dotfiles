@@ -18,7 +18,7 @@ jobs:
     - run: "curl -LO https://go.dev/dl/go1.23.2.linux-amd64.tar.gz"
     - run: "sudo tar -C /usr/local -xzf go1.23.2.linux-amd64.tar.gz"
     - run: "mkdir -p $HOME/bin"
-    - run: "curl -LO $HOME/bin/kirill https://raw.githubusercontent.com/mcandre/kirill/v0.0.1/bin/kirill"
+    - run: "curl -Lo $HOME/bin/kirill https://raw.githubusercontent.com/mcandre/kirill/v0.0.1/bin/kirill"
     - run: "chmod +x $HOME/bin/kirill"
     - run: "./install"
     - run: "./build lint"
