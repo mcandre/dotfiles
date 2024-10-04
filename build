@@ -15,12 +15,11 @@ lint() {
     shellcheck
     shfmt
     slick
-    yamllint
 }
 
 bashate() {
     stank -print0 -exInterp zsh . |
-        xargs -0 -n 1 bashate -i E006
+        xargs -0 -n 1 .venv/bin/bashate -i E006
 }
 
 funk() {
@@ -50,10 +49,6 @@ slick() {
 snyk() {
     command snyk test --all-projects --exclude=requirements.txt
     command snyk test --command=.venv/bin/python3
-}
-
-yamllint() {
-    command yamllint -s .yamllint .
 }
 
 if [ "$#" -eq 0 ]; then
