@@ -41,6 +41,10 @@ It is provided with the base macOS operating system. Equivalent aliases for `ope
 * [Windows (cmd.exe)](src/open.cmd)
 * [Windows (PowerShell)](src/profile.ps1)
 
+# LICENSE
+
+BSD-2-Clause
+
 # REQUIREMENTS
 
 * GNU or BSD [findutils](https://en.wikipedia.org/wiki/Find_(Unix))html)
