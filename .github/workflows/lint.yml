@@ -9,9 +9,9 @@ jobs:
     env:
       GOPATH: "/home/runner/go"
     steps:
-    - run: "echo \"/usr/local/go/bin\" >> $GITHUB_PATH"
-    - run: "echo \"${GOPATH}/bin\" >> $GITHUB_PATH"
-    - run: "echo \"${HOME}/bin\" >> $GITHUB_PATH"
+    - run: "echo \"/usr/local/go/bin\" >> \"$GITHUB_PATH\""
+    - run: "echo \"${GOPATH}/bin\" >> \"$GITHUB_PATH\""
+    - run: "echo \"${HOME}/bin\" >> \"$GITHUB_PATH\""
     - uses: "actions/checkout@v4"
     - run: "sudo apt-get update"
     - run: "sudo apt-get install -y bash curl python3-venv shellcheck zsh"
