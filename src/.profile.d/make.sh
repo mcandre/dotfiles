@@ -1,2 +1,3 @@
 #!/bin/sh
-alias make='make -s'
+# Assumes GNU/BSD make.
+alias make='make -s -j 4'
