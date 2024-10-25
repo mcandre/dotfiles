@@ -22,5 +22,8 @@ rebase = true
 keepBackup = false
 
 [user]
-name = Andrew Pennebaker
-email = andrew.pennebaker@gmail.com
+name = Andrew
+email = githubmcandre.gumdrop164@passfwd.com
+
+[init]
+defaultBranch = main
