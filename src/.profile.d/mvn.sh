@@ -1,2 +1,2 @@
 #!/bin/sh
-alias mvn='mvn clean'
+alias mvn='mvn -q clean'
