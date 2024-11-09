@@ -6,17 +6,14 @@ on: # yamllint disable-line rule:truthy
 jobs:
   Lint:
     runs-on: "ubuntu-24.04"
-    env:
-      GOPATH: "/home/runner/go"
     steps:
-    - run: "echo \"/usr/local/go/bin\" >> \"$GITHUB_PATH\""
-    - run: "echo \"${GOPATH}/bin\" >> \"$GITHUB_PATH\""
+    - uses: actions/setup-go@v5
+      with:
+        go-version: '1.23.3'
     - run: "echo \"${HOME}/bin\" >> \"$GITHUB_PATH\""
     - uses: "actions/checkout@v4"
     - run: "sudo apt-get update"
     - run: "sudo apt-get install -y bash curl python3-venv shellcheck zsh"
-    - run: "curl -LO https://go.dev/dl/go1.23.2.linux-amd64.tar.gz"
-    - run: "sudo tar -C /usr/local -xzf go1.23.2.linux-amd64.tar.gz"
     - run: "mkdir -p \"$HOME/bin\""
     - run: "curl -Lo \"$HOME/bin/kirill\" https://raw.githubusercontent.com/mcandre/kirill/v0.0.1/bin/kirill"
     - run: "chmod +x \"$HOME/bin/kirill\""
