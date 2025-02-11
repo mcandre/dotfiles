@@ -1,3 +1,3 @@
 #!/bin/sh
-export GOPATH="${HOME}/go"
-export PATH="${PATH}:/usr/local/go/bin:${GOPATH}/bin"
+export GOBIN="${HOME}/go/bin"
+export PATH="${GOBIN}:${PATH}"
