@@ -22,5 +22,6 @@ jobs:
         mkdir -p "$HOME/bin"
         curl -Lo "$HOME/bin/kirill" https://raw.githubusercontent.com/mcandre/kirill/v0.0.1/bin/kirill
         chmod +x "$HOME/bin/kirill"
-    - run: "make -f install.mk -j 4"
+    - name: "provision dev tools"
+      run: "make -f install.mk -j 4"
     - run: "make lint"
