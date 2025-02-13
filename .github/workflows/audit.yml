@@ -19,9 +19,6 @@ jobs:
     - uses: actions/setup-python@v5
       with:
         python-version: "3.12"
-    - uses: actions-rust-lang/setup-rust-toolchain@v1
-      with:
-        toolchain: "1.75.0"
     - name: "install snyk"
       run: |
         curl -LO https://downloads.snyk.io/cli/stable/snyk-linux
