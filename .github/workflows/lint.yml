@@ -3,19 +3,24 @@ name: "Lint"
 on: # yamllint disable-line rule:truthy
   push:
   pull_request:
+  workflow_dispatch:
 jobs:
   Lint:
     runs-on: "ubuntu-24.04"
     steps:
+    - uses: "actions/checkout@v4"
     - uses: actions/setup-go@v5
       with:
-        go-version: '1.23.3'
-    - run: "echo \"${HOME}/bin\" >> \"$GITHUB_PATH\""
-    - uses: "actions/checkout@v4"
-    - run: "sudo apt-get update"
-    - run: "sudo apt-get install -y bash curl python3-venv shellcheck zsh"
-    - run: "mkdir -p \"$HOME/bin\""
-    - run: "curl -Lo \"$HOME/bin/kirill\" https://raw.githubusercontent.com/mcandre/kirill/v0.0.1/bin/kirill"
-    - run: "chmod +x \"$HOME/bin/kirill\""
-    - run: "./install"
-    - run: "./build lint"
+        go-version: "1.24.0"
+    - name: "install shell linting accessories"
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y shellcheck zsh
+    - name: "install kirill"
+      run: |
+        echo "${HOME}/bin" >>"$GITHUB_PATH"
+        mkdir -p "$HOME/bin"
+        curl -Lo "$HOME/bin/kirill" https://raw.githubusercontent.com/mcandre/kirill/v0.0.1/bin/kirill
+        chmod +x "$HOME/bin/kirill"
+    - run: "make -f install.mk -j 4"
+    - run: "make lint"

@@ -47,20 +47,23 @@ BSD-2-Clause
 
 # REQUIREMENTS
 
-* GNU or BSD [findutils](https://en.wikipedia.org/wiki/Find_(Unix))html)
+* [GNU](https://www.gnu.org/)/[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) [findutils](https://en.wikipedia.org/wiki/Find_(Unix))
 * POSIX compatible [grep](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/grep.html)
+* [Go](https://go.dev/) 1.24.0+
+* [kirill](https://github.com/mcandre/kirill) 0.0.1
+* POSIX compatible [make](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/make.html)
+* [Python](https://www.python.org/) 3.12.1+
+* [Rust](https://www.rust-lang.org/) 1.75.0+
 * POSIX compatible [sh](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/sh.html)
 * [ShellCheck](https://www.shellcheck.net/) 0.10.0+
-* [Go](https://go.dev/) 1.23.3+
-* [kirill](https://github.com/mcandre/kirill) 0.0.1
-* [Python](https://www.python.org/) 3.12.1+
 * [Snyk](https://snyk.io/)
-* Provision additional dev tools with `./install`
+* Provision additional dev tools with `make -f install.mk [-j 4]`
 
 ## Recommended
 
 * [ASDF](https://asdf-vm.com/) 0.10 (run `asdf reshim` after provisioning)
 * [direnv](https://direnv.net/) 2
+* [GNU](https://www.gnu.org/)/[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) make
 
 # TERMINAL COLORS
 
