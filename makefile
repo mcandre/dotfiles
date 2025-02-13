@@ -18,7 +18,8 @@ all: lint
 audit:
 	snyk
 
-lint: bashate \
+lint: \
+	bashate \
 	funk \
 	kirill \
 	shellcheck \
