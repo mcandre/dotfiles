@@ -64,6 +64,7 @@ BSD-2-Clause
 * [ASDF](https://asdf-vm.com/) 0.10 (run `asdf reshim` after provisioning)
 * [direnv](https://direnv.net/) 2
 * [GNU](https://www.gnu.org/)/[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) make
+* [zsh](https://www.zsh.org/)
 
 # TERMINAL COLORS
 
