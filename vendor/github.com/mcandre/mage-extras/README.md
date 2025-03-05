@@ -53,7 +53,7 @@ BSD-2-Clause
 
 # RUNTIME REQUIREMENTS
 
-* [Go](https://go.dev/) 1.23.2+
+* [Go](https://go.dev/) 1.24.0+
 * [Mage](https://magefile.org/) (e.g., `go install github.com/magefile/mage`)
 
 ## Recommended

@@ -14,7 +14,7 @@ tool (
 require (
 	github.com/google/renameio/v2 v2.0.0 // indirect
 	github.com/magefile/mage v1.15.0 // indirect
-	github.com/mcandre/mage-extras v0.0.21 // indirect
+	github.com/mcandre/mage-extras v0.0.23 // indirect
 	github.com/mcandre/slick v0.0.11 // indirect
 	github.com/mcandre/stank v0.0.32 // indirect
 	github.com/rogpeppe/go-internal v1.13.1 // indirect
