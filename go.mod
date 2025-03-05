@@ -13,12 +13,12 @@ tool (
 
 require (
 	github.com/google/renameio/v2 v2.0.0 // indirect
-	github.com/magefile/mage v1.14.0 // indirect
-	github.com/mcandre/mage-extras v0.0.20 // indirect
-	github.com/mcandre/slick v0.0.10 // indirect
-	github.com/mcandre/stank v0.0.31 // indirect
+	github.com/magefile/mage v1.15.0 // indirect
+	github.com/mcandre/mage-extras v0.0.21 // indirect
+	github.com/mcandre/slick v0.0.11 // indirect
+	github.com/mcandre/stank v0.0.32 // indirect
 	github.com/rogpeppe/go-internal v1.13.1 // indirect
-	golang.org/x/sys v0.26.0 // indirect
+	golang.org/x/sys v0.30.0 // indirect
 	golang.org/x/term v0.25.0 // indirect
 	mvdan.cc/editorconfig v0.3.0 // indirect
 	mvdan.cc/sh/v3 v3.10.0 // indirect

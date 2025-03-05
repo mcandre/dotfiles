@@ -1,3 +1,4 @@
+// Package main implements a POSIX sh syntax validation CLI application.
 package main
 
 import (
@@ -28,11 +29,11 @@ func newSlicker() slicker {
 	}
 }
 
-func (o *slicker) Walk(pth string, info os.FileInfo, err error) error {
-	fi, er := os.Stat(pth)
+func (o *slicker) Walk(pth string, _ os.FileInfo, _ error) error {
+	fi, err2 := os.Stat(pth)
 
-	if er != nil {
-		log.Print(er)
+	if err2 != nil {
+		log.Print(err2)
 		o.FoundError = true
 		return nil
 	}
@@ -47,20 +48,20 @@ func (o *slicker) Walk(pth string, info os.FileInfo, err error) error {
 		return nil
 	}
 
-	fd, er := os.Open(pth)
+	fd, err2 := os.Open(pth)
 
-	if er != nil {
-		log.Print(er)
+	if err2 != nil {
+		log.Print(err2)
 		o.FoundError = true
 		return nil
 	}
 
 	br := bufio.NewReader(fd)
 
-	_, er = o.Parser.Parse(br, pth)
+	_, err2 = o.Parser.Parse(br, pth)
 
-	if er != nil {
-		log.Print(er)
+	if err2 != nil {
+		log.Print(err2)
 		o.FoundError = true
 	}
 

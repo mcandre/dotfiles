@@ -1,18 +1,19 @@
 .POSIX:
 .SILENT:
-.PHONY: all
+.PHONY: \
+	all \
+	go \
+	rust
 
-all:
-	cargo install --force unmake@0.0.17
+all: go rust
 
-	go install github.com/alexkohler/nakedret@v1.0.1
-	go install github.com/kisielk/errcheck@v1.7.0
-	go install github.com/magefile/mage@v1.14.0
-	go install github.com/mcandre/factorio/cmd/factorio@v0.0.8
-	go install github.com/mgechev/revive@v1.4.0
+go:
 	go install golang.org/x/tools/cmd/deadcode@latest
 	go install golang.org/x/tools/cmd/goimports@latest
 	go install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow@latest
 	go install golang.org/x/vuln/cmd/govulncheck@latest
-	go install honnef.co/go/tools/cmd/staticcheck@2024.1
 	go mod tidy
+	go install tool
+
+rust:
+	cargo install --force unmake@0.0.17
