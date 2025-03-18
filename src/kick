@@ -1,8 +1,0 @@
-#!/bin/sh
-unset IFS
-set -euf
-
-git add .
-git commit -am 'up' || :
-git pull
-git push
