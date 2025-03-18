@@ -8,11 +8,11 @@ github.com/magefile/mage/mg
 # github.com/mcandre/mage-extras v0.0.23
 ## explicit; go 1.24
 github.com/mcandre/mage-extras
-# github.com/mcandre/slick v0.0.11
+# github.com/mcandre/slick v0.0.12
 ## explicit; go 1.24
 github.com/mcandre/slick
 github.com/mcandre/slick/cmd/slick
-# github.com/mcandre/stank v0.0.32
+# github.com/mcandre/stank v0.0.33
 ## explicit; go 1.24
 github.com/mcandre/stank
 github.com/mcandre/stank/cmd/funk
