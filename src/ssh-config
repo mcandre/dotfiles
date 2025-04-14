@@ -7,4 +7,16 @@ HashKnownHosts no
 # Host foo
 #   HostName foo
 #   User bar
-#   IdentityFile ~/.ssh/id_rsa
+#   IdentityFile ~/.ssh/<private ID>
+
+# Work around ssh + GitHub limitations
+#
+# Set any relevant git clone URL's to:
+# <host>:<org>/<repository>.git
+#
+# Host bar
+#   HostName github.com
+#   IdentityFile ~/.ssh/<private ID>
+# Host baz
+#   HostName github.com
+#   IdentityFile ~/.ssh/<private ID>
