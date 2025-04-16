@@ -264,11 +264,11 @@ confirm-before-quit = false
 # "color-automation" - Set a specific color for the tab whenever a specific program is running, or in a specific directory.
 #
 # Example:
-# [navigation]
+[navigation]
 # mode = "bookmark"
 # clickable = false
 # hide-if-single = true
-# use-current-path = false
+use-current-path = true
 # color-automation = []
 
 # Shell
