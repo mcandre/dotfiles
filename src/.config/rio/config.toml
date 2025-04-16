@@ -90,10 +90,10 @@ confirm-before-quit = false
 #
 # blinking-interval - Cursor update on milliseconds interval
 #
-# [cursor]
+[cursor]
 # shape = 'block'
-# blinking = false
-# blinking-interval = 800
+blinking = true
+blinking-interval = 500 # ms
 
 # Editor
 #
@@ -265,7 +265,7 @@ confirm-before-quit = false
 #
 # Example:
 [navigation]
-# mode = "bookmark"
+mode = "toptab"
 # clickable = false
 # hide-if-single = true
 use-current-path = true
@@ -311,12 +311,12 @@ use-current-path = true
 # (considering if theme folder does exists and is being used)
 #
 # Example:
-# [colors]
+[colors]
 # background = '#0F0D0E'
 # foreground = '#F9F4DA'
-# cursor = '#F38BA3'
-# tabs = '#443d40'
-# tabs-active = '#F38BA3'
+cursor = '#00FF00'
+tabs = '#A9A9A9'
+tabs-active = '#808080'
 # green = '#0BA95B'
 # red = '#ED203D'
 # blue = '#12B5E5'
