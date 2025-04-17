@@ -39,9 +39,11 @@ module.exports = {
         // custom CSS to embed in the main window
         css: `
             .header_header, .tab_textActive {
+                color: #ffffff !important;
                 background: #333333 !important;
-            }
+            },
             .tab_text {
+                color: #888888;
                 background: #222222;
             }
         `,
