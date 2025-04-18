@@ -24,7 +24,8 @@ lint: \
 	kirill \
 	shellcheck \
 	shfmt \
-	slick
+	slick \
+	unmake
 
 bashate:
 	stank -print0 -exInterp zsh . | \

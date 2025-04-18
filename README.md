@@ -53,7 +53,7 @@ BSD-2-Clause
 * [kirill](https://github.com/mcandre/kirill) 0.0.1
 * [POSIX](https://pubs.opengroup.org/onlinepubs/9799919799/) compatible [make](https://en.wikipedia.org/wiki/Make_(software))
 * [Python](https://www.python.org/) 3.12.1+
-* [Rust](https://www.rust-lang.org/) 1.75.0+
+* [Rust](https://www.rust-lang.org/) 1.86.0+
 * [POSIX](https://pubs.opengroup.org/onlinepubs/9799919799/) compatible [sh](https://en.wikipedia.org/wiki/Unix_shell)
 * [ShellCheck](https://www.shellcheck.net/) 0.10.0+
 * [Snyk](https://snyk.io/)
