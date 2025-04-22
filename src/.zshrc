@@ -52,6 +52,10 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
         zsh-completions
     )
 
+    # Respect opening file path CLI argument syntax.
+    zstyle ':completion:*' completion_auto_quote true
+
+    # Reduce tab completion collisions with rare commands
     zstyle ':completion:*:*:-command-:*:*' ignored-patterns 'Magick*-config|magick-script'
 
     #
