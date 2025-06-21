@@ -1,17 +1,7 @@
 .POSIX:
 .SILENT:
-.PHONY: \
-	all \
-	audit \
-	bashate \
-	funk \
-	kirill \
-	lint \
-	shellcheck \
-	shfmt \
-	slick \
-	snyk \
-	unmake
+ALLTARGETS!=ls -a *
+.PHONY: $(ALLTARGETS)
 
 all: lint
 
