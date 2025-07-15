@@ -15,4 +15,4 @@ python:
 	.venv/bin/python3 -m pip install -r requirements.txt
 
 rust:
-	cargo install --force unmake@0.0.20
+	cargo install --force unmake@0.0.21
