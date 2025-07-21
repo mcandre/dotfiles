@@ -12,7 +12,7 @@
 
 ; Control+Alt+G launches a Web Browser
 ^!g::
-    run "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+    run "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
     return
 
 ; Control+Alt+S launches Steam
