@@ -1,0 +1,22 @@
+--hidden
+
+# VCS
+--glob=!.git/*
+--glob=!.svn/*
+
+# Ant, Gradle, pip
+--glob=!build/*
+--glob=!dist/*
+
+# npm
+--glob=!node_modules/*
+
+# .NET
+--glob=!code_behind/*
+--glob=!obj/*
+
+# Maven, Rust
+--glob=!target/*
+
+# Composer, Go
+--glob=!vendor/*

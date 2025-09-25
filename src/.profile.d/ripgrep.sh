@@ -1,2 +1,2 @@
 #!/bin/sh
-alias rg='rg --hidden'
+export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
