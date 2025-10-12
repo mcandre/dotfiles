@@ -5,6 +5,7 @@
 	audit \
 	bashate \
 	funk \
+	govulncheck \
 	lint \
 	shellcheck \
 	shfmt \
@@ -15,8 +16,21 @@
 
 all: lint
 
-audit:
-	snyk
+audit: govulncheck snyk
+
+bashate:
+	stank -print0 -exInterp zsh . | \
+		xargs -0 -n 1 .venv/bin/bashate -i E006
+
+funk:
+	funk .
+
+govulncheck:
+	govulncheck -scan package ./...
+
+kirill:
+	kirill -print0 . | \
+		xargs -0 -n 1 -t jq -r input_filename
 
 lint: \
 	bashate \
@@ -26,17 +40,6 @@ lint: \
 	shfmt \
 	slick \
 	unmake
-
-bashate:
-	stank -print0 -exInterp zsh . | \
-		xargs -0 -n 1 .venv/bin/bashate -i E006
-
-funk:
-	funk .
-
-kirill:
-	kirill -print0 . | \
-		xargs -0 -n 1 -t jq -r input_filename
 
 shellcheck:
 	stank -print0 -exInterp zsh . | \
