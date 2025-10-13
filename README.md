@@ -51,7 +51,7 @@ BSD-2-Clause
 * [bash](https://www.gnu.org/software/bash/) 4+
 * [GNU](https://www.gnu.org/)/[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) [findutils](https://en.wikipedia.org/wiki/Find_(Unix))
 * [POSIX](https://pubs.opengroup.org/onlinepubs/9799919799/) compatible [grep](https://en.wikipedia.org/wiki/Grep)
-* [Go](https://go.dev/) 1.24.6+
+* [Go](https://go.dev/) 1.25.3+
 * [kirill](https://github.com/mcandre/kirill) 0.0.1
 * [Python](https://www.python.org/) 3.13.7+
 * [ShellCheck](https://www.shellcheck.net/) 0.10.0+

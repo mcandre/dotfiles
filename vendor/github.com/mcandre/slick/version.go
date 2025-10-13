@@ -1,4 +1,4 @@
 package slick
 
 // Version is semver.
-var Version = "0.0.16"
+var Version = "0.0.17"
