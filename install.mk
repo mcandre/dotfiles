@@ -9,6 +9,7 @@
 all: go python rust
 
 go:
+	go install golang.org/x/vuln/cmd/govulncheck@latest
 	go install tool
 	go mod tidy
 
