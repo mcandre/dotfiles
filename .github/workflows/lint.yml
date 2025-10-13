@@ -15,9 +15,6 @@ jobs:
     - uses: "actions/setup-python@v5"
       with:
         python-version: "3.13"
-    - uses: "dtolnay/rust-toolchain@stable"
-      with:
-        toolchain: "1.87.0"
     - name: "install shell linting accessories"
       run: |
         sudo apt-get update
@@ -29,5 +26,5 @@ jobs:
         curl -Lo "$HOME/bin/kirill" https://raw.githubusercontent.com/mcandre/kirill/v0.0.1/bin/kirill
         chmod +x "$HOME/bin/kirill"
     - name: "provision dev tools"
-      run: "make -f install.mk -j 4"
-    - run: "make lint"
+      run: "./install"
+    - run: "./build"

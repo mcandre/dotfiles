@@ -1,0 +1,35 @@
+#!/bin/bash
+unset IFS
+set -eufo pipefail
+
+go() {
+    command go install golang.org/x/vuln/cmd/govulncheck@latest
+    command go install tool
+    command go mod tidy
+}
+
+python() {
+    python3 -m venv .venv
+    .venv/bin/python3 -m pip install --upgrade pip setuptools
+    .venv/bin/python3 -m pip install -r requirements.txt
+}
+
+TASKS='go python'
+
+SELECTED_TASKS="$TASKS"
+
+if [ "$#" -gt 0 ]; then
+    SELECTED_TASKS="$*"
+fi
+
+for TASK in $SELECTED_TASKS; do
+    case "$TASKS" in
+    *"$TASK"*)
+        "$TASK"
+        ;;
+    *)
+        echo "error: no such task: $TASK"
+        exit 1
+        ;;
+    esac
+done
