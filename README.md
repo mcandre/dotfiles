@@ -47,14 +47,14 @@ BSD-2-Clause
 
 # REQUIREMENTS
 
+* [bash](https://www.gnu.org/software/bash/) 4+
 * [GNU](https://www.gnu.org/)/[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) [findutils](https://en.wikipedia.org/wiki/Find_(Unix))
 * [POSIX](https://pubs.opengroup.org/onlinepubs/9799919799/) compatible [grep](https://en.wikipedia.org/wiki/Grep)
-* [Go](https://go.dev/) 1.24.5+
+* [Go](https://go.dev/) 1.24.6+
 * [kirill](https://github.com/mcandre/kirill) 0.0.1
 * [POSIX](https://pubs.opengroup.org/onlinepubs/9799919799/) compatible [make](https://en.wikipedia.org/wiki/Make_(software))
 * [Python](https://www.python.org/) 3.13.7+
 * [Rust](https://www.rust-lang.org/) 1.87.0+
-* [POSIX](https://pubs.opengroup.org/onlinepubs/9799919799/) compatible [sh](https://en.wikipedia.org/wiki/Unix_shell)
 * [ShellCheck](https://www.shellcheck.net/) 0.10.0+
 * [Snyk](https://snyk.io/)
 * Provision additional dev tools with `make -f install.mk [-j 4]`
@@ -65,7 +65,6 @@ BSD-2-Clause
 * [direnv](https://direnv.net/) 2
 * [GNU](https://www.gnu.org/) [grep](https://en.wikipedia.org/wiki/Grep)
 * [GNU](https://www.gnu.org/)/[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) [make](https://en.wikipedia.org/wiki/Make_(software))
-* [zsh](https://www.zsh.org/)
 
 # TERMINAL COLORS
 
