@@ -60,7 +60,7 @@ BSD-2-Clause
 
 ## Recommended
 
-* [ASDF](https://asdf-vm.com/) 0.10 (run `asdf reshim` after provisioning)
+* [ASDF](https://asdf-vm.com/) 0.18 (run `asdf reshim` after provisioning)
 * [direnv](https://direnv.net/) 2
 * [GNU](https://www.gnu.org/) [grep](https://en.wikipedia.org/wiki/Grep)
 
