@@ -17,8 +17,8 @@ jobs:
         python-version: "3.13"
     - name: "install shell linting accessories"
       run: |
-        sudo apt-get update
-        sudo apt-get install -y shellcheck zsh
+        sudo apt update
+        sudo apt install -y shellcheck zsh
     - name: "install kirill"
       run: |
         echo "${HOME}/bin" >>"$GITHUB_PATH"
