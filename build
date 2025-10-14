@@ -50,8 +50,8 @@ slick() {
 }
 
 snyk() {
-    command snyk test --all-projects --exclude=requirements.txt
-    command snyk test --command=.venv/bin/python3
+    command snyk test --all-projects --dev --exclude=requirements.txt
+    command snyk test --command=.venv/bin/python3 --dev
 }
 
 TASKS=' \
