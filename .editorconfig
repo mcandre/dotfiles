@@ -36,6 +36,8 @@ insert_final_newline = none
 [*.{cmd,bat,reg,ps1,vbs,cs,fs,fsx,ahk,psenvrc}]
 end_of_line = crlf
 insert_final_newline = false
+[*.{ps1,psenvrc}]
+charset = utf-8-bom
 [settings.json]
 end_of_line = crlf
 insert_final_newline = false
