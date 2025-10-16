@@ -19,12 +19,6 @@ jobs:
       run: |
         sudo apt update
         sudo apt install -y shellcheck zsh
-    - name: "install kirill"
-      run: |
-        echo "${HOME}/bin" >>"$GITHUB_PATH"
-        mkdir -p "$HOME/bin"
-        curl -Lo "$HOME/bin/kirill" https://raw.githubusercontent.com/mcandre/kirill/v0.0.1/bin/kirill
-        chmod +x "$HOME/bin/kirill"
     - name: "provision dev tools"
       run: "./install"
     - run: "./build"

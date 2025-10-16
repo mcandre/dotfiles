@@ -52,8 +52,8 @@ BSD-2-Clause
 * [GNU](https://www.gnu.org/)/[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) [findutils](https://en.wikipedia.org/wiki/Find_(Unix))
 * [POSIX](https://pubs.opengroup.org/onlinepubs/9799919799/) compatible [grep](https://en.wikipedia.org/wiki/Grep)
 * [Go](https://go.dev/)
-* [kirill](https://github.com/mcandre/kirill) 0.0.1
 * [Python](https://www.python.org/)
+* [Rust](https://rust-lang.org/)
 * [ShellCheck](https://www.shellcheck.net/) 0.11.0+
 * [Snyk](https://snyk.io/)
 * Provision additional dev tools with `./install`

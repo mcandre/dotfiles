@@ -21,8 +21,7 @@ govulncheck() {
 }
 
 kirill() {
-    command kirill -print0 . |
-        xargs -0 -n 1 -t jq -r input_filename
+    command kirill .
 }
 
 lint() {
