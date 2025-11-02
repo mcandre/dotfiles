@@ -64,6 +64,7 @@ BSD-2-Clause
 * [direnv](https://direnv.net/) 2
 * [GNU](https://www.gnu.org/) [grep](https://en.wikipedia.org/wiki/Grep)
 * [GNU](https://www.gnu.org/)/[BSD](https://man.freebsd.org/cgi/man.cgi?query=less) [lessutils](https://www.greenwoodsoftware.com/less/)
+* [kickers](https://github.com/mcandre/kickers)
 
 # TERMINAL COLORS
 
