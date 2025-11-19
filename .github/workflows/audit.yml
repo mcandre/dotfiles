@@ -20,7 +20,7 @@ jobs:
       with:
         python-version: "3.14"
     - name: "provision dev tools"
-      run: "./install"
+      run: "make"
     - name: "install snyk"
       run: |
         sudo curl -Lo /bin/snyk https://downloads.snyk.io/cli/stable/snyk-linux

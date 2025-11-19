@@ -50,20 +50,21 @@ BSD-2-Clause
 * a UNIX-like environment (e.g. [WSL](https://learn.microsoft.com/en-us/windows/wsl/))
 * [bash](https://www.gnu.org/software/bash/) 4+
 * [GNU](https://www.gnu.org/)/[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) [findutils](https://en.wikipedia.org/wiki/Find_(Unix))
-* [POSIX](https://pubs.opengroup.org/onlinepubs/9799919799/) compatible [grep](https://en.wikipedia.org/wiki/Grep)
+* POSIX compliant [grep](https://pubs.opengroup.org/onlinepubs/9699919799.orig/utilities/grep.html)
+* POSIX compliant [make](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/make.html)
 * [Go](https://go.dev/)
 * [Python](https://www.python.org/)
 * [Rust](https://rust-lang.org/)
 * [ShellCheck](https://www.shellcheck.net/) 0.11.0+
 * [Snyk](https://snyk.io/)
-* Provision additional dev tools with `./install`
+* Provision additional dev tools with `make`
 
 ## Recommended
 
 * [ASDF](https://asdf-vm.com/) 0.18 (run `asdf reshim` after provisioning)
 * [direnv](https://direnv.net/) 2
-* [GNU](https://www.gnu.org/) [grep](https://en.wikipedia.org/wiki/Grep)
-* [GNU](https://www.gnu.org/)/[BSD](https://man.freebsd.org/cgi/man.cgi?query=less) [lessutils](https://www.greenwoodsoftware.com/less/)
+* [GNU grep](https://www.gnu.org/software/grep/)
+* [GNU](https://www.greenwoodsoftware.com/less/)/[BSD](https://man.freebsd.org/cgi/man.cgi?query=less) lessutils
 * [kickers](https://github.com/mcandre/kickers)
 
 # TERMINAL COLORS

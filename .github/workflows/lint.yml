@@ -20,5 +20,5 @@ jobs:
         sudo apt update
         sudo apt install -y shellcheck zsh
     - name: "provision dev tools"
-      run: "./install"
+      run: "make"
     - run: "./build"
