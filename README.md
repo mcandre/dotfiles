@@ -56,7 +56,6 @@ BSD-2-Clause
 * [Python](https://www.python.org/)
 * [Rust](https://rust-lang.org/)
 * [ShellCheck](https://www.shellcheck.net/) 0.11.0+
-* [Snyk](https://snyk.io/)
 * Provision additional dev tools with `make`
 
 ## Recommended
