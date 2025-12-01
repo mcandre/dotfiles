@@ -54,6 +54,9 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     # Reduce tab completion collisions with rare commands
     zstyle ':completion:*:*:-command-:*:*' ignored-patterns 'Magick*-config|magick-script'
 
+    # make tab completion
+    zstyle ':completion::complete:make:*:targets' call-command true
+
     #
     # Fix host completion
     # https://git.geekify.de/sqozz/prezto_config/src/branch/sqozz_config/modules/completion/init.zsh
