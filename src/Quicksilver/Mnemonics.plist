@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>abbreviation</key>
+	<dict>
+		<key>QSActionMnemonic:NSFilenamesPboardType</key>
+		<array>
+			<string>AppLaunchAction</string>
+			<string>AppReopenAction</string>
+		</array>
+		<key>codevis</key>
+		<array>
+			<string>/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/iOSSupport/Library/Xcode/Agents/Xcode Previews.app</string>
+		</array>
+		<key>google</key>
+		<array>
+			<string>/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/96.0.4664.55/Helpers/Google Chrome Helper (Alerts).app</string>
+		</array>
+		<key>microsoft</key>
+		<array>
+			<string>/Applications/Microsoft Teams.app</string>
+		</array>
+		<key>visual</key>
+		<array>
+			<string>/Applications/Visual Studio Code.app</string>
+		</array>
+		<key>visualstudio</key>
+		<array>
+			<string>/Applications/Visual Studio Code.app</string>
+		</array>
+	</dict>
+	<key>implied</key>
+	<dict>
+		<key>/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/96.0.4664.55/Helpers/Google Chrome Helper (Alerts).app</key>
+		<dict>
+			<key>google</key>
+			<integer>1</integer>
+		</dict>
+		<key>/Applications/Mail.app</key>
+		<dict>
+			<key>m</key>
+			<integer>2</integer>
+			<key>mail</key>
+			<integer>2</integer>
+		</dict>
+		<key>/Applications/Microsoft Teams.app</key>
+		<dict>
+			<key>microsoft</key>
+			<integer>1</integer>
+		</dict>
+		<key>/Applications/Safari.app</key>
+		<dict>
+			<key>s</key>
+			<integer>2</integer>
+			<key>safari</key>
+			<integer>2</integer>
+		</dict>
+		<key>/Applications/Visual Studio Code.app</key>
+		<dict>
+			<key>visual</key>
+			<integer>1</integer>
+			<key>visualstudio</key>
+			<integer>1</integer>
+		</dict>
+		<key>/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/iOSSupport/Library/Xcode/Agents/Xcode Previews.app</key>
+		<dict>
+			<key>codevis</key>
+			<integer>1</integer>
+		</dict>
+		<key>/Applications/iTunes.app</key>
+		<dict>
+			<key>it</key>
+			<integer>2</integer>
+			<key>itunes</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>

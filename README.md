@@ -41,6 +41,24 @@ It is provided with the base macOS operating system. Equivalent aliases for `ope
 * [Windows (cmd.exe)](src/open.cmd)
 * [Windows (PowerShell)](src/profile.ps1)
 
+## iTerm2
+
+[iTerm2](https://iterm2.com/) resolves many quirks found in the stock Apple Terminal.
+
+## zsh
+
+[zsh](https://www.zsh.org/) extends GNU bash with additional safety and convenience enhancements.
+
+## zsh-transient-prompt
+
+[zsh-transient-prompt](https://zsh-transient-prompt.olets.dev/)
+
+## Starship
+
+[Starship](https://starship.rs/) is a cross-shell framework for configuring prompts.
+
+[.config/starship.toml](starship.toml) configures a minimalistic right prompt.
+
 # LICENSE
 
 BSD-2-Clause

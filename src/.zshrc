@@ -13,14 +13,6 @@ if [ "$(pwd)" = '/mnt/c/Windows/System32' ]; then
     cd "$HOME"
 fi
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]; then
-    # shellcheck source=/dev/null
-    . "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 [ -z "$(find "$HOME/.zshrc.d/enabled" -prune -empty 2>/dev/null || echo 'missing')" ] &&
     for f in "$HOME/.zshrc.d/enabled"/*; do
         # shellcheck source=/dev/null
@@ -44,8 +36,7 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     # Fix Ubuntu keys
     #
 
-    ZSH="$HOME/.oh-my-zsh"
-    ZSH_THEME='powerlevel10k/powerlevel10k'
+    # ZSH="$HOME/.oh-my-zsh"
 
     plugins=(
         git
@@ -70,23 +61,22 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     zstyle ':completion:*:(scp|ssh|rsync):*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^[-[:alnum:]]##(.[-[:alnum:]]##)##' '*@*'
     zstyle ':completion:*:(scp|ssh|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
 
-    autoload -Uz compinit && compinit -i
-
     #
     # Unbork aliases
     #
-
     AA="$(alias -L)"
-
-    # shellcheck source=/dev/null
-    . "$ZSH/oh-my-zsh.sh"
-
+    # # shellcheck source=/dev/null
+    # . "$ZSH/oh-my-zsh.sh"
     unalias -m '*'
-
     eval "$AA"
-
-    # https://github.com/romkatv/powerlevel10k
-    # shellcheck source=/dev/null
-    [ -r "$HOME/.p10k.zsh" ] &&
-        . "$HOME/.p10k.zsh"
 fi
+
+#
+# Starship, transient prompt, and zle
+#
+. "${HOME}/.zsh-transient-prompt/transient-prompt.zsh-theme"
+eval "$(starship init zsh)"
+TRANSIENT_PROMPT_PROMPT='$(starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
+TRANSIENT_PROMPT_RPROMPT='$(starship prompt --right --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
+TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character)'
+zle_highlight=(default:fg=#D8FF00)
