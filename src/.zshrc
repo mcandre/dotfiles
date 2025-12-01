@@ -37,11 +37,16 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     #
 
     # ZSH="$HOME/.oh-my-zsh"
+    #
+    # plugins=(
+    #     git
+    #     zsh-completions
+    # )
 
-    plugins=(
-        git
-        zsh-completions
-    )
+    autoload -Uz compinit && compinit
+
+    # Case insensitive
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
     # Respect opening file path CLI argument syntax.
     zstyle ':completion:*' completion_auto_quote true
