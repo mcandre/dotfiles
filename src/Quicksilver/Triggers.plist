@@ -45,29 +45,6 @@
 		</dict>
 		<dict>
 			<key>ID</key>
-			<string>4074585A-7030-431D-824B-0055F2B08AC8</string>
-			<key>character</key>
-			<string>a</string>
-			<key>command</key>
-			<dict>
-				<key>actionID</key>
-				<string>FileOpenAction</string>
-				<key>directID</key>
-				<string>/Applications/Amphetamine.app</string>
-			</dict>
-			<key>enabled</key>
-			<true/>
-			<key>keyCode</key>
-			<integer>0</integer>
-			<key>modifiers</key>
-			<integer>786721</integer>
-			<key>onPress</key>
-			<true/>
-			<key>type</key>
-			<string>QSHotKeyTrigger</string>
-		</dict>
-		<dict>
-			<key>ID</key>
 			<string>QSActivateTextModeTrigger</string>
 			<key>command</key>
 			<string>QSActivateTextModeCommand</string>
