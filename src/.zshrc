@@ -43,7 +43,12 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     #     zsh-completions
     # )
 
+    #
+    # Fix base autocompletion
+    #
     autoload -Uz compinit && compinit
+    zstyle ':completion:*' menu select
+    setopt auto_menu
 
     # Case insensitive
     zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
