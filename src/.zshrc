@@ -46,7 +46,9 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     #
     # Fix base autocompletion
     #
+
     autoload -Uz compinit && compinit
+    bindkey '^[[Z' reverse-menu-complete
     zstyle ':completion:*' menu select
     setopt auto_menu
 
