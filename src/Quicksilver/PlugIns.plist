@@ -1419,11 +1419,11 @@ Are you busy? That new movie is coming out.
 			<key>CFBundleName</key>
 			<string>Mouse Triggers</string>
 			<key>CFBundleShortVersionString</key>
-			<string>1.1.0</string>
+			<string>1.1.1</string>
 			<key>CFBundleVersion</key>
-			<string>16F</string>
+			<string>170</string>
 			<key>QSModifiedDate</key>
-			<string>2022-02-04 09:02:36 +0000</string>
+			<string>2025-02-16 06:02:55 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>author</key>
@@ -1475,7 +1475,7 @@ Below the 'Type' and 'Delay' options are options to select which screen the trig
 				<string>3439</string>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>adds ARM64 support</string>
+			<string>&lt;ul&gt;&lt;li&gt;Fixes for Sonomoa&lt;/li&gt;&lt;/ul&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
 				<key>version</key>
@@ -2294,11 +2294,11 @@ or /). This action is reversible. You can:&lt;/p&gt;
 			<key>CFBundleName</key>
 			<string>User Interface Plugin</string>
 			<key>CFBundleShortVersionString</key>
-			<string>2.3.4</string>
+			<string>2.5.2</string>
 			<key>CFBundleVersion</key>
-			<string>250</string>
+			<string>252</string>
 			<key>QSModifiedDate</key>
-			<string>2025-10-22 07:10:05 +0000</string>
+			<string>2025-11-01 07:11:42 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>author</key>
@@ -4433,6 +4433,6 @@ and it &amp;quot;is not my problem&amp;quot;.
 		</dict>
 	</dict>
 	<key>webDownloadDate</key>
-	<date>2025-11-27T18:43:17Z</date>
+	<date>2025-12-03T22:16:40Z</date>
 </dict>
 </plist>
