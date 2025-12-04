@@ -24,6 +24,17 @@ setopt noautomenu
 setopt nolistbeep
 setopt BANG_HIST
 
+# History file location and size settings (optional but recommended)
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt append_history
+setopt extended_history
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
+
 autoload -U select-word-style
 select-word-style bash
 
