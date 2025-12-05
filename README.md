@@ -49,6 +49,10 @@ It is provided with the base macOS operating system. Equivalent aliases for `ope
 
 [zsh](https://www.zsh.org/) extends GNU bash with additional safety and convenience enhancements.
 
+## zsh-defer
+
+[zsh-defer](https://github.com/romkatv/zsh-defer)
+
 ## zsh-transient-prompt
 
 [zsh-transient-prompt](https://zsh-transient-prompt.olets.dev/)

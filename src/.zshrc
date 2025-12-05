@@ -1,64 +1,57 @@
 #!/bin/zsh
 
-# Update via ji
-# https://github.com/mcandre/ji
-DISABLE_AUTO_UPDATE='true'
-
-# Fix brew PATH glitch
-[ -r "$HOME/.zshenv" ] &&
-    . "$HOME/.zshenv"
+# Begin profiling
+# zmodload zsh/zprof
 
 # Fix cwd in WSL from non-Metro entrypoints
 if [ "$(pwd)" = '/mnt/c/Windows/System32' ]; then
     cd "$HOME"
 fi
 
-[ -z "$(find "$HOME/.zshrc.d/enabled" -prune -empty 2>/dev/null || echo 'missing')" ] &&
-    for f in "$HOME/.zshrc.d/enabled"/*; do
-        # shellcheck source=/dev/null
-        . "$f"
-    done
+PROMPT="%# "
 
-setopt completealiases
-setopt noautomenu
-setopt nolistbeep
-setopt BANG_HIST
+zinit_post_hook() {
+    eval "$(starship init zsh)"
 
-# History file location and size settings (optional but recommended)
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+    TRANSIENT_PROMPT_PROMPT='$(starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
+    TRANSIENT_PROMPT_RPROMPT='$(starship prompt --right --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
+    TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character)'
+    PROMPT_EOL_MARK=''
 
-setopt append_history
-setopt extended_history
-setopt share_history
-setopt hist_ignore_dups
-setopt hist_ignore_space
+    zle reset-prompt
+}
 
-autoload -U select-word-style
-select-word-style bash
+load_zinit() {
+    . "${HOME}/.local/share/zinit/zinit.git/zinit.zsh"
+    autoload -Uz _zinit
+    (( ${+_comps} )) && _comps[zinit]=_zinit
 
-PROMPT_EOL_MARK=''
-ZLE_REMOVE_SUFFIX_CHARS=''
+    zinit ice wait silent
+    zinit light "olets/zsh-transient-prompt"
 
-if [ -d "$HOME/.oh-my-zsh" ]; then
-    #
-    # Fix Terminal.app cwd
-    # Fix Ubuntu keys
-    #
+    zinit ice wait silent nocd atload='zinit_post_hook'
+    zinit light "starship/starship"
+}
 
-    # ZSH="$HOME/.oh-my-zsh"
-    #
-    # plugins=(
-    #     git
-    #     zsh-completions
-    # )
+provision_interactive_shell() {
+    setopt completealiases
+    setopt noautomenu
+    setopt nolistbeep
+    setopt BANG_HIST
+    setopt append_history
+    setopt extended_history
+    setopt share_history
+    setopt hist_ignore_dups
+    setopt hist_ignore_space
+    HISTFILE=~/.zsh_history
+    HISTSIZE=10000
+    SAVEHIST=10000
+    ZLE_REMOVE_SUFFIX_CHARS=''
 
     #
     # Fix base autocompletion
     #
 
-    autoload -Uz compinit && compinit
     bindkey '^[[Z' reverse-menu-complete
     zstyle ':completion:*' menu select
     setopt auto_menu
@@ -91,18 +84,33 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     # Unbork aliases
     #
     AA="$(alias -L)"
-    # # shellcheck source=/dev/null
-    # . "$ZSH/oh-my-zsh.sh"
     unalias -m '*'
     eval "$AA"
-fi
+
+    autoload -Uz compinit
+    compinit
+    zle_highlight=(default:fg=#D8FF00)
+
+    autoload -U select-word-style
+    select-word-style bash
+
+    # Fix brew PATH glitch
+    [ -r "$HOME/.zshenv" ] &&
+        . "$HOME/.zshenv"
+
+    [ -z "$(find "$HOME/.zshrc.d/enabled" -prune -empty 2>/dev/null || echo 'missing')" ] &&
+        for f in "$HOME/.zshrc.d/enabled"/*; do
+            # shellcheck source=/dev/null
+            . "$f"
+        done
+}
 
 #
-# Starship, transient prompt, and zle
+# accelerate interactive shell launches
 #
-. "${HOME}/.zsh-transient-prompt/transient-prompt.zsh-theme"
-eval "$(starship init zsh)"
-TRANSIENT_PROMPT_PROMPT='$(starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
-TRANSIENT_PROMPT_RPROMPT='$(starship prompt --right --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
-TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character)'
-zle_highlight=(default:fg=#D8FF00)
+autoload -Uz ~/zsh-defer/zsh-defer
+zsh-defer load_zinit
+zsh-defer provision_interactive_shell
+
+# End profiling
+# zprof
