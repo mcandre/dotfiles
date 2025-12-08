@@ -1,17 +1,13 @@
-#!/bin/zsh
+# Fix rename
+LC_ALL=en_US.UTF-8
+LC_CTYPE=en_US.UTF-8
 
-# shellcheck source=/dev/null
-[ -r "$HOME/.profile" ] &&
-    . "$HOME/.profile"
+# Setup PATH = system path + ~/bin + $GOPATH/bin
+. ~/.path.sh
+. ~/.go.sh
 
-[ -z "$(find "$HOME/.zshenv.d/enabled" -prune -empty 2>/dev/null || echo 'missing')" ] &&
-    for f in "$HOME/.zshenv.d/enabled"/*; do
-        # shellcheck source=/dev/null
-        . "$f"
-    done
+# Load extras
+for f in ~/.zshenv.d/*.sh; do . "$f"; done
 
-command -v direnv >/dev/null 2>&1 &&
-    eval "$(direnv hook zsh)" &&
-    export DIRENV_LOG_FORMAT= &&
-    [ "$(pwd)" != '/mnt/c/Windows/System32' ] &&
-    direnv reload
+# Load direnv
+eval "$(direnv hook zsh)"

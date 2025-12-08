@@ -4,8 +4,12 @@
 #
 # * Window Background: #0F0F0F
 # * Window Foreground: #4CB73F
-# * Cursor Background: #D8FF00
+# * Cursor Background: #4CB73F
 # * Cursor Foreground: #0F0F0F
+#
+# Recommended zsh colors:
+#
+# * zle_highlight: #4CB73F
 #
 # Install:
 #
@@ -33,25 +37,25 @@ add_newline = false
 # and use the os module below
 [username]
 show_always = true
-style_user = 'fg:#FFD9B3'
-style_root = 'fg:#FFD9B3'
+style_user = 'fg:#D7FF00'
+style_root = 'fg:#D7FF00'
 format = '[$user]($style)'
 disabled = false
 
 [hostname]
 ssh_only = false
-style = 'fg:#FFD9B3'
+style = 'fg:#D7FF00'
 format = '[@$hostname:]($style)'
 
 [directory]
-style = 'fg:#FFD9B3'
+style = 'fg:#D7FF00'
 format = '[$path]($style)'
 truncation_length = 1
 
 [custom.screen]
 when = '[ -n "$STY" ]'
 command = "echo \"$STY\" | gawk 'match($0, /^([0-9]+).*$/, arr) { print arr[1] }'"
-style = 'fg:#9E7BDF'
+style = 'fg:purple'
 format = "[ \\($output.tty\\)]($style)"
 
 [status]
@@ -65,4 +69,4 @@ pipestatus_format = '[ $pipestatus]($style)'
 [character]
 success_symbol = "%"
 error_symbol = "%"
-format = "[$symbol](fg:#D7FF00 bold) "
+format = "[$symbol](fg:#4CB73F bold) "

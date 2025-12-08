@@ -5,7 +5,7 @@
 
 tools='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support'
 
-"${tools}/lsregister" \
+"$tools/lsregister" \
     -kill \
     -r \
     -domain local \

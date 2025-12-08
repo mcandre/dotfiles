@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# shellcheck source=/dev/null
-[ -r "$HOME/.bashrc" ] &&
-    . "$HOME/.bashrc"
-
-shopt -s expand_aliases

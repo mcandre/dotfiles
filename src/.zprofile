@@ -1,2 +1,2 @@
-# Skip Apple shell history junk
+# Focus
 export SHELL_SESSIONS_DISABLE=1

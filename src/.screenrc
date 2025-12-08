@@ -1,5 +1,5 @@
 # Silence
 startup_message off
 
-# Fix prompt and other custom colors
-truecolor on
+# # Fix prompt and other custom colors
+# truecolor on

@@ -1,14 +1,11 @@
-#!/bin/zsh
-
 # Begin profiling
 # zmodload zsh/zprof
 
-# Fix cwd in WSL from non-Metro entrypoints
-if [ "$(pwd)" = '/mnt/c/Windows/System32' ]; then
-    cd "$HOME"
-fi
+# Load noninteractive PATH
+. ~/.zshenv
 
-PROMPT="%# "
+PROMPT="%B%F{#4CB73F}%#%f%b "
+zle_highlight=(default:fg=#4CB73F)
 
 zinit_post_hook() {
     eval "$(starship init zsh)"
@@ -19,10 +16,15 @@ zinit_post_hook() {
     PROMPT_EOL_MARK=''
 
     zle reset-prompt
+
+    autoload -Uz compinit
+    compinit
+    bindkey '^[[A' up-line-or-history
+    bindkey '^[[Z' reverse-menu-complete
 }
 
 load_zinit() {
-    . "${HOME}/.local/share/zinit/zinit.git/zinit.zsh"
+    . ~/.local/share/zinit/zinit.git/zinit.zsh
     autoload -Uz _zinit
     (( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -34,6 +36,8 @@ load_zinit() {
 }
 
 provision_interactive_shell() {
+    load_zinit
+
     setopt completealiases
     setopt noautomenu
     setopt nolistbeep
@@ -46,13 +50,11 @@ provision_interactive_shell() {
     HISTFILE=~/.zsh_history
     HISTSIZE=10000
     SAVEHIST=10000
-    ZLE_REMOVE_SUFFIX_CHARS=''
 
     #
     # Fix base autocompletion
     #
 
-    bindkey '^[[Z' reverse-menu-complete
     zstyle ':completion:*' menu select
     setopt auto_menu
 
@@ -87,29 +89,17 @@ provision_interactive_shell() {
     unalias -m '*'
     eval "$AA"
 
-    autoload -Uz compinit
-    compinit
-    zle_highlight=(default:fg=#D8FF00)
-
     autoload -U select-word-style
     select-word-style bash
 
-    # Fix brew PATH glitch
-    [ -r "$HOME/.zshenv" ] &&
-        . "$HOME/.zshenv"
-
-    [ -z "$(find "$HOME/.zshrc.d/enabled" -prune -empty 2>/dev/null || echo 'missing')" ] &&
-        for f in "$HOME/.zshrc.d/enabled"/*; do
-            # shellcheck source=/dev/null
-            . "$f"
-        done
+    # Load extras
+    for f in ~/.zshrc.d/*.sh; do . "$f"; done
 }
 
 #
 # accelerate interactive shell launches
 #
 autoload -Uz ~/zsh-defer/zsh-defer
-zsh-defer load_zinit
 zsh-defer provision_interactive_shell
 
 # End profiling

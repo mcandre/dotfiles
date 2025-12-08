@@ -23,13 +23,13 @@ An thorough example [.editorconfig](.editorconfig) file sets up many projects fo
 
 ## gitignore
 
-[src/.profile.d/gitignore.sh](src/.profile.d/gitignore.sh) implements a CLI for the popular [gitignore.io](https://www.toptal.com/developers/gitignore) pattern database.
+[src/.zshrc.d/gi.sh](src/.zshrc.d/gi.sh) provisions a [gitignore.io](https://www.toptal.com/developers/gitignore) CLI.
 
 ## ll
 
 A common UNIX alias for rapidly listing information about files in the current directory, *in detail*.
 
-Setup via [src/.profile.d/ll.sh](src/.profile.d/ll.sh).
+Setup via [src/.zshrc.d/ll.sh](src/.zshrc.d/ll.sh).
 
 ## open
 
@@ -37,9 +37,10 @@ The convenient macOS [open](https://ss64.com/mac/open.html) command line tool ac
 
 It is provided with the base macOS operating system. Equivalent aliases for `open` are provided in example shell configuration snippets:
 
-* [UNIX (XDG)](src/.profile.d/open.x11.sh)
+* [UNIX (XDG)](src/.zshenv.d/open.x11.sh)
 * [Windows (cmd.exe)](src/open.cmd)
 * [Windows (PowerShell)](src/profile.ps1)
+* [Windows (WSL)](src/.zshenv.d/open.wsl.sh)
 
 ## iTerm2
 

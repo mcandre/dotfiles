@@ -1,11 +1,11 @@
 <!-- Install:
 
-    cp setenv.MOZ_DISABLE_SAFE_MODE_KEY.plist "$HOME/Library/LaunchAgents/"
-    launchctl load -w "$HOME/Library/LaunchAgents/setenv.MOZ_DISABLE_SAFE_MODE_KEY.plist"
+    cp setenv.MOZ_DISABLE_SAFE_MODE_KEY.plist ~/Library/LaunchAgents
+    launchctl load -w ~/Library/LaunchAgents/setenv.MOZ_DISABLE_SAFE_MODE_KEY.plist
 
     Uninstall:
 
-    rm "$HOME/Library/LaunchAgents/setenv.MOZ_DISABLE_SAFE_MODE_KEY.plist"
+    rm ~/Library/LaunchAgents/setenv.MOZ_DISABLE_SAFE_MODE_KEY.plist
     launchctl unsetenv MOZ_DISABLE_SAFE_MODE_KEY
 -->
 <?xml version="1.0" encoding="UTF-8" ?>

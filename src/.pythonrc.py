@@ -1,8 +1,6 @@
 #
 # Add tab completion and session history to REPL
 #
-# ln -s .../python.sh ~/.bashrc.d/enabled/python.sh
-# ln -s .../.pythonrc.py ~/.pythonrc.py
 
 import readline
 import rlcompleter
