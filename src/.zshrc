@@ -8,14 +8,14 @@ PROMPT="%B%F{#4CB73F}%#%f%b "
 zle_highlight=(default:fg=#4CB73F)
 
 zinit_post_hook() {
-    # eval "$(starship init zsh)"
+    eval "$(starship init zsh)"
 
-    # TRANSIENT_PROMPT_PROMPT='$(starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
-    # TRANSIENT_PROMPT_RPROMPT='$(starship prompt --right --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
-    # TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character)'
-    # PROMPT_EOL_MARK=''
+    TRANSIENT_PROMPT_PROMPT='$(starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
+    TRANSIENT_PROMPT_RPROMPT='$(starship prompt --right --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
+    TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character)'
+    PROMPT_EOL_MARK=''
 
-    # zle reset-prompt
+    zle reset-prompt
 
     autoload -Uz compinit
     compinit
@@ -36,7 +36,7 @@ load_zinit() {
 }
 
 provision_interactive_shell() {
-    # load_zinit
+    load_zinit
 
     setopt completealiases
     setopt noautomenu
@@ -99,10 +99,8 @@ provision_interactive_shell() {
 #
 # accelerate interactive shell launches
 #
-# autoload -Uz ~/zsh-defer/zsh-defer
-# zsh-defer provision_interactive_shell
-
-zinit_post_hook
+autoload -Uz ~/zsh-defer/zsh-defer
+zsh-defer provision_interactive_shell
 
 # End profiling
 # zprof
