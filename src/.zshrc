@@ -7,6 +7,19 @@
 PROMPT="%B%F{#4CB73F}%#%f%b "
 zle_highlight=(default:fg=#4CB73F)
 
+setopt completealiases
+setopt noautomenu
+setopt nolistbeep
+setopt BANG_HIST
+setopt append_history
+setopt extended_history
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=8000
+
 zinit_post_hook() {
     eval "$(starship init zsh)"
 
@@ -37,19 +50,6 @@ load_zinit() {
 
 provision_interactive_shell() {
     load_zinit
-
-    setopt completealiases
-    setopt noautomenu
-    setopt nolistbeep
-    setopt BANG_HIST
-    setopt append_history
-    setopt extended_history
-    setopt share_history
-    setopt hist_ignore_dups
-    setopt hist_ignore_space
-    HISTFILE=~/.zsh_history
-    HISTSIZE=10000
-    SAVEHIST=10000
 
     #
     # Fix base autocompletion
