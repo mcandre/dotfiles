@@ -4,6 +4,9 @@
 PROMPT="%B%F{#4CB73F}%#%f%b "
 zle_highlight=(default:fg=#4CB73F)
 
+# Fix tmux hotkeys
+bindkey -e
+
 setopt completealiases
 setopt noautomenu
 setopt nolistbeep
