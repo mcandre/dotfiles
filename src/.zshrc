@@ -1,9 +1,6 @@
 # Begin profiling
 # zmodload zsh/zprof
 
-# Load noninteractive PATH
-. ~/.zshenv
-
 PROMPT="%B%F{#4CB73F}%#%f%b "
 zle_highlight=(default:fg=#4CB73F)
 
