@@ -1,8 +1,10 @@
 # Dotfiles - Configuration files
 
-# HOMEPAGE
+[![Donate](https://img.shields.io/badge/GUMROAD-36a9ae?style=flat&logo=gumroad&logoColor=white)](https://mcandre.gumroad.com/)
 
-https://github.com/mcandre/dotfiles
+# ABOUT
+
+Collection of configurations for safe, fast, software development.
 
 # NOTABLE CONFIGURATIONS
 
