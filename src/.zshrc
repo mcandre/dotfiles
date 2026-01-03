@@ -55,9 +55,6 @@ provision_interactive_shell() {
     # Fix base autocompletion
     #
 
-    zstyle ':completion:*' menu select
-    setopt auto_menu
-
     # Case insensitive
     zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
@@ -95,6 +92,9 @@ provision_interactive_shell() {
     # Load extras
     for f in ~/.zshrc.d/*.sh; do . "$f"; done
 }
+
+zstyle ':completion:*' menu select
+setopt auto_menu
 
 #
 # accelerate interactive shell launches
