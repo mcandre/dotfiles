@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Work around gaps in image ISA's
 export DOCKER_DEFAULT_PLATFORM='linux/amd64'
 

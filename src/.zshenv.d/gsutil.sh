@@ -1,4 +1,3 @@
-#!/bin/sh
 # Workaround for https://github.com/GoogleCloudPlatform/gsutil/issues/576
 gsutil() {
     command gsutil \

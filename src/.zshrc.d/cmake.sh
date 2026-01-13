@@ -1,2 +1,2 @@
-#!/bin/sh
+# Fix cmake
 export CTEST_OUTPUT_ON_FAILURE=1

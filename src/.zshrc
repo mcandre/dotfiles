@@ -1,3 +1,5 @@
+. ~/.zshenv
+
 # Begin profiling
 # zmodload zsh/zprof
 

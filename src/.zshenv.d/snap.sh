@@ -1,2 +1,4 @@
-#!/bin/sh
-export PATH="$PATH:/snap/bin"
+path=(
+    $path
+    /snap/bin
+)

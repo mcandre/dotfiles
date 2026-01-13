@@ -1,4 +1,3 @@
-#!/bin/sh
 # gi
 # https://docs.gitignore.io/
 gi() {

@@ -1,4 +1,3 @@
-#!/bin/sh
 #
 # Fix zsh tab completion
 # Recurse over directories

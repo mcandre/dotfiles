@@ -1,2 +1,4 @@
-#!/bin/sh
-export PATH="$PATH:/Library/TeX/texbin"
+path=(
+    $path
+    /Library/TeX/texbin
+)

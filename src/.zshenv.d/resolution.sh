@@ -1,5 +1,3 @@
-#!/bin/sh
-
 usage_resolution() {
     printf "Usage: %s <video>\n" "$0"
 }
