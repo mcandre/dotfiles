@@ -97,12 +97,12 @@ BSD-2-Clause
 
 # AUDIT
 
-```console
-$ ./build audit
+```sh
+./build audit
 ```
 
 # LINT
 
-```console
-$ ./build [lint]
+```sh
+./build [lint]
 ```
