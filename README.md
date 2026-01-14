@@ -1,6 +1,6 @@
 # Dotfiles - Configuration files
 
-[![Donate](https://img.shields.io/badge/GUMROAD-36a9ae?style=flat&logo=gumroad&logoColor=white)](https://mcandre.gumroad.com/)
+![license](https://img.shields.io/badge/license-BSD-3) [![Donate](https://img.shields.io/badge/GUMROAD-36a9ae?style=flat&logo=gumroad&logoColor=white)](https://mcandre.gumroad.com/)
 
 # ABOUT
 
@@ -65,10 +65,6 @@ It is provided with the base macOS operating system. Equivalent aliases for `ope
 [Starship](https://starship.rs/) is a cross-shell framework for configuring prompts.
 
 [.config/starship.toml](starship.toml) configures a minimalistic right prompt.
-
-# LICENSE
-
-BSD-2-Clause
 
 # REQUIREMENTS
 
