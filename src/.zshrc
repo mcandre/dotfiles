@@ -92,7 +92,7 @@ provision_interactive_shell() {
     select-word-style bash
 
     # Load extras
-    for f in ~/.zshrc.d/*.sh; do . "$f"; done
+    for f in ~/.zshrc.d/*.zsh; do . "$f"; done
 }
 
 zstyle ':completion:*' menu select
