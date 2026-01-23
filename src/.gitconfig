@@ -22,8 +22,15 @@ rebase = true
 keepBackup = false
 
 [user]
-name = Andrew
-email = githubmcandre.gumdrop164@passfwd.com
+name = Andrew Pennebaker
+email = n4jm4@pm.me
+signingkey = 8E363EAD6BBCDCBC
 
 [init]
 defaultBranch = main
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
+[log]
+	showSignature = true
