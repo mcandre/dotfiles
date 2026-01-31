@@ -20,9 +20,9 @@
     run steam.exe
     return
 
-; Control+Alt+W launches Microsoft To Do
+; Control+Alt+W launches Nozbe
 ^!w::
-    run powershell.exe -Command Start-Process -WindowStyle Hidden "ms-to-do:"
+    run "%userprofile%\AppData\Local\Programs\Nozbe\Nozbe.exe"
     return
 
 ; Disable mouse scroll
