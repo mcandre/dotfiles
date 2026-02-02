@@ -22,8 +22,12 @@ indent_size = none
 [CMakeLists.txt]
 indent_size = 4 # bash8
 
-# Align keys
+# Align YAML keys
 [*.{yaml,yml,reek,.yamllint}]
+indent_size = 2
+
+# Nix convention
+[*.nix]
 indent_size = 2
 
 # Placeholder files
