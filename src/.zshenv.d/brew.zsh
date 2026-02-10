@@ -6,5 +6,6 @@
 path=(
     /opt/homebrew/bin
     /opt/homebrew/sbin
+    /opt/homebrew/opt/gnu-tar/libexec/gnubin
     $path
 )
