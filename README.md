@@ -1,6 +1,6 @@
 # Dotfiles - Configuration files
 
-[![Lint](https://github.com/mcandre/dotfiles/actions/workflows/lint.yml/badge.svg)](https://github.com/mcandre/dotfiles/actions/workflows/lint.yml) [![license](https://img.shields.io/badge/license-BSD-3)](LICENSE.md) [![Donate](https://img.shields.io/badge/GUMROAD-36a9ae?style=flat&logo=gumroad&logoColor=white)](https://mcandre.gumroad.com/)
+[![Lint](https://github.com/mcandre/dotfiles/actions/workflows/lint.yml/badge.svg)](https://github.com/mcandre/dotfiles/actions/workflows/lint.yml) [![license](https://img.shields.io/badge/license-BSD-3)](LICENSE.md) [![Donate](https://img.shields.io/badge/-any?logo=gumroad&label=Donate&color=grey)](https://mcandre.gumroad.com/)
 
 # ABOUT
 
