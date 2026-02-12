@@ -53,18 +53,18 @@ add_newline = false
 # and use the os module below
 [username]
 show_always = true
-style_user = 'fg:5' # 24 bit #800080
-style_root = 'fg:5' # 24 bit #800080
+style_user = 'fg:13' # 24 bit #FF00FF
+style_root = 'fg:13' # 24 bit #FF00FF
 format = '[$user]($style)'
 disabled = false
 
 [hostname]
 ssh_only = false
-style = 'fg:5'      # 24 bit #800080
+style = 'fg:13'      # 24 bit #FF00FF
 format = '[@$hostname:]($style)'
 
 [directory]
-style = 'fg:5'      # 24 bit #800080
+style = 'fg:13'      # 24 bit #FF00FF
 format = '[$path]($style)'
 truncation_length = 1
 
