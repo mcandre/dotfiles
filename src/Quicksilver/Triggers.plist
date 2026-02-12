@@ -30,7 +30,7 @@
 				<key>actionID</key>
 				<string>FileOpenAction</string>
 				<key>directID</key>
-				<string>/Applications/Microsoft To Do.app</string>
+				<string>/Applications/Nozbe.app</string>
 			</dict>
 			<key>enabled</key>
 			<true/>
@@ -61,7 +61,7 @@
 				<key>actionID</key>
 				<string>FileOpenAction</string>
 				<key>directID</key>
-				<string>/Applications/iTerm.app</string>
+				<string>/System/Applications/Utilities/Terminal.app</string>
 			</dict>
 			<key>enabled</key>
 			<true/>

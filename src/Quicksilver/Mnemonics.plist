@@ -13,6 +13,10 @@
 		<array>
 			<string>/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/iOSSupport/Library/Xcode/Agents/Xcode Previews.app</string>
 		</array>
+		<key>documents</key>
+		<array>
+			<string>/Users/andrew/Documents</string>
+		</array>
 		<key>google</key>
 		<array>
 			<string>/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/96.0.4664.55/Helpers/Google Chrome Helper (Alerts).app</string>
@@ -74,6 +78,11 @@
 			<integer>2</integer>
 			<key>itunes</key>
 			<integer>2</integer>
+		</dict>
+		<key>/Users/andrew/Documents</key>
+		<dict>
+			<key>documents</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 </dict>

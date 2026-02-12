@@ -1,15 +1,26 @@
-# Varia Suit
+# Varia Suit Monokai
 #
-# Recommended terminal emulator colors:
+# Recommended terminal emulator settings
 #
-# * Window Background: #0F0F0F
-# * Window Foreground: #4CB73F
-# * Cursor Background: #4CB73F
-# * Cursor Foreground: #0F0F0F
+# Font
 #
-# Recommended zsh colors:
+# Atkinson Hyperlegible Mono
+# https://fonts.google.com/specimen/Atkinson+Hyperlegible+Mono
 #
-# * zle_highlight: #4CB73F
+# Colors
+#
+# * Window Background:           #221F23
+# * Window Foreground Text:      #797979
+# * Window Foreground Bold Text: #ACACAC
+# * Cursor Background:           #FED254
+# * Cursor Foreground:           #221F23
+# * Selection Foreground:        #4D4D4D
+# * Selection Background:        #221F23
+#
+# Recommended zsh settings
+#
+# * PROMPT:         190 8 bit ANSI decimal # 24 bit #D7FF00
+# * zle_highlight:  190 8 bit ANSI decimal # 24 bit #D7FF00
 #
 # Install:
 #
@@ -23,6 +34,9 @@
 #
 # https://archive.org/details/metroid-dread-special-edition-artbook
 # https://colorhunt.co/palette/fff58affbbe1dd7bdfb3bfff
+#
+# See also pastel for transformation between color code formats:
+# https://github.com/sharkdp/pastel
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
@@ -37,25 +51,25 @@ add_newline = false
 # and use the os module below
 [username]
 show_always = true
-style_user = 'fg:#D7FF00'
-style_root = 'fg:#D7FF00'
+style_user = 'fg:5' # 24 bit #800080
+style_root = 'fg:5' # 24 bit #800080
 format = '[$user]($style)'
 disabled = false
 
 [hostname]
 ssh_only = false
-style = 'fg:#D7FF00'
+style = 'fg:5'      # 24 bit #800080
 format = '[@$hostname:]($style)'
 
 [directory]
-style = 'fg:#D7FF00'
+style = 'fg:5'      # 24 bit #800080
 format = '[$path]($style)'
 truncation_length = 1
 
 [status]
 disabled = false
 pipestatus = true
-style = 'fg:#FF8A8A'
+style = 'fg:1'      # 24 bit #800000
 format = '[ ! $status]($style)'
 pipestatus_segment_format = '[$status]($style)'
 pipestatus_format = '[ $pipestatus]($style)'
@@ -63,4 +77,4 @@ pipestatus_format = '[ $pipestatus]($style)'
 [character]
 success_symbol = "%"
 error_symbol = "%"
-format = "[$symbol](fg:#4CB73F bold) "
+format = "[$symbol](fg:190) " # 24 bit #D7FF00

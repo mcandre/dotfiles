@@ -184,11 +184,11 @@
 			<key>CFBundleName</key>
 			<string>Contacts Plugin</string>
 			<key>CFBundleShortVersionString</key>
-			<string>2.3.0</string>
+			<string>2.3.1</string>
 			<key>CFBundleVersion</key>
-			<string>17E</string>
+			<string>180</string>
 			<key>QSModifiedDate</key>
-			<string>2022-02-04 09:02:37 +0000</string>
+			<string>2026-02-05 10:02:29 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>author</key>
@@ -227,13 +227,86 @@
 				<string>0</string>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>adds ARM64 support</string>
+			<string>&lt;ul&gt;
+&lt;li&gt;Fix scanning contacts and → into Contacts.app&lt;/li&gt;
+&lt;/ul&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
 				<key>osRequired</key>
 				<string>10.9</string>
 				<key>version</key>
 				<string>4005</string>
+			</dict>
+		</dict>
+		<key>com.blacktree.Quicksilver.QSAppleMailPlugIn</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.blacktree.Quicksilver.QSAppleMailPlugIn</string>
+			<key>CFBundleName</key>
+			<string>Apple Mail Plugin</string>
+			<key>CFBundleShortVersionString</key>
+			<string>3.2.0</string>
+			<key>CFBundleVersion</key>
+			<string>1B3</string>
+			<key>QSModifiedDate</key>
+			<string>2026-02-01 08:02:50 +0000</string>
+			<key>QSPlugIn</key>
+			<dict>
+				<key>author</key>
+				<string>Blacktree, Inc.</string>
+				<key>categories</key>
+				<array>
+					<string>Applications</string>
+					<string>Mail &amp; Chat</string>
+				</array>
+				<key>description</key>
+				<string>Enables browsing and email actions for Apple Mail</string>
+				<key>extendedDescription</key>
+				<string>&lt;h2&gt;Apple Mail Plugin&lt;/h2&gt;
+&lt;p&gt;This plugin lets you browse your mailboxes and messages contained in Apple Mail.&lt;/p&gt;
+&lt;p&gt;Just call up Mail.app in the first pane and hit → or /. It will reveal all mailboxes and folders for each account. Arrowing into a mailbox reveals all messages in that folder. The selected message can be viewed with Quick Look or "opened" to reveal it in Mail.&lt;/p&gt;
+&lt;p&gt;This plugin also allows actions for composing messages or sending messages directly (via the E-mail Support plugin) to function based on settings in Apple Mail.&lt;/p&gt;
+&lt;h3&gt;Actions&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Open Mailbox - When a mailbox is selected in the first pane, this actions opens it in Mail.app.&lt;/li&gt;
+&lt;li&gt;Open Message - When a message is selected in the first pane, this actions opens it in its own window in Mail.app&lt;/li&gt;
+&lt;li&gt;Get New Mail - Recieves new mails for all accounts.&lt;/li&gt;
+&lt;li&gt;Open New Messages - Opens all unread messages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+Move to Mailbox... - When a message is selected in the first pane, this action moves the message from the current mailbox into another one. The new mailbox can be selected in the third pane.
+Delete Message - Deletes the selected message from a mailbox.
+Note: It has only been tested with IMAP accounts. --&gt;
+
+&lt;h4&gt;NOTE: For Gmail Users&lt;/h4&gt;
+&lt;p&gt;Apple Mail only partially supports Gmail folders. That means trying to  browse Gmail folders using → will only work for the most basic folders (Inbox, Bin etc.) and won't work for any custom folders you have created.&lt;/p&gt;</string>
+				<key>icon</key>
+				<string>com.apple.Mail</string>
+				<key>relatedBundles</key>
+				<array>
+					<string>com.apple.Mail</string>
+				</array>
+			</dict>
+			<key>QSPluginChanges</key>
+			<string>&lt;ul&gt;
+&lt;li&gt;Apple Silicon Support&lt;/li&gt;
+&lt;li&gt;Various Minor Improvements&lt;/li&gt;
+&lt;/ul&gt;</string>
+			<key>QSRequirements</key>
+			<dict>
+				<key>osRequired</key>
+				<string>11.0</string>
+				<key>plugins</key>
+				<array>
+					<dict>
+						<key>id</key>
+						<string>com.blacktree.Quicksilver.QSEmailSupport</string>
+						<key>name</key>
+						<string>Mail Support</string>
+					</dict>
+				</array>
+				<key>version</key>
+				<string>4001</string>
 			</dict>
 		</dict>
 		<key>com.blacktree.Quicksilver.QSAutomatorPlugIn</key>
@@ -303,11 +376,11 @@
 			<key>CFBundleName</key>
 			<string>Clipboard Plugin</string>
 			<key>CFBundleShortVersionString</key>
-			<string>1.8.5</string>
+			<string>1.8.7</string>
 			<key>CFBundleVersion</key>
-			<string>169</string>
+			<string>171</string>
 			<key>QSModifiedDate</key>
-			<string>2025-03-21 02:03:01 +0000</string>
+			<string>2026-02-04 10:02:10 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>author</key>
@@ -366,7 +439,10 @@ To paste items form the Clipboard Window as plain text, hold the ⌥ (option) ke
 				<string>Clipboard</string>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>&lt;ul&gt;&lt;li&gt;Show rich text in the clipboard view&lt;/li&gt;&lt;li&gt;Visual tweaks to improve UI&lt;/li&gt;&lt;/ul&gt;</string>
+			<string>&lt;ul&gt;
+&lt;li&gt;Fix a small issue that meant the clipboard could struggle to paste
+in some apps&lt;/li&gt;
+&lt;/ul&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
 				<key>osRequired</key>
@@ -686,11 +762,11 @@ In order to set the Desktop picture for a different display, tab (⇥) to the 3r
 			<key>CFBundleName</key>
 			<string>E-mail Support</string>
 			<key>CFBundleShortVersionString</key>
-			<string>2.0.2</string>
+			<string>3.0.1</string>
 			<key>CFBundleVersion</key>
-			<string>9B</string>
+			<string>101</string>
 			<key>QSModifiedDate</key>
-			<string>2014-04-07 01:04:44 +0000</string>
+			<string>2026-02-01 07:02:58 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>categories</key>
@@ -727,9 +803,14 @@ Are you busy? That new movie is coming out.
 				<false/>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>&lt;ul&gt; &lt;li&gt;Remove &amp;#8220;Default&amp;#8221; from the list of E-mail handlers&lt;/li&gt; &lt;li&gt;Improved command descriptions&lt;/li&gt; &lt;li&gt;Compatibility with the next release of Quicksilver&lt;/li&gt; &lt;/ul&gt;</string>
+			<string>&lt;ul&gt;
+&lt;li&gt;Apple Silicon Support&lt;/li&gt;
+&lt;li&gt;Various Minor Improvements&lt;/li&gt;
+&lt;/ul&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
+				<key>osRequired</key>
+				<string>10.14</string>
 				<key>version</key>
 				<string>4001</string>
 			</dict>
@@ -1161,11 +1242,11 @@ Are you busy? That new movie is coming out.
 			<key>CFBundleName</key>
 			<string>Gmail Plugin</string>
 			<key>CFBundleShortVersionString</key>
-			<string>1.1.0</string>
+			<string>1.3.0</string>
 			<key>CFBundleVersion</key>
-			<string>5F</string>
+			<string>100</string>
 			<key>QSModifiedDate</key>
-			<string>2013-03-28 12:03:19 +0000</string>
+			<string>2026-01-31 12:01:57 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>author</key>
@@ -1190,7 +1271,7 @@ Are you busy? That new movie is coming out.
 				</array>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>&lt;ul&gt;&lt;li&gt;Enable the 'send directly' actions for Gmail&lt;/li&gt;&lt;li&gt;Add documentation&lt;/li&gt;&lt;li&gt;Fix the 'Compose Email' action for multiple email addresses'&lt;/li&gt;&lt;/ul&gt;</string>
+			<string>&lt;ul&gt;&lt;li&gt;Apple Silicon Support&lt;/li&gt;&lt;li&gt;Various minor improvements&lt;/li&gt;&lt;/ul&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
 				<key>plugins</key>
@@ -1199,7 +1280,7 @@ Are you busy? That new movie is coming out.
 						<key>id</key>
 						<string>com.blacktree.Quicksilver.QSEmailSupport</string>
 						<key>name</key>
-						<string>Mail Support</string>
+						<string>E-mail Support</string>
 					</dict>
 				</array>
 				<key>version</key>
@@ -2294,11 +2375,11 @@ or /). This action is reversible. You can:&lt;/p&gt;
 			<key>CFBundleName</key>
 			<string>User Interface Plugin</string>
 			<key>CFBundleShortVersionString</key>
-			<string>2.5.2</string>
+			<string>2.6.1</string>
 			<key>CFBundleVersion</key>
-			<string>252</string>
+			<string>254</string>
 			<key>QSModifiedDate</key>
-			<string>2025-11-01 07:11:42 +0000</string>
+			<string>2026-02-03 04:02:22 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>author</key>
@@ -2360,7 +2441,10 @@ To better indicate where Menu Items have come from, their details will show the 
 				<string>UniversalAccessPref</string>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>&lt;ul&gt;&lt;li&gt;Fix an issue with running commands on menu items that have the same name (#2978)&lt;/li&gt;&lt;/ul&gt;</string>
+			<string>&lt;ul&gt;
+&lt;li&gt;Improve current document proxy: now picks up files from VSCode and
+Chrome&lt;/li&gt;
+&lt;/ul&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
 				<key>version</key>
@@ -2608,11 +2692,11 @@ After you have entered the URL of the search form, add &lt;code&gt;?key=***&lt;/
 			<key>CFBundleName</key>
 			<string>Calendar &amp; Reminders Plugin</string>
 			<key>CFBundleShortVersionString</key>
-			<string>1.4.0</string>
+			<string>1.5.1</string>
 			<key>CFBundleVersion</key>
-			<string>141</string>
+			<string>146</string>
 			<key>QSModifiedDate</key>
-			<string>2024-03-25 02:03:04 +0000</string>
+			<string>2026-02-04 09:02:27 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>author</key>
@@ -2633,21 +2717,33 @@ After you have entered the URL of the search form, add &lt;code&gt;?key=***&lt;/
 &lt;p&gt;This action takes text from Quicksilver's 1st pane, and adds it as an event to your selected Calendar in Quicksilver's 3rd pane.&lt;br&gt;
 Examples of text could be &lt;code&gt;Dinner with Tom next Tuesday&lt;/code&gt; or &lt;code&gt;Visit mum at 3pm&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;You can improve how an event displays in your Calendar by separating the name of the event and the time it takes place with two dashes &lt;code&gt;--&lt;/code&gt;&lt;br&gt;
-Using &lt;code&gt;Next Tuesday -- Dinner with Tom&lt;/code&gt; will create an event called just &lt;code&gt;Dinner with Tom&lt;/code&gt; in your calendar.&lt;/p&gt;
+Using &lt;code&gt;Next Tuesday -- Dinner with Tom&lt;/code&gt; will create an event called just &lt;code&gt;Dinner with Tom&lt;/code&gt; in your calendar. Supported languages include English, Japanese, French, Dutch, Russian, English (UK) with partial support for German, Portuguese and Chinese, thanks to the &lt;a href="https://github.com/wanasit/chrono"&gt;Chrono project&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Create Reminder&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This action takes text from Quicksilver's 1st pane, and adds it as a Reminder to your selected Reminders List in Quicksilver's 3rd pane.&lt;/p&gt;
 &lt;p&gt;Examples of text could be &lt;code&gt;Do the shopping&lt;/code&gt; or &lt;code&gt;Pick up the kids from school&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;You can set the priority of an event by prefixing your event with any number of exclamation marks &lt;code&gt;!&lt;/code&gt;&lt;br&gt;
 &lt;em&gt;One&lt;/em&gt; exclamantion mark gives the Reminder a &lt;em&gt;low&lt;/em&gt; priority, &lt;em&gt;two&lt;/em&gt; give the Reminder a &lt;em&gt;medium&lt;/em&gt; priority and &lt;em&gt;three&lt;/em&gt; gives it a &lt;em&gt;high&lt;/em&gt; priority.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;!! This is a medium priority reminder&lt;/code&gt;&lt;br&gt;
-&lt;code&gt;This reminder has no priority set&lt;/code&gt;&lt;/p&gt;</string>
+&lt;code&gt;This reminder has no priority set&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;Next Online Meeting Object&lt;/h3&gt;
+&lt;p&gt;This plugin adds a 'Next online meeting' object to your catalog. Use it to find an upcoming meeting (within the next 30 minutes) on your calendar. It will automatically retrieve the URL from the calendar information for you to open.&lt;/p&gt;
+&lt;h3&gt;Default Calendars for Events/Reminders&lt;/h3&gt;
+&lt;p&gt;You can select the default calendar for Events/Reminders by going to Preferences &amp;gt; Calendars in the Quicksilver preferences&lt;/p&gt;
+&lt;h3&gt;Open Source Licenses&lt;/h3&gt;
+&lt;p&gt;This project uses code from:
+* &lt;a href="https://github.com/wanasit/chrono/blob/master/LICENSE.txt"&gt;Chrono Project&lt;/a&gt;
+* &lt;a href="https://github.com/leits/MeetingBar/blob/master/LICENSE"&gt;Meeting Bar Project&lt;/a&gt;&lt;/p&gt;</string>
 				<key>icon</key>
 				<string>com.apple.iCal</string>
 				<key>qsversion</key>
 				<string>31DE</string>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>&lt;ul&gt;&lt;li&gt;New: improved natural language parsing of dates when creating events. Use phrases like tomorrow</string>
+			<string>&lt;ul&gt;
+&lt;li&gt;Adds a ‘Next Online Meeting’ proxy that allows you to quickly bring
+up the next online meeting URL to open it&lt;/li&gt;
+&lt;li&gt;Various minor improvements&lt;/li&gt;
+&lt;/ul&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
 				<key>version</key>
@@ -3194,11 +3290,11 @@ This plugin was created by Mikkel Malmberg (&lt;a href="https://github.com/mikke
 			<key>CFBundleName</key>
 			<string>Emojis Plugin</string>
 			<key>CFBundleShortVersionString</key>
-			<string>1.1.0</string>
+			<string>1.1.1</string>
 			<key>CFBundleVersion</key>
-			<string>6</string>
+			<string>7</string>
 			<key>QSModifiedDate</key>
-			<string>2025-02-19 04:02:16 +0000</string>
+			<string>2026-02-05 10:02:37 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>author</key>
@@ -3235,7 +3331,10 @@ This plugin was created by Mikkel Malmberg (&lt;a href="https://github.com/mikke
 				<true/>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>&lt;ul&gt;&lt;li&gt;Update emojis list&lt;/li&gt;&lt;li&gt;Fix issue with abbreviations not being registered for emoji objects&lt;/li&gt;&lt;/ul&gt;</string>
+			<string>&lt;ul&gt;
+&lt;li&gt;Update list of emojis&lt;/li&gt;
+&lt;li&gt;Set ‘paste’ as the default action for emojis&lt;/li&gt;
+&lt;/ul&gt;</string>
 		</dict>
 		<key>com.qsapp.MiniBezel</key>
 		<dict>
@@ -4433,6 +4532,6 @@ and it &amp;quot;is not my problem&amp;quot;.
 		</dict>
 	</dict>
 	<key>webDownloadDate</key>
-	<date>2025-12-03T22:16:40Z</date>
+	<date>2026-02-11T23:51:05Z</date>
 </dict>
 </plist>

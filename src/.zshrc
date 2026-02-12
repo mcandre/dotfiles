@@ -3,8 +3,19 @@
 # Begin profiling
 # zmodload zsh/zprof
 
-PROMPT="%B%F{#4CB73F}%#%f%b "
-zle_highlight=(default:fg=#4CB73F)
+MONOKAI='190' # 8 bit ANSI. 24 bit #D7FF00
+PROMPT="%B%F{$MONOKAI}%#%f%b "
+zle_highlight=("default:fg=$MONOKAI")
+
+# Disable zsh's argless cd to $HOME behavior
+cd () {
+    if [ "$#" -eq 0 ]; then
+        echo 'NOP'
+        return
+    else
+        builtin cd "$@"
+    fi
+}
 
 # Fix tmux hotkeys
 bindkey -e
