@@ -1,2 +1,2 @@
 # Show hidden files
-alias tree='tree -a'
+alias tree='tree -an'
