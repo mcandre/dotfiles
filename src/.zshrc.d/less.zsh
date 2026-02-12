@@ -10,5 +10,5 @@ export LESS_TERMCAP_so=$'\e[1;44;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;32m'
 
-# Disable less prompts
-export LESS='-P$'
+# Strip blank lines, enable colors, disable prompts
+export LESS='-X -R -P$'
