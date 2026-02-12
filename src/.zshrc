@@ -3,7 +3,9 @@
 # Begin profiling
 # zmodload zsh/zprof
 
+# Fix macOS Terminal.app underlining random lines
 export TERM='xterm-256color'
+
 MONOKAI='190' # 8 bit ANSI. 24 bit #D7FF00
 PROMPT="%B%F{$MONOKAI}%#%f%b "
 zle_highlight=("default:fg=$MONOKAI")
