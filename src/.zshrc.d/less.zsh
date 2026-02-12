@@ -1,7 +1,5 @@
-# Monokai theme for
-# less pager,
-# man,
-# and other paging systems
+# Monokai theme for less pager, man,
+# and other paging systems.
 #
 # https://monokai.pro/zsh
 export LESS_TERMCAP_mb=$'\e[1;35m'
