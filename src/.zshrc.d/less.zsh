@@ -1,6 +1,4 @@
-# Monokai theme for less pager, man,
-# and other paging systems.
-#
+# Monokai theme for less, man, and related tools
 # https://monokai.pro/zsh
 export LESS_TERMCAP_mb=$'\e[1;35m'
 export LESS_TERMCAP_md=$'\e[1;36m'
