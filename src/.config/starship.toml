@@ -19,8 +19,8 @@
 #
 # Recommended zsh settings
 #
-# * PROMPT:         190 8 bit ANSI decimal # 24 bit #D7FF00
-# * zle_highlight:  190 8 bit ANSI decimal # 24 bit #D7FF00
+# * PROMPT:                        (match palettes.monokai.prompt)
+# * zle_highlight:                 (match palettes.monokai.prompt)
 #
 # Install:
 #
@@ -46,32 +46,39 @@ format = """$jobs$character"""
 
 right_format = """$username$hostname$directory$status"""
 
+palette = "monokai"
+
 # Disable the blank line at the start of the prompt
 add_newline = false
+
+[palettes.monokai]
+context = "13"  # 8 bit ANSI. 24 bit #FF00FF
+error   = "1"   # 8 bit ANSI. 24 bit #800000
+prompt  = "190" # 8 bit ANSI. 24 bit #D7FF00
 
 # You can also replace your username with a neat symbol like   or disable this
 # and use the os module below
 [username]
 show_always = true
-style_user = 'fg:13' # 24 bit #FF00FF
-style_root = 'fg:13' # 24 bit #FF00FF
+style_user = 'fg:context'
+style_root = 'fg:context'
 format = '[$user]($style)'
 disabled = false
 
 [hostname]
 ssh_only = false
-style = 'fg:13'      # 24 bit #FF00FF
+style = 'fg:context'
 format = '[@$hostname:]($style)'
 
 [directory]
-style = 'fg:13'      # 24 bit #FF00FF
+style = 'fg:context'
 format = '[$path]($style)'
 truncation_length = 1
 
 [status]
 disabled = false
 pipestatus = true
-style = 'fg:1'      # 24 bit #800000
+style = 'fg:error'
 format = '[ ! $status]($style)'
 pipestatus_segment_format = '[$status]($style)'
 pipestatus_format = '[ $pipestatus]($style)'
@@ -79,4 +86,4 @@ pipestatus_format = '[ $pipestatus]($style)'
 [character]
 success_symbol = "%"
 error_symbol = "%"
-format = "[$symbol](fg:190) " # 24 bit #D7FF00
+format = "[$symbol](fg:prompt) "
