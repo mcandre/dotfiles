@@ -32,8 +32,10 @@
 #
 # Inspiration:
 #
-# https://archive.org/details/metroid-dread-special-edition-artbook
-# https://colorhunt.co/palette/fff58affbbe1dd7bdfb3bfff
+# https://monokai.pro/
+#
+# Browse ColorPalette for 8 bit ANSI, macOS Terminal.app compatible color schemes
+# https://hexdocs.pm/color_palette/ansi_color_codes.html
 #
 # See also pastel for transformation between color code formats:
 # https://github.com/sharkdp/pastel
