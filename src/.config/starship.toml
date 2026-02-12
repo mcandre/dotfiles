@@ -1,44 +1,4 @@
 # Varia Suit Monokai
-#
-# Recommended terminal emulator settings
-#
-# Font
-#
-# Atkinson Hyperlegible Mono
-# https://fonts.google.com/specimen/Atkinson+Hyperlegible+Mono
-#
-# Colors
-#
-# * Window Background:           #221F23
-# * Window Foreground Text:      #797979
-# * Window Foreground Bold Text: #ACACAC
-# * Cursor Background:           #FED254
-# * Cursor Foreground:           #221F23
-# * Selection Foreground:        #4D4D4D
-# * Selection Background:        #221F23
-#
-# Recommended zsh settings
-#
-# * PROMPT:                        (match palettes.monokai.prompt)
-# * zle_highlight:                 (match palettes.monokai.prompt)
-#
-# Install:
-#
-# cp starship.toml ~/.config/starship.toml
-#
-# Uninstall:
-#
-# rm ~/.config/starship.toml
-#
-# Inspiration:
-#
-# https://monokai.pro/
-#
-# Browse ColorPalette for 8 bit ANSI, macOS Terminal.app compatible color schemes
-# https://hexdocs.pm/color_palette/ansi_color_codes.html
-#
-# See also pastel for transformation between color code formats:
-# https://github.com/sharkdp/pastel
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
@@ -87,3 +47,43 @@ pipestatus_format = '[ $pipestatus]($style)'
 success_symbol = "%"
 error_symbol = "%"
 format = "[$symbol](fg:prompt) "
+
+# Recommended terminal emulator settings
+#
+# Font
+#
+# Atkinson Hyperlegible Mono
+# https://fonts.google.com/specimen/Atkinson+Hyperlegible+Mono
+#
+# Colors
+#
+# * Window Background:           #221F23
+# * Window Foreground Text:      #797979
+# * Window Foreground Bold Text: #ACACAC
+# * Cursor Background:           #FED254
+# * Cursor Foreground:           #221F23
+# * Selection Foreground:        #4D4D4D
+# * Selection Background:        #221F23
+#
+# Recommended zsh settings
+#
+# * PROMPT:                        (match palettes.monokai.prompt)
+# * zle_highlight:                 (match palettes.monokai.prompt)
+#
+# Install:
+#
+# cp starship.toml ~/.config/starship.toml
+#
+# Uninstall:
+#
+# rm ~/.config/starship.toml
+#
+# Inspiration:
+#
+# https://monokai.pro/
+#
+# Browse ColorPalette for 8 bit ANSI, macOS Terminal.app compatible color schemes
+# https://hexdocs.pm/color_palette/ansi_color_codes.html
+#
+# See also pastel for transformation between color code formats:
+# https://github.com/sharkdp/pastel
