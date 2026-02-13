@@ -43,6 +43,10 @@
 	NwBJAEwAUQBTAFoAYABrAHgAfgCLAKAApwDRAPsA/QD/AQEBCAEOARgBGgEcAR4DOgM/
 	A0oDUwNgA2MDcAN5A34DhgAAAAAAAAIBAAAAAAAAACgAAAAAAAAAAAAAAAAAAAOJ
 	</data>
+	<key>BellBadge</key>
+	<false/>
+	<key>BellBounce</key>
+	<false/>
 	<key>CommandString</key>
 	<string></string>
 	<key>CursorBlink</key>
