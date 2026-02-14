@@ -5,6 +5,7 @@
 
 MONOKAI='#D7FF00'
 PROMPT="%B%F{$MONOKAI}%#%f%b "
+PROMPT_EOL_MARK=''
 zle_highlight=("default:fg=$MONOKAI")
 
 # Disable zsh's argless cd to $HOME behavior
@@ -18,14 +19,13 @@ cd () {
 }
 
 zinit_post_hook() {
-    # eval "$(starship init zsh)"
+    eval "$(starship init zsh)"
 
-    # TRANSIENT_PROMPT_PROMPT='$(starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
-    # TRANSIENT_PROMPT_RPROMPT='$(starship prompt --right --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
-    # TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character)'
-    # PROMPT_EOL_MARK=''
+    TRANSIENT_PROMPT_PROMPT='$(starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
+    TRANSIENT_PROMPT_RPROMPT='$(starship prompt --right --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
+    TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character)'
 
-    # zle reset-prompt
+    zle reset-prompt
 }
 
 # load_zinit() {
@@ -38,30 +38,20 @@ zinit_post_hook() {
 #     zinit light "starship/starship"
 # }
 
-provision_interactive_shell() {
+provision() {
     # load_zinit
 
+    #
+    # Fix REPL
+    #
     autoload -Uz compinit
     compinit
     bindkey '^[[A' up-line-or-history
     bindkey '^[[Z' reverse-menu-complete
     bindkey -e
 
-    setopt completealiases
-    setopt noautomenu
-    setopt nolistbeep
-    setopt BANG_HIST
-    setopt append_history
-    setopt extended_history
-    setopt share_history
-    setopt hist_ignore_dups
-    setopt hist_ignore_space
-    HISTFILE=~/.zsh_history
-    HISTSIZE=10000
-    SAVEHIST=8000
-
     #
-    # Fix base autocompletion
+    # Enrich autocompletion
     #
 
     zstyle ':completion:*' menu select
@@ -70,13 +60,13 @@ provision_interactive_shell() {
     # Case insensitive
     zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-    # Respect opening file path CLI argument syntax.
+    # Preserve file path syntax
     zstyle ':completion:*' completion_auto_quote true
 
     # Reduce tab completion collisions with rare commands
     zstyle ':completion:*:*:-command-:*:*' ignored-patterns 'Magick*-config|magick-script'
 
-    # make tab completion
+    # makefiles
     zstyle ':completion::complete:make:*:targets' call-command true
 
     #
@@ -91,27 +81,36 @@ provision_interactive_shell() {
     zstyle ':completion:*:(scp|ssh|rsync):*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^[-[:alnum:]]##(.[-[:alnum:]]##)##' '*@*'
     zstyle ':completion:*:(scp|ssh|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
 
-    #
-    # Unbork aliases
-    #
-    AA="$(alias -L)"
-    unalias -m '*'
-    eval "$AA"
+    # # Reset aliases
+    # AA="$(alias -L)"
+    # unalias -m '*'
+    # eval "$AA"
 
+    # Fix navigation
     autoload -U select-word-style
     select-word-style bash
 }
 
-# #
-# # accelerate interactive shell launches
-# #
-# autoload -Uz ~/zsh-defer/zsh-defer
-# zsh-defer provision_interactive_shell
-
-# provision_interactive_shell
+# Fix history
+setopt completealiases
+setopt noautomenu
+setopt nolistbeep
+setopt BANG_HIST
+setopt append_history
+setopt extended_history
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=8000
 
 # Load extras
 for f in ~/.zshrc.d/*.zsh; do . "$f"; done
+
+# Accelerate shell launches
+autoload -Uz ~/zsh-defer/zsh-defer
+zsh-defer provision
 
 # End profiling
 # zprof
