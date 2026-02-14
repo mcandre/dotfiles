@@ -55,7 +55,26 @@ format = "[$symbol](fg:prompt) "
 # Atkinson Hyperlegible Mono
 # https://fonts.google.com/specimen/Atkinson+Hyperlegible+Mono
 #
-# Colors
+# Base Terminal Color Palette
+#
+# "Black"         #000000
+# "Red"           #990000
+# "Green"         #00A600
+# "Yellow"        #999900
+# "Blue"          #4414CC
+# "Purple"        #B200B2
+# "Cyan"          #00A6B2
+# "White"         #BFBFBF
+#
+# "Bright Black"  #666666
+# "Bright Red"    #E50000
+# "Bright Green"  #00D900
+# "Bright Yellow" #E5E500
+# "Bright Blue"   #7747FF
+# "Bright Purple" #E500E5
+# "Bright Cyan"   #00E5E5
+# "Bright White"  #E5E5E5
+#
 #
 # * Window Background:           #221F23
 # * Window Foreground Text:      #797979

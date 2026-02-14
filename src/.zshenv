@@ -9,7 +9,7 @@ typeset -Uga path
 . ~/.go.zsh
 
 # Load extras
-for f in ~/.zshenv.d/*.zsh(N); do . "$f"; done
+for f in ~/.zshenv.d/*.zsh; do . "$f"; done
 
 # Load direnv
 eval "$(direnv hook zsh)"

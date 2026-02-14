@@ -34,7 +34,7 @@
     {
         "defaults":
         {
-            "cursorColor": "#D7FF00",
+            "colorScheme": "Apple Pro",
             "cursorShape": "filledBox",
             "font":
             {
@@ -54,6 +54,7 @@
                 "name": "Command Prompt"
             },
             {
+                "colorScheme": "Apple Pro",
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
                 "name": "WSL Ubuntu",
@@ -80,6 +81,31 @@
             }
         ]
     },
-    "schemes": [],
+    "schemes":
+    [
+        {
+            "background": "#221F23",
+            "black": "#000000",
+            "blue": "#4414CC",
+            "brightBlack": "#666666",
+            "brightBlue": "#7747FF",
+            "brightCyan": "#00E5E5",
+            "brightGreen": "#00D900",
+            "brightPurple": "#E500E5",
+            "brightRed": "#E50000",
+            "brightWhite": "#E5E5E5",
+            "brightYellow": "#E5E500",
+            "cursorColor": "#D7FF00",
+            "cyan": "#00A6B2",
+            "foreground": "#797979",
+            "green": "#00A600",
+            "name": "Apple Pro",
+            "purple": "#B200B2",
+            "red": "#990000",
+            "selectionBackground": "#221F23",
+            "white": "#BFBFBF",
+            "yellow": "#999900"
+        }
+    ],
     "themes": []
 }
