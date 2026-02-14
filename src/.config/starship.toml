@@ -60,7 +60,7 @@ format = "[$symbol](fg:prompt) "
 # * Window Background:           #221F23
 # * Window Foreground Text:      #797979
 # * Window Foreground Bold Text: #ACACAC
-# * Cursor Background:           #FED254
+# * Cursor Background:           #D7FF00
 # * Cursor Foreground:           #221F23
 # * Selection Foreground:        #4D4D4D
 # * Selection Background:        #221F23
