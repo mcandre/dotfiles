@@ -12,9 +12,9 @@ palette = "monokai"
 add_newline = false
 
 [palettes.monokai]
-context = "13"  # 8 bit ANSI. 24 bit #FF00FF
-error   = "1"   # 8 bit ANSI. 24 bit #800000
-prompt  = "190" # 8 bit ANSI. 24 bit #D7FF00
+context = "#FF00FF"
+error   = "#800000"
+prompt  = "#D7FF00"
 
 # You can also replace your username with a neat symbol like   or disable this
 # and use the os module below
@@ -67,8 +67,8 @@ format = "[$symbol](fg:prompt) "
 #
 # Recommended zsh settings
 #
-# * PROMPT:                        (match palettes.monokai.prompt)
-# * zle_highlight:                 (match palettes.monokai.prompt)
+# * PROMPT:        (match palettes.monokai.prompt)
+# * zle_highlight: (match palettes.monokai.prompt)
 #
 # Install:
 #
