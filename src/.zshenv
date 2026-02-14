@@ -11,5 +11,5 @@ typeset -Uga path
 # Load extras
 for f in ~/.zshenv.d/*.zsh; do . "$f"; done
 
-# Load direnv
-eval "$(direnv hook zsh)"
+# # Load direnv
+# eval "$(direnv hook zsh)"

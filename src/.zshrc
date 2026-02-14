@@ -17,56 +17,55 @@ cd () {
     fi
 }
 
-# Fix tmux hotkeys
-bindkey -e
-
-setopt completealiases
-setopt noautomenu
-setopt nolistbeep
-setopt BANG_HIST
-setopt append_history
-setopt extended_history
-setopt share_history
-setopt hist_ignore_dups
-setopt hist_ignore_space
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=8000
-
 zinit_post_hook() {
-    eval "$(starship init zsh)"
+    # eval "$(starship init zsh)"
 
-    TRANSIENT_PROMPT_PROMPT='$(starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
-    TRANSIENT_PROMPT_RPROMPT='$(starship prompt --right --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
-    TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character)'
-    PROMPT_EOL_MARK=''
+    # TRANSIENT_PROMPT_PROMPT='$(starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
+    # TRANSIENT_PROMPT_RPROMPT='$(starship prompt --right --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
+    # TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character)'
+    # PROMPT_EOL_MARK=''
 
-    zle reset-prompt
+    # zle reset-prompt
+}
+
+# load_zinit() {
+#     . ~/.local/share/zinit/zinit.git/zinit.zsh
+#     autoload -Uz _zinit
+#     (( ${+_comps} )) && _comps[zinit]=_zinit
+#     zinit ice wait silent
+#     zinit light "olets/zsh-transient-prompt"
+#     zinit ice wait silent nocd atload='zinit_post_hook'
+#     zinit light "starship/starship"
+# }
+
+provision_interactive_shell() {
+    # load_zinit
 
     autoload -Uz compinit
     compinit
     bindkey '^[[A' up-line-or-history
     bindkey '^[[Z' reverse-menu-complete
-}
+    bindkey -e
 
-load_zinit() {
-    . ~/.local/share/zinit/zinit.git/zinit.zsh
-    autoload -Uz _zinit
-    (( ${+_comps} )) && _comps[zinit]=_zinit
-
-    zinit ice wait silent
-    zinit light "olets/zsh-transient-prompt"
-
-    zinit ice wait silent nocd atload='zinit_post_hook'
-    zinit light "starship/starship"
-}
-
-provision_interactive_shell() {
-    load_zinit
+    setopt completealiases
+    setopt noautomenu
+    setopt nolistbeep
+    setopt BANG_HIST
+    setopt append_history
+    setopt extended_history
+    setopt share_history
+    setopt hist_ignore_dups
+    setopt hist_ignore_space
+    HISTFILE=~/.zsh_history
+    HISTSIZE=10000
+    SAVEHIST=8000
 
     #
     # Fix base autocompletion
     #
+
+    zstyle ':completion:*' menu select
+    setopt auto_menu
 
     # Case insensitive
     zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -103,14 +102,13 @@ provision_interactive_shell() {
     select-word-style bash
 }
 
-zstyle ':completion:*' menu select
-setopt auto_menu
+# #
+# # accelerate interactive shell launches
+# #
+# autoload -Uz ~/zsh-defer/zsh-defer
+# zsh-defer provision_interactive_shell
 
-#
-# accelerate interactive shell launches
-#
-autoload -Uz ~/zsh-defer/zsh-defer
-zsh-defer provision_interactive_shell
+# provision_interactive_shell
 
 # Load extras
 for f in ~/.zshrc.d/*.zsh; do . "$f"; done
