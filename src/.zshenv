@@ -4,12 +4,8 @@ LC_CTYPE=en_US.UTF-8
 
 typeset -Uga path
 
-#
 # Setup PATH = system path + ~/bin + $GOPATH/bin
-#
-
-[ -f ~/.path.zsh ] && . ~/.path.zsh # Skip WSL
-
+. ~/.path.zsh
 . ~/.go.zsh
 
 # Load extras
