@@ -81,6 +81,9 @@ provision() {
     zstyle ':completion:*:(scp|ssh|rsync):*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^[-[:alnum:]]##(.[-[:alnum:]]##)##' '*@*'
     zstyle ':completion:*:(scp|ssh|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
 
+    # ASDF
+    fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+
     # # Reset aliases
     # AA="$(alias -L)"
     # unalias -m '*'
@@ -111,6 +114,9 @@ for f in ~/.zshrc.d/*.zsh; do . "$f"; done
 # Accelerate shell launches
 autoload -Uz ~/zsh-defer/zsh-defer
 zsh-defer provision
+
+# ASDF
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # End profiling
 # zprof
