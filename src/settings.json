@@ -5,7 +5,7 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-    "keybindings":
+    "keybindings": 
     [
         {
             "id": "Terminal.CopyToClipboard",
@@ -24,24 +24,24 @@
             "keys": "alt+shift+d"
         }
     ],
-    "newTabMenu":
+    "newTabMenu": 
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles":
+    "profiles": 
     {
-        "defaults":
+        "defaults": 
         {
             "colorScheme": "Apple Pro",
             "cursorShape": "filledBox",
-            "font":
+            "font": 
             {
                 "face": "Atkinson Hyperlegible Mono"
             }
         },
-        "list":
+        "list": 
         [
             {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -81,7 +81,7 @@
             }
         ]
     },
-    "schemes":
+    "schemes": 
     [
         {
             "background": "#221F23",
@@ -102,7 +102,7 @@
             "name": "Apple Pro",
             "purple": "#B200B2",
             "red": "#990000",
-            "selectionBackground": "#221F23",
+            "selectionBackground": "#A59EA6",
             "white": "#BFBFBF",
             "yellow": "#999900"
         }
