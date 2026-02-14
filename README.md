@@ -48,9 +48,15 @@ It is provided with the base macOS operating system. Equivalent aliases for `ope
 * [Windows (PowerShell)](src/profile.ps1)
 * [Windows (WSL)](src/.zshenv.d/open.wsl.sh)
 
-## iTerm2
+## Windows Terminal
 
-[iTerm2](https://iterm2.com/) resolves many quirks found in the stock Apple Terminal.
+Copy:
+
+`src/settings.json`
+
+Back and forth with:
+
+`~\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`
 
 ## zsh
 
