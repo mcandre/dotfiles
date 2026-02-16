@@ -16,8 +16,8 @@ window-padding-x = 10
 window-padding-y = 4
 window-save-state = always
 
-background = #221F23
-foreground = #797979
+background =   #221F23
+foreground =   #797979
 cursor-color = #D7FF00
 cursor-style = block
 shell-integration-features = no-cursor,no-title
