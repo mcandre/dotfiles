@@ -81,8 +81,8 @@ format = "[$symbol](fg:prompt) "
 # * Window Foreground Bold Text: #ACACAC
 # * Cursor Background:           #D7FF00
 # * Cursor Foreground:           #221F23
-# * Selection Foreground:        #4D4D4D
-# * Selection Background:        #221F23
+# * Selection Foreground:        #221F23
+# * Selection Background:        #797979
 #
 # Recommended zsh settings
 #

@@ -38,6 +38,8 @@
 	</data>
 	<key>BackgroundBlur</key>
 	<real>0.0</real>
+	<key>BackgroundBlurInactive</key>
+	<real>0.0</real>
 	<key>BackgroundColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
@@ -62,14 +64,20 @@
 	vgDoARIBFAEWARgBHwElAS8BMQEzATUDUQNWA2EDagN3A3oDhwOQA5UDnQAAAAAAAAIB
 	AAAAAAAAACoAAAAAAAAAAAAAAAAAAAOg
 	</data>
+	<key>BackgroundSettingsForInactiveWindows</key>
+	<true/>
 	<key>BellBadge</key>
 	<false/>
 	<key>BellBounce</key>
 	<false/>
+	<key>BlinkText</key>
+	<false/>
 	<key>CommandString</key>
 	<string></string>
+	<key>ConvertNewlinesOnPaste</key>
+	<true/>
 	<key>CursorBlink</key>
-	<false/>
+	<true/>
 	<key>CursorColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
@@ -144,21 +152,29 @@
 	UQBTAFoAYABtAHQAgQCHAJQAqQC8AL4A0wDzAPUA9wD5AQABBQELAQ0BDwERDV0NYg1t
 	DXYNgw2GDZMNnA2hDakAAAAAAAACAQAAAAAAAAAqAAAAAAAAAAAAAAAAAAANrA==
 	</data>
+	<key>CursorType</key>
+	<integer>0</integer>
 	<key>DisableANSIColor</key>
 	<false/>
 	<key>DynamicANSIForegroundColors</key>
+	<false/>
+	<key>EnableSmoothResizing</key>
+	<false/>
+	<key>EscapeNonASCIICharacters</key>
 	<false/>
 	<key>Font</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
 	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGkCwwVFlUkbnVsbNQNDg8QERIT
-	FFZOU1NpemVYTlNmRmxhZ3NWTlNOYW1lViRjbGFzcyNALAAAAAAAABAQgAKAA18QK0F0
-	a2luc29uSHlwZXJsZWdpYmxlTW9uby1FeHRyYUxpZ2h0X1JlZ3VsYXLSFxgZGlokY2xh
-	c3NuYW1lWCRjbGFzc2VzVk5TRm9udKIZG1hOU09iamVjdAgRGiQpMjdJTFFTWF5nbnd+
-	hY6QkpTCx9Lb4uUAAAAAAAABAQAAAAAAAAAcAAAAAAAAAAAAAAAAAAAA7g==
+	FFZOU1NpemVYTlNmRmxhZ3NWTlNOYW1lViRjbGFzcyNALAAAAAAAABAQgAKAA18QKUF0
+	a2luc29uSHlwZXJsZWdpYmxlTW9uby1FeHRyYUxpZ2h0X0xpZ2h00hcYGRpaJGNsYXNz
+	bmFtZVgkY2xhc3Nlc1ZOU0ZvbnSiGRtYTlNPYmplY3QIERokKTI3SUxRU1heZ253foWO
+	kJKUwMXQ2eDjAAAAAAAAAQEAAAAAAAAAHAAAAAAAAAAAAAAAAAAAAOw=
 	</data>
 	<key>FontAntialias</key>
 	<false/>
+	<key>FontHeightSpacing</key>
+	<integer>1</integer>
 	<key>FontWidthSpacing</key>
 	<integer>1</integer>
 	<key>ProfileCurrentVersion</key>
@@ -255,7 +271,7 @@
 	<key>ShowDimensionsInTitle</key>
 	<false/>
 	<key>ShowRepresentedURLInTabTitle</key>
-	<true/>
+	<false/>
 	<key>ShowRepresentedURLInTitle</key>
 	<false/>
 	<key>ShowRepresentedURLPathInTabTitle</key>
@@ -364,11 +380,13 @@
 	AAIBAAAAAAAAACoAAAAAAAAAAAAAAAAAAA3M
 	</data>
 	<key>UseBoldFonts</key>
-	<false/>
+	<true/>
 	<key>UseBrightBold</key>
 	<true/>
 	<key>columnCount</key>
 	<integer>73</integer>
+	<key>deleteSendsBackspace</key>
+	<false/>
 	<key>name</key>
 	<string>Pro</string>
 	<key>rowCount</key>

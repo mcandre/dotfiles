@@ -61,7 +61,7 @@
 				<key>actionID</key>
 				<string>FileOpenAction</string>
 				<key>directID</key>
-				<string>/System/Applications/Utilities/Terminal.app</string>
+				<string>/Applications/Ghostty.app</string>
 			</dict>
 			<key>enabled</key>
 			<true/>

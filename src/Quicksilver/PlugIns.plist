@@ -1104,9 +1104,9 @@ Are you busy? That new movie is coming out.
 			<key>CFBundleShortVersionString</key>
 			<string>1.2.1</string>
 			<key>CFBundleVersion</key>
-			<string>BA</string>
+			<string>C4</string>
 			<key>QSModifiedDate</key>
-			<string>2022-02-24 05:02:29 +0000</string>
+			<string>2026-02-14 10:02:12 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>author</key>
@@ -1121,18 +1121,14 @@ Are you busy? That new movie is coming out.
 				<key>extendedDescription</key>
 				<string>&lt;h3&gt;Firefox Plugin&lt;/h3&gt;
 &lt;p&gt;This plugin allows you to search your Firefox bookmarks and history directly from Quicksilver. It also provides a "Current Web Page (Firefox)" proxy object - allowing you to easily manipulate the current Firefox Web Page.&lt;/p&gt;
+&lt;h4&gt;Firefox App →&lt;/h4&gt;
+&lt;p&gt;You can &lt;code&gt;→&lt;/code&gt; right arrow in to the Firefox.app application to show a list of History, Bookmarks and Current Web page. This may be more convenient than adding all your Firefox entries to your catalog.&lt;/p&gt;
 &lt;h4&gt;Catalog Entries&lt;/h4&gt;
 &lt;p&gt;Under the &lt;strong&gt;Firefox&lt;/strong&gt; entry, you will find the following two subentries:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Firefox Bookmarks&lt;/strong&gt; includes all the URLs you bookmarked, without any folder structure or tags you might have applied.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Firefox History&lt;/strong&gt; contains the last 200 URLs you visited (disabled by default).&lt;/p&gt;
-&lt;p&gt;Tip: if you want to increase or decrease the number of History items in Quicksilver, you can:
-1. Go to &lt;code&gt;~/Library/Application Support/Quicksilver/PlugIns/&lt;/code&gt;
-2. find &lt;code&gt;com.blacktree.quicksilver.QSFirefoxPlugin.*.qsplugin&lt;/code&gt;
-3. right-click -&amp;gt; "Show Package Contents"
-4. then open &lt;code&gt;Contents/Info.plist&lt;/code&gt;
-5. In there, find the entry  &lt;code&gt;QSPresetAdditions -&amp;gt; Item 0 -&amp;gt; children -&amp;gt; Item 1 -&amp;gt; settings -&amp;gt; historySize&lt;/code&gt;
-6. Change the number to something different.
-7. Restart Quicksilver and rescan the catalog&lt;/p&gt;
+&lt;p&gt;Tip: you can change the number of History items Quicksilver adds by changing the &lt;code&gt;FirefoxSearchHistoryLimit&lt;/code&gt; from Terminal:
+&lt;code&gt;defaults write com.blacktree.Quicksilver FirefoxSearchHistoryLimit 500&lt;/code&gt; (sets the limit to 500).&lt;/p&gt;
 &lt;h4&gt;Proxy Objects&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Current Web Page (Firefox)&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The &lt;strong&gt;Current Web Page (Firefox)&lt;/strong&gt; proxy object contains the title and URL of the webpage currently open in Firefox.&lt;/p&gt;
@@ -1150,7 +1146,12 @@ Are you busy? That new movie is coming out.
 				</array>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>&lt;ul&gt;&lt;li&gt;Updated for Apple M1 Silicon&lt;/li&gt;&lt;/ul&gt;</string>
+			<string>&lt;ul&gt;
+&lt;li&gt;Allow → in to the Firefox app to show history/bookmarks and the
+current web page&lt;/li&gt;
+&lt;li&gt;Allow changing the number of history items Quicksilver stores using
+a defaults value&lt;/li&gt;
+&lt;/ul&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
 				<key>version</key>
@@ -4532,6 +4533,6 @@ and it &amp;quot;is not my problem&amp;quot;.
 		</dict>
 	</dict>
 	<key>webDownloadDate</key>
-	<date>2026-02-11T23:51:05Z</date>
+	<date>2026-02-16T19:14:41Z</date>
 </dict>
 </plist>

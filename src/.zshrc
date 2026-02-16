@@ -3,10 +3,14 @@
 # Begin profiling
 # zmodload zsh/zprof
 
+# ASDF
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+autoload -U colors && colors
 MONOKAI='#D7FF00'
 PROMPT="%B%F{$MONOKAI}%#%f%b "
 PROMPT_EOL_MARK=''
-zle_highlight=("default:fg=$MONOKAI")
+zle_highlight=("default:fg=$MONOKAI,bold")
 
 # Disable zsh's argless cd to $HOME behavior
 cd () {
@@ -18,15 +22,15 @@ cd () {
     fi
 }
 
-zinit_post_hook() {
-    eval "$(starship init zsh)"
+# zinit_post_hook() {
+#     eval "$(starship init zsh)"
 
-    TRANSIENT_PROMPT_PROMPT='$(starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
-    TRANSIENT_PROMPT_RPROMPT='$(starship prompt --right --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
-    TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character)'
+#     TRANSIENT_PROMPT_PROMPT='$(starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
+#     TRANSIENT_PROMPT_RPROMPT='$(starship prompt --right --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
+#     TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character)'
 
-    zle reset-prompt
-}
+#     zle reset-prompt
+# }
 
 # load_zinit() {
 #     . ~/.local/share/zinit/zinit.git/zinit.zsh
@@ -115,8 +119,10 @@ for f in ~/.zshrc.d/*.zsh; do . "$f"; done
 autoload -Uz ~/zsh-defer/zsh-defer
 zsh-defer provision
 
-# ASDF
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# Title cwd
+precmd () {
+    print -Pn "\e]0;%1d\a"
+}
 
 # End profiling
 # zprof
