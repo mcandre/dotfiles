@@ -61,7 +61,7 @@
 				<key>actionID</key>
 				<string>FileOpenAction</string>
 				<key>directID</key>
-				<string>/Applications/Ghostty.app</string>
+				<string>/Applications/iTerm.app</string>
 			</dict>
 			<key>enabled</key>
 			<true/>
