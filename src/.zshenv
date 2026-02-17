@@ -1,15 +1,16 @@
-# Fix rename
+# Fix rename et al
 LC_ALL=en_US.UTF-8
 LC_CTYPE=en_US.UTF-8
 
-typeset -Uga path
+# Go
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
 
-# Setup PATH = system path + ~/bin + $GOPATH/bin
+#
+# Provision PATH
+#
+typeset -Uga path
 . ~/.path.zsh
-. ~/.go.zsh
 
 # Load extras
-for f in ~/.zshenv.d/*.zsh; do . "$f"; done
-
-# # Load direnv
-# eval "$(direnv hook zsh)"
+for f in $(find ~/.zshenv.d -name '*.zsh' -print); do . "$f"; done

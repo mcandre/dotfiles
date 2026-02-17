@@ -1,0 +1,4 @@
+path=(
+    $path
+    "$HOME/.kickers"
+)

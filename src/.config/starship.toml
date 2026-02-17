@@ -1,4 +1,12 @@
-# Varia Suit Monokai
+#
+# Install:
+#
+# cp starship.toml ~/.config/starship.toml
+#
+# Uninstall:
+#
+# rm ~/.config/starship.toml
+
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
@@ -11,10 +19,14 @@ palette = "monokai"
 # Disable the blank line at the start of the prompt
 add_newline = false
 
+#
+# Colors expressed in sRGB.
+#
+
 [palettes.monokai]
-context = "#FF00FF"
-error   = "#800000"
-prompt  = "#D7FF00"
+context = "#ff00ff" # sRGB ; 8 bit ANSI 201
+error   = "#800000" # sRGB ; 8 bit ANSI 1
+# prompt  = "#d7ff5f" # sRGB ; 8 bit ANSI 191 macOS Terminal
 
 # You can also replace your username with a neat symbol like   or disable this
 # and use the os module below
@@ -43,65 +55,54 @@ format = '[ ! $status]($style)'
 pipestatus_segment_format = '[$status]($style)'
 pipestatus_format = '[ $pipestatus]($style)'
 
-[character]
-success_symbol = "%"
-error_symbol = "%"
-format = "[$symbol](fg:prompt) "
+# [character]
+# success_symbol = "%"
+# error_symbol = "%"
+# format = "[$symbol](fg:prompt) "
 
 # Recommended terminal emulator settings
 #
-# Font
+# Font Family
 #
-# Atkinson Hyperlegible Mono
+# Atkinson Hyperlegible Mono ExtraLight Light (Apple Terminal)
+# Atkinson Hyperlegible Mono Regular (iTerm2)
+#
 # https://fonts.google.com/specimen/Atkinson+Hyperlegible+Mono
 #
-# Base Terminal Color Palette
+# * Window Background:              #1c1c1c ; sRGB ; 8 bit ANSI 234
+# * Window Foreground Text:         #6c6c6c ; sRGB ; 8 bit ANSI 242
+# * Window Foreground Bold Text:    #a8a8a8 ; sRGB ; 8 bit ANSI 248
+# * Cursor (Background):            #D7FF5F ; sRGB ; 8 bit ANSI 191
+# * Cursor (Foreground):            #1c1c1c ; sRGB ; 8 bit ANSI 234
+# * Selection (Apple Terminal):     #3a3a3a ; sRGB ; 8 bit ANSI 237
+# * Selection Background (iTerm2):  #6c6c6c ; sRGB ; 8 bit ANSI 242
+# * Selection Foreground (iTerm2):  #1c1c1c ; sRGB ; 8 bit ANSI 234
 #
-# "Black"         #000000
-# "Red"           #990000
-# "Green"         #00A600
-# "Yellow"        #999900
-# "Blue"          #4414CC
-# "Purple"        #B200B2
-# "Cyan"          #00A6B2
-# "White"         #BFBFBF
+# Terminal Theme
 #
-# "Bright Black"  #666666
-# "Bright Red"    #E50000
-# "Bright Green"  #00D900
-# "Bright Yellow" #E5E500
-# "Bright Blue"   #7747FF
-# "Bright Purple" #E500E5
-# "Bright Cyan"   #00E5E5
-# "Bright White"  #E5E5E5
+# "Black"         #000000 ; sRGB ; 8 bit ANSI 0
+# "Red"           #af0000 ; sRGB ; 8 bit ANSI 124
+# "Green"         #00A600 ; sRGB ; 8 bit ANSI 34
+# "Yellow"        #0087ff ; sRGB ; 8 bit ANSI 33
+# "Blue"          #5f00ff ; sRGB ; 8 bit ANSI 57
+# "Purple"        #af00d7 ; sRGB ; 8 bit ANSI 128
+# "Cyan"          #d78700 ; sRGB ; 8 bit ANSI 172
+# "White"         #bcbcbc ; sRGB ; 8 bit ANSI 250
 #
-#
-# * Window Background:           #221F23
-# * Window Foreground Text:      #797979
-# * Window Foreground Bold Text: #ACACAC
-# * Cursor Background:           #D7FF00
-# * Cursor Foreground:           #221F23
-# * Selection Foreground:        #221F23
-# * Selection Background:        #797979
-#
-# Recommended zsh settings
-#
-# * PROMPT:        (match palettes.monokai.prompt)
-# * zle_highlight: (match palettes.monokai.prompt)
-#
-# Install:
-#
-# cp starship.toml ~/.config/starship.toml
-#
-# Uninstall:
-#
-# rm ~/.config/starship.toml
+# "Bright Black"  #303030 ; sRGB ; 8 bit ANSI 236
+# "Bright Red"    #ff0000 ; sRGB ; 8 bit ANSI 160
+# "Bright Green"  #00d700 ; sRGB ; 8 bit ANSI 40
+# "Bright Yellow" #00afff ; sRGB ; 8 bit ANSI 39
+# "Bright Blue"   #8700FF ; sRGB ; 8 bit ANSI 93
+# "Bright Purple" #d700ff ; sRGB ; 8 bit ANSI 165
+# "Bright Cyan"   #FFAF00 ; sRGB ; 8 bit ANSI 214
+# "Bright White"  #E4E4E4 ; sRGB ; 8 bit ANSI 254
 #
 # Inspiration:
 #
 # https://monokai.pro/
 #
-# Browse ColorPalette for 8 bit ANSI, macOS Terminal.app compatible color schemes
+# Browse ColorPalette for 8 bit ANSI compatible color schemes
 # https://hexdocs.pm/color_palette/ansi_color_codes.html
 #
 # See also pastel for transformation between color code formats:

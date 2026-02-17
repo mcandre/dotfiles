@@ -1,2 +1,2 @@
 # Focus
-alias mvn='mvn -q clean'
+alias mvn='mvn -q'

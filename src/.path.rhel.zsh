@@ -1,4 +1,5 @@
 path=(
+    "${ASDF_DATA_DIR:-$HOME/.asdf}/shims"
     $HOME/.local/bin
     $HOME/bin
     /usr/local/sbin
@@ -7,4 +8,5 @@ path=(
     /usr/bin
     /sbin
     /bin
+    $GOBIN
 )

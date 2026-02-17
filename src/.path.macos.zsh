@@ -1,4 +1,5 @@
 path=(
+    "${ASDF_DATA_DIR:-$HOME/.asdf}/shims"
     /usr/local/bin
     /System/Cryptexes/App/usr/bin
     /usr/bin
@@ -10,4 +11,5 @@ path=(
     /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
     /Library/Apple/usr/bin
     $HOME/bin
+    $GOBIN
 )
