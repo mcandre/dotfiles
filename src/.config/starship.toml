@@ -26,7 +26,7 @@ add_newline = false
 [palettes.monokai]
 context = "#ff00ff" # sRGB ; 8 bit ANSI 201
 error   = "#800000" # sRGB ; 8 bit ANSI 1
-# prompt  = "#d7ff5f" # sRGB ; 8 bit ANSI 191 macOS Terminal
+# prompt  = "#afd700" # sRGB ; 8 bit ANSI 147
 
 # You can also replace your username with a neat symbol like   or disable this
 # and use the os module below
@@ -69,14 +69,15 @@ pipestatus_format = '[ $pipestatus]($style)'
 #
 # https://fonts.google.com/specimen/Atkinson+Hyperlegible+Mono
 #
-# * Window Background:              #1c1c1c ; sRGB ; 8 bit ANSI 234
-# * Window Foreground Text:         #6c6c6c ; sRGB ; 8 bit ANSI 242
-# * Window Foreground Bold Text:    #a8a8a8 ; sRGB ; 8 bit ANSI 248
-# * Cursor (Background):            #D7FF5F ; sRGB ; 8 bit ANSI 191
-# * Cursor (Foreground):            #1c1c1c ; sRGB ; 8 bit ANSI 234
-# * Selection (Apple Terminal):     #3a3a3a ; sRGB ; 8 bit ANSI 237
-# * Selection Background (iTerm2):  #6c6c6c ; sRGB ; 8 bit ANSI 242
-# * Selection Foreground (iTerm2):  #1c1c1c ; sRGB ; 8 bit ANSI 234
+# * Window Background:             #1c1c1c ; sRGB ; 8 bit ANSI 234
+# * Window Foreground Text:        #6c6c6c ; sRGB ; 8 bit ANSI 242
+# * Window Foreground Bold Text:   #a8a8a8 ; sRGB ; 8 bit ANSI 248
+# * Cursor (Apple Terminal):       #afd700 ; sRGB ; 8 bit ANSI 148
+# * Cursor (Background iTerm2):    #a5d600 ; sRGB
+# * Cursor (Foreground iTerm2):    #1c1c1c ; sRGB ; 8 bit ANSI 234
+# * Selection (Apple Terminal):    #3a3a3a ; sRGB ; 8 bit ANSI 237
+# * Selection Background (iTerm2): #6c6c6c ; sRGB ; 8 bit ANSI 242
+# * Selection Foreground (iTerm2): #1c1c1c ; sRGB ; 8 bit ANSI 234
 #
 # Terminal Theme
 #
