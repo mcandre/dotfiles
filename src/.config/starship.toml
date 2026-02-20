@@ -69,15 +69,16 @@ pipestatus_format = '[ $pipestatus]($style)'
 #
 # https://fonts.google.com/specimen/Atkinson+Hyperlegible+Mono
 #
-# * Window Background:             #1c1c1c ; sRGB ; 8 bit ANSI 234
-# * Window Foreground Text:        #6c6c6c ; sRGB ; 8 bit ANSI 242
-# * Window Foreground Bold Text:   #a8a8a8 ; sRGB ; 8 bit ANSI 248
-# * Cursor (Apple Terminal):       #afd700 ; sRGB ; 8 bit ANSI 148
-# * Cursor (Background iTerm2):    #a5d600 ; sRGB
-# * Cursor (Foreground iTerm2):    #1c1c1c ; sRGB ; 8 bit ANSI 234
-# * Selection (Apple Terminal):    #3a3a3a ; sRGB ; 8 bit ANSI 237
-# * Selection Background (iTerm2): #6c6c6c ; sRGB ; 8 bit ANSI 242
-# * Selection Foreground (iTerm2): #1c1c1c ; sRGB ; 8 bit ANSI 234
+# * Window Background:                       #1c1c1c ; sRGB ; 8 bit ANSI 234
+# * Window Foreground Text (Apple Terminal): #949494 ; sRGB ; 8 bit ANSI 246
+# * Window Foreground Text (iTerm2):         #949494 ; P3
+# * Window Foreground Bold Text:             #a8a8a8 ; sRGB ; 8 bit ANSI 248
+# * Cursor (Apple Terminal):                 #afd700 ; sRGB ; 8 bit ANSI 148
+# * Cursor (Background iTerm2):              #a0d542 ; P3
+# * Cursor (Foreground iTerm2):              #1c1c1c ; sRGB ; 8 bit ANSI 234
+# * Selection (Apple Terminal):              #3a3a3a ; sRGB ; 8 bit ANSI 237
+# * Selection Background (iTerm2):           #949494 ; P3
+# * Selection Foreground (iTerm2):           #1c1c1c ; sRGB ; 8 bit ANSI 234
 #
 # Terminal Theme
 #
