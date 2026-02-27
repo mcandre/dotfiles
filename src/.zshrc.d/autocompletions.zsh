@@ -2,6 +2,9 @@ provision-autocompletions() {
     autoload -U compinit
     compinit
 
+    # Include hidden file paths
+    _comp_options+=(globdots)
+
     # Fix autocomplete menu highlighting
     zstyle ':completion:*' menu yes=long select
 
