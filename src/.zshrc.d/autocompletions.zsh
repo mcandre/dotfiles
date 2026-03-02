@@ -42,8 +42,13 @@ provision-autocompletions() {
     zstyle ':completion:*:(scp|ssh|rsync):*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^[-[:alnum:]]##(.[-[:alnum:]]##)##' '*@*'
     zstyle ':completion:*:(scp|ssh|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
 
-    # disable open URI schemes
+    #
+    # elide URI schemes
+    #
     compdef -d open
+    zstyle ':completion:*:rsync:*' tag-order 'files' 'remote-files'
+
+
 
     # ASDF
     fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
