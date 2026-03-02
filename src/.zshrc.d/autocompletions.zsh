@@ -48,8 +48,6 @@ provision-autocompletions() {
     compdef -d open
     zstyle ':completion:*:rsync:*' tag-order 'files' 'remote-files'
 
-
-
     # ASDF
     fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 
