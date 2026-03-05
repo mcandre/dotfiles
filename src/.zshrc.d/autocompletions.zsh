@@ -11,7 +11,6 @@ provision-autocompletions() {
     # Allow cursor navigation during autocompletion
     bindkey -e
 
-
     # Aliases
     setopt completealiases
 
