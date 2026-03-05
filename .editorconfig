@@ -1,4 +1,4 @@
-# Most text files
+# Assume UNIX text files
 [*]
 charset = utf-8
 max_line_length = none
