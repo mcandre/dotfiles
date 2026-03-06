@@ -2,7 +2,7 @@
 unset IFS
 set -eu
 
-BASE_PTH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib'
+BASE_PTH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib"
 printf "export PATH='%s" "$BASE_PTH" >~/.path.zsh
 
 IFS=';' read -ra PTH_NTFS <<<"$(wslvar PATH)"
