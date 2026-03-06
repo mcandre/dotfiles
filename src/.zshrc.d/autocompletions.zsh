@@ -8,6 +8,10 @@ provision-autocompletions() {
     # Fix Shift+Tab reverse navigation
     bindkey '^[[Z' reverse-menu-complete
 
+    # Fix Windows Terminal navigation
+    bindkey '^[[1;5D' backward-word
+    bindkey '^[[1;5C' forward-word
+
     # Allow cursor navigation during autocompletion
     bindkey -e
 
