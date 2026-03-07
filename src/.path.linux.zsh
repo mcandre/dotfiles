@@ -1,11 +1,9 @@
+typeset -Uga path
 path=(
-    "${ASDF_DATA_DIR:-$HOME/.asdf}/shims"
     /usr/local/sbin
     /usr/local/bin
     /usr/sbin
     /usr/bin
     /sbin
     /bin
-    $HOME/bin
-    $GOBIN
 )

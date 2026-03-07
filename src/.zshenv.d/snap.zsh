@@ -1,4 +1,0 @@
-path=(
-    $path
-    /snap/bin
-)

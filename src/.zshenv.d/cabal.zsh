@@ -1,5 +1,5 @@
+typeset -Uga path
 path=(
     $path
-    $HOME/.cabal/bin
-    $HOME/.local/bin
+    "$HOME/.cabal/bin"
 )

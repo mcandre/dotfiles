@@ -49,7 +49,10 @@ provision-autocompletions() {
     zstyle ':completion:*:rsync:*' tag-order 'files' 'remote-files'
 
     # ASDF
-    fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+    fpath=(
+        "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
+        $fpath
+    )
 
     # Command navigation
     autoload -U select-word-style
@@ -57,4 +60,5 @@ provision-autocompletions() {
 }
 
 # Accelerate zsh loading
+. ~/zsh-defer/zsh-defer.plugin.zsh
 zsh-defer provision-autocompletions
