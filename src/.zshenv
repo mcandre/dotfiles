@@ -1,6 +1,6 @@
 # Fix rename et al
-export LC_ALL=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
+export LANG='en_US.UTF-8'
+export LC_ALL="$LANG"
 
 # Go setup
 export GOPATH="$HOME/go"
