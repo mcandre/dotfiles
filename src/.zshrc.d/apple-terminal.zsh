@@ -19,3 +19,4 @@ focus_trigger() {
 
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd focus_trigger
+add-zsh-hook preexec focus_trigger
