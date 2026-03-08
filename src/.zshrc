@@ -3,23 +3,6 @@
 
 . ~/.zshenv
 
-#
-# Reduce Apple Terminal cursor ghosting
-#
-if [ "$TERM_PROGRAM" = 'Apple_Terminal' ]; then
-    focus_trigger() {
-        local cols="$(tput cols)"
-        local lines="$(tput lines)"
-        local cols_prime=$(( cols - 1 ))
-        local lines_prime=$(( lines - 1 ))
-        printf "\e[8;${lines_prime};${cols_prime}t"
-        printf "\e[8;${lines};${cols}t"
-    }
-
-    autoload -Uz add-zsh-hook
-    add-zsh-hook precmd focus_trigger
-fi
-
 # Quiet
 setopt nobeep
 
