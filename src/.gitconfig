@@ -9,8 +9,8 @@ default = simple
 [branch]
 autosetuprebase = always
 
-[color]
-status = auto
+# [color]
+# ui = auto
 
 [merge]
 ff = true
