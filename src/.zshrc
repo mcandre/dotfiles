@@ -85,13 +85,13 @@ gi() {
     curl -sL "https://www.toptal.com/developers/gitignore/api/$*"
 }
 
-#
-# Docker
-#
-# # Fix spurious buildx warnings
-# export BUILDX_NO_DEFAULT_LOAD='true'
-# Reduce noise
-export DOCKER_SCOUT_SUGGEST='false'
+# #
+# # Docker
+# #
+# # # Fix spurious buildx warnings
+# # export BUILDX_NO_DEFAULT_LOAD='true'
+# # Reduce noise
+# export DOCKER_SCOUT_SUGGEST='false'
 
 #
 # rsync
