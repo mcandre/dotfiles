@@ -66,10 +66,6 @@ Back and forth with:
 
 [zsh-defer](https://github.com/romkatv/zsh-defer)
 
-## zsh-transient-prompt
-
-[zsh-transient-prompt](https://zsh-transient-prompt.olets.dev/)
-
 ## Starship
 
 [Starship](https://starship.rs/) is a cross-shell framework for configuring prompts.
