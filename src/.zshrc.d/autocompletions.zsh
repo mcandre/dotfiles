@@ -6,7 +6,8 @@ provision-autocompletions() {
     zstyle ':completion:*' menu yes=long select
 
     # Fix Shift+Tab reverse navigation
-    bindkey '^[[Z' reverse-menu-complete
+    zmodload zsh/complist
+    bindkey -M menuselect '^[[Z' reverse-menu-complete
 
     # Fix Windows Terminal navigation
     bindkey '^[[1;5D' backward-word
