@@ -34,7 +34,7 @@ provision-autocompletions() {
     # mage
     _mage() {
         local tasks=( ${(f)"$(mage -l | grep -v 'Targets:' | grep -v '*' | grep -v '^$' | awk '{ print $1 }')"} )
-        _arguments -C '1:select an action:('"${tasks[*]}"')'
+        _arguments -C '1:task:('"${tasks[*]}"')'
     }
     compdef _mage mage
 
