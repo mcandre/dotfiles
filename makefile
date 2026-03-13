@@ -11,4 +11,4 @@ all:
 	.venv/bin/python3 -m pip install --upgrade pip setuptools
 	.venv/bin/python3 -m pip install -r requirements.txt
 
-	cargo install -f kirill@0.0.6
+	cargo install -f kirill@0.0.12
