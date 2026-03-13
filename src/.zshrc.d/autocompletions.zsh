@@ -31,6 +31,13 @@ provision-autocompletions() {
     # makefiles
     zstyle ':completion::complete:make:*:targets' call-command true
 
+    # mage
+    _mage() {
+        local tasks=( ${(f)"$(mage -l | grep -v 'Targets:' | grep -v '*' | grep -v '^$' | awk '{ print $1 }')"} )
+        _arguments -C '1:select an action:('"${tasks[*]}"')'
+    }
+    compdef _mage mage
+
     #
     # Hosts
     # https://git.geekify.de/sqozz/prezto_config/src/branch/sqozz_config/modules/completion/init.zsh
