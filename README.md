@@ -12,9 +12,9 @@ Collection of configurations for safe, fast, software development.
 
 # NOTABLE CONFIGURATIONS
 
-## ASDF
+## asdf
 
-[ASDF](https://asdf-vm.com/) isolates programming environments on a per-project, per-directory basis. This enables engineers to work on multiple projects with less friction about conflicting programming language versions.
+[asdf](https://asdf-vm.com/) isolates programming environments on a per-project, per-directory basis. This enables engineers to work on multiple projects with less friction about conflicting programming language versions.
 
 Examples:
 
@@ -77,8 +77,8 @@ Back and forth with:
 * a UNIX-like environment (e.g. [WSL](https://learn.microsoft.com/en-us/windows/wsl/))
 * [bash](https://www.gnu.org/software/bash/) 4+
 * [GNU](https://www.gnu.org/)/[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) [findutils](https://en.wikipedia.org/wiki/Find_(Unix))
-* POSIX compliant [grep](https://pubs.opengroup.org/onlinepubs/9699919799.orig/utilities/grep.html)
-* POSIX compliant [make](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/make.html)
+* [grep](https://pubs.opengroup.org/onlinepubs/9699919799.orig/utilities/grep.html)
+* [make](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/make.html)
 * [Go](https://go.dev/)
 * [Python](https://www.python.org/)
 * [Rust](https://rust-lang.org/)
@@ -87,9 +87,7 @@ Back and forth with:
 
 ## Recommended
 
-* [ASDF](https://asdf-vm.com/) 0.18 (run `asdf reshim` after provisioning)
-* [direnv](https://direnv.net/) 2
-* [GNU grep](https://www.gnu.org/software/grep/)
+* [asdf](https://asdf-vm.com/) 0.18
 * [GNU](https://www.greenwoodsoftware.com/less/)/[BSD](https://man.freebsd.org/cgi/man.cgi?query=less) lessutils
 * [kickers](https://github.com/mcandre/kickers)
 
