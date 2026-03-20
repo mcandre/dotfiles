@@ -87,7 +87,6 @@ Back and forth with:
 
 ## Recommended
 
-* [asdf](https://asdf-vm.com/) 0.18
 * [GNU](https://www.greenwoodsoftware.com/less/)/[BSD](https://man.freebsd.org/cgi/man.cgi?query=less) lessutils
 * [kickers](https://github.com/mcandre/kickers)
 
