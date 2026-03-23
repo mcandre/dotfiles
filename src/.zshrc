@@ -58,19 +58,21 @@ export LESS_TERMCAP_us=$'\e[1;32m'
 # Preserve colors; Strip blank lines; Disable prompts
 export LESS='-R -X -P$'
 
-#
-# grep
-#
-# Silently ignore binaries; Enable colors
-export GREP_OPTIONS='-I --color=auto'
-# Render matching text in bold red
-export GREP_COLORS='ms=01;31'
+# #
+# # grep
+# #
+# # Silently ignore binaries; Enable colors
+# export GREP_OPTIONS='-I --color=auto'
+# # Render matching text in bold red
+# export GREP_COLORS='ms=01;31'
 
 #
 # ripgrep
 #
 # Fix configuration file loading
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+# Accelerate searches
+alias grep='rg'
 # Sort; Colorize
 alias rg='rg --sort-files --pretty --colors "match:fg:red" --colors "path:fg:cyan" --colors "line:fg:white"'
 
