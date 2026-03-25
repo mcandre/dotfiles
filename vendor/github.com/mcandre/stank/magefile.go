@@ -3,78 +3,41 @@
 package main
 
 import (
-	"fmt"
-	"os"
-
 	"github.com/magefile/mage/mg"
-	mageextras "github.com/mcandre/mage-extras"
-	"github.com/mcandre/stank"
+	"github.com/magefile/mage/sh"
+	"github.com/mcandre/mx"
 )
 
-// artifactsPath describes where artifacts are produced.
-var artifactsPath = "bin"
-
 // Default references the default build task.
-var Default = Test
-
-// Govulncheck runs govulncheck.
-func Govulncheck() error { return mageextras.Govulncheck("-scan", "package", "./...") }
-
-// SnykTest runs Snyk SCA.
-func Snyk() error { return mageextras.SnykTest("--dev") }
+var Default = Build
 
 // Audit runs a security audit.
-func Audit() error {
-	mg.Deps(Govulncheck)
-	return Snyk()
-}
+func Audit() error { return Govulncheck() }
 
-// Test runs a unit test.
-func Test() error { return mageextras.UnitTest() }
-
-// CoverHTML denotes the HTML formatted coverage filename.
-var CoverHTML = "cover.html"
-
-// CoverProfile denotes the raw coverage data filename.
-var CoverProfile = "cover.out"
-
-// CoverageHTML generates HTML formatted coverage data.
-func CoverageHTML() error {
-	mg.Deps(CoverageProfile)
-	return mageextras.CoverageHTML(CoverHTML, CoverProfile)
-}
-
-// CoverageProfile generates raw coverage data.
-func CoverageProfile() error { return mageextras.CoverageProfile(CoverProfile) }
+// Build compiles Go projects.
+func Build() error { return sh.RunV("go", "build", "./...") }
 
 // Deadcode runs deadcode.
-func Deadcode() error { return mageextras.Deadcode("./...") }
-
-// Gofmt runs gofmt.
-func GoFmt() error { return mageextras.GoFmt("-s", "-w") }
-
-// GoImports runs goimports.
-func GoImports() error { return mageextras.GoImports("-w") }
-
-// GoVet runs default go vet analyzers.
-func GoVet() error { return mageextras.GoVet() }
+func Deadcode() error { return sh.RunV("deadcode", "./...") }
 
 // Errcheck runs errcheck.
-func Errcheck() error { return mageextras.Errcheck("-blank") }
+func Errcheck() error { return sh.RunV("errcheck", "-blank") }
 
-// Nakedret runs nakedret.
-func Nakedret() error { return mageextras.Nakedret("-l", "0") }
+// GoImports runs goimports.
+func GoImports() error { return mx.GoImports("-w") }
 
-// Shadow runs go vet with shadow checks enabled.
-func Shadow() error { return mageextras.GoVetShadow() }
+// GoVet runs default go vet analyzers.
+func GoVet() error { return mx.GoVet() }
 
-// Staticcheck runs staticcheck.
-func Staticcheck() error { return mageextras.Staticcheck("./...") }
+// Govulncheck runs govulncheck.
+func Govulncheck() error { return sh.RunV("govulncheck", "-scan", "package", "./...") }
+
+// Install builds and installs Go applications.
+func Install() error { return mx.Install() }
 
 // Lint runs the lint suite.
 func Lint() error {
 	mg.Deps(Deadcode)
-	mg.Deps(GoFmt)
 	mg.Deps(GoImports)
 	mg.Deps(GoVet)
 	mg.Deps(Errcheck)
@@ -84,32 +47,17 @@ func Lint() error {
 	return nil
 }
 
-// portBasename labels the artifact basename.
-var portBasename = fmt.Sprintf("stank-%s", stank.Version)
+// Nakedret runs nakedret.
+func Nakedret() error { return mx.Nakedret("-l", "0") }
 
-// repoNamespace identifies the Go namespace for this project.
-var repoNamespace = "github.com/mcandre/stank"
+// Shadow runs go vet with shadow checks enabled.
+func Shadow() error { return mx.GoVetShadow() }
 
-// Factorio cross-compiles Go binaries for a multitude of platforms.
-func Factorio() error { return mageextras.Factorio(portBasename) }
+// Staticcheck runs staticcheck.
+func Staticcheck() error { return sh.RunV("staticcheck", "./...") }
 
-// Port builds and compresses artifacts.
-func Port() error { mg.Deps(Factorio); return mageextras.Archive(portBasename, artifactsPath) }
-
-// Install builds and installs Go applications.
-func Install() error { return mageextras.Install() }
+// Test runs a unit test.
+func Test() error { return mx.UnitTest() }
 
 // Uninstall deletes installed Go applications.
-func Uninstall() error { return mageextras.Uninstall("stink", "stank", "funk") }
-
-// CleanCoverage deletes coverage data.
-func CleanCoverage() error {
-	if err := os.RemoveAll(CoverHTML); err != nil {
-		return err
-	}
-
-	return os.RemoveAll(CoverProfile)
-}
-
-// Clean deletes artifacts.
-func Clean() error { mg.Deps(CleanCoverage); return os.RemoveAll(artifactsPath) }
+func Uninstall() error { return mx.Uninstall("stink", "stank", "funk") }

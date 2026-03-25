@@ -1,14 +1,13 @@
 package maybe
 
 import (
-	"io/ioutil"
 	"os"
 )
 
-// WriteFile mirrors ioutil.WriteFile. On Linux it uses renameio.WriteFile to
+// WriteFile mirrors os.WriteFile. On Linux it uses renameio.WriteFile to
 // create or replace an existing file with the same name atomically. On Windows
 // files cannot be written atomically, so this function falls back to
-// ioutil.WriteFile, which does not write the file atomically and ignores most
+// os.WriteFile, which does not write the file atomically and ignores most
 // permission bits. See https://github.com/google/renameio/issues/1 and
 // https://github.com/golang/go/issues/22397#issuecomment-498856679 for
 // discussion.
@@ -18,5 +17,5 @@ import (
 // as a convenience wrapper if you are okay with atomic replacement not being
 // supported by the runtime platform.
 func WriteFile(filename string, data []byte, perm os.FileMode) error {
-	return ioutil.WriteFile(filename, data, perm)
+	return os.WriteFile(filename, data, perm)
 }

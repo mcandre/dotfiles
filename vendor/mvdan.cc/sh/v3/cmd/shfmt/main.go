@@ -27,50 +27,72 @@ import (
 	"mvdan.cc/sh/v3/syntax/typedjson"
 )
 
-type boolString string
+type boolStringValue string
 
-func (s *boolString) Set(val string) error {
-	*s = boolString(val)
+func (b *boolStringValue) Set(val string) error {
+	*b = boolStringValue(val)
 	return nil
 }
-func (s *boolString) Get() any       { return string(*s) }
-func (s *boolString) String() string { return string(*s) }
-func (*boolString) IsBoolFlag() bool { return true }
+func (b *boolStringValue) String() string {
+	return string(*b)
+}
+func (*boolStringValue) IsBoolFlag() bool { return true }
+
+func boolStringVar(p *string, name string, value string, usage string) {
+	*p = value
+	flag.Var((*boolStringValue)(p), name, usage)
+}
+
+func langVariantVar(p *syntax.LangVariant, name string, value syntax.LangVariant, usage string) {
+	*p = value
+	flag.Var(p, name, usage)
+}
 
 type multiFlag[T any] struct {
 	short, long string
 	val         T
 }
 
+func flagVal[T any](short, long string, val T, register func(*T, string, T, string)) *multiFlag[T] {
+	f := &multiFlag[T]{short, long, val}
+	if short != "" {
+		register(&f.val, short, val, "")
+	}
+	if long != "" {
+		register(&f.val, long, val, "")
+	}
+	return f
+}
+
 var (
 	// Generic flags.
-	versionFlag = &multiFlag[bool]{"", "version", false}
-	list        = &multiFlag[boolString]{"l", "list", "false"}
-	write       = &multiFlag[bool]{"w", "write", false}
-	diff        = &multiFlag[bool]{"d", "diff", false}
-	applyIgnore = &multiFlag[bool]{"", "apply-ignore", false}
-	filename    = &multiFlag[string]{"", "filename", ""}
+	versionFlag = flagVal("", "version", false, flag.BoolVar)
+	list        = flagVal("l", "list", "false", boolStringVar)
+	write       = flagVal("w", "write", false, flag.BoolVar)
+	diff        = flagVal("d", "diff", false, flag.BoolVar)
+	applyIgnore = flagVal("", "apply-ignore", false, flag.BoolVar)
+	filename    = flagVal("", "filename", "", flag.StringVar)
 
 	// Parser flags.
-	lang     = &multiFlag[syntax.LangVariant]{"ln", "language-dialect", syntax.LangAuto}
-	posix    = &multiFlag[bool]{"p", "posix", false}
-	simplify = &multiFlag[bool]{"s", "simplify", false}
+	lang     = flagVal("ln", "language-dialect", syntax.LangAuto, langVariantVar)
+	posix    = flagVal("p", "posix", false, flag.BoolVar)
+	simplify = flagVal("s", "simplify", false, flag.BoolVar)
 	// TODO: when promoting exp.recover to a stable flag, add it as an EditorConfig knob too, and perhaps rename to recover-errors
-	expRecover = &multiFlag[int]{"", "exp.recover", 0}
+	expRecover = flagVal("", "exp.recover", 0, flag.IntVar)
 
 	// Printer flags.
-	indent      = &multiFlag[uint]{"i", "indent", 0}
-	binNext     = &multiFlag[bool]{"bn", "binary-next-line", false}
-	caseIndent  = &multiFlag[bool]{"ci", "case-indent", false}
-	spaceRedirs = &multiFlag[bool]{"sr", "space-redirects", false}
-	keepPadding = &multiFlag[bool]{"kp", "keep-padding", false}
-	funcNext    = &multiFlag[bool]{"fn", "func-next-line", false}
-	minify      = &multiFlag[bool]{"mn", "minify", false}
+	indent      = flagVal("i", "indent", 0, flag.UintVar)
+	binNext     = flagVal("bn", "binary-next-line", false, flag.BoolVar)
+	caseIndent  = flagVal("ci", "case-indent", false, flag.BoolVar)
+	spaceRedirs = flagVal("sr", "space-redirects", false, flag.BoolVar)
+	keepPadding = flagVal("kp", "keep-padding", false, flag.BoolVar)
+	funcNext    = flagVal("fn", "func-next-line", false, flag.BoolVar)
+	minify      = flagVal("mn", "minify", false, flag.BoolVar)
 
 	// Utility flags.
-	find     = &multiFlag[boolString]{"f", "find", "false"}
-	toJSON   = &multiFlag[bool]{"tojson", "to-json", false} // TODO(v4): remove "tojson" for consistency
-	fromJSON = &multiFlag[bool]{"", "from-json", false}
+	find     = flagVal("f", "find", "false", boolStringVar)
+	toJSON   = flagVal("tojson", "to-json", false, flag.BoolVar) // TODO(v4): remove "tojson" for consistency
+	fromJSON = flagVal("", "from-json", false, flag.BoolVar)
 
 	// useEditorConfig will be false if any parser or printer flags were used.
 	useEditorConfig = true
@@ -81,70 +103,7 @@ var (
 	color             bool
 
 	copyBuf = make([]byte, 32*1024)
-
-	version = "(devel)" // to match the default from runtime/debug
-
-	allFlags = []any{
-		versionFlag, list, write, find, diff, applyIgnore,
-		lang, posix, filename, simplify, expRecover,
-		indent, binNext, caseIndent, spaceRedirs, keepPadding, funcNext, minify,
-		toJSON, fromJSON,
-	}
 )
-
-func init() {
-	// TODO: the flag package has constructors like newBoolValue;
-	// if we had access to something like that, we could use [flag.Value] everywhere,
-	// and avoid this monstrosity of a type switch.
-	for _, f := range allFlags {
-		switch f := f.(type) {
-		case *multiFlag[bool]:
-			if name := f.short; name != "" {
-				flag.BoolVar(&f.val, name, f.val, "")
-			}
-			if name := f.long; name != "" {
-				flag.BoolVar(&f.val, name, f.val, "")
-			}
-		case *multiFlag[boolString]:
-			if name := f.short; name != "" {
-				flag.Var(&f.val, name, "")
-			}
-			if name := f.long; name != "" {
-				flag.Var(&f.val, name, "")
-			}
-		case *multiFlag[string]:
-			if name := f.short; name != "" {
-				flag.StringVar(&f.val, name, f.val, "")
-			}
-			if name := f.long; name != "" {
-				flag.StringVar(&f.val, name, f.val, "")
-			}
-		case *multiFlag[int]:
-			if name := f.short; name != "" {
-				flag.IntVar(&f.val, name, f.val, "")
-			}
-			if name := f.long; name != "" {
-				flag.IntVar(&f.val, name, f.val, "")
-			}
-		case *multiFlag[uint]:
-			if name := f.short; name != "" {
-				flag.UintVar(&f.val, name, f.val, "")
-			}
-			if name := f.long; name != "" {
-				flag.UintVar(&f.val, name, f.val, "")
-			}
-		case *multiFlag[syntax.LangVariant]:
-			if name := f.short; name != "" {
-				flag.Var(&f.val, name, "")
-			}
-			if name := f.long; name != "" {
-				flag.Var(&f.val, name, "")
-			}
-		default:
-			panic(fmt.Sprintf("%T", f))
-		}
-	}
-}
 
 func main() {
 	flag.Usage = func() {
@@ -156,7 +115,7 @@ directory, all shell scripts found under that directory will be used.
 
   --version  show version and exit
 
-  -l[=0], --list[=0]  list files whose formatting differs from shfmt;
+  -l[=0], --list[=0]  error with a list of files whose formatting differs from shfmt;
                       paths are separated by a newline or a null character if -l=0
   -w,     --write     write result to file instead of stdout
   -d,     --diff      error with a diff when the formatting differs
@@ -165,7 +124,7 @@ directory, all shell scripts found under that directory will be used.
 
 Parser options:
 
-  -ln, --language-dialect str  bash/posix/mksh/bats, default "auto"
+  -ln, --language-dialect str  bash/posix/mksh/bats/zsh, default "auto"
   -p,  --posix                 shorthand for -ln=posix
   -s,  --simplify              simplify the code
 
@@ -194,8 +153,8 @@ For more information and to report bugs, see https://github.com/mvdan/sh.
 	flag.Parse()
 
 	if versionFlag.val {
-		// don't overwrite the version if it was set by -ldflags=-X
-		if info, ok := debug.ReadBuildInfo(); ok && version == "(devel)" {
+		version := "(unknown)"
+		if info, ok := debug.ReadBuildInfo(); ok {
 			mod := &info.Main
 			if mod.Replace != nil {
 				mod = mod.Replace
@@ -262,6 +221,10 @@ For more information and to report bugs, see https://github.com/mvdan/sh.
 	} else if term.IsTerminal(int(os.Stdout.Fd())) {
 		color = true
 	}
+	// TODO(v4): show the help text on zero arguments,
+	// having the user run `shfmt -` if they want to format stdin.
+	// Using a dash is more explicit, and new users can easily be
+	// confused by `shfmt` seemingly hanging forever.
 	if flag.NArg() == 0 || (flag.NArg() == 1 && flag.Arg(0) == "-") {
 		name := "<standard input>"
 		if toJSON.val {
@@ -271,7 +234,7 @@ For more information and to report bugs, see https://github.com/mvdan/sh.
 			name = filename.val
 		}
 		if err := formatStdin(name); err != nil {
-			if err != errChangedWithDiff {
+			if err != errFormattingDiffers {
 				fmt.Fprintln(os.Stderr, err)
 			}
 			os.Exit(1)
@@ -295,7 +258,7 @@ For more information and to report bugs, see https://github.com/mvdan/sh.
 			// One exception is --apply-ignore, which explicitly changes this behavior.
 			// Another is --find, whose logic depends on walkPath being called.
 			if err := formatPath(path, false); err != nil {
-				if err != errChangedWithDiff {
+				if err != errFormattingDiffers {
 					fmt.Fprintln(os.Stderr, err)
 				}
 				status = 1
@@ -310,7 +273,7 @@ For more information and to report bugs, see https://github.com/mvdan/sh.
 			case nil:
 			case filepath.SkipDir:
 				return err
-			case errChangedWithDiff:
+			case errFormattingDiffers:
 				status = 1
 			default:
 				fmt.Fprintln(os.Stderr, err)
@@ -325,7 +288,7 @@ For more information and to report bugs, see https://github.com/mvdan/sh.
 	os.Exit(status)
 }
 
-var errChangedWithDiff = fmt.Errorf("")
+var errFormattingDiffers = fmt.Errorf("")
 
 func formatStdin(name string) error {
 	if write.val {
@@ -494,7 +457,7 @@ func editorConfigLangs(l syntax.LangVariant) []string {
 	switch l {
 	case syntax.LangBash, syntax.LangBats:
 		return []string{"shell", "bash"}
-	case syntax.LangPOSIX, syntax.LangMirBSDKorn, syntax.LangAuto:
+	case syntax.LangPOSIX, syntax.LangMirBSDKorn, syntax.LangZsh, syntax.LangAuto:
 		return []string{"shell"}
 	}
 	return nil
@@ -570,7 +533,7 @@ func formatBytes(src []byte, path string, fileLang syntax.LangVariant) error {
 			diffBytes := diffpkg.Diff(path+".orig", src, path, res)
 			if !color {
 				os.Stdout.Write(diffBytes)
-				return errChangedWithDiff
+				return errFormattingDiffers
 			}
 			// The first three lines are the header with the filenames, including --- and +++,
 			// and are marked in bold.
@@ -594,7 +557,10 @@ func formatBytes(src []byte, path string, fileLang syntax.LangVariant) error {
 				}
 				os.Stdout.Write(line)
 			}
-			return errChangedWithDiff
+			return errFormattingDiffers
+		}
+		if list.val != "false" && !write.val {
+			return errFormattingDiffers
 		}
 	}
 	if list.val == "false" && !write.val && !diff.val {
