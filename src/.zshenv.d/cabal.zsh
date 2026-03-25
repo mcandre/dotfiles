@@ -1,5 +1,1 @@
-typeset -Uga path
-path=(
-    $path
-    "$HOME/.cabal/bin"
-)
+path+=(~/.cabal/bin)

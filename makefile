@@ -27,7 +27,7 @@ lint: \
 	slick
 
 shellcheck:
-	stank -print0 -exInterp zsh . | \
+	stank -print0 | \
 		xargs -0 -n 1 shellcheck
 
 shfmt:

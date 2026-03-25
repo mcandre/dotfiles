@@ -1,5 +1,1 @@
-typeset -Uga path
-path=(
-    $path
-    /Library/TeX/texbin
-)
+path+=(/Library/TeX/texbin)
