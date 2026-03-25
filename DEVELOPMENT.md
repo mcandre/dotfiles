@@ -1,6 +1,6 @@
 # DEVELOPMENT
 
-We follow standard, `make` based operations for performing build operations.
+We follow standard, `make` based commands for performing build operations.
 
 # DEV ENVIRONMENT
 
