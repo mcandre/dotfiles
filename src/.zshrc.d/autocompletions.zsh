@@ -5,14 +5,16 @@ provision-autocompletions() {
     # Aliases
     setopt completealiases
 
-    # Menu
-    setopt automenu
-    setopt menucomplete
-    zstyle ':completion:*' menu yes=long select
+    # Populate longest common prefix
+    zstyle ':completion:*' insert-unambiguous yes
+
+    # Menu mod
+    zstyle ':completion:*' menu select
 
     # Shift+Tab: Reverse
     zmodload zsh/complist
-    bindkey '^[[Z' reverse-menu-complete
+    bindkey "${terminfo[kcbt]}" reverse-menu-complete
+    bindkey -M menuselect "${terminfo[kcbt]}" reverse-menu-complete
 
     # Allow cursor navigation during autocompletion
     bindkey -e
