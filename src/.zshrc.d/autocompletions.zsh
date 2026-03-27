@@ -2,25 +2,24 @@ provision-autocompletions() {
     autoload -U compinit
     compinit
 
-    # Skip prompt
-    zstyle ':completion:*' list-prompt ''
+    # Aliases
+    setopt completealiases
 
-    # Fix autocomplete menu highlighting
+    # Menu
+    setopt automenu
+    setopt menucomplete
     zstyle ':completion:*' menu yes=long select
 
-    # Fix Shift+Tab reverse navigation
+    # Shift+Tab: Reverse
     zmodload zsh/complist
-    bindkey -M menuselect '^[[Z' reverse-menu-complete
-
-    # Fix Windows Terminal navigation
-    bindkey '^[[1;5D' backward-word
-    bindkey '^[[1;5C' forward-word
+    bindkey '^[[Z' reverse-menu-complete
 
     # Allow cursor navigation during autocompletion
     bindkey -e
 
-    # Aliases
-    setopt completealiases
+    # Fix Windows Terminal navigation
+    bindkey '^[[1;5D' backward-word
+    bindkey '^[[1;5C' forward-word
 
     # Case insensitive
     zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -53,13 +52,11 @@ provision-autocompletions() {
     zstyle ':completion:*:(scp|ssh|rsync):*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^[-[:alnum:]]##(.[-[:alnum:]]##)##' '*@*'
     zstyle ':completion:*:(scp|ssh|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
 
-    #
     # elide URI schemes
-    #
     compdef -d open
     zstyle ':completion:*:rsync:*' tag-order 'files' 'remote-files'
 
-    # ASDF
+    # asdf
     fpath=(
         "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
         $fpath
