@@ -2,6 +2,9 @@ provision-autocompletions() {
     autoload -U compinit
     compinit
 
+    # Skip prompt
+    zstyle ':completion:*' list-prompt ''
+
     # Fix autocomplete menu highlighting
     zstyle ':completion:*' menu yes=long select
 
