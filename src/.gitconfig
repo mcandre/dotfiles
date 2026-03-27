@@ -1,33 +1,30 @@
 [core]
-editor = vi
-excludesfile = /Users/andrew/.gitignore-global
-ignorecase = false
+	editor = vi
+	excludesfile = /Users/andrew/.gitignore-global
+	ignorecase = false
 
 [push]
-default = simple
+	default = simple
 
 [branch]
-autosetuprebase = always
-
-# [color]
-# ui = auto
+	autosetuprebase = always
 
 [merge]
-ff = true
+	ff = true
 
 [pull]
-rebase = true
+	rebase = true
 
 [mergetool]
-keepBackup = false
+	keepBackup = false
 
 [user]
-name = Andrew Pennebaker
-email = n4jm4@pm.me
-signingkey = 8E363EAD6BBCDCBC
+	name = Andrew Pennebaker
+	email = n4jm4@pm.me
+	signingkey = 8E363EAD6BBCDCBC
 
 [init]
-defaultBranch = main
+	defaultBranch = main
 [commit]
 	gpgsign = true
 [tag]
