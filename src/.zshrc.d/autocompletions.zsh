@@ -5,6 +5,9 @@ provision-autocompletions() {
     # Aliases
     setopt completealiases
 
+    # Pad conjunctions
+    ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;'
+
     # Populate longest common prefix
     zstyle ':completion:*' insert-unambiguous yes
 
@@ -23,8 +26,8 @@ provision-autocompletions() {
     bindkey '^[[1;5D' backward-word
     bindkey '^[[1;5C' forward-word
 
-    # Case insensitive
-    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+    # # Case insensitive
+    # zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
     # Preserve initial file path syntax
     zstyle ':completion:*' completion_auto_quote true
