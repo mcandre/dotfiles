@@ -23,6 +23,12 @@ We follow standard, `make` based commands for performing build operations.
 
 * [asdf](https://asdf-vm.com/)
 
+## Postinstall
+
+Register output of `go env GOBIN` to `PATH` environment variable.
+
+Register `~/.cargo/bin` to `PATH` environment variable.
+
 # TASKS
 
 We automate engineering tasks.
