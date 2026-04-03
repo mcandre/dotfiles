@@ -2,9 +2,7 @@
 
 We follow standard, `make` based commands for performing build operations.
 
-# DEV ENVIRONMENT
-
-## Prerequisites
+# PREREQUISITES
 
 * a UNIX-like environment (e.g. [WSL](https://learn.microsoft.com/en-us/windows/wsl/))
 * [asdf](https://asdf-vm.com/)
