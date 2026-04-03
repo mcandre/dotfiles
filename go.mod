@@ -16,7 +16,7 @@ require (
 	github.com/magefile/mage v1.16.1 // indirect
 	github.com/mcandre/mx v0.0.47 // indirect
 	github.com/mcandre/slick v0.0.21 // indirect
-	github.com/mcandre/stank v0.0.43 // indirect
+	github.com/mcandre/stank v0.0.44 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	golang.org/x/sys v0.42.0 // indirect
 	golang.org/x/term v0.40.0 // indirect

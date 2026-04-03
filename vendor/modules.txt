@@ -13,7 +13,7 @@ github.com/mcandre/mx
 ## explicit; go 1.26.1
 github.com/mcandre/slick
 github.com/mcandre/slick/cmd/slick
-# github.com/mcandre/stank v0.0.43
+# github.com/mcandre/stank v0.0.44
 ## explicit; go 1.26.1
 github.com/mcandre/stank
 github.com/mcandre/stank/cmd/funk
