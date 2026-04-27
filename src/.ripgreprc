@@ -1,22 +1,23 @@
 --hidden
 
 # VCS
---glob=!.git/*
---glob=!.svn/*
+--glob=!*/.git/*
+--glob=!*/.svn/*
 
 # Ant, Gradle, pip
---glob=!build/*
---glob=!dist/*
+--glob=!*/build/*
+--glob=!*/dist/*
 
 # npm
---glob=!node_modules/*
+--glob=!*/node_modules/*
 
 # .NET
---glob=!code_behind/*
---glob=!obj/*
+--glob=!*/code_behind/*
+--glob=!*/obj/*
 
 # Maven, Rust
---glob=!target/*
+--glob=!*/target/*
 
-# Composer, Go
---glob=!vendor/*
+# Composer, Go, Rust
+--glob=!*/vendor/*
+--glob=!*/vendor-rust/*
