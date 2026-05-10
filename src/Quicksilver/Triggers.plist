@@ -61,7 +61,7 @@
 				<key>actionID</key>
 				<string>FileOpenAction</string>
 				<key>directID</key>
-				<string>/Applications/iTerm.app</string>
+				<string>/System/Applications/Utilities/Terminal.app</string>
 			</dict>
 			<key>enabled</key>
 			<true/>
@@ -106,7 +106,7 @@
 				<key>actionID</key>
 				<string>FileOpenAction</string>
 				<key>directID</key>
-				<string>/Applications/Brave Browser.app</string>
+				<string>/Applications/Google Chrome.app</string>
 			</dict>
 			<key>enabled</key>
 			<true/>
