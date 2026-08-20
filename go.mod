@@ -1,6 +1,6 @@
 module github.com/mcandre/dotfiles
 
-go 1.26.1
+go 1.27.0
 
 tool (
 	github.com/mcandre/slick/cmd/slick
