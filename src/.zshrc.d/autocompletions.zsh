@@ -1,4 +1,10 @@
 provision-autocompletions() {
+    fpath=(
+        "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
+        ~/.docker/completions
+        $fpath
+    )
+
     autoload -U compinit
     compinit
 
@@ -60,12 +66,6 @@ provision-autocompletions() {
     # elide URI schemes
     compdef -d open
     zstyle ':completion:*:rsync:*' tag-order 'files' 'remote-files'
-
-    # asdf
-    fpath=(
-        "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
-        $fpath
-    )
 
     # Command navigation
     autoload -U select-word-style
