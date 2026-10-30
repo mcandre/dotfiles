@@ -21,8 +21,8 @@ jobs:
         toolchain: "1.92.0"
     - name: "provision shells"
       run: |
-        sudo apt update
-        sudo apt install -y shellcheck zsh
+        sudo apt-get update
+        sudo apt-get install -y shellcheck zsh
     - name: "provision dev tools"
       run: "make -f install.mk"
     - run: "make"
