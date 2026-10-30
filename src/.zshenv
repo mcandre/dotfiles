@@ -21,6 +21,7 @@ path=(
     # /opt/homebrew/opt/gnu-tar/libexec/gnubin
     /opt/homebrew/opt/coreutils/libexec/gnubin
     /opt/homebrew/opt/make/libexec/gnubin
+    /opt/homebrew/opt/unzip/bin
     /opt/homebrew/bin
     /opt/homebrew/sbin
 
