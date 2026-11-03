@@ -188,7 +188,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mtth/scratch.vim'
     Plug 'plasticboy/vim-markdown'
     Plug 'robbles/logstash.vim'
-    Plug 'scrooloose/nerdtree'
+    " Plug 'scrooloose/nerdtree'
     Plug 'tomtom/tcomment_vim'
     Plug 'tpope/vim-fugitive'
     Plug 'vim-scripts/greplace.vim'
@@ -232,26 +232,26 @@ let g:ctrlp_user_command = [
     \ 'cd %s && git ls-files -co --exclude-standard | grep -vE "vendor|\\.gif|\\.jpeg|\\.jpg|\\.mp3|\\.png|\\.wav|\\.webm|\\.webp"'
 \ ]
 
-" Autolaunch NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
-" Focus main window, not NERDTree
-augroup NERD
-    autocmd!
-    autocmd VimEnter * NERDTree
-    autocmd VimEnter * wincmd p
-augroup END
+" " Autolaunch NERDTree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+"
+" " Focus main window, not NERDTree
+" augroup NERD
+"     autocmd!
+"     autocmd VimEnter * NERDTree
+"     autocmd VimEnter * wincmd p
+" augroup END
 
 augroup filetypedetect
     au BufRead,BufNewFile Jenkinsfile set filetype=groovy
 augroup END
 
-" Exit Vim when the only window left is NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" For serious
-let NERDTreeShowHidden=1
+" " Exit Vim when the only window left is NERDTree
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"
+" " For serious
+" let NERDTreeShowHidden=1
 
 " vim-go: Enable goimports on save
 let g:go_fmt_command = "goimports"
