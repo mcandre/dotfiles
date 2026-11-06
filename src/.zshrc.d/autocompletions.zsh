@@ -39,7 +39,7 @@ provision-autocompletions() {
     zstyle ':completion:*' completion_auto_quote true
 
     # Reduce tab completion collisions with rare commands
-    zstyle ':completion:*:*:-command-:*:*' ignored-patterns 'butteraugli_main|Magick*-config|magick-script'
+    zstyle ':completion:*:*:-command-:*:*' ignored-patterns 'butteraugli_main|convertfilestops|convertsegfilestopdf|converttopdf|convertfilestopdf|convertformat|convertsegfilestops|converttops|Magick*-config|magick-script'
 
     # makefiles
     zstyle ':completion::complete:make:*:targets' call-command true
