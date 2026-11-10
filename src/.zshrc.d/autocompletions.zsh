@@ -62,6 +62,7 @@ provision-autocompletions() {
     zstyle ':completion:*:(rsync|scp|ssh):*:hosts-host' ignored-patterns '*(.|:)*' loopback ip6-loopback localhost ip6-localhost broadcasthost
     zstyle ':completion:*:(rsync|scp|ssh):*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^[-[:alnum:]]##(.[-[:alnum:]]##)##' '*@*'
     zstyle ':completion:*:(rsync|scp|ssh):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
+    zstyle ':completion:*:hosts' ignored-patterns 'broadcasthost'
 
     # elide URI schemes
     compdef -d open
