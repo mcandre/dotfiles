@@ -228,7 +228,7 @@
 			</dict>
 			<key>QSPluginChanges</key>
 			<string>&lt;ul&gt;
-&lt;li&gt;Fix scanning contacts and → into Contacts.app&lt;/li&gt;
+&lt;li&gt;Fix scanning contacts and â†’ into Contacts.app&lt;/li&gt;
 &lt;/ul&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
@@ -1147,7 +1147,7 @@ Are you busy? That new movie is coming out.
 			</dict>
 			<key>QSPluginChanges</key>
 			<string>&lt;ul&gt;
-&lt;li&gt;Allow → in to the Firefox app to show history/bookmarks and the
+&lt;li&gt;Allow â†’ in to the Firefox app to show history/bookmarks and the
 current web page&lt;/li&gt;
 &lt;li&gt;Allow changing the number of history items Quicksilver stores using
 a defaults value&lt;/li&gt;
@@ -2051,7 +2051,7 @@ The other is to drag and drop an item from Quicksilver's 1st (or 3rd) pane strai
 				<true/>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>&lt;ul&gt;&lt;li&gt;Improve right-click options of items on shelf&lt;/li&gt;&lt;li&gt;Add keyboard shortcuts to the shelf window (↩ for execute, ⌘↩ for open in quicksilver)&lt;/ul&gt;</string>
+			<string>&lt;ul&gt;&lt;li&gt;Improve right-click options of items on shelf&lt;/li&gt;&lt;li&gt;Add keyboard shortcuts to the shelf window (â†© for execute, âŒ˜â†© for open in quicksilver)&lt;/ul&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
 				<key>version</key>
@@ -2741,7 +2741,7 @@ Using &lt;code&gt;Next Tuesday -- Dinner with Tom&lt;/code&gt; will create an ev
 			</dict>
 			<key>QSPluginChanges</key>
 			<string>&lt;ul&gt;
-&lt;li&gt;Adds a ‘Next Online Meeting’ proxy that allows you to quickly bring
+&lt;li&gt;Adds a â€˜Next Online Meetingâ€™ proxy that allows you to quickly bring
 up the next online meeting URL to open it&lt;/li&gt;
 &lt;li&gt;Various minor improvements&lt;/li&gt;
 &lt;/ul&gt;</string>
@@ -2977,7 +2977,7 @@ The plugin also adds several actions for manipulating albums, and proxy objects 
 				</array>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>&lt;ul&gt; &lt;li&gt;“Reveal in iTunes” is now an alternate action for “Play”&lt;/li&gt; &lt;li&gt;corrected and updated documentation&lt;/li&gt; &lt;/ul&gt;</string>
+			<string>&lt;ul&gt; &lt;li&gt;â€œReveal in iTunesâ€ is now an alternate action for â€œPlayâ€&lt;/li&gt; &lt;li&gt;corrected and updated documentation&lt;/li&gt; &lt;/ul&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
 				<key>obsoletes</key>
@@ -3334,7 +3334,7 @@ This plugin was created by Mikkel Malmberg (&lt;a href="https://github.com/mikke
 			<key>QSPluginChanges</key>
 			<string>&lt;ul&gt;
 &lt;li&gt;Update list of emojis&lt;/li&gt;
-&lt;li&gt;Set ‘paste’ as the default action for emojis&lt;/li&gt;
+&lt;li&gt;Set â€˜pasteâ€™ as the default action for emojis&lt;/li&gt;
 &lt;/ul&gt;</string>
 		</dict>
 		<key>com.qsapp.MiniBezel</key>
@@ -4533,6 +4533,6 @@ and it &amp;quot;is not my problem&amp;quot;.
 		</dict>
 	</dict>
 	<key>webDownloadDate</key>
-	<date>2026-05-10T05:48:56Z</date>
+	<date>2026-11-15T19:51:22Z</date>
 </dict>
 </plist>

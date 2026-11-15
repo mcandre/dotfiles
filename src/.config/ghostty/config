@@ -11,6 +11,10 @@
 # rm -rf src/.config/ghostty
 #
 
+#
+# Ghostty fixes cursor pixel glitches compared to macOS Terminal
+#
+
 # Fix Ghostty integration for SSH and likely many other components
 term = xterm-256color
 
