@@ -28,7 +28,6 @@ font-size = 14
 
 # Match macOS Terminal
 adjust-cell-height = +5%
-
 window-padding-x = 10
 window-padding-y = 8
 window-save-state = always
