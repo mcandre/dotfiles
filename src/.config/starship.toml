@@ -70,21 +70,16 @@ pipestatus_format = '[ $pipestatus]($style)'
 # https://fonts.google.com/specimen/Atkinson+Hyperlegible+Mono
 #
 # * Window Background:                       #1c1c1c ; sRGB ; 8 bit ANSI 234
-# * Window Foreground Text (Apple Terminal): #949494 ; sRGB ; 8 bit ANSI 246
-# * Window Foreground Text (iTerm2):         #949494 ; P3
+# * Window Foreground Text (Apple Terminal): #6c6c6c ; sRGB ; 8 bit ANSI 246
 # * Window Foreground Bold Text:             #a8a8a8 ; sRGB ; 8 bit ANSI 248
 # * Cursor (Apple Terminal):                 #afd700 ; sRGB ; 8 bit ANSI 148
-# * Cursor (Background iTerm2):              #a0d542 ; P3
-# * Cursor (Foreground iTerm2):              #1c1c1c ; sRGB ; 8 bit ANSI 234
 # * Selection (Apple Terminal):              #3a3a3a ; sRGB ; 8 bit ANSI 237
-# * Selection Background (iTerm2):           #949494 ; P3
-# * Selection Foreground (iTerm2):           #1c1c1c ; sRGB ; 8 bit ANSI 234
 #
 # Terminal Theme
 #
 # "Black"         #000000 ; sRGB ; 8 bit ANSI 0
 # "Red"           #af0000 ; sRGB ; 8 bit ANSI 124
-# "Green"         #00A600 ; sRGB ; 8 bit ANSI 34
+# "Green"         #00a600 ; sRGB ; 8 bit ANSI 34
 # "Yellow"        #0087ff ; sRGB ; 8 bit ANSI 33
 # "Blue"          #5f00ff ; sRGB ; 8 bit ANSI 57
 # "Purple"        #af00d7 ; sRGB ; 8 bit ANSI 128
@@ -95,10 +90,10 @@ pipestatus_format = '[ $pipestatus]($style)'
 # "Bright Red"    #ff0000 ; sRGB ; 8 bit ANSI 160
 # "Bright Green"  #00d700 ; sRGB ; 8 bit ANSI 40
 # "Bright Yellow" #00afff ; sRGB ; 8 bit ANSI 39
-# "Bright Blue"   #8700FF ; sRGB ; 8 bit ANSI 93
+# "Bright Blue"   #8700ff ; sRGB ; 8 bit ANSI 93
 # "Bright Purple" #d700ff ; sRGB ; 8 bit ANSI 165
-# "Bright Cyan"   #FFAF00 ; sRGB ; 8 bit ANSI 214
-# "Bright White"  #E4E4E4 ; sRGB ; 8 bit ANSI 254
+# "Bright Cyan"   #ffaf00 ; sRGB ; 8 bit ANSI 214
+# "Bright White"  #e4e4e4 ; sRGB ; 8 bit ANSI 254
 #
 # Inspiration:
 #

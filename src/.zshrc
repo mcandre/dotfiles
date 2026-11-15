@@ -14,11 +14,6 @@ PROMPT="%B%F{${MONOKAI}}%#%f%b "
 PROMPT_EOL_MARK=''
 zle_highlight=("default:fg=${MONOKAI},bold")
 
-# # Title
-# precmd () {
-#     print -Pn "\e]0;%1d\a"
-# }
-
 # Block cd typos
 cd () {
     builtin cd "${1:-"$(pwd)"}"

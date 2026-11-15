@@ -1,0 +1,57 @@
+# -*- mode: ini; -*-
+# vim: set filetype=ini :
+#
+# Install:
+#
+# mkdir -p "$HOME/.config"
+# cp -r src/.config/ghostty "$HOME/.config"
+#
+# Uninstall:
+#
+# rm -rf src/.config/ghostty
+#
+
+# Fix Ghostty integration for SSH and likely many other components
+term = xterm-256color
+
+# Reset fonts
+font-family = ""
+
+font-family = "Atkinson Hyperlegible Mono ExtraLight"
+font-thicken = true
+window-inherit-font-size = true
+font-size = 14
+
+# Match macOS Terminal
+adjust-cell-height = +5%
+
+window-padding-x = 10
+window-padding-y = 8
+window-save-state = always
+
+background =   #1c1c1c
+foreground =   #6c6c6c
+cursor-color = #afd700
+cursor-style = block
+cursor-style-blink = false
+resize-overlay = never
+shell-integration-features = no-cursor
+macos-titlebar-proxy-icon = hidden
+
+palette = 0=#000000
+palette = 1=#af0000
+palette = 2=#00a600
+palette = 3=#0087ff
+palette = 4=#5f00ff
+palette = 5=#af00d7
+palette = 6=#d78700
+palette = 7=#bcbcbc
+palette = 8=#303030
+palette = 9=#ff0000
+palette = 10=#00d700
+palette = 11=#00afff
+palette = 12=#8700ff
+palette = 13=#d700ff
+palette = 14=#ffaf00
+palette = 15=#e4e4e4
+bold-is-bright = true
