@@ -1,6 +1,6 @@
-# Dotfiles: configuration files
+# dotfiles: configuration files
 
-[![Lint](https://github.com/mcandre/dotfiles/actions/workflows/lint.yml/badge.svg)](https://github.com/mcandre/dotfiles/actions/workflows/lint.yml) [![license](https://img.shields.io/badge/license-BSD-0)](LICENSE.md) [![Donate](https://img.shields.io/badge/%E2%99%A5-Sponsor-BF3988)](https://github.com/sponsors/mcandre)
+[![CI/CD](https://badgen.net/github/checks/mcandre/dotfiles?icon=github)](https://github.com/mcandre/dotfiles/actions) [![License](https://badgen.net/static/license/BSD/ab2b29)](LICENSE.md) [![Donate](https://badgen.net/static/sponsor/%E2%99%A5?color=bf3988)](https://github.com/sponsors/mcandre)
 
 ![colorful terminal](screenshot.png)
 
