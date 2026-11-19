@@ -74,9 +74,6 @@ gi() {
     curl -sL "https://www.toptal.com/developers/gitignore/api/$*"
 }
 
-# ls colorize
-alias ls='ls --color=auto'
-
 # DevOps productivity secrets
 alias tree='tree -a'
 alias ll='ls -Ahl'
@@ -85,10 +82,10 @@ alias ll='ls -Ahl'
 # Monokai Pro
 #
 
-# Apple ls
-# export CLICOLOR='1'
+# GNU ls
+export CLICOLOR='1'
 export LS_COLORS='di=34:ln=1;36:so=31;40:pi=30;40:ex=1;32:bd=31;47:cd=33;47:su=30;41:sg=30;42:tw=30;43:ow=30;44:'
-alias ls='gls --color=auto'
+alias ls='ls --color=auto'
 
 # grep
 export GREP_OPTIONS='--color=auto'
