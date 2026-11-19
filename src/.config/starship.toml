@@ -73,6 +73,8 @@ pipestatus_format = '[ $pipestatus]($style)'
 # * Window Foreground Text (Apple Terminal): #6c6c6c ; sRGB ; 8 bit ANSI 246
 # * Window Foreground Bold Text:             #a8a8a8 ; sRGB ; 8 bit ANSI 248
 # * Cursor (Apple Terminal):                 #afd700 ; sRGB ; 8 bit ANSI 148
+# * Input Method Editor (iTerm2):            #afd700 ; sRGB ; 8 bit ANSI 148
+# * Cursor (iTerm2):                         #afd900 ; sRGB
 # * Selection (Apple Terminal):              #3a3a3a ; sRGB ; 8 bit ANSI 237
 #
 # Terminal Theme

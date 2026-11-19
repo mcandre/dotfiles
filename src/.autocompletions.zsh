@@ -73,6 +73,4 @@ provision-autocompletions() {
     select-word-style bash
 }
 
-# Accelerate zsh loading
-. ~/zsh-defer/zsh-defer.plugin.zsh
 zsh-defer provision-autocompletions

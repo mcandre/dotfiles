@@ -1,25 +1,13 @@
-# Fix rename et al
-export LANG='en_US.UTF-8'
-# export LC_CTYPE="$LANG"
-# export LC_ALL="$LANG"
-
-# # Go setup
-# export GOPATH="$HOME/go"
-# export GOBIN="$GOPATH/bin"
-
-#
-# PATH
-#
 typeset -Uga path
 
 path=(
     # asdf
     ~/.asdf/shims
 
-    #
+    # Docker
+    ~/.docker/bin
+
     # Homebrew
-    #
-    # /opt/homebrew/opt/gnu-tar/libexec/gnubin
     /opt/homebrew/opt/coreutils/libexec/gnubin
     /opt/homebrew/opt/make/libexec/gnubin
     /opt/homebrew/opt/unzip/bin
@@ -29,15 +17,30 @@ path=(
     # System
     $path
 
-    # # Go
-    # "$(go env GOBIN)"
-
     # snap
     /snap/bin
+
+    # # Inkscape
+    # /Applications/Inkscape.app/Contents/Resources/bin
+
+    # # iTerm2
+    # /Applications/iTerm.app/Contents/Resources/utilities
+
+    # # LaTeX
+    # /usr/texbin
+
+    # # MacTex
+    # /Library/TeX/texbin
+
+    # # Cabal
+    # ~/.cabal/bink
+
+    # # Bela
+    # ~/src/github.com/BelaPlatform/Bela/scripts
+
+    # # gifenc
+    # ~/src/github.com/thevangelist/FFMPEG-gif-script-for-bash
 
     # XDG
     ~/.local/bin
 )
-
-# Load extras
-[ -d ~/.zshenv.d ] && for f in $(find ~/.zshenv.d -name '*.zsh' -print); do . "$f"; done

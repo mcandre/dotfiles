@@ -1,1 +1,2 @@
-export PYTHONSTARTUP="$HOME/.pythonrc.py"
+# Python REPL
+export PYTHONSTARTUP=~/.pythonrc.py
