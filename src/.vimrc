@@ -18,15 +18,6 @@ syntax on
 
 " Use OS clipboard for copypasta
 " Requires Vim's +clipboard feature to be available
-"
-" Homebrew fix:
-"
-" brew install vim --with-override-system-vi
-"
-" Or:
-"
-" ln -s vim /usr/local/bin/vi
-"
 set clipboard=unnamed
 
 " Enable OS mouse clicking and scrolling
@@ -167,7 +158,7 @@ inoremap <silent> <C-w><Right> <esc>:<C-u>call <SID>JumpWithWrap('l', 'h')<CR>
 
 "
 " vim-plug dependency manager
-" https://github.com/junegunn/vim-plug
+" https://junegunn.github.io/vim-plug/
 "
 
 call plug#begin('~/.vim/plugged')

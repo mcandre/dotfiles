@@ -8,12 +8,37 @@
 
 Collection of configurations for safe, fast, software development.
 
+# BOOTSTRAP
+
+## Debian Family
+
+```sh
+sudo apt-get update
+sudo apt-get install -y git
+git clone https://github.com/mcandre/dotfiles.git ~/src/github.com/mcandre/dotfiles
+cd ~/src/github.com/mcandre/dotfiles
+src/bootstrap.debian.sh
+```
+
+## macOS
+
+```sh
+xcode-select --install
+git clone https://github.com/mcandre/dotfiles.git ~/src/github.com/mcandre/dotfiles
+cd ~/src/github.com/mcandre/dotfiles
+src/bootstrap.macos.sh
+```
+
 # REQUIREMENTS
 
 * a UNIX-like environment (e.g. [WSL](https://learn.microsoft.com/en-us/windows/wsl/))
 * [asdf](https://asdf-vm.com/)
 * [awk](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/awk.html)
 * [findutils](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/find.html)
+
+## macOS
+
+* [Xcode](https://developer.apple.com/xcode/)
 
 ## Recommended
 
