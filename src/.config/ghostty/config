@@ -58,3 +58,5 @@ palette = 13=#d700ff
 palette = 14=#ffaf00
 palette = 15=#e4e4e4
 bold-color = bright
+
+macos-option-as-alt = true

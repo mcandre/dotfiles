@@ -27,6 +27,7 @@ brew install \
     gnu-sed \
     gnu-tar \
     gnupg \
+    hammerspoon \
     imagemagick \
     jpeg-xl \
     jq \
