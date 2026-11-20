@@ -1,6 +1,6 @@
 # dotfiles: configuration files
 
-[![CI/CD](https://badgen.net/github/checks/mcandre/dotfiles?icon=github)](https://github.com/mcandre/dotfiles/actions) [![License](https://badgen.net/static/license/BSD/ab2b29?icon=freebsd)](LICENSE.md) [![Donate](https://badgen.net/static/sponsor/%E2%99%A5?color=bf3988&icon=github)](https://github.com/sponsors/mcandre)
+[![CI/CD](https://badgen.net/github/checks/mcandre/dotfiles?icon=github)](https://github.com/mcandre/dotfiles/actions) [![License](https://badgen.net/static/license/BSD/ab2b29?icon=freebsd)](LICENSE.md) [![AI](https://badgen.net/static/ai/Gemini|hint?color=886fbf&icon=google-gemini)](AI-DECLARATION.md) [![Donate](https://badgen.net/static/sponsor/%E2%99%A5?color=bf3988&icon=github)](https://github.com/sponsors/mcandre)
 
 ![colorful terminal](screenshot.png)
 
