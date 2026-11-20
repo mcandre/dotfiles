@@ -57,4 +57,4 @@ palette = 12=#8700ff
 palette = 13=#d700ff
 palette = 14=#ffaf00
 palette = 15=#e4e4e4
-bold-is-bright = true
+bold-color = bright
