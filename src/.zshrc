@@ -49,12 +49,19 @@ zle_highlight=("default:fg=${MONOKAI},bold")
 #
 
 function _set_tab_title_preexec() {
-    # Command
-    print -Pn "\e]1;${1%% *}\a"
+    if [[ ! -o interactive || ! -t 2 ]]; then
+        return
+    fi
+
+    print -Pn $'\e]1;'"${1%% *}"$'\a'
 }
 
 function _set_tab_title_precmd() {
-    print -Pn "\e]1;\a"
+    if [[ ! -o interactive || ! -t 2 ]]; then
+        return
+    fi
+
+    print -Pn $'\e]1;\a'
 }
 
 autoload -Uz add-zsh-hook
