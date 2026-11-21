@@ -8,7 +8,7 @@
 # # Begin profiling
 # zmodload zsh/zprof
 
-# . ~/.zshenv
+[ -r "/etc/zshrc_$TERM_PROGRAM" ] && . "/etc/zshrc_$TERM_PROGRAM"
 
 # Fix Unicode
 setopt COMBINING_CHARS
