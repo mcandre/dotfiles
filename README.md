@@ -38,6 +38,7 @@ src/bootstrap.macos.sh
 
 ## macOS
 
+* [Rex](https://www.superlogical.com/rex/docs/installation)
 * [Xcode](https://developer.apple.com/xcode/)
 
 ## Recommended
