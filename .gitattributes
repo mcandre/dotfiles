@@ -1,1 +1,5 @@
+.emacs linguist-vendored
+.vimrc linguist-vendored
+*.mk linguist-vendored
+makefile linguist-vendored
 vendor/** linguist-vendored
