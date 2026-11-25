@@ -6,10 +6,16 @@ BASE_PTH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:/usr/local/sbin:/usr/local/bin:/us
 
 printf "export PATH='%s" "$BASE_PTH" >~/.path.zsh
 
-IFS=';' read -ra PTH_NTFS <<<"$(wslvar PATH)"
+WIN_PATH="$(cmd.exe /c "echo %PATH%" 2>/dev/null | tr -d '\r')"
+
+IFS=';' read -ra PTH_NTFS <<<"$WIN_PATH"
 
 for PTH_NTFS in "${PTH_NTFS[@]}"; do
+    [[ -z "$PTH_NTFS" ]] && continue
+
     PTH_UNIX="$(wslpath -u "$PTH_NTFS")"
+    PTH_UNIX="${PTH_UNIX//\'/\'\\\'\'}"
+
     printf ":%s" "$PTH_UNIX" >>~/.path.zsh
 done
 

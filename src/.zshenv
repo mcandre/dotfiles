@@ -1,6 +1,10 @@
 export LANG='C.UTF-8'
 
+# macOS
 [ -x /usr/libexec/path_helper ] && eval `/usr/libexec/path_helper -s`
+
+# WSL
+[ -r ~/.path.zsh ] && . ~/.path.zsh
 
 typeset -Uga path
 
