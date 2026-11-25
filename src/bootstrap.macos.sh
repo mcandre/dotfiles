@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 unset IFS
 set -eufo pipefail
 
@@ -61,7 +61,7 @@ brew install \
 # # Corrupts profile configuration system
 # brew install --cask google-chrome
 
-find ../fonts -type f -iname '*.ttf' -print -exec cp "${}" ~/Library/Fonts \+
+find ../fonts -type f -iname '*.ttf' -print -exec cp "{}" ~/Library/Fonts \+
 
 #
 # zsh
@@ -74,6 +74,7 @@ cp .zshenv ~
 cp .zprofile ~
 cp .zshrc ~
 cp .autocompletions.zsh ~
+# shellcheck source=/dev/null
 . .zshrc.d/zcache.zsh && zcache
 
 # direnv
@@ -90,8 +91,8 @@ asdf install
 # Vim
 cp .vimrc ~
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +'PlugInstall --sync' +qa
+    'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+vim '+PlugInstall --sync' '+qa'
 
 # wget
 cp .wgetrc ~

@@ -13,7 +13,7 @@ pushd "$(dirname "$0")"
 sudo apt-get update
 sudo apt-get install -y \
     avahi-daemon
-    curl \
+curl \
     direnv \
     gawk \
     git \
@@ -47,7 +47,7 @@ cp .zprofile ~
 cp .zshrc ~
 cp .autocompletions.zsh ~
 zsh -lic '. .zshrc.d/zcache.zsh && zcache'
-chsh -s $(which zsh)
+chsh -s "$(which zsh)"
 
 # direnv
 cp -r .config/direnv ~/.config
