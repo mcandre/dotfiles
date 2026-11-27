@@ -41,6 +41,7 @@ sudo systemctl start avahi-daemon.service avahi-daemon.socket
 #
 # zsh
 #
+curl --proto '=https' --tlsv1.2 -sSLfo ~/.git-prompt.sh 'https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-prompt.sh'
 cp .hushlogin ~
 cp .zshenv ~
 cp .zprofile ~

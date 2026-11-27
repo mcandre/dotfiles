@@ -10,6 +10,8 @@
 
 [ -r "/etc/zshrc_$TERM_PROGRAM" ] && . "/etc/zshrc_$TERM_PROGRAM"
 
+. ~/.git-prompt.sh
+
 # Fix Unicode
 setopt COMBINING_CHARS
 
@@ -37,7 +39,9 @@ MONOKAI='148' # 8 bit ANSI ; 24 bit #afd700
 PS1="%B%F{${MONOKAI}}%#%f%b "
 PROMPT_EOL_MARK=''
 JAZZBERRY='125' # 8 bit ANSI ; 24 bit #af005f
-RPS1="%B%F{${JAZZBERRY}}%n@%m:%~%f%b"
+setopt PROMPT_SUBST
+GIT_PS1_SHOWDIRTYSTATE='1'
+RPS1='%B%F{'"${JAZZBERRY}"'}%n@%m:%~$(__git_ps1 " (%s)")%f%b'
 
 # Copypasta UX
 setopt TRANSIENT_RPROMPT

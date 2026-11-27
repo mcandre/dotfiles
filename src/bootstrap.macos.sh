@@ -67,13 +67,14 @@ find ../fonts -type f -iname '*.ttf' -print -exec cp "{}" ~/Library/Fonts \+
 # zsh
 #
 
-sudo mv /etc/zprofile /etc/zprofile.bak
-sudo mv /etc/zshrc /etc/zshrc.bak
+curl --proto '=https' --tlsv1.2 -sSLfo ~/.git-prompt.sh 'https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-prompt.sh'
 cp .hushlogin ~
 cp .zshenv ~
 cp .zprofile ~
 cp .zshrc ~
 cp .autocompletions.zsh ~
+sudo mv /etc/zprofile /etc/zprofile.bak
+sudo mv /etc/zshrc /etc/zshrc.bak
 # shellcheck source=/dev/null
 . .zshrc.d/zcache.zsh && zcache
 
