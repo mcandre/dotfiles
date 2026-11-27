@@ -16,10 +16,12 @@ zcache() {
     [ -r ~/.autocompletions.zsh ] && zcompile ~/.autocompletions.zsh
     [ -d ~/.zshenv.d ] && for f in $(find ~/.zshenv.d -name '*.zsh' -print); do zcompile "$f"; done
     [ -d ~/.zshrc.d ] && for f in $(find ~/.zshrc.d -name '*.zsh' -print); do zcompile "$f"; done
+    [ -r ~/.git-prompt.sh ] && zcompile ~/.git-prompt.sh
 }
 
 # Remove zsh bytecode
 clean-zcache() {
+    rm -f ~/.git-prompt.sh.zwc
     [ -d ~/.zshrc.d ] && find ~/.zshrc.d -name '*.zwc' -delete
     rm -f ~/.autocompletions.zwc
     rm -f ~/.tokens.zwc
